@@ -33,7 +33,7 @@
 
 #Notes: New fields in the learner table -  Aim Type  and Aim Rate 
 		#Discuss with Alex - Names for incentives
-		# Query - Aim Reference for 'Maths and English' - Should this be ZPROG as well
+		# Query - Aim Reference for 'Maths and English' - 12345
 
 
 Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
@@ -64,7 +64,7 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
     But the Provider now changes the Learner details as follows
         | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage | Aim Type         | Aim Rate |
         | 1        | 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 2                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         | Programme        |          |
-        | 1        | 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         | Maths or English | 471      |
+        | 1        | 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | 12345         | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         | Maths or English | 471      |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | Maths or English |
