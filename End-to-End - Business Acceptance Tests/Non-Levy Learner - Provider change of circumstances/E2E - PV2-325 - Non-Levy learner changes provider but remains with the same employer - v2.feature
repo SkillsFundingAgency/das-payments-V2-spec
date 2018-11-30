@@ -31,12 +31,12 @@
 #    | SFA Levy co-funding budget     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
 #    | SFA non-Levy co-funding budget | 0     | ... | 648   | 648   | 648   | 648   | 648   | 0     |
 
-#Notes: New steps for multiple Providers
+#Notes: New column Provider
 
 Scenario Outline: Non-Levy learner changes provider but remains with the same employer PV2-325
-	Given "provider a" previously submitted the following learner details
-        | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-        | 06/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                  | 06/Aug/Current Academic Year         | 7 months        | withdrawan        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+	Given the provider previously submitted the following learner details
+        | Provider   | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
+        | provider a | 06/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                  | 06/Aug/Current Academic Year         | 7 months        | withdrawan        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 500          | 0          | 0         |
@@ -51,18 +51,18 @@ Scenario Outline: Non-Levy learner changes provider but remains with the same em
         | May/Current Academic Year | 0            | 0          | 0         |
         | Jun/Current Academic Year | 0            | 0          | 0         |
         | Jul/Current Academic Year | 0            | 0          | 0         |
-	And the following payments had been generated for "provider a"
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 450                    | 50                          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 450                    | 50                          | Learning         |
-        | R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
-        | R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
-        | R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
-        | R07/Current Academic Year | Feb/Current Academic Year | 450                    | 50                          | Learning         |
-	But the Learner has now changed to "provider b" as follows
-        | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 05/Mar/Current Academic Year | 5 months         | 3000                 | 05/Mar/Current Academic Year        | 500                   | 05/Mar/Current Academic Year         |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+	And the following provider payments had been generated
+        | Provider   | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | provider a | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R02/Current Academic Year | Sep/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R03/Current Academic Year | Oct/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
+        | provider a | R07/Current Academic Year | Feb/Current Academic Year | 450                    | 50                          | Learning         |
+	But the Provider now changes the Learner details as follows
+        | Provider   | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
+		| provider b | 05/Mar/Current Academic Year | 5 months         | 3000                 | 05/Mar/Current Academic Year        | 500                   | 05/Mar/Current Academic Year         |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |

@@ -26,6 +26,9 @@
   #          | SFA Levy employer budget        | 0     | 0     | 0     | 0     | 0     |
   #          | SFA Levy co-funding budget      | 900   | 900   | 900   | 450   | 450   |
 
+  	#Query - Review new column in payments tables
+	# New table for employment status
+
 Feature: Non-levy learner changes employer with change to negotiated price at the end of month
 
 Scenario Outline: Non-levy learner changes employer with change to negotiated price at the end of month PV2-381
