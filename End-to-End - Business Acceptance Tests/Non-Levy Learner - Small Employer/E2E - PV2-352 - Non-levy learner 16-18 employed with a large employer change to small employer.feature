@@ -32,21 +32,22 @@
 #		| Framework uplift balancing   | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #		| Provider disadvantage uplift | 0     | 0     | 0     | 0     | ..  | 0     | 0     |
 
-#Notes: Multiple employers
-	#Query - Review new column in payments tables
-	# New table for employment status
-
 Scenario Outline: Non-levy learner 16-18 employed with a large employer change to small employer PV2-352
+# Notes: Multiple employers
+# Review new column in payments tables
+# New table for employment status
+# Incentives
+# New field - LearnDelFAM
 	Given the provider previously submitted the following learner details in collection period "R01/Last Academic Year"
-		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 1        | 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	And the employment status in the ILR is:
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year |                |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | Employer 16-18 incentive | Provider 16-18 incentive | Framework uplift on-program | Framework uplift completion | Framework uplift balancing | Provider disadvantage uplift |
         | Aug/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-		| Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
+        | Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Oct/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Nov/Last Academic Year | 500          | 0          | 0         | 500                      | 500                      | 120                         | 0                           | 0                          | 0                            |
         | Dec/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
@@ -56,7 +57,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
         | Apr/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | May/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Jun/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |        
+        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type            | Employer   |
         | R01/Last Academic Year | Jul/Last Academic Year | 450                    | 50                          | 0                         | Learning                    | employer 1 |
@@ -64,8 +65,8 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
         | R01/Last Academic Year | Jul/Last Academic Year | 0                      | 0                           | 120                       | Framework uplift on-program | employer 1 |
         | R02/Last Academic Year | Aug/Last Academic Year | 0                      | 0                           | 120                       | Framework uplift on-program | employer 1 |
     And the provider previously submitted the following learner details in collection period "R03/Current Academic Year" 
-		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 1        | 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
 	And the employment status in the ILR is:
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year |                |
@@ -73,7 +74,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | Employer 16-18 incentive | Provider 16-18 incentive | Framework uplift on-program | Framework uplift completion | Framework uplift balancing | Provider disadvantage uplift |
         | Aug/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-		| Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
+        | Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Oct/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Nov/Last Academic Year | 500          | 0          | 0         | 500                      | 500                      | 120                         | 0                           | 0                          | 0                            |
         | Dec/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
@@ -83,7 +84,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
         | Apr/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | May/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Jun/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |        
+        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type            | Employer   |
         | R03/Last Academic Year | Sep/Last Academic Year | 500                    | 0                           | 0                         | Learning                    | employer 2 |
@@ -109,8 +110,8 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
         | R04/Last Academic Year | Oct/Last Academic Year | 0                      | 0                           | 500                       | Employer 16-18 incentive    | employer 2 |
         | R04/Last Academic Year | Oct/Last Academic Year | 0                      | 0                           | 500                       | Provider 16-18 incentive    | employer 2 |
     But the Provider now changes the Learner details as follows
-		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 1        | 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
 	And the employment status in the ILR is:
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year |                |
@@ -147,4 +148,4 @@ Scenario Outline: Non-levy learner 16-18 employed with a large employer change t
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 360                       | Framework uplift completion | employer 2 |
 	Examples:
         | Collection_Period         |
-		| R01/Current Academic Year |
+        | R01/Current Academic Year |

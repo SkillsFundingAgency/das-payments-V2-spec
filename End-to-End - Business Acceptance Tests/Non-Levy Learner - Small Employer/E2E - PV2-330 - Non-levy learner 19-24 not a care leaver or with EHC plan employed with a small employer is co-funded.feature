@@ -26,14 +26,16 @@
 
 Scenario Outline: Non-levy learner 19-24 not a care leaver or with EHC plan employed with a small employer is co-funded PV2-330
 #AC4- 1 learner aged 19-24, employed with a small employer at start, is co-funded for on programme and completion payments (this apprentice does not have a Education Health Care plan and is not a care leaver)
-#Confirm funding line type - if this should be 19-24 or 16-18 is OK??
+# New table for employment status
+# Incentives
+# New field - LearnDelFAM
 	Given the provider previously submitted the following learner details
-		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 1        | 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 19-24 programme only non-DAS |             | 19-24 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 19-24 programme only non-DAS |             | 19-24 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	And the employment status in the ILR is:
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 06/Aug/Last Academic Year | SEM1           |
-    And the following earnings had been generated for the learner in the "Last Academic Year"
+    And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | Employer 16-18 incentive | Provider 16-18 incentive | Framework uplift on-program | Framework uplift completion | Framework uplift balancing | Provider disadvantage uplift |
         | Aug/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 0                           | 0                           | 0                          | 0                            |
         | Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 0                           | 0                           | 0                          | 0                            |
@@ -47,7 +49,7 @@ Scenario Outline: Non-levy learner 19-24 not a care leaver or with EHC plan empl
         | May/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 0                           | 0                           | 0                          | 0                            |
         | Jun/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 0                           | 0                           | 0                          | 0                            |
         | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 0                           | 0                           | 0                          | 0                            |
-    And the following provider payments had been generated in the "Last Academic Year"
+    And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
         | R01/Last Academic Year | Jul/Last Academic Year | 450                    | 50                          | 0                         | Learning         |
         | R02/Last Academic Year | Aug/Last Academic Year | 450                    | 50                          | 0                         | Learning         |
@@ -62,8 +64,8 @@ Scenario Outline: Non-levy learner 19-24 not a care leaver or with EHC plan empl
         | R11/Last Academic Year | May/Last Academic Year | 450                    | 50                          | 0                         | Learning         |
         | R12/Last Academic Year | Jun/Last Academic Year | 450                    | 50                          | 0                         | Learning         |
     But the Provider now changes the Learner details as follows
-		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 1        | 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 19-24 programme only non-DAS |             | 19-24 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 19-24 programme only non-DAS |             | 19-24 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	And the employment status in the ILR is:
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 06/Aug/Last Academic Year | SEM1           |
@@ -93,4 +95,4 @@ Scenario Outline: Non-levy learner 19-24 not a care leaver or with EHC plan empl
 		| R01/Current Academic Year | Aug/Current Academic Year | 1500                   | 0                           | 0                         | Completion       |
 	Examples:
         | Collection_Period         |
-		| R01/Current Academic Year |
+        | R01/Current Academic Year |
