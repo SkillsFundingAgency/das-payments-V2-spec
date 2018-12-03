@@ -41,7 +41,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer change t
 # New table for employment status
 # Incentives
 # New field - LearnDelFAM
-	Given the provider previously submitted the following learner details
+	Given the provider previously submitted the following learner details in collection period "R01/Current Academic Year" 
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
 	And the employment status in the ILR is

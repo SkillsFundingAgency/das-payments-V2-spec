@@ -27,7 +27,6 @@
 
 Feature: Non-levy learner changes employer with change to negotiated price at mid of month
   	# Review new column in payments tables
-	# Check the start date and duration for residual training
 	# New table for employment status
 Scenario Outline: Non-levy learner changes employer with change to negotiated price at mid of month PV2-382
 	Given the provider previously submitted the following learner details
@@ -56,10 +55,11 @@ Scenario Outline: Non-levy learner changes employer with change to negotiated pr
         | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         | employer 1 |
         | R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
-		| Start Date                   | Planned Duration | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 04/Aug/Current Academic Year | 12 months        | 5000                    | 10/Nov/Current Academic Year           | 625                       | 10/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 04/Aug/Current Academic Year | 12 months        | 12000                | 04/Aug/Current Academic Year        | 3000                   | 04/Aug/Current Academic Year          | 5000                    | 10/Nov/Current Academic Year           | 625                       | 10/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies    | Small Employer |
+		| employer 1 | in paid employment | 04/Aug/Current Academic Year |                |
         | employer 2 | in paid employment | 10/Nov/Current Academic Year |                |
 
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
