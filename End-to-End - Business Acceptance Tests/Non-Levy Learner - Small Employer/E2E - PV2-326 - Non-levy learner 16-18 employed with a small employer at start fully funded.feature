@@ -41,7 +41,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
 # New table for employment status
 # Incentives
 # New field - LearnDelFAM
-	Given the provider previously submitted the following learner details in collection period "R01/Last Academic Year"
+	Given the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
 	And the employment status in the ILR is
@@ -50,7 +50,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | Employer 16-18 incentive | Provider 16-18 incentive | Framework uplift on-program | Framework uplift completion | Framework uplift balancing | Provider disadvantage uplift |
         | Aug/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-		| Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
+        | Sep/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Oct/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Nov/Last Academic Year | 500          | 0          | 0         | 500                      | 500                      | 120                         | 0                           | 0                          | 0                            |
         | Dec/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
@@ -60,7 +60,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
         | Apr/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | May/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
         | Jun/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
-        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |        
+        | Jul/Last Academic Year | 500          | 0          | 0         | 0                        | 0                        | 120                         | 0                           | 0                          | 0                            |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type            |
         | R01/Last Academic Year | Aug/Last Academic Year | 500                    | 0                           | 0                         | Learning                    |
@@ -127,4 +127,4 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 360                       | Framework uplift completion |
 	Examples:
         | Collection_Period         |
-		| R01/Current Academic Year |
+        | R01/Current Academic Year |

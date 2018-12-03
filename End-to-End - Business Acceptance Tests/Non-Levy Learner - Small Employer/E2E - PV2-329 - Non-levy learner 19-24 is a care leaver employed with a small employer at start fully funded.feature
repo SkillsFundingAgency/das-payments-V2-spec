@@ -96,7 +96,7 @@ Scenario Outline: Non-levy learner 19-24 is a care leaver employed with a small 
 	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year | SEM1           |
-	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period> in the "Current Academic Year"
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | Employer 16-18 incentive | Provider 16-18 incentive | Framework uplift on-program | Framework uplift completion | Framework uplift balancing | Provider disadvantage uplift |
 		| Aug/Current Academic Year | 0            | 1500       | 0         | 500                      | 500                      | 0                           | 360                         | 0                          | 0                            |
