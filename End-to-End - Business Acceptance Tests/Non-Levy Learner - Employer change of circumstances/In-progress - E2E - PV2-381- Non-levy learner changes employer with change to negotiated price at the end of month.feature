@@ -34,7 +34,7 @@ Scenario Outline: Non-levy learner changes employer with change to negotiated pr
 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-	And the employment status in the ILR is:
+	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies    | Small Employer |
         | employer 1 | in paid employment | 01/Aug/Current Academic Year |                |
     And the following earnings had been generated for the learner
@@ -59,7 +59,7 @@ Scenario Outline: Non-levy learner changes employer with change to negotiated pr
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 5000                    | 01/Nov/Current Academic Year           | 625                       | 01/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-	And the employment status in the ILR is:
+	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies    | Small Employer |
         | employer 2 | in paid employment | 01/Nov/Current Academic Year |                |
 

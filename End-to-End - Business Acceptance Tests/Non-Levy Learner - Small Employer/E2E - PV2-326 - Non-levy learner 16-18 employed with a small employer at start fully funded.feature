@@ -8,7 +8,7 @@
 #        | ULN       | learner type                 | agreed price | start date | planned end date | actual end date | completion status | framework code | programme type | pathway code | Employment Status   | Employment Status Applies | Employer Id | Small Employer |
 #        | learner a | 16-18 programme only non-DAS | 7500         | 06/08/2018 | 08/08/2019       | 08/08/2019      | completed         | 403            | 2              | 1            | In paid employment  | 05/08/2018                | 12345678    | SEM1           |
 #	
-#    And the employment status in the ILR is:
+#    And the employment status in the ILR is
 #        | Employer    | Employment Status      | Employment Status Applies | Small Employer |
 #        | employer 1  | in paid employment     | 05/08/2018                | SEM1           |
 #    
@@ -44,7 +44,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
 	Given the provider previously submitted the following learner details in collection period "R01/Last Academic Year"
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
-	And the employment status in the ILR is:
+	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year | SEM1           |
     And the following earnings had been generated for the learner
@@ -92,7 +92,7 @@ Scenario Outline: Non-levy learner 16-18 employed with a small employer at start
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Learner Type                 | LearnDelFAM | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 programme only non-DAS |             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 100%                        |
-	And the employment status in the ILR is:
+	And the employment status in the ILR is
         | Employer   | Employment Status  | Employment Status Applies | Small Employer |
         | employer 1 | in paid employment | 05/Aug/Last Academic Year | SEM1           |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
