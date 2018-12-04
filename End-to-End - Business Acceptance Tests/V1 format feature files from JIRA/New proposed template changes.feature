@@ -1,28 +1,36 @@
-Non-Levy learner, changes standard, negotiated price remains the same	
+# the provider changes the Standard Type to 52 effective from 03/Nov/Current Academic Year
+    Given the following learners
+		| learnerId | Learner Reference Number | Uln      |
+		| learner a | abc123                   | 12345678 |
+	And the following aims
+		| learnerId | Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
+		| learner a | ZPROG001  | 03/Aug/Current Academic Year | 12 months        | 3 months        | 1               | 25             | 51            | 16-18 Apprenticeship Non-Levy | withdrawn         |
+		| learner a | ZPROG001  | 03/Nov/Current Academic Year | 9 months         |                 | 2               | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
+	And price details as follows		
+        | Price Episode Id                   | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number |
+        | 51-25-03/Aug/Current Academic Year | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   |
+        | 52-25-03/Nov/Current Academic Year | 12000                | 03/Nov/Current Academic Year        | 3000                   | 03/Nov/Current Academic Year          | Act2          | 2                   |
 
-Feature: Provider earnings and payments where learner changes apprenticeship standard and negotiated price remains the same, (remaining with the same employer and provider)
 
-    Background:
+# the provider changes the Standard Type to 52 effective from 03/Nov/Current Academic Year
+    Given the following learners
+		| learnerId | Learner Reference Number | Uln      |
+		| learner a | abc123                   | 12345678 |
 	
-        Given The learner is programme only non-DAS
-        And the apprenticeship funding band maximum is 17000
- 
-		When an ILR file is submitted with the following data:
-            | ULN       | standard code | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-            | learner a | 51            | 03/08/2018 | 01/08/2019       | 31/10/2018      | withdrawn         | 12000                | 03/08/2018                          | 3000                   | 03/08/2018                            |
-            | learner a | 52            | 03/11/2018 | 01/08/2019       |                 | continuing        | 12000                | 03/11/2018                          | 3000                   | 03/11/2018                            |
-       		
-		Then the provider earnings and payments break down as follows:
-		
-            | Type                       		| 08/18 | 09/18 | 10/18 | 11/18 | 12/18 |
-            | Provider Earned Total      		| 1000  | 1000  | 1000  | 1000  | 1000  |
-            | Provider Earned from SFA   		| 900   |  900  |  900  | 900   | 900   |
-            | Provider Earned from Employer 	| 100   |  100  |  100  | 100   | 100   |            
-			| Provider Paid by SFA       		| 0     |  900  |  900  | 900   | 900   |
-            | Payment due from Employer         | 0     |  100  |  100  | 100   | 100   | 
-			| Levy account debited       		| 0     |    0  |    0  | 0     | 0     |
-            | SFA Levy employer budget   		| 0     |    0  |    0  | 0     | 0     |
-            | SFA Levy co-funding budget 		| 0     |    0  |    0  | 0     | 0     |
-			| SFA non-Levy co-funding budget	| 900   |  900  |  900  | 900   | 900   | 
-			
-			
+	And the following aim
+		| learnerId | Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
+		| learner a | ZPROG001  | 03/Aug/Current Academic Year | 12 months        | 3 months        | 1               | 25             | 51            | 16-18 Apprenticeship Non-Levy | withdrawn         |
+	And price details as follows
+		| Price Episode Id                   | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 51-25-03/Aug/Current Academic Year | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+    
+	And the following aim
+		| learnerId | Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
+		| learner a | ZPROG001  | 03/Nov/Current Academic Year | 9 months         |                 | 2               | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
+	And price details as follows		
+        | Price Episode Id                   | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 52-25-03/Nov/Current Academic Year | 12000                | 03/Nov/Current Academic Year        | 3000                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
+
+
+
+

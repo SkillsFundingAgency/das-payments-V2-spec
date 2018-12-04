@@ -30,7 +30,7 @@
 #			| SFA non-Levy additional payments budget | 0     | 0     | 0     | 0     | 
 
 #Notes: ULN in first ILR line
-#Query - do we want to just change ULN and 
+#Query - do we want to just change ULN - New Step 
 
 Feature: Non-Levy apprentice, provider changes ULN for an apprentice in the ILR after payments have already occurred
 

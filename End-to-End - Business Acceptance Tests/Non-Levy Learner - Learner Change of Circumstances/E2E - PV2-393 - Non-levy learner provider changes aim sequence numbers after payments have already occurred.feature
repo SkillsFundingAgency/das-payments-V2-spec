@@ -32,8 +32,8 @@
 #			| SFA non-Levy additional payments budget | 39.25 | 39.25 | 39.25  | 39.25  |
 
 #Notes: New fields in the learner table -  Aim Type  and Aim Rate 
-		#Discuss with Alex - Names for incentives
-		# Query - Aim Reference for 'Maths and English' - 12345
+		# Aim Reference for 'Maths and English' - 12345
+# This will need changing after new template has been implemented to handle multiple aims (after PV2-205 and PV2-207)
 
 
 Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
