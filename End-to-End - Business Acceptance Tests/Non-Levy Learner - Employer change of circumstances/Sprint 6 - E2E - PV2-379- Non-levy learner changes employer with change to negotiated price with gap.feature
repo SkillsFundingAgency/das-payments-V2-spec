@@ -37,7 +37,7 @@
 
 Feature: Non-levy learner changes employer and there is a gap - provider receives payment during the gap as they amend the ACT code and employment status code correctly
 #Notes - check if not in employment is OK in examples?
-# Check - But the Provider now changes the Learner details as follows - multiple prices in same line or just the residual. If just residual then also check for the duration and start date
+# multiple prices in same line or just the residual. If just residual then also check for the duration and start date
 # And the employment status in the ILR is - multiple statuses
 # Also, check employer column in payments
 Scenario Outline: Non-levy learner changes employer and there is a gap - provider receives payment during the gap PV2-379
