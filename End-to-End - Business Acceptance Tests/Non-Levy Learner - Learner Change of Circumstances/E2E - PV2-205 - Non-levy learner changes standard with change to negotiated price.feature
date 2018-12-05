@@ -26,13 +26,24 @@
 #            | SFA Levy co-funding budget 		| 0     |    0  |    0  | 0     | 0     |
 #			| SFA non-Levy co-funding budget	| 900   |  900  |  900  | 450   | 450   | 
 
-Feature: Provider earnings and payments where learner changes apprenticeship standard and there is a change to the negotiated price at the end of a month, (remaining with the same employer and provider)
+Feature: Change standard and price but not from start - PV2-205
+	As a provider,
+	I want a non-levy learner, changes standard with change to negotiated price, to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Non-Levy learner changes standard with accompanying change to the negotiated price PV2-205	
-    Given the provider is providing training for the following learners
-        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Programme Type | Standard Code | Funding Line Type                                                     | SFA Contribution Percentage |
-        | 1        | 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 3 months        | withdrawan        | Act2          | 1                   | ZPROG001      | 25             | 51            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-        | 1        | 03/Nov/Current Academic Year | 9 months         | 4500                 | 03/Nov/Current Academic Year        | 1125                   | 03/Nov/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 25             | 52            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+	Given the following learners
+        | Learner Reference Number | Uln      |
+        | na                       | 10001000 |
+	And the following aims
+		| Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
+		| ZPROG001  | 03/Aug/Current Academic Year | 12 months        | 3 months        | 1               | 25             | 51            | 16-18 Apprenticeship Non-Levy | withdrawn         |
+		| ZPROG001  | 03/Nov/Current Academic Year | 9 months         |                 | 2               | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
+	And price details as follows		
+        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+        | 4500                 | 03/Nov/Current Academic Year        | 1125                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
+
     When the ILR file is submitted for the learners for collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
