@@ -46,24 +46,24 @@ Scenario Outline: ILR submitted late for a non-DAS learner several months after 
         | Jul/Current Academic Year | 1000         | 0          | 0         |
     And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-		| R05/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
-		| R05/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-		| R05/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
-		| R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         |
+        | R05/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+        | R05/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
+        | R05/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         |
         | R06/Current Academic Year | Jan/Current Academic Year | 1000         | 0          | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R05/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | Learning         |
         | R06/Current Academic Year | Jan/Current Academic Year | 900                    | 100                         | Learning         |
 	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R05/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | Learning         |
-		| R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | Learning         |
         | R06/Current Academic Year | Jan/Current Academic Year | 900                    | 100                         | Learning         |
 Examples: 
         | Collection_Period         |

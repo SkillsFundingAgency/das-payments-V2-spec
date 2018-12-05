@@ -33,7 +33,9 @@
 
 #Notes: New steps for multiple Providers
 
+
 Scenario Outline: Non-Levy learner changes provider but remains with the same employer PV2-325
+	# Restart indicator will be required for DC
 	Given "provider a" previously submitted the following learner details
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
         | 06/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                  | 06/Aug/Current Academic Year         | 7 months        | withdrawan        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
@@ -46,7 +48,7 @@ Scenario Outline: Non-Levy learner changes provider but remains with the same em
         | Dec/Current Academic Year | 500          | 0          | 0         |
         | Jan/Current Academic Year | 500          | 0          | 0         |
         | Feb/Current Academic Year | 500          | 0          | 0         |
-        | Mar/Current Academic Year | 0            | 0          | 0         | 
+        | Mar/Current Academic Year | 0            | 0          | 0         |
         | Apr/Current Academic Year | 0            | 0          | 0         |
         | May/Current Academic Year | 0            | 0          | 0         |
         | Jun/Current Academic Year | 0            | 0          | 0         |
