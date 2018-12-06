@@ -35,13 +35,13 @@ Feature: Non-levy learner changes employer with change to negotiated price at th
 Scenario Outline: Non-levy learner changes employer with change to negotiated price at the end of month PV2-381
     Given the following learners
 		| Learner Reference Number | Uln      |
-		| abc123                   | 12345678 |
+		| na                       | 12345678 |
 	And the following aims
-		| Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
-		| ZPROG001  | 01/Aug/Current Academic Year | 12 months        |                 | 1               | 403            | 1            | 25             | 16-18 Apprenticeship Non-Levy | continuing        |
+		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
+		| ZPROG001      | 01/Aug/Current Academic Year | 12 months        |                 | 1                   | 403            | 1            | 25             | 16-18 Apprenticeship Non-Levy | continuing        |
 	And price details as follows		
-        | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 403-25-          | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -62,8 +62,8 @@ Scenario Outline: Non-levy learner changes employer with change to negotiated pr
         | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         | employer 1 |
         | R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         | employer 1 |
 	But price details have been changed as follows		
-        | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 403-25-          | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 01/Nov/Current Academic Year           | 625                       | 01/Nov/Current Academic Year             | Act2          | 1                   | 90%                         |
+        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 01/Nov/Current Academic Year           | 625                       | 01/Nov/Current Academic Year             | Act2          | 1                   | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | 

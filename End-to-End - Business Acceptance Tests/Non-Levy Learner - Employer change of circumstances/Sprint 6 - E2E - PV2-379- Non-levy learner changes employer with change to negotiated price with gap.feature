@@ -50,14 +50,14 @@ Feature: Non-levy learner changes employer and there is a gap - provider receive
 Scenario Outline: Non-levy learner changes employer and there is a gap - provider receives payment during the gap PV2-379
     Given the following learners
 		| Learner Reference Number | Uln      |
-		| abc123                   | 12345678 |
+		| na                       | 12345678 |
 	And the following aims
-		| Reference | Start Date                   | Planned Duration | Actual Duration | Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
-		| ZPROG001  | 03/Aug/Current Academic Year | 12 months        |                 | 1               | 403            | 1            | 25             | 16-18 Apprenticeship Non-Levy | continuing        |
+		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
+		| ZPROG001      | 03/Aug/Current Academic Year | 12 months        |                 | 1                   | 403            | 1            | 25             | 16-18 Apprenticeship Non-Levy | continuing        |
 	And price details as follows		
-        | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 403-25-          | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
-        | 403-25-          | 12000                | 03/Oct/Current Academic Year        | 3000                   | 03/Oct/Current Academic Year          | Act2          | 1                   | 100%                        |
+        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+        | 12000                | 03/Oct/Current Academic Year        | 3000                   | 03/Oct/Current Academic Year          | Act2          | 1                   | 100%                        |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -78,8 +78,8 @@ Scenario Outline: Non-levy learner changes employer and there is a gap - provide
         | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000                   | 0                           | Learning         |
 	But price details have been changed as follows		
-        | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 403-25-          | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             | Act2          | 1                   | 90%                         |
+        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             | Act2          | 1                   | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | 
