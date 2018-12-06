@@ -42,62 +42,60 @@ Feature: Non-levy learner changes employer and there is a gap - provider receive
  #       |            | not in paid employment | 03/Oct/Current Academic Year |                |
  #       | employer 2 | in paid employment     | 03/Nov/Current Academic Year |                |
 
-# Differences from 255 
-# New "price details as follows" table in the history and SFA Contribution Percentage is moved to this table
-# "price details as follows" has additional residual fields and SFA Contribution Percentage is moved to this table
+# SFA Contribution Percentage is moved to earnings table
 
 Scenario Outline: Non-levy learner changes employer and there is a gap - provider receives payment during the gap PV2-379
  	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) |
-		# New table in the history and SFA Contribution Percentage is moved to this table
-	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | SFA Contribution Percentage |
-        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 90%                         |
-        | 1st price details | 12000                | 03/Oct/Current Academic Year        | 3000                   | 03/Oct/Current Academic Year          | 100%                        |
+		# SFA Contribution Percentage is moved to earnings table
     And the following earnings had been generated for the learner
-        | Delivery Period           | On-Programme | Completion | Balancing |
-        | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | Sep/Current Academic Year | 1000         | 0          | 0         |
-        | Oct/Current Academic Year | 1000         | 0          | 0         |
-        | Nov/Current Academic Year | 1000         | 0          | 0         |
-        | Dec/Current Academic Year | 1000         | 0          | 0         |
-        | Jan/Current Academic Year | 1000         | 0          | 0         |
-        | Feb/Current Academic Year | 1000         | 0          | 0         |
-        | Mar/Current Academic Year | 1000         | 0          | 0         |
-        | Apr/Current Academic Year | 1000         | 0          | 0         |
-        | May/Current Academic Year | 1000         | 0          | 0         |
-        | Jun/Current Academic Year | 1000         | 0          | 0         |
-        | Jul/Current Academic Year | 1000         | 0          | 0         |
+        | Delivery Period           | On-Programme | Completion | Balancing | SFA Contribution Percentage |
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Nov/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Dec/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jan/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Feb/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Mar/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Apr/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | May/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jun/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jul/Current Academic Year | 1000         | 0          | 0         | 100%                        |
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000                   | 0                           | Learning         |
     But the Provider now changes the Learner details as follows
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     |
-		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) |
-	# additional residual fields and SFA Contribution Percentage is moved to this table
-	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
-        | 1st price details | 9000                 | Aug/Current Academic Year           | 2250                   | Aug/Current Academic Year             | 0                       |                                        | 0                         |                                          | 90%                         |
-        | 1st price details | 1200                 | Oct/Current Academic Year           | 200                    | Oct/Current Academic Year             | 0                       |                                        | 0                         |                                          | 100%                        |
-        | 2nd price details | 4500                 | Nov/Current Academic Year           | 1125                   | Nov/Current Academic Year             | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+
+	## additional residual fields and SFA Contribution Percentage is moved to this table
+	#And price details as follows
+ #       | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
+ #       | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 90%                         |
+ #       | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 100%                        |
+ #       | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             | 90%                         |
+
+
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
+	# SFA Contribution Percentage is moved to earnings table
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing | 
-        | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | Sep/Current Academic Year | 1000         | 0          | 0         |
-        | Oct/Current Academic Year | 1000         | 0          | 0         |
-        | Nov/Current Academic Year | 500          | 0          | 0         |
-        | Dec/Current Academic Year | 500          | 0          | 0         |
-        | Jan/Current Academic Year | 500          | 0          | 0         |
-        | Feb/Current Academic Year | 500          | 0          | 0         |
-        | Mar/Current Academic Year | 500          | 0          | 0         |
-        | Apr/Current Academic Year | 500          | 0          | 0         |
-        | May/Current Academic Year | 500          | 0          | 0         |
-        | Jun/Current Academic Year | 500          | 0          | 0         |
-        | Jul/Current Academic Year | 500          | 0          | 0         |
+		| Delivery Period           | On-Programme | Completion | Balancing | SFA Contribution Percentage | 
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Nov/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Dec/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Jan/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Feb/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Mar/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Apr/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | May/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Jun/Current Academic Year | 500          | 0          | 0         | 90%                         |
+        | Jul/Current Academic Year | 500          | 0          | 0         | 90%                         |
     And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |

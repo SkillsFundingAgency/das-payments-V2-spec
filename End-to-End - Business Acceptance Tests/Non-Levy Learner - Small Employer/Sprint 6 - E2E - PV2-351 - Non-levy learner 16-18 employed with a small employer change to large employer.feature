@@ -42,32 +42,27 @@ Scenario: Non-levy learner 16-18 employed with a small employer change to large 
  #       | employer 1 | in paid employment | 05/Aug/Last Academic Year | SEM1           |
  #       | employer 2 | in paid employment | 05/Oct/Last Academic Year |                |
 
-# Differences from 255 
-# New "price details as follows" table in the history and SFA Contribution Percentage is moved to this table
+# SFA Contribution Percentage is moved to the earnings table
 
 	Given the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) |
-		# New table in the history and SFA Contribution Percentage is moved to this table
-	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | SFA Contribution Percentage |
-        | 1st price details | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 100%                        |
-        | 1st price details | 7500                 | 05/Oct/Last Academic Year           | 0                      | 05/Oct/Last Academic Year             | 90%                         |
+	# SFA Contribution Percentage is moved to the earnings table
 	# 100% funding initially as small employer but changed to 90% when switched to large employer
     And the following earnings had been generated for the learner
-        | Delivery Period        | On-Programme | Completion | Balancing | First16To18EmployerIncentive | First16To18ProviderIncentive | OnProgramme16To18FrameworkUplift |
-        | Aug/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Sep/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Oct/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Nov/Last Academic Year | 500          | 0          | 0         | 500                          | 500                          | 120                              |
-        | Dec/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Jan/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Feb/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Mar/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Apr/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | May/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Jun/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
-        | Jul/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              |
+        | Delivery Period        | On-Programme | Completion | Balancing | First16To18EmployerIncentive | First16To18ProviderIncentive | OnProgramme16To18FrameworkUplift | SFA Contribution Percentage |
+        | Aug/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 100%                        |
+        | Sep/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 100%                        |
+        | Oct/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Nov/Last Academic Year | 500          | 0          | 0         | 500                          | 500                          | 120                              | 90%                         |
+        | Dec/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Jan/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Feb/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Mar/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Apr/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | May/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Jun/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
+        | Jul/Last Academic Year | 500          | 0          | 0         | 0                            | 0                            | 120                              | 90%                         |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type                 |
 		# 100%
