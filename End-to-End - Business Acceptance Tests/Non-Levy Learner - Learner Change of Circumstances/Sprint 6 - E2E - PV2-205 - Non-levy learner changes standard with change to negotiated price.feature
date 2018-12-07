@@ -59,6 +59,38 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
         | May/Current Academic Year | 500          | 0          | 0         |
         | Jun/Current Academic Year | 500          | 0          | 0         |
         | Jul/Current Academic Year | 500          | 0          | 0         |
+
+
+    Then the following learner earnings should be generated
+        | Delivery Period           | On-Programme | Completion | Balancing | Aim Sequence Number |
+		#p1
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 1                   |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 1                   |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 1                   |
+        | Nov/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Dec/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Jan/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Feb/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Mar/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Apr/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | May/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Jun/Current Academic Year | 0            | 0          | 0         | 1                   |
+        | Jul/Current Academic Year | 0            | 0          | 0         | 1                   |
+		#p2
+        | Aug/Current Academic Year | 0            | 0          | 0         | 2                   |
+        | Sep/Current Academic Year | 0            | 0          | 0         | 2                   |
+        | Oct/Current Academic Year | 0            | 0          | 0         | 2                   |
+        | Nov/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Dec/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Jan/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Feb/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Mar/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Apr/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | May/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Jun/Current Academic Year | 500          | 0          | 0         | 2                   |
+        | Jul/Current Academic Year | 500          | 0          | 0         | 2                   |
+
+
     And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
