@@ -31,10 +31,9 @@
 #			| SFA non-Levy co-funding budget          | 540   | 540   | 540    | 540    |
 #			| SFA non-Levy additional payments budget | 39.25 | 39.25 | 39.25  | 39.25  |
 
-#Notes: New fields in the learner table -  Aim Type  and Aim Rate 
-# Aim Reference for 'Maths and English' - 12345
-# This will need changing after new template has been implemented to handle multiple aims (after PV2-205 and PV2-207)
 
+# New format - 205 and 207 (Check for additional changes)
+# Check max / 205 for price details and aim sequence changes
 
 Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
 
@@ -44,10 +43,11 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
         | abc123                   | 12345678 |
 	And the following aims
 		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
-		| ZPROG001      | 06/Aug/Current Academic Year | 12 months        |					| 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
-	And price details as follows		
-        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 9000                 | 06/Aug/Current Academic Year        | 0	                  | 06/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+		| ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
+	And price details as follows	
+	# Check max / 205 for price details and aim sequence changes
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 1st price details | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 600          | 0          | 0         |
@@ -72,10 +72,12 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
 		| 12345         | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 		| ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 2                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 	# New steps with additional fields | Aim Type         | Aim Rate |
+	# Check max / 205 for price details and aim sequence changes
+	# Double check the order of price details
 	And price details are changed as follows		
-        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage | Aim Type         | Aim Rate |
-        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   | 100%                        | Maths or English | 471      |
-        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 2                   | 90%                         | Programme        |          |
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage | Aim Type         | Aim Rate |
+        | 2nd price details | 0                    | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   |                             | Maths or English | 471      |
+        | 1st price details | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 2                   | 90%                         | Programme        |          |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	# New OnProgrammeMathsAndEnglish column
     Then the following learner earnings should be generated
@@ -157,7 +159,7 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
         | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
 Examples: 
         | Collection_Period         |
-		| R03/Current Academic Year |
+        | R03/Current Academic Year |
         | R04/Current Academic Year |
         | R05/Current Academic Year |
         | R06/Current Academic Year |
