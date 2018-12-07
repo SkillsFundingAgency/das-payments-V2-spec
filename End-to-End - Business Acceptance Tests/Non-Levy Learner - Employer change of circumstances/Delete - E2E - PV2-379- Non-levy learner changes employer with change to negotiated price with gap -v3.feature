@@ -43,27 +43,50 @@ Feature: Non-levy learner changes employer and there is a gap - provider receive
  #       | employer 2 | in paid employment     | 03/Nov/Current Academic Year |                |
 
 # SFA Contribution Percentage is moved to earnings table
-# "price details as follows" has additional residual fields
 
 Scenario Outline: Non-levy learner changes employer and there is a gap - provider receives payment during the gap PV2-379
- 	Given the provider is providing training for the following learners
+ 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) |
-	# additional residual fields
-	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
-        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             |
-	# SFA Contribution Percentage is moved to earnings table
-    When the ILR file is submitted for the learners for collection period <collection_period>
-	Then the following learner earnings should be generated
+		# SFA Contribution Percentage is moved to earnings table
+    And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing | SFA Contribution Percentage |
-		# employer 1
         | Aug/Current Academic Year | 1000         | 0          | 0         | 90%                         |
         | Sep/Current Academic Year | 1000         | 0          | 0         | 90%                         |
-		# not in paid employment
         | Oct/Current Academic Year | 1000         | 0          | 0         | 100%                        |
-		# employer 2
+        | Nov/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Dec/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jan/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Feb/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Mar/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Apr/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | May/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jun/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+        | Jul/Current Academic Year | 1000         | 0          | 0         | 100%                        |
+    And the following provider payments had been generated
+        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000                   | 0                           | Learning         |
+    But the Provider now changes the Learner details as follows
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
+		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+
+	## additional residual fields and SFA Contribution Percentage is moved to this table
+	#And price details as follows
+ #       | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
+ #       | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 90%                         |
+ #       | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 100%                        |
+ #       | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 4500                    | 03/Nov/Current Academic Year           | 1125                      | 03/Nov/Current Academic Year             | 90%                         |
+
+
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
+	# SFA Contribution Percentage is moved to earnings table
+	Then the following learner earnings should be generated
+		| Delivery Period           | On-Programme | Completion | Balancing | SFA Contribution Percentage | 
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 90%                         |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 100%                        |
         | Nov/Current Academic Year | 500          | 0          | 0         | 90%                         |
         | Dec/Current Academic Year | 500          | 0          | 0         | 90%                         |
         | Jan/Current Academic Year | 500          | 0          | 0         | 90%                         |
@@ -75,9 +98,6 @@ Scenario Outline: Non-levy learner changes employer and there is a gap - provide
         | Jul/Current Academic Year | 500          | 0          | 0         | 90%                         |
     And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
-		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
 		| R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 500          | 0          | 0         |
@@ -89,10 +109,6 @@ Scenario Outline: Non-levy learner changes employer and there is a gap - provide
 		| R12/Current Academic Year | Jul/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
-		| R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-		# 100%
-		| R03/Current Academic Year | Oct/Current Academic Year | 1000                   | 0                           | Learning         |
 		| R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
@@ -104,9 +120,6 @@ Scenario Outline: Non-levy learner changes employer and there is a gap - provide
 		| R12/Current Academic Year | Jul/Current Academic Year | 450                    | 50                          | Learning         |
 	And at month end only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
-		| R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-		| R03/Current Academic Year | Oct/Current Academic Year | 1000                   | 0                           | Learning         |
 		| R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
@@ -118,9 +131,6 @@ Scenario Outline: Non-levy learner changes employer and there is a gap - provide
 		| R12/Current Academic Year | Jul/Current Academic Year | 450                    | 50                          | Learning         |
 Examples:
         | Collection_Period         |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
         | R04/Current Academic Year |
         | R05/Current Academic Year |
         | R06/Current Academic Year |
