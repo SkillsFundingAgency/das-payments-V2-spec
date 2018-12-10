@@ -36,7 +36,7 @@
 
 # Check max / 205 for price details and aim sequence changes
 
-Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
+Feature: Provider earnings and payments where apprenticeship requires english or maths above level 2 - completes on time.
 
 Scenario Outline: Non-levy learner taking level 3 aim and completes on time so no more funding PV2-389
 	Given the following learners

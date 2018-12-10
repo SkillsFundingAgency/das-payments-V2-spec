@@ -2,14 +2,17 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
+    "\\End-to-End - Business Acceptance Tests\\Master Branch",
+    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Learner Change of Circumstances",
+    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Refunds",
+    "\\End-to-End - Business Acceptance Tests\\Maths and English",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Employer change of circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Learner Change of Circumstances",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer",
     "\\End-to-End - Business Acceptance Tests\\V1 format feature files from JIRA"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Learner Change of Circumstances\\Sprint 6 - E2E - PV2-402 - ILR submitted late for a non-DAS learner.feature",
+  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Maths and English\\Sprint 7 - E2E - PV2-390 - Non-levy learner taking level 2 aim and prior funding adjustment.feature",
   "PreviewInSolutionExplorer": false
 }
