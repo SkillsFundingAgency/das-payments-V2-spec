@@ -33,7 +33,6 @@
 
 
 # New format - 205 and 207 (Check for additional changes)
-# Check max / 205 for price details and aim sequence changes
 
 Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
 
@@ -49,19 +48,19 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
         | Price Details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | 1st price details | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
     And the following earnings had been generated for the learner
-        | Price Details     | Aim Sequence Number | Delivery Period           | On-Programme | Completion | Balancing |
-        | 1st price details | 1                   | Aug/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Sep/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Oct/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Nov/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Dec/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Jan/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Feb/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Mar/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Apr/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | May/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Jun/Current Academic Year | 600          | 0          | 0         |
-        | 1st price details | 1                   | Jul/Current Academic Year | 600          | 0          | 0         |
+        | Delivery Period           | On-Programme | Completion | Balancing |
+        | Aug/Current Academic Year | 600          | 0          | 0         |
+        | Sep/Current Academic Year | 600          | 0          | 0         |
+        | Oct/Current Academic Year | 600          | 0          | 0         |
+        | Nov/Current Academic Year | 600          | 0          | 0         |
+        | Dec/Current Academic Year | 600          | 0          | 0         |
+        | Jan/Current Academic Year | 600          | 0          | 0         |
+        | Feb/Current Academic Year | 600          | 0          | 0         |
+        | Mar/Current Academic Year | 600          | 0          | 0         |
+        | Apr/Current Academic Year | 600          | 0          | 0         |
+        | May/Current Academic Year | 600          | 0          | 0         |
+        | Jun/Current Academic Year | 600          | 0          | 0         |
+        | Jul/Current Academic Year | 600          | 0          | 0         |
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | Learning         |
@@ -73,42 +72,27 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
 		| Maths or English | 12345         | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 		| Programme        | ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 2                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 	# New step 
-	# Note the order of Price details and Aim Sequence Number
+	# Note the order of Aim Sequence Number
 	And price details are changed as follows		
         | Price Details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 2nd price details | 0                    | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   |                             |
         | 1st price details | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 2                   | 90%                         |
+        | 2nd price details | 0                    | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act2          | 1                   |                             |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	# New OnProgrammeMathsAndEnglish column
-    Then the following learner on programme earnings should be generated
-        | Price details     | Aim Sequence Number | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-        | 2nd price details | 1                   | Aug/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Sep/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Oct/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Nov/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Dec/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Jan/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Feb/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Mar/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Apr/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | May/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Jun/Current Academic Year | 600          | 0          | 0         | 0                          |
-        | 2nd price details | 1                   | Jul/Current Academic Year | 600          | 0          | 0         | 0                          |
-    And the following learner maths and english earnings should be generated        
-		| Price details     | Aim Sequence Number | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-		| 1st price details | 2                   | Aug/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Oct/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Nov/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Dec/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Jan/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Feb/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Mar/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Apr/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | May/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Jun/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-        | 1st price details | 2                   | Jul/Current Academic Year | 0            | 0          | 0         | 39.25                      |
-
+    Then the following learner earnings should be generated
+        | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
+        | Aug/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Sep/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Oct/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Nov/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Dec/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Jan/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Feb/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Mar/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Apr/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | May/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Jun/Current Academic Year | 600          | 0          | 0         | 39.25                      |
+        | Jul/Current Academic Year | 600          | 0          | 0         | 39.25                      |
     And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
 		# Addional Maths and English payments for Delivery Period Aug and Sep
@@ -124,7 +108,7 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
         | R10/Current Academic Year | May/Current Academic Year | 600          | 0          | 0         | 39.25                      |
         | R11/Current Academic Year | Jun/Current Academic Year | 600          | 0          | 0         | 39.25                      |
         | R12/Current Academic Year | Jul/Current Academic Year | 600          | 0          | 0         | 39.25                      |
-	# New transaction type
+	# New transaction type and SFA Fully-Funded Payments column
     And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R03/Current Academic Year | Oct/Current Academic Year | 540                    | 60                          | 0                         | Learning                   |
