@@ -32,8 +32,7 @@
 #			| SFA non-Levy additional payments budget | 39.25 | 39.25 | 39.25  | 39.25  |
 
 
-# New format - 205 and 207 (Check for additional changes)
-
+# New template
 Feature: Non-levy learner, provider changes aim sequence numbers after payments have already occurred
 
 Scenario Outline: Non-levy learner provider changes aim sequence numbers after payments have already occurred PV2-393
