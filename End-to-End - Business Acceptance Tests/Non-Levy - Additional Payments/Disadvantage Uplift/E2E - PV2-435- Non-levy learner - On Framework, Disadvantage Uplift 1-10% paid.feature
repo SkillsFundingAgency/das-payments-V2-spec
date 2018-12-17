@@ -56,7 +56,7 @@ Scenario Outline:Non-levy learner - on framework , Disadvantage Uplift 1-10% pai
         | R10/Last Academic Year | May/Last Academic Year | 900                    | 100                         | 0                         | Learning                 |
         | R11/Last Academic Year | Jun/Last Academic Year | 900                    | 100                         | 0                         | Learning                 |
         | R12/Last Academic Year | Jul/Last Academic Year | 900                    | 100                         | 0                         | Learning                 |
-        | R05/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 300                       | FirstDisadvantagePayment |
+        | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 300                       | FirstDisadvantagePayment |
 
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                                                     | SFA Contribution Percentage |
