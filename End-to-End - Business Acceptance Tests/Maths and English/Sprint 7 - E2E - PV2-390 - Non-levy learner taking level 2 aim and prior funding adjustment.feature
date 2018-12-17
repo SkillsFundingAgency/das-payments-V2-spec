@@ -35,7 +35,10 @@
 #		  | English and maths on programme | 29.44 | 29.44 | 29.44 | 29.44 | ... | 29.44 | 29.44 |
 #		  | English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
-# Check max / 205 for price details and aim sequence changes
+#For DC Integration
+ #| Funding Adjustment For Prior Learning |
+ #| n/a                                   |
+ #| 75%                                   |
 
 Feature: Non-levy learner taking single level 2 aim, prior funding adjustment, completes to time
 
@@ -49,11 +52,10 @@ Scenario Outline: Non-levy learner taking single level 2 aim, prior funding adju
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        |                 | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 		| Maths or English | 12345         | 06/Aug/Last Academic Year | 12 months        |                 | 2                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 	# Price details
-	# New field - Funding Adjustment For Prior Learning
 	And price details as follows		
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage | Funding Adjustment For Prior Learning |
-        | 1st price details | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 1                   | 90%                         | n/a                                   |
-        | 2nd price details | 0                    | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 2                   |                             | 75%                                   |
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | 1st price details | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 1                   | 90%                         |
+        | 2nd price details | 0                    | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 2                   |                             |
     # New OnProgrammeMathsAndEnglish column
 	And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |

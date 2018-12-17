@@ -37,6 +37,8 @@
 #		  | English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     | ... | 0     | 0     |  	  
 	
 
+# Notes - Multiple Maths and Eng levels and 2 years course
+
 # New template
 Feature: Non-levy learner, taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time 
 
@@ -192,6 +194,8 @@ Scenario Outline: Non-levy learner taking single Level 1 aim, progressing to and
         | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
 Examples: 
         | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
         | R03/Current Academic Year |
         | R04/Current Academic Year |
         | R05/Current Academic Year |
