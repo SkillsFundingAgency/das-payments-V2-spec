@@ -61,9 +61,9 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
         | Jun/Current Academic Year | 600          | 0          | 0         |
         | Jul/Current Academic Year | 600          | 0          | 0         |
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
-        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0                         | Learning                   |
-        | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0                         | Learning                   |
+        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
+        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0                         | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0                         | Learning         |
 	# New step 
 	# Additional field Aim Type is just for readability and not used in the code
     But aims details are changed as follows
