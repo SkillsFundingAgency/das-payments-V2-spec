@@ -74,12 +74,10 @@ Scenario Outline: Non-levy learner - on standard , Disadvantage Uplift not paid
 	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type    |
 		| R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning            |
-		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | Disadvantage Uplift |
 		| R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | Completion          |
 	And at month end only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type    |
 		| R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning            |
-		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | Disadvantage Uplift |
 		| R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | Completion          |       
 	Examples:
         | Collection_Period         |
