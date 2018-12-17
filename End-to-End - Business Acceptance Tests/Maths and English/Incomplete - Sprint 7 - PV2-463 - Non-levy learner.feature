@@ -1,6 +1,6 @@
 Scenario: non-Levy apprentice, changes aim reference for English/maths aims and payments are reconciled 
 
-		Given The learner is programme only non-Levy
+        Given The learner is programme only non-Levy
        
         And the apprenticeship funding band maximum is 9000
 
@@ -9,7 +9,7 @@ Scenario: non-Levy apprentice, changes aim reference for English/maths aims and 
             | learner a | 06/05/2018 | 1                   | programme        | ZPROG001      | 403            | 2              | 1            | continuing        |
   
         And the following programme earnings and payments have been made to the provider A for learner a:
-		
+        
             | Type                                | 05/18 | 06/18 | 07/18 | 08/18 |
             | Provider Earned Total               | 540   | 540   | 0     | 0     |
             | Provider Earned from SFA            | 60    | 60    | 0     | 0     |
@@ -22,12 +22,12 @@ Scenario: non-Levy apprentice, changes aim reference for English/maths aims and 
             | SFA Levy additional payments budget | 0     | 0     | 0     | 0     |
             | SFA non-Levy co-funding budget      | 540   | 540   | 540   | 0     | 
 
-		And following learning has been recorded for previous payments:
+        And following learning has been recorded for previous payments:
             | ULN       | start date | aim sequence number | aim type         | aim reference | framework code | programme type | pathway code | completion status |
             | learner a | 06/05/2018 | 2                   | maths or English | 60001227      | 403            | 2              | 1            | continuing        |
   
         And the following maths or english earnings and payments have been made to the provider A for learner a:
-		
+        
             | Type                                | 05/18 | 06/18 | 07/18 | 08/18 |
             | Provider Earned Total               | 39.25 | 39.25 | 0     | 0     |
             | Provider Earned from SFA            | 39.25 | 39.25 | 0     | 0     |
@@ -40,7 +40,7 @@ Scenario: non-Levy apprentice, changes aim reference for English/maths aims and 
             | SFA Levy additional payments budget | 39.25 | 39.25 | 0     | 0     |
             | SFA non-Levy co-funding budget      | 0     | 0     | 0     | 0     | 
         
-        When an ILR file is submitted in on 31/07/18 with the following data:
+        When an ILR file is submitted for the first time on 31/07/18 with the following data:
             | ULN       | learner type           | aim sequence number | aim type         | aim reference | aim rate | agreed price | start date | planned end date | actual end date | completion status | framework code | programme type | pathway code |
             | learner a | programme only non-DAS | 2                   | programme        | ZPROG001      |          | 9000         | 06/05/2018 | 20/05/2019       |                 | continuing        | 403            | 2              | 1            |
             | learner a | programme only non-DAS | 1                   | maths or English | 50086832      | 471      |              | 06/05/2018 | 20/05/2019       |                 | continuing        | 403            | 2              | 1            |
@@ -50,7 +50,7 @@ Scenario: non-Levy apprentice, changes aim reference for English/maths aims and 
             | Provider Earned Total                   | 579.25 | 579.25 | 579.25 | 579.25  | 579.25 | 579.25 |
             | Provider Earned from SFA                | 519.25 | 519.25 | 519.25 | 519.25  | 519.25 | 519.25 |
             | Provider Earned from Employer           | 60     | 60     | 60     | 60      | 60     | 60     |
-            | Provider Paid by SFA                    | 0      | 519.25 | 519.25 | 519.25  | 519.25 | 519.25 |
+            | Provider Paid by SFA                    | 0      | 519.25 | 519.25 | 597.75  | 519.25 | 519.25 |
             | Refund taken by SFA                     | 0      | 0      | 0      | -78.50  | 0      | 0      |
             | Payment due from Employer               | 0      | 0      | 0      | 0       | 0      | 0      |
             | Refund due to employer                  | 0      | 0      | 0      | 0       | 0      | 0      |
@@ -61,6 +61,8 @@ Scenario: non-Levy apprentice, changes aim reference for English/maths aims and 
             | SFA Levy additional payments budget     | 0      | 0      | 0      | 0       | 0      | 0      | 
             | SFA non-Levy co-funding budget          | 519.25 | 519.25 | 519.25 | 519.25  | 519.25 | 519.25 |
             | SFA non-Levy additional payments budget | 39.25  | 39.25  | 39.25  | 39.25   | 39.25  | 39.25  |
+
+
 			
 # INCOMPLETE - Double check Spec and 3rd price details
 
