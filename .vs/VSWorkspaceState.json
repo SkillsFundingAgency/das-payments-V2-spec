@@ -2,15 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Learner Change of Circumstances",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Learner Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Maths and English\\Sprint 7 - E2E - PV2-466 - Non-levy learner provider moves start date forward on prog payments and english maths will be refunded.feature",
   "PreviewInSolutionExplorer": false
 }
