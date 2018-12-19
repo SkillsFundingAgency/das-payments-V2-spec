@@ -34,8 +34,6 @@
 #		  | English and maths on programme | 39.25 | 39.25 | 39.25 | 39.25 | ... | 39.25 | 39.25 |
 #		  | English and maths balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
-# Check max / 205 for price details and aim sequence changes
-
 Feature: Provider earnings and payments where apprenticeship requires english or maths above level 2 - completes on time.
 
 Scenario Outline: Non-levy learner taking level 3 aim and completes on time so no more funding PV2-389

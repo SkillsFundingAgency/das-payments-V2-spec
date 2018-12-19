@@ -37,6 +37,8 @@
 #		  | English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     | ... | 0     | 0     |  	  
 	
 
+# Notes - Multiple Maths and Eng levels and 2 years course
+
 # New template
 Feature: Non-levy learner, taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time 
 
@@ -97,7 +99,7 @@ Scenario Outline: Non-levy learner taking single Level 1 aim, progressing to and
 	# Note - Multiple Maths and English
     But aims details are changed as follows
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
-		| Maths or English | 12345         | 06/Aug/Last Academic Year    | 12 months        |                 | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
+		| Maths or English | 12345         | 06/Aug/Last Academic Year    | 12 months        | 12 months       | 1                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | completed         |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year    | 24 months        |                 | 2                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 		| Maths or English | 12345         | 09/Aug/Current Academic Year | 12 months        |                 | 3                   | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy | continuing        |
 	# New step 
@@ -192,6 +194,8 @@ Scenario Outline: Non-levy learner taking single Level 1 aim, progressing to and
         | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
 Examples: 
         | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
         | R03/Current Academic Year |
         | R04/Current Academic Year |
         | R05/Current Academic Year |
