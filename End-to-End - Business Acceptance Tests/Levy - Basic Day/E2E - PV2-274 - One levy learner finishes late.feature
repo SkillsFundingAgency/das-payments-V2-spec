@@ -1,24 +1,19 @@
-#Scenario: 1 Levy learner, Levy available, finishes on time
-#
-#
-#        Given levy balance > agreed price for all months
-#		
-#		And the following commitments exist:
-#            | ULN       | priority | start date | end date   | agreed price |
-#            | learner a | 1        | 01/09/2018 | 08/09/2019 | 15000        |
-#        
-#		When an ILR file is submitted with the following data:
-#            | ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status |
-#            | learner a | programme only DAS | 15000        | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
-#        
-#		Then the provider earnings and payments break down as follows:
-#            | Type                       | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
-#            | Provider Earned Total      | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-#            | Provider Earned from SFA   | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-#            | Provider Paid by SFA       | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
-#            | Levy account debited       | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
-#            | SFA Levy employer budget   | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-#            | SFA Levy co-funding budget | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+  # Scenario: A levy learner, levy available, learner finishes late
+  #      Given levy balance > agreed price for all months
+		#And the following commitments exist:
+  #          | ULN       | priority | start date | end date   | agreed price |
+  #          | learner a | 1        | 01/09/2017 | 08/09/2018 | 15000        |
+  #      When an ILR file is submitted with the following data:
+  #          | ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status |
+  #          | learner a | programme only DAS | 15000        | 01/09/2017 | 08/09/2018       | 08/10/2018      | completed         |
+  #      Then the provider earnings and payments break down as follows:
+  #          | Type                       | 09/17 | 10/17 | 11/17 | ... | 08/18 | 09/18 | 10/18 | 11/18 |
+  #          | Provider Earned Total      | 1000  | 1000  | 1000  | ... | 1000  | 0     | 3000  | 0     |
+  #          | Provider Earned from SFA   | 1000  | 1000  | 1000  | ... | 1000  | 0     | 3000  | 0     |
+  #          | Provider Paid by SFA       | 0     | 1000  | 1000  | ... | 1000  | 1000  | 0     | 3000  |
+  #          | Levy account debited       | 0     | 1000  | 1000  | ... | 1000  | 1000  | 0     | 3000  |
+  #          | SFA Levy employer budget   | 1000  | 1000  | 1000  | ... | 1000  | 0     | 3000  | 0     |
+  #          | SFA Levy co-funding budget | 0     | 0     | 0     | ... | 0     | 0     | 0     | 0     |
 
 
 # levy balance > agreed price for all months
@@ -26,7 +21,7 @@
 # SFA Levy Payment
 # and levy acccount has been debited
 
-Scenario Outline: One levy learner, levy available, finished on time PV2-261
+Scenario Outline: One levy learner, levy available, finished late PV2-274
 	# levy balance > agreed price for all months
 	Given levy balance > agreed price for all months
 	# Commitment line
@@ -67,13 +62,13 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-261
         | R12/Last Academic Year | Jul/Last Academic Year | 1000              | Learning         |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 13 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 1000         | 0          | 0         |
-		| Sep/Current Academic Year | 0            | 3000       | 0         |
-		| Oct/Current Academic Year | 0            | 0          | 0         |
+		| Sep/Current Academic Year | 0            | 0          | 0         |
+		| Oct/Current Academic Year | 0            | 3000       | 0         |
 		| Nov/Current Academic Year | 0            | 0          | 0         |
 		| Dec/Current Academic Year | 0            | 0          | 0         |
 		| Jan/Current Academic Year | 0            | 0          | 0         |
@@ -86,19 +81,20 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-261
     And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0            | 3000       | 0         |
 	# SFA Levy Payment
 	# and levy acccount has been debited
 	And only the following provider payments will be recorded and levy acccount has been debited
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
+        | R03/Current Academic Year | Oct/Current Academic Year | 3000              | Completion       |
 	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
+        | R03/Current Academic Year | Oct/Current Academic Year | 3000              | Completion       |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |
+		| R04/Current Academic Year |

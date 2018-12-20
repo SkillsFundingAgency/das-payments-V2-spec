@@ -85,7 +85,7 @@ Scenario Outline: Non-levy learner provider deletes english/maths aim, earlier p
 	# New OnProgrammeMathsAndEnglish column
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-        | Aug/Current Academic Year | 600          | 0          | 0         | 0                          |
+        | Aug/Current Academic Year | 600          | 0          | 0         | -78.50                     |
         | Sep/Current Academic Year | 600          | 0          | 0         | 0                          |
         | Oct/Current Academic Year | 600          | 0          | 0         | 0                          |
         | Nov/Current Academic Year | 600          | 0          | 0         | 0                          |

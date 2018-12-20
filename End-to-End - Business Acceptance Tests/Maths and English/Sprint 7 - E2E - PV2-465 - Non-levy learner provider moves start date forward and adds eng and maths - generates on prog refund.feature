@@ -80,7 +80,7 @@ Scenario Outline: Non-levy learner provider changes aim sequence numbers after p
 	# New OnProgrammeMathsAndEnglish column
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-        | Aug/Current Academic Year | 0            | 0          | 0         | 0                          |
+        | Aug/Current Academic Year | -1200        | 0          | 0         | 0                          |
         | Sep/Current Academic Year | 0            | 0          | 0         | 0                          |
         | Oct/Current Academic Year | 600          | 0          | 0         | 39.25                      |
         | Nov/Current Academic Year | 600          | 0          | 0         | 39.25                      |

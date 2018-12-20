@@ -43,7 +43,6 @@
  #| n/a                                   |
  #| 42% for remaining period|
 	
-# New template
 Feature: Non-levy learner, requires english or maths at level 2 with prior funding adjustment after break - COMPLETES ON TIME, RETURNS TO SAME PROVIDER
 
 Scenario Outline: Non-levy learner, requires english or maths at level 2 with prior funding adjustment after break PV2-392
