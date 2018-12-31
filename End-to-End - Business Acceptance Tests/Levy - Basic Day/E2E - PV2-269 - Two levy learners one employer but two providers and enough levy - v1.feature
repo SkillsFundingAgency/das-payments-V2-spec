@@ -1,40 +1,40 @@
 #Scenario: 2 learners, 1 employer, 2 providers - enough levy
-
-Given the employer 1 has a levy balance > agreed price for all month
-
-        And the following commitments exist:
-            | Employer   | Provider   | ULN       | priority | agreed price | start date | end date   |
-            | employer 1 | provider A | learner a | 1        | 7500         | 01/09/2018 | 08/09/2019 |
-            | employer 1 | provider B | learner b | 2        | 15000        | 01/09/2018 | 08/09/2019 |
-        
-		When the providers submit the following ILR files:
-            | Provider   | ULN       | agreed price | learner type       | start date | planned end date | actual end date | completion status |
-            | provider A | learner a | 7500         | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
-            | provider B | learner b | 15000        | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
-        
-		Then the earnings and payments break down for provider A is as follows:
-            | Type                            | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
-            | Provider Earned Total           | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
-            | Provider Earned from SFA        | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
-            | Provider Earned from Employer 1 | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | Provider Paid by SFA            | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
-            | Payment due from Employer       | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | employer 1 Levy account debited | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
-            | SFA Levy employer budget        | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
-            | SFA Levy co-funding budget      | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | SFA non-Levy co-funding budget  | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-        
-		And the earnings and payments break down for provider B is as follows:
-            | Type                            | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
-            | Provider Earned Total           | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-            | Provider Earned from SFA        | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-            | Provider Earned from Employer 1 | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | Provider Paid by SFA            | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
-            | Payment due from Employer       | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | employer 1 Levy account debited | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
-            | SFA Levy employer budget        | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-            | SFA Levy co-funding budget      | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-            | SFA non-Levy co-funding budget  | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#
+#Given the employer 1 has a levy balance > agreed price for all month
+#
+#        And the following commitments exist:
+#            | Employer   | Provider   | ULN       | priority | agreed price | start date | end date   |
+#            | employer 1 | provider A | learner a | 1        | 7500         | 01/09/2018 | 08/09/2019 |
+#            | employer 1 | provider B | learner b | 2        | 15000        | 01/09/2018 | 08/09/2019 |
+#        
+#		When the providers submit the following ILR files:
+#            | Provider   | ULN       | agreed price | learner type       | start date | planned end date | actual end date | completion status |
+#            | provider A | learner a | 7500         | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
+#            | provider B | learner b | 15000        | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
+#        
+#		Then the earnings and payments break down for provider A is as follows:
+#            | Type                            | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
+#            | Provider Earned Total           | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
+#            | Provider Earned from SFA        | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
+#            | Provider Earned from Employer 1 | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | Provider Paid by SFA            | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
+#            | Payment due from Employer       | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | employer 1 Levy account debited | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
+#            | SFA Levy employer budget        | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
+#            | SFA Levy co-funding budget      | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | SFA non-Levy co-funding budget  | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#        
+#		And the earnings and payments break down for provider B is as follows:
+#            | Type                            | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
+#            | Provider Earned Total           | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
+#            | Provider Earned from SFA        | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
+#            | Provider Earned from Employer 1 | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | Provider Paid by SFA            | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
+#            | Payment due from Employer       | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | employer 1 Levy account debited | 0     | 1000  | 1000  | ... | 1000  | 1000  | 3000  |
+#            | SFA Levy employer budget        | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
+#            | SFA Levy co-funding budget      | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#            | SFA non-Levy co-funding budget  | 0     | 0     | 0     | ... | 0     | 0     | 0     |
 
 
 # employer 1 levy balance > agreed price for all months for both learners
@@ -42,6 +42,8 @@ Given the employer 1 has a levy balance > agreed price for all month
 # SFA Levy Payment
 # and levy acccount has been debited
 
+# Do we want to include employer column in all tables?
+# Do we want to add provider column as this is different from 324 and 325
 Scenario Outline: Two levy learners, one employer but two providers and enough levy available both finished on time PV2-269
 	# employer 1 levy balance > agreed price for all months for both learners
 	Given employer 1 levy balance > agreed price for all months for both learners
@@ -164,21 +166,21 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
 	# and levy acccount has been debited
 	# multiple providers
 	And only the following "provider a" payments will be recorded and levy acccount has been debited
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | 0                      | 0                           | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | 0                      | 0                           | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
 	And only the following "provider b" payments will be recorded and levy acccount has been debited
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 0                 | 900                    | 100                         | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 0                 | 2700                   | 300                         | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
 	And at month end only the following "provider a" payments will be generated
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | 0                      | 0                           | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | 0                      | 0                           | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
 	And at month end only the following "provider b" payments will be generated
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 0                 | 900                    | 100                         | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 0                 | 2700                   | 300                         | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
