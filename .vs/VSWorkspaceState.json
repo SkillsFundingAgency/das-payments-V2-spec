@@ -3,11 +3,11 @@
     "",
     "\\End-to-End - Business Acceptance Tests",
     "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Learner Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\Disadvantage Uplift",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances"
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day\\E2E - PV2-261 - One levy learner finishes on time.feature",
+  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer\\Sprint 6 - E2E - PV2-326 - Non-levy learner 16-18 employed with a small employer at start fully funded.feature",
   "PreviewInSolutionExplorer": false
 }
