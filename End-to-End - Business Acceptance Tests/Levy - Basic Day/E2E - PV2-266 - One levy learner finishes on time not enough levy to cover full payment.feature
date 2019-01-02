@@ -1,16 +1,10 @@
-#1 Levy learner, no Levy available, finishes on time
+#1 Levy Learner, not enough levy to cover full payment
 #
-#Notes: 
-#This scenario is to accomodate when no Levy is available in the account - although the learner is regarded as ACT1 - Levy learner.
-#
-#The Commitment line includes an attribute called priority.  The employer can select which learner they want 
-#to spend their Levy on in a priority order.  Where ULN is mentioned in the ILR line, learner a is used.  I understand 
-#that this is for simplicity reasons- though this is open to change as required by the new implementation.
-#
-#
-#Given levy balance = 0 for all months
+#        Given the employer's levy balance is:
+#            | 10/18 | 11/18 | 12/18 | ... | 09/19 | 10/19 |
+#            | 500   | 500   | 500   | 500 | 500   | 1500  |
 #		
-#And the following commitments exist:
+#		And the following commitments exist:
 #            | ULN       | priority | start date | end date   | agreed price |
 #            | learner a | 1        | 01/09/2018 | 08/09/2019 | 15000        |
 #        
@@ -21,24 +15,37 @@
 #		Then the provider earnings and payments break down as follows:
 #            | Type                          | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
 #            | Provider Earned Total         | 1000  | 1000  | 1000  | ... | 1000  | 3000  | 0     |
-#            | Provider Earned from SFA      | 900   | 900   | 900   | ... | 900   | 2700  | 0     |
-#            | Provider Earned from Employer | 100   | 100   | 100   | ... | 100   | 300   | 0     |
-#            | Provider Paid by SFA          | 0     | 900   | 900   | ... | 900   | 900   | 2700  |
-#            | Payment due from Employer     | 0     | 100   | 100   | ... | 100   | 100   | 300   |
-#            | Levy account debited          | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-#            | SFA Levy employer budget      | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-#            | SFA Levy co-funding budget    | 900   | 900   | 900   | ... | 900   | 2700  | 0     |
+#            | Provider Earned from SFA      | 950   | 950   | 950   | ... | 950   | 2850  | 0     |
+#            | Provider Earned from Employer | 50    | 50    | 50    | ... | 50    | 150   | 0     |
+#            | Provider Paid by SFA          | 0     | 950   | 950   | ... | 950   | 950   | 2850  |
+#            | Payment due from Employer     | 0     | 50    | 50    | ... | 50    | 50    | 150   |
+#            | Levy account debited          | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
+#            | SFA Levy employer budget      | 500   | 500   | 500   | ... | 500   | 1500  | 0     |
+#            | SFA Levy co-funding budget    | 450   | 450   | 450   | ... | 450   | 1350  | 0     |
 #            | SFA non-Levy co-funding budget| 0     | 0     | 0     | ... | 0     | 0     | 0     |
-#
-#
-## Given levy balance = 0 for all months
+
+## Given levy balance table
 ## Commitments line
-## SFA Levy Payment
+## SFA Levy Payment - partial
 ## and levy acccount has been debited
 
-Scenario Outline: One levy learner, levy available, finished on time PV2-262
-	# levy balance = 0 for all months
-	Given levy balance = 0 for all months
+Scenario Outline: One levy learner, not enough levy available to cover full payment, finished on time PV2-266
+	# New levy balance table
+	Given the following levy balance is available
+		| Levy Balance Period       | Levy Balance |
+		| Oct/Last Academic Year    | 500          |
+		| Nov/Last Academic Year    | 500          |
+		| Dec/Last Academic Year    | 500          |
+		| Jan/Last Academic Year    | 500          |
+		| Feb/Last Academic Year    | 500          |
+		| Mar/Last Academic Year    | 500          |
+		| Apr/Last Academic Year    | 500          |
+		| May/Last Academic Year    | 500          |
+		| Jun/Last Academic Year    | 500          |
+		| Jul/Last Academic Year    | 500          |
+		| Aug/Current Academic Year | 500          |
+		| Sep/Current Academic Year | 500          |
+		| OCt/Current Academic Year | 1500         |
 	# Commitment line
 	And the following commitments exist
         | ULN       | priority | start date | end date   | agreed price |
@@ -60,20 +67,20 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-262
         | May/Last Academic Year | 1000         | 0          | 0         |
         | Jun/Last Academic Year | 1000         | 0          | 0         |
         | Jul/Last Academic Year | 1000         | 0          | 0         |
-	# SFA Levy Payment - 0 for all
+	# SFA Levy Payment - partially available
     And the following provider payments had been generated and levy acccount has been debited
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
-        | R02/Last Academic Year | Sep/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R03/Last Academic Year | Oct/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R04/Last Academic Year | Nov/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R05/Last Academic Year | Dec/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R06/Last Academic Year | Jan/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R07/Last Academic Year | Feb/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R08/Last Academic Year | Mar/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R09/Last Academic Year | Apr/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R10/Last Academic Year | May/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R11/Last Academic Year | Jun/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R12/Last Academic Year | Jul/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
+        | R02/Last Academic Year | Sep/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R03/Last Academic Year | Oct/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R04/Last Academic Year | Nov/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R05/Last Academic Year | Dec/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R06/Last Academic Year | Jan/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R07/Last Academic Year | Feb/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R08/Last Academic Year | Mar/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R09/Last Academic Year | Apr/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R10/Last Academic Year | May/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R11/Last Academic Year | Jun/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R12/Last Academic Year | Jul/Last Academic Year | 450                    | 50                          | 500               | Learning         |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
@@ -96,16 +103,16 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-262
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
-	# SFA Levy Payment
+	# SFA Levy Payment - partial
 	# and levy acccount has been debited
 	And only the following provider payments will be recorded and levy acccount has been debited
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1350                   | 150                         | 1500              | Completion       |
 	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500               | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1350                   | 150                         | 1500              | Completion       |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
