@@ -31,6 +31,8 @@
 
 Scenario Outline: One levy learner, not enough levy available to cover full payment, finished on time PV2-266
 	# New levy balance table
+	# Should we split the table into multi-year?
+	# By default this table will be for single employer but in case of multiple employers it will have additional column
 	Given the following levy balance is available
 		| Levy Balance Period       | Levy Balance |
 		| Oct/Last Academic Year    | 500          |
@@ -45,7 +47,7 @@ Scenario Outline: One levy learner, not enough levy available to cover full paym
 		| Jul/Last Academic Year    | 500          |
 		| Aug/Current Academic Year | 500          |
 		| Sep/Current Academic Year | 500          |
-		| OCt/Current Academic Year | 1500         |
+		| Oct/Current Academic Year | 1500         |
 	# Commitment line
 	And the following commitments exist
         | ULN       | priority | start date | end date   | agreed price |
@@ -68,7 +70,7 @@ Scenario Outline: One levy learner, not enough levy available to cover full paym
         | Jun/Last Academic Year | 1000         | 0          | 0         |
         | Jul/Last Academic Year | 1000         | 0          | 0         |
 	# SFA Levy Payment - partially available
-    And the following provider payments had been generated and levy acccount has been debited
+    And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
         | R02/Last Academic Year | Sep/Last Academic Year | 450                    | 50                          | 500               | Learning         |
         | R03/Last Academic Year | Oct/Last Academic Year | 450                    | 50                          | 500               | Learning         |
@@ -81,6 +83,19 @@ Scenario Outline: One levy learner, not enough levy available to cover full paym
         | R10/Last Academic Year | May/Last Academic Year | 450                    | 50                          | 500               | Learning         |
         | R11/Last Academic Year | Jun/Last Academic Year | 450                    | 50                          | 500               | Learning         |
         | R12/Last Academic Year | Jul/Last Academic Year | 450                    | 50                          | 500               | Learning         |
+	And the following levy balance had been debited
+		| Collection Period      | Levy Balance Period       | Levy Balance |
+		| R02/Last Academic Year | Oct/Last Academic Year    | 0            |
+		| R03/Last Academic Year | Nov/Last Academic Year    | 0            |
+		| R04/Last Academic Year | Dec/Last Academic Year    | 0            |
+		| R05/Last Academic Year | Jan/Last Academic Year    | 0            |
+		| R06/Last Academic Year | Feb/Last Academic Year    | 0            |
+		| R07/Last Academic Year | Mar/Last Academic Year    | 0            |
+		| R08/Last Academic Year | Apr/Last Academic Year    | 0            |
+		| R09/Last Academic Year | May/Last Academic Year    | 0            |
+		| R10/Last Academic Year | Jun/Last Academic Year    | 0            |
+		| R11/Last Academic Year | Jul/Last Academic Year    | 0            |
+		| R12/Last Academic Year | Aug/Current Academic Year | 0            |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
@@ -113,6 +128,10 @@ Scenario Outline: One levy learner, not enough levy available to cover full paym
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500               | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 1350                   | 150                         | 1500              | Completion       |
+	And only the following levy balance will be debited
+		| Collection Period         | Levy Balance Period       | Levy Balance |
+		| R01/Current Academic Year | Sep/Current Academic Year | 0            |
+		| R02/Current Academic Year | Oct/Current Academic Year | 0            |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
