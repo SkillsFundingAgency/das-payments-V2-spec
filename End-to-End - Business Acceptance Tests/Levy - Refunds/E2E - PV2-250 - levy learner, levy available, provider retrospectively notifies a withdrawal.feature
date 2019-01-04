@@ -39,8 +39,9 @@
 
 Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
     Given The following commitment exists
-	| commitment Id | version Id | ULN       | start date | end date   | status | agreed price | effective from | effective to | programme type |
-	| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | active | 11250        | 01/08/2018     |              | 25				|
+		| commitment Id | version Id | ULN       | start date | end date   | status | agreed price | effective from | effective to | programme type |
+		| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | active | 11250        | 01/08/2018     |              | 25				|
+
 	And the provider previously submitted the following learner details
         | ULN       | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
         | learner a | 1        | start of academic year | 12 months        | 9000                 | Aug/Current Academic Year           | 2250                  | Aug/Current Academic Year            |                 | continuing        | 0                           | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |

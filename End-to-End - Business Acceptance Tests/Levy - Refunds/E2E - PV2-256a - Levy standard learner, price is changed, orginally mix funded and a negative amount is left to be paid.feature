@@ -74,7 +74,7 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
 	# SFA Levy Payment
 	# and levy acccount has been debited
     And the following provider payments had been generated and levy acccount has been debited
-        | Collection Period     | Delivery Period       | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750               | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 750               | Learning         |
 
