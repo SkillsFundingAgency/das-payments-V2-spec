@@ -61,7 +61,7 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-262
         | Jun/Last Academic Year | 1000         | 0          | 0         |
         | Jul/Last Academic Year | 1000         | 0          | 0         |
 	# SFA Levy Payment - 0 for all
-    And the following provider payments had been generated and levy acccount has been debited
+	And the following provider payments had been generated and levy acccount has been debited
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
         | R02/Last Academic Year | Sep/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
         | R03/Last Academic Year | Oct/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
@@ -97,7 +97,7 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-262
         | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
 	# SFA Levy Payment
-	# and levy acccount has been debited
+	# and levy acccount has been debited - will this be by provider payment or at month end
 	And only the following provider payments will be recorded and levy acccount has been debited
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |

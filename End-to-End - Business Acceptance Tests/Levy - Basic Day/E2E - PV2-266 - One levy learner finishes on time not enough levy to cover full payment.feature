@@ -31,8 +31,8 @@
 
 Scenario Outline: One levy learner, not enough levy available to cover full payment, finished on time PV2-266
 	# New levy balance table
-	# Should we split the table into multi-year?
 	# By default this table will be for single employer but in case of multiple employers it will have additional column
+	# Should we split the table into multi-year?
 	Given the following levy balance is available
 		| Levy Balance Period       | Levy Balance |
 		| Oct/Last Academic Year    | 500          |
