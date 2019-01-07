@@ -23,8 +23,7 @@
 
 # levy balance > agreed price for all months
 # Commitments line
-# SFA Levy Payment
-# and levy acccount has been debited
+# Levy Payments
 
 Scenario Outline: One levy learner, levy available, finishes one month early PV2-275
 	# levy balance > agreed price for all months
@@ -50,10 +49,9 @@ Scenario Outline: One levy learner, levy available, finishes one month early PV2
         | May/Last Academic Year | 1000         | 0          | 0         |
         | Jun/Last Academic Year | 1000         | 0          | 0         |
         | Jul/Last Academic Year | 1000         | 0          | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
-    And the following provider payments had been generated and levy acccount has been debited
-        | Collection Period      | Delivery Period        | SFA Levy Payments | Transaction Type |
+	# Levy Payments
+    And the following provider payments had been generated
+        | Collection Period      | Delivery Period        | Levy Payments | Transaction Type |
         | R02/Last Academic Year | Sep/Last Academic Year | 1000              | Learning         |
         | R03/Last Academic Year | Oct/Last Academic Year | 1000              | Learning         |
         | R04/Last Academic Year | Nov/Last Academic Year | 1000              | Learning         |
@@ -87,14 +85,13 @@ Scenario Outline: One levy learner, levy available, finishes one month early PV2
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 0            | 0          | 1000      |
         | R01/Current Academic Year | Aug/Current Academic Year | 0            | 3000       | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
-	And only the following provider payments will be recorded and levy acccount has been debited
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+	# Levy Payments
+	And only the following provider payments will be recorded
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Balancing        |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000              | Completion       |
 	And at month end only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Balancing        |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000              | Completion       |
 Examples: 

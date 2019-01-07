@@ -39,8 +39,7 @@
 
 # employer 1 levy balance > agreed price for all months for both learners
 # Commitments line
-# SFA Levy Payment
-# and levy acccount has been debited
+# Levy Payments
 
 # Added employer column in the provider payments
 # Merged providers - different from 324 and 325
@@ -84,12 +83,11 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | learner b | May/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Jun/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Jul/Last Academic Year | 1000         | 0          | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
+	# Levy Payments
 	# ULN
 	# multiple providers
-    And the following provider payments had been generated and levy acccount has been debited
-        | Employer   | Provider   | ULN       | Collection Period      | Delivery Period        | SFA Levy Payments | Transaction Type |
+    And the following provider payments had been generated
+        | Employer   | Provider   | ULN       | Collection Period      | Delivery Period        | Levy Payments | Transaction Type |
         | employer 1 | provider a | learner a | R02/Last Academic Year | Sep/Last Academic Year | 500               | Learning         |
         | employer 1 | provider a | learner a | R03/Last Academic Year | Oct/Last Academic Year | 500               | Learning         |
         | employer 1 | provider a | learner a | R04/Last Academic Year | Nov/Last Academic Year | 500               | Learning         |
@@ -154,18 +152,17 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | provider a | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0            | 1500       | 0         |
         | provider b | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | provider b | learner b | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
+	# Levy Payments
 	# multiple providers
 	# Employer column
-	And only the following provider payments will be recorded and levy acccount has been debited
-        | Employer   | Provider   | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+	And only the following provider payments will be recorded
+        | Employer   | Provider   | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | employer 1 | provider a | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
         | employer 1 | provider a | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
         | employer 1 | provider b | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
         | employer 1 | provider b | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
 	And at month end only the following provider payments will be generated
-        | Employer   | Provider   | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Employer   | Provider   | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | employer 1 | provider a | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
         | employer 1 | provider a | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
         | employer 1 | provider b | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |

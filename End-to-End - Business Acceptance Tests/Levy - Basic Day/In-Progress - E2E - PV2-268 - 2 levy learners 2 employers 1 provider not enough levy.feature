@@ -1,44 +1,54 @@
-#Scenario: 2 Levy learners, only enough levy to fund one of the learners
-#
-#        Given the employer's levy balance is:
-#            | 10/18 | 11/18 | 12/18 | ... | 09/19 | 10/19 |
-#            | 0     | 500   | 500   | 500 | 500   | 1500  |
-#        
-#		And the following commitments exist:
-#            | ULN       | priority | start date | end date   | agreed price |
-#            | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
-#            | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
-#        
-#		When an ILR file is submitted with the following data:
-#            | ULN       | agreed price | learner type       | start date | planned end date | actual end date| completion status |
-#            | learner a | 7500         | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019       completed         |
-#            | learner b | 15000        | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019     | completed         |
-#        
-#		Then the provider earnings and payments break down as follows:
-#            | Type                          | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
-#            | Provider Earned Total         | 1500  | 1500  | 1500  | ... | 1500  | 4500  | 0     |
-#            | Provider Earned from SFA      | 1350  | 1400  | 1400  | ... | 1400  | 4200  | 0     |
-#            | Provider Earned from Employer | 150   | 100   | 100   | ... | 100   | 300   | 0     |
-#            | Provider Paid by SFA          | 0     | 1350  | 1400  | ... | 1400  | 1400  | 4200  |
-#            | Payment due from Employer     | 0     | 150   | 100   | ... | 100   | 100   | 300   |
-#            | Levy account debited          | 0     | 0     | 500   | ... | 500   | 500   | 1500  |
-#            | SFA Levy employer budget      | 0     | 500   | 500   | ... | 500   | 1500  | 0     |
-#            | SFA Levy co-funding budget    | 1350  | 900   | 900   | ... | 900   | 2700  | 0     |
-#            | SFA non-Levy co-funding budget| 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#Scenario: 2 learners, 2 employers, 1 provider - not enough levy
+
+ Given the employer 1 has a levy balance of:
+            | 10/18 | 11/18 | 12/18 | ... | 09/19 | 10/19 |
+            | 0     | 100   | 100   | 100 | 250   | 500   |
+ 
+ And the employer 2 has a levy balance of:
+            | 10/18 | 11/18 | 12/18 | ... | 09/19 | 10/19 |
+            | 500   | 500   | 500   | 500 | 500   | 1500  |
+   
+ And the following commitments exist:
+            | Employer   | ULN       | priority | agreed price | start date | end date   |
+            | employer 1 | learner a | 1        | 7500         | 01/09/2018 | 08/09/2019 |
+            | employer 2 | learner b | 1        | 15000        | 01/09/2018 | 08/09/2019 |
+        
+
+When an ILR file is submitted with the following data:
+            | ULN       | agreed price | learner type       | start date | planned end date | actual end date | completion status |
+            | learner a | 7500         | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
+            | learner b | 15000        | programme only DAS | 01/09/2018 | 08/09/2019       | 08/09/2019      | completed         |
+			
+        
+Then the provider earnings and payments break down as follows:
+            | Type                            | 09/18 | 10/18 | 11/18 | ... | 08/19 | 09/19 | 10/19 |
+            | Provider Earned Total           | 1500  | 1500  | 1500  | ... | 1500  | 4500  | 0     |
+            | Provider Earned from SFA        | 1400  | 1410  | 1410  | ... | 1425  | 4250  | 0     |
+            | Provider Earned from Employer 1 | 50    | 40    | 40    | ... | 25    | 100   | 0     |
+            | Provider Earned from Employer 2 | 50    | 50    | 50    | ... | 50    | 150   | 0     |
+            | Provider Paid by SFA            | 0     | 1400  | 1410  | ... | 1410  | 1425  | 4250  |
+            | Payment due from Employer 1     | 0     | 50    | 40    | ... | 40    | 25    | 100   |
+            | Payment due from Employer 2     | 0     | 50    | 50    | ... | 50    | 50    | 150   |
+            | employer 1 Levy account debited | 0     | 0     | 100   | ... | 100   | 250   | 500   |
+            | employer 2 Levy account debited | 0     | 500   | 500   | ... | 500   | 500   | 1500  |
+            | SFA Levy employer budget        | 500   | 600   | 600   | ... | 750   | 2000  | 0     |
+            | SFA Levy co-funding budget      | 900   | 810   | 810   | ... | 675   | 2250  | 0     |
+            | SFA non-Levy co-funding budget  | 0     | 0     | 0     | ... | 0     | 0     | 0     |
 
 
 # levy balance = agreed price for all months for only one learner
 # Commitments line
 # Levy Payments
 
-Scenario Outline: Two levy learners, levy available but for only one learner, both finished on time PV2-264
+Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
 	# levy balance = agreed price for all months for only one learner
 	Given levy balance = agreed price for all months for only one learner
+	## Multiple givens lines for diff employers ????
 	# Commitment lines
 	And the following commitments exist
-        | ULN       | priority | start date | end date   | agreed price |
-        | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
-        | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
+        | Employer   | ULN       | priority | start date | end date   | agreed price |
+        | employer 1 | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
+        | employer 2 | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
 	# ULN
 	And the provider previously submitted the following learner details
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
@@ -151,7 +161,7 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
 Examples: 
-        | Collection_Period         |
+        | Collection_Period         | Levy Balance for E1 | E2 |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |
