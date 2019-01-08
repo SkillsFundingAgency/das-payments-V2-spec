@@ -36,12 +36,17 @@
 #        | SFA Levy co-funding budget    | 225   | 225   | 225   | 0     | 0     | 0     | 0     |
 
 Scenario:  A levy learner in co-funding and provider retrospectively notifies of a withdrawal after payments have already been made PV2-252
-    Given the following commitments exist:
-			| commitment Id | version Id | ULN       | start date | end date   | status | agreed price | effective from | effective to | programme type	|
-			| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | active | 11250        | 01/08/2018     |              | 25				|
+
+    Given The employer levy account balance is 2500 
+
+	And the following commitment exists
+		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | effective from               | effective to | programme type |
+		| 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year |              | 25             |
+
 	And the provider previously submitted the following learner details
         | ULN       | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
         | learner a | 1        | start of academic year | 12 months        | 11250                | Aug/Current Academic Year           | Aug/Current Academic Year            |                 | continuing        | 0                           | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 750          | 0          | 0         |
@@ -56,6 +61,7 @@ Scenario:  A levy learner in co-funding and provider retrospectively notifies of
         | May/Current Academic Year | 750          | 0          | 0         |
         | Jun/Current Academic Year | 750          | 0          | 0         |
         | Jul/Current Academic Year | 750          | 0          | 0         |
+
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 225                    | 25                          | 500               | Learning         |
@@ -69,6 +75,7 @@ Scenario:  A levy learner in co-funding and provider retrospectively notifies of
         | learner a | 1        | start of academic year | 12 months        | 11250                | Aug/Current Academic Year           | Aug/Current Academic Year            | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |  
 		 
 	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
+
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 750          | 0          | 0         |
@@ -83,15 +90,18 @@ Scenario:  A levy learner in co-funding and provider retrospectively notifies of
         | May/Current Academic Year | 0            | 0          | 0         |
         | Jun/Current Academic Year | 0            | 0          | 0         |
         | Jul/Current Academic Year | 0            | 0          | 0         |
+
     And the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R06/Current Academic Year | Nov/Current Academic Year | -750         | 0          | 0         |
         | R06/Current Academic Year | Dec/Current Academic Year | -750         | 0          | 0         |
+
     And the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
-        | R06/Current Academic Year | Nov/Current Academic Year | -225                   | -25                         | -500              | Learning         |
-        | R06/Current Academic Year | Dec/Current Academic Year | -225                   | -25                         | -500              | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | R06/Current Academic Year | Nov/Current Academic Year | -500          | -225                   | -25                         | Learning         |
+        | R06/Current Academic Year | Dec/Current Academic Year | -500          | -225                   | -25                         | Learning         |
+
     And at month end the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
-        | R06/Current Academic Year | Nov/Current Academic Year | -225                   | -25                         | -500              | Learning         |
-        | R06/Current Academic Year | Dec/Current Academic Year | -225                   | -25                         | -500              | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | R06/Current Academic Year | Nov/Current Academic Year | -500          | -225                   | -25                         | Learning         |
+        | R06/Current Academic Year | Dec/Current Academic Year | -500          | -225                   | -25                         | Learning         |

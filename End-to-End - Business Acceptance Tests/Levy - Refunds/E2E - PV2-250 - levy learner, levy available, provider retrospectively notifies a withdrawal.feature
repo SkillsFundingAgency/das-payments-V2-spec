@@ -38,13 +38,16 @@
 #        | SFA Levy co-funding budget    | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
 
 Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
-    Given The following commitment exists
-		| commitment Id | version Id | ULN       | start date | end date   | status | agreed price | effective from | effective to | programme type |
-		| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | active | 11250        | 01/08/2018     |              | 25				|
+    Given The employer levy account balance is 15000
+
+	And The following commitment exists
+		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | effective from               |
+		| 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year |
 
 	And the provider previously submitted the following learner details
-        | ULN       | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | start of academic year | 12 months        | 9000                 | Aug/Current Academic Year           | 2250                  | Aug/Current Academic Year            |                 | continuing        | 0                           | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         |                 | continuing        | 0                           | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 750          | 0          | 0         |
@@ -59,6 +62,7 @@ Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner 
         | May/Current Academic Year | 750          | 0          | 0         |
         | Jun/Current Academic Year | 750          | 0          | 0         |
         | Jul/Current Academic Year | 750          | 0          | 0         |
+
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750               | Learning         |
@@ -68,10 +72,11 @@ Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner 
         | R05/Current Academic Year | Dec/Current Academic Year | 750               | Learning         |
         
     But the Provider now changes the Learner details as follows
-        | ULN       | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | start of academic year | 12 months        | 9000                 | Aug/Current Academic Year           | Aug/Current Academic Year            | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
 	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
+
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 750          | 0          | 0         |
@@ -86,14 +91,17 @@ Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner 
         | May/Current Academic Year | 0            | 0          | 0         |
         | Jun/Current Academic Year | 0            | 0          | 0         |
         | Jul/Current Academic Year | 0            | 0          | 0         |
+
     And the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R06/Current Academic Year | Nov/Current Academic Year | -750         | 0          | 0         |
         | R06/Current Academic Year | Dec/Current Academic Year | -750         | 0          | 0         |
+
     And the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R06/Current Academic Year | Nov/Current Academic Year | -750              | Learning         |
         | R06/Current Academic Year | Dec/Current Academic Year | -750              | Learning         |
+
     And at month end the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R06/Current Academic Year | Nov/Current Academic Year | -750              | Learning         |
