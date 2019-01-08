@@ -64,7 +64,8 @@ Scenario:  For a DAS-Learner, the start date of apprenticeship is moved forward 
         | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
         | learner a | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | Aug/Current Academic Year            | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
-	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
+	When the amended ILR file is re-submitted for the learners in collection period <R06/Current Academic Year>
+
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 600          | 0          | 0         |

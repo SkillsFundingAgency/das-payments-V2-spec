@@ -75,7 +75,7 @@ Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner 
         | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
         | learner a | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
-	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
+	When the amended ILR file is re-submitted for the learners in collection period <R06/Current Academic Year>
 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -106,3 +106,13 @@ Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner 
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R06/Current Academic Year | Nov/Current Academic Year | -750              | Learning         |
         | R06/Current Academic Year | Dec/Current Academic Year | -750              | Learning         |
+
+		Examples: 
+        | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
+        | R03/Current Academic Year |
+        | R04/Current Academic Year |
+		| R05/Current Academic Year |
+		| R06/Current Academic Year |
+
