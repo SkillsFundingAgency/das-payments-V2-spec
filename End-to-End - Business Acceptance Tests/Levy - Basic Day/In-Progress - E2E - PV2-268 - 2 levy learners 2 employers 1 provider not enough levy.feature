@@ -43,12 +43,14 @@ Then the provider earnings and payments break down as follows:
 Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
 	# levy balance = agreed price for all months for only one learner
 	Given levy balance = agreed price for all months for only one learner
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	And  the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	## Multiple givens lines for diff employers ????
 	# Commitment lines
 	And the following commitments exist
-        | Employer   | ULN       | priority | start date | end date   | agreed price |
-        | employer 1 | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
-        | employer 2 | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
+        | Employer   | ULN       | priority | start date                | end date                     | agreed price |
+        | employer 1 | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
+        | employer 2 | learner b | 2        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
 	# ULN
 	And the provider previously submitted the following learner details
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
@@ -161,7 +163,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
 Examples: 
-        | Collection_Period         | Levy Balance for E1 | E2 |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
+        | Collection_Period         | Levy Balance for Employer 1 | Levy Balance for Employer E2 |
+        | R01/Current Academic Year | 250                         | 500                          |
+        | R02/Current Academic Year | 500                         | 1500                         |
+        | R03/Current Academic Year | 0                           | 0                            |
