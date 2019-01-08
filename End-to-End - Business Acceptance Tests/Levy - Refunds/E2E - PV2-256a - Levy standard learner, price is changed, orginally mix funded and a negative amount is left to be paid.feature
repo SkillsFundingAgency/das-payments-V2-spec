@@ -43,14 +43,13 @@
 
 
 Scenario Outline: Levy standard learner, price is changed, orginally mix funded and a negative amount is left to be paid PV2-256a
-	# levy balance > agreed price for all months
-	Given The employers levy balance is : 
-        | 09/18 | 10/18 | 11/18 | 12/18 |
-        | 750   | 375   | 1000  | 1000  |
-	# Commitment line
+
+	Given The employers levy balance is <Levy Balance> 
+
 	And the following commitment exists
-        | ULN       | priority | start date | end date   | agreed price | standard code | programme type |
-        | learner a | 1        | 01/08/2018 | 01/08/2019 | 11250        | 25            | 25             |
+       | commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | effective from               | effective to                 | standard code | programme type |
+       | 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 03/Oct/Current Academic Year | 25            | 25             |
+       
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -71,27 +70,26 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | Jun/Current Academic Year | 750          | 0          | 0         |
         | Jul/Current Academic Year | 750          | 0          | 0         |
 
-	# SFA Levy Payment
-	# and levy acccount has been debited
     And the following provider payments had been generated and levy acccount has been debited
-        | Collection Period     | Delivery Period       | SFA Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 750               | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 750               | Learning         |
+
+        | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | R01/Current Academic Year | Aug/Current Academic Year | 750               | 0                      | 0                           | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 375               | 337.5                  | 37.5                        | Learning         |
 
     But  The Commitment details are changed as follows
-		| ULN       | priority | start date | end date   | agreed price | standard code | programme type |
-		| learner a | 1        | 01/08/2018 | 01/08/2019 | 1400         | 25            | 25             |
+		| commitment Id | version Id | ULN       | priority | start date                   | end date                     | agreed price | standard code | programme type |
+		| 1             | 2          | learner a | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
 
     And  The Provider now changes the Learner details as follows
-		| ULN       | Priority | Start Date             | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
-		| learner a | 1        | start of academic year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
+		| ULN       | Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
+		| learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
 
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date |
         | 1st price details | 9000                 | Aug/Current Academic Year           | 2250                  | Aug/Current Academic Year            |
         | 2nd price details | 1200                 | Oct/Current Academic Year           | 200                   | Oct/Current Academic Year            |
 
-	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
+	When the amended ILR file is re-submitted for the learners in collection period <R03/Current Academic Year>
 
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -108,18 +106,21 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | Jun/Current Academic Year | 0            | 0          | 0         |
         | Jul/Current Academic Year | 0            | 0          | 0         |
 
-	# SFA Levy Payment
-	# and levy acccount has been debited
-	And only the following provider payments will be recorded and levy acccount has been debited
+	
+	And Only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R03/Current Academic Year | Oct/Current Academic Year | -100         | 0          | 0         |
-	And at month end only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 3000              | Completion       |
+
+	And only the following provider payments will be recorded 
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments |
+        | R03/Current Academic Year | Oct/Current Academic Year | -50           | -45                    | -5                          |
+
+    And the following provider payments will be generated
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments |
+        | R03/Current Academic Year | Oct/Current Academic Year | -50           | -45                    | -5                          |
+
 Examples: 
-        | Collection_Period         |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
-		| R04/Current Academic Year |
+        | Collection_Period         | Levy Balance |
+        | R02/Current Academic Year | 750          |
+        | R03/Current Academic Year | 375          |
+        | R04/Current Academic Year | 1050         |
