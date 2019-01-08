@@ -39,28 +39,23 @@
 
 # employer 1 levy balance > agreed price for all months for both learners
 # Commitments line
-# SFA Levy Payment
-# and levy acccount has been debited
+# Levy Payments
+# multiple providers
 
-# Do we want to include employer column in all tables?
-# Do we want to add provider column as this is different from 324 and 325
 Scenario Outline: Two levy learners, one employer but two providers and enough levy available both finished on time PV2-269
 	# employer 1 levy balance > agreed price for all months for both learners
-	Given employer 1 levy balance > agreed price for all months for both learners
-	# Commitment lines
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-        | Employer   | Provider   | ULN       | priority | start date | end date   | agreed price |
-        | employer 1 | provider a | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
-        | employer 1 | provider b | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
-	# multiple providers
+        | Employer   | Provider   | ULN       | priority | start date                | end date                     | agreed price |
+        | employer 1 | provider a | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
+        | employer 1 | provider b | learner b | 2        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
 	And the "provider a" previously submitted the following learner details
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	And the "provider b" previously submitted the following learner details
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-	# ULN
-    And the following earnings had been generated for the learner
+    And the following earnings had been generated for the learner for "provider a"
         | ULN       | Delivery Period        | On-Programme | Completion | Balancing |
         | learner a | Aug/Last Academic Year | 0            | 0          | 0         |
         | learner a | Sep/Last Academic Year | 500          | 0          | 0         |
@@ -74,6 +69,8 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | learner a | May/Last Academic Year | 500          | 0          | 0         |
         | learner a | Jun/Last Academic Year | 500          | 0          | 0         |
         | learner a | Jul/Last Academic Year | 500          | 0          | 0         |
+	And the following earnings had been generated for the learner for "provider b"
+		| ULN       | Delivery Period        | On-Programme | Completion | Balancing |
         | learner b | Aug/Last Academic Year | 0            | 0          | 0         |
         | learner b | Sep/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Oct/Last Academic Year | 1000         | 0          | 0         |
@@ -86,47 +83,41 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | learner b | May/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Jun/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Jul/Last Academic Year | 1000         | 0          | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
-	# ULN
-	# multiple providers
-    And the following "provider a" payments had been generated and levy acccount has been debited
-        | ULN       | Collection Period      | Delivery Period        | SFA Levy Payments | Transaction Type |
-        | learner a | R02/Last Academic Year | Sep/Last Academic Year | 500               | Learning         |
-        | learner a | R03/Last Academic Year | Oct/Last Academic Year | 500               | Learning         |
-        | learner a | R04/Last Academic Year | Nov/Last Academic Year | 500               | Learning         |
-        | learner a | R05/Last Academic Year | Dec/Last Academic Year | 500               | Learning         |
-        | learner a | R06/Last Academic Year | Jan/Last Academic Year | 500               | Learning         |
-        | learner a | R07/Last Academic Year | Feb/Last Academic Year | 500               | Learning         |
-        | learner a | R08/Last Academic Year | Mar/Last Academic Year | 500               | Learning         |
-        | learner a | R09/Last Academic Year | Apr/Last Academic Year | 500               | Learning         |
-        | learner a | R10/Last Academic Year | May/Last Academic Year | 500               | Learning         |
-        | learner a | R11/Last Academic Year | Jun/Last Academic Year | 500               | Learning         |
-        | learner a | R12/Last Academic Year | Jul/Last Academic Year | 500               | Learning         |
-	And the following "provider b" payments had been generated and levy acccount has been debited
-        | ULN       | Collection Period      | Delivery Period        | SFA Levy Payments | Transaction Type |
-        | learner b | R02/Last Academic Year | Sep/Last Academic Year | 1000              | Learning         |
-        | learner b | R03/Last Academic Year | Oct/Last Academic Year | 1000              | Learning         |
-        | learner b | R04/Last Academic Year | Nov/Last Academic Year | 1000              | Learning         |
-        | learner b | R05/Last Academic Year | Dec/Last Academic Year | 1000              | Learning         |
-        | learner b | R06/Last Academic Year | Jan/Last Academic Year | 1000              | Learning         |
-        | learner b | R07/Last Academic Year | Feb/Last Academic Year | 1000              | Learning         |
-        | learner b | R08/Last Academic Year | Mar/Last Academic Year | 1000              | Learning         |
-        | learner b | R09/Last Academic Year | Apr/Last Academic Year | 1000              | Learning         |
-        | learner b | R10/Last Academic Year | May/Last Academic Year | 1000              | Learning         |
-        | learner b | R11/Last Academic Year | Jun/Last Academic Year | 1000              | Learning         |
-        | learner b | R12/Last Academic Year | Jul/Last Academic Year | 1000              | Learning         |
-	# ULN
-	# multiple providers
+    And the following "provider a" payments had been generated
+        | ULN       | Collection Period      | Delivery Period        | Levy Payments | Transaction Type |
+        | learner a | R02/Last Academic Year | Sep/Last Academic Year | 500           | Learning         |
+        | learner a | R03/Last Academic Year | Oct/Last Academic Year | 500           | Learning         |
+        | learner a | R04/Last Academic Year | Nov/Last Academic Year | 500           | Learning         |
+        | learner a | R05/Last Academic Year | Dec/Last Academic Year | 500           | Learning         |
+        | learner a | R06/Last Academic Year | Jan/Last Academic Year | 500           | Learning         |
+        | learner a | R07/Last Academic Year | Feb/Last Academic Year | 500           | Learning         |
+        | learner a | R08/Last Academic Year | Mar/Last Academic Year | 500           | Learning         |
+        | learner a | R09/Last Academic Year | Apr/Last Academic Year | 500           | Learning         |
+        | learner a | R10/Last Academic Year | May/Last Academic Year | 500           | Learning         |
+        | learner a | R11/Last Academic Year | Jun/Last Academic Year | 500           | Learning         |
+        | learner a | R12/Last Academic Year | Jul/Last Academic Year | 500           | Learning         |
+	And the following "provider b" payments had been generated
+        | ULN       | Collection Period      | Delivery Period        | Levy Payments | Transaction Type |
+        | learner b | R02/Last Academic Year | Sep/Last Academic Year | 1000          | Learning         |
+        | learner b | R03/Last Academic Year | Oct/Last Academic Year | 1000          | Learning         |
+        | learner b | R04/Last Academic Year | Nov/Last Academic Year | 1000          | Learning         |
+        | learner b | R05/Last Academic Year | Dec/Last Academic Year | 1000          | Learning         |
+        | learner b | R06/Last Academic Year | Jan/Last Academic Year | 1000          | Learning         |
+        | learner b | R07/Last Academic Year | Feb/Last Academic Year | 1000          | Learning         |
+        | learner b | R08/Last Academic Year | Mar/Last Academic Year | 1000          | Learning         |
+        | learner b | R09/Last Academic Year | Apr/Last Academic Year | 1000          | Learning         |
+        | learner b | R10/Last Academic Year | May/Last Academic Year | 1000          | Learning         |
+        | learner b | R11/Last Academic Year | Jun/Last Academic Year | 1000          | Learning         |
+        | learner b | R12/Last Academic Year | Jul/Last Academic Year | 1000          | Learning         |
     But the "provider a" now changes the Learner details as follows
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
     And the "provider b" now changes the Learner details as follows
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
-	# ULN
-	Then the following learner earnings should be generated
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period> by "provider a"
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period> by "provider b"
+	Then the following learner earnings should be generated for "provider a"
 		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner a | Aug/Current Academic Year | 500          | 0          | 0         |
 		| learner a | Sep/Current Academic Year | 0            | 1500       | 0         |
@@ -140,6 +131,8 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
 		| learner a | May/Current Academic Year | 0            | 0          | 0         |
 		| learner a | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner a | Jul/Current Academic Year | 0            | 0          | 0         |
+	And the following learner earnings should be generated for "provider b"
+		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner b | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner b | Sep/Current Academic Year | 0            | 3000       | 0         |
 		| learner b | Oct/Current Academic Year | 0            | 0          | 0         |
@@ -152,8 +145,6 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
 		| learner b | May/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
-	# ULN
-	# multiple providers
     And only the following payments will be calculated for "provider a"
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
@@ -162,27 +153,24 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
-	# SFA Levy Payment
-	# and levy acccount has been debited
-	# multiple providers
-	And only the following "provider a" payments will be recorded and levy acccount has been debited
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
-	And only the following "provider b" payments will be recorded and levy acccount has been debited
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
+	And only the following "provider a" payments will be recorded
+        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500          | Completion       |
+	And only the following "provider b" payments will be recorded
+        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
 	And at month end only the following "provider a" payments will be generated
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500               | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500              | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500          | Completion       |
 	And at month end only the following "provider b" payments will be generated
-        | ULN       | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000              | Completion       |
+        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
 Examples: 
-        | Collection_Period         |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
+        | Collection_Period         | Levy Balance |
+        | R01/Current Academic Year | 6500         |
+        | R02/Current Academic Year | 5000         |
+        | R03/Current Academic Year | 500          |
