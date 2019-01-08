@@ -26,19 +26,19 @@
 #            | SFA Levy co-funding budget    | 1350  | 900   | 900   | ... | 900   | 2700  | 0     |
 #            | SFA non-Levy co-funding budget| 0     | 0     | 0     | ... | 0     | 0     | 0     |
 
-
-# levy balance = agreed price for all months for only one learner
-# Commitments line
-# Levy Payments
+# New Given for levy balance
+# New Commitments line
+# New column - Levy Payments
+# Multiple Learners
 
 Scenario Outline: Two levy learners, levy available but for only one learner, both finished on time PV2-264
 	# levy balance = agreed price for all months for only one learner
-	Given levy balance = agreed price for all months for only one learner
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	# Commitment lines
 	And the following commitments exist
-        | ULN       | priority | start date | end date   | agreed price |
-        | learner a | 1        | 01/09/2018 | 08/09/2019 | 7500         |
-        | learner b | 2        | 01/09/2018 | 08/09/2019 | 15000        |
+        | ULN       | priority | start date                | end date                     | agreed price |
+        | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
+        | learner b | 2        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
 	# ULN
 	And the provider previously submitted the following learner details
 		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
@@ -151,7 +151,7 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
 Examples: 
-        | Collection_Period         |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
+        | Collection_Period         | Levy Balance |
+        | R01/Current Academic Year | 500          |
+        | R02/Current Academic Year | 1500         |
+        | R03/Current Academic Year | 0            |

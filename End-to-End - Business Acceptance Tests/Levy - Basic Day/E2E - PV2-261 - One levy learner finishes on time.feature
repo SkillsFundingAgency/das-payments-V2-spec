@@ -97,6 +97,6 @@ Scenario Outline: One levy learner, levy available, finished on time PV2-261
 # Levy Balance
 Examples: 
         | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 1500         |
+        | R01/Current Academic Year | 4500         |
         | R02/Current Academic Year | 3500         |
         | R03/Current Academic Year | 500          |
