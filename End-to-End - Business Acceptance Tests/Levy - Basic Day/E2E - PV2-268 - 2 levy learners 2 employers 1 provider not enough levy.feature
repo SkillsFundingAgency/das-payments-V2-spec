@@ -43,8 +43,8 @@
 
 Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
 	# levy balance is not enough for both employers
-	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for Employer E1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for Employer E2>
+	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
+	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
         | Employer   | ULN       | priority | start date                | end date                     | agreed price |
         | employer 1 | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
@@ -153,7 +153,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500           | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 1350                   | 150                         | 1500          | Completion       |
 Examples: 
-        | Collection_Period         | Levy Balance for Employer 1 | Levy Balance for Employer E2 |
-        | R01/Current Academic Year | 250                         | 500                          |
-        | R02/Current Academic Year | 500                         | 1500                         |
-        | R03/Current Academic Year | 0                           | 0                            |
+        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
+        | R01/Current Academic Year | 250                         | 500                         |
+        | R02/Current Academic Year | 500                         | 1500                        |
+        | R03/Current Academic Year | 0                           | 0                           |
