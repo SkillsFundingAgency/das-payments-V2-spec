@@ -35,16 +35,16 @@
 
 Scenario Outline: 2 levy learners 2 employers 1 provider and enough levy PV2-267
 	# levy balance is enough for both employers
-	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for Employer E1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for Employer E2>
+	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
+	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
         | Employer   | ULN       | priority | start date                | end date                     | agreed price |
         | employer 1 | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
         | employer 2 | learner b | 2        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
 	And the provider previously submitted the following learner details
-		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
         | ULN       | Delivery Period        | On-Programme | Completion | Balancing |
         | learner a | Aug/Last Academic Year | 0            | 0          | 0         |
@@ -96,9 +96,9 @@ Scenario Outline: 2 levy learners 2 employers 1 provider and enough levy PV2-267
         | learner b | R11/Last Academic Year | Jun/Last Academic Year | 1000          | Learning         |
         | learner b | R12/Last Academic Year | Jul/Last Academic Year | 1000          | Learning         |
     But the Provider now changes the Learner details as follows
-		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
@@ -145,7 +145,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider and enough levy PV2-267
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
 Examples: 
-        | Collection_Period         | Levy Balance for Employer 1 | Levy Balance for Employer E2 |
-        | R01/Current Academic Year | 2500                        | 4500                         |
-        | R02/Current Academic Year | 2000                        | 3500                         |
-        | R03/Current Academic Year | 500                         | 500                          |
+        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
+        | R01/Current Academic Year | 2500                        | 4500                        |
+        | R02/Current Academic Year | 2000                        | 3500                        |
+        | R03/Current Academic Year | 500                         | 500                         |

@@ -39,12 +39,10 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
         | ULN       | priority | start date                | end date                     | agreed price |
         | learner a | 1        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 7500         |
         | learner b | 2        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
-	# ULN
 	And the provider previously submitted the following learner details
-		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-	# ULN
+		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
         | ULN       | Delivery Period        | On-Programme | Completion | Balancing |
         | learner a | Aug/Last Academic Year | 0            | 0          | 0         |
@@ -72,7 +70,6 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
         | learner b | Jun/Last Academic Year | 1000         | 0          | 0         |
         | learner b | Jul/Last Academic Year | 1000         | 0          | 0         |
 	# Levy Payments
-	# ULN
     And the following provider payments had been generated
         | ULN       | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | learner a | R02/Last Academic Year | Sep/Last Academic Year | 450                    | 50                          | 0                 | Learning         |
@@ -97,13 +94,11 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
         | learner b | R10/Last Academic Year | May/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
         | learner b | R11/Last Academic Year | Jun/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
         | learner b | R12/Last Academic Year | Jul/Last Academic Year | 900                    | 100                         | 0                 | Learning         |
-	# ULN
     But the Provider now changes the Learner details as follows
-		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
-		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| ULN       | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| learner b | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
-	# ULN
 	Then the following learner earnings should be generated
 		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner a | Aug/Current Academic Year | 500          | 0          | 0         |
@@ -130,7 +125,6 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
 		| learner b | May/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
-	# ULN
     And only the following payments will be calculated
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
@@ -140,16 +134,16 @@ Scenario Outline: Two levy learners, levy available but for only one learner, bo
 	# Levy Payments
 	And only the following provider payments will be recorded
         | ULN       | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500               | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1500              | Completion       |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1500          | Completion       |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0             | Completion       |
 	And at month end only the following provider payments will be generated
         | ULN       | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500               | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1500              | Completion       |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0                 | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0                 | Completion       |
+        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1500          | Completion       |
+        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 2700                   | 300                         | 0             | Completion       |
 Examples: 
         | Collection_Period         | Levy Balance |
         | R01/Current Academic Year | 500          |
