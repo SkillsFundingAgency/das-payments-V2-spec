@@ -2,15 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Refunds",
-    "\\End-to-End - Business Acceptance Tests\\Maths and English",
+    "\\End-to-End - Business Acceptance Tests\\Master Branch",
+    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Learning Support",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\Learning Support",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\Learning Support\\Non - Levy",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Learner Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\V1 format feature files from JIRA"
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\Learning Support\\Non - Levy"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Basic Day\\Confluence - Two Non Levy-Learners One Finishes Late And Other Finishes Early PV2-199.feature",
   "PreviewInSolutionExplorer": false
 }
