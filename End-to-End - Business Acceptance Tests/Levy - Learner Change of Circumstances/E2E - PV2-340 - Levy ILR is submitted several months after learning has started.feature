@@ -20,7 +20,7 @@
 #            | SFA Levy employer budget   | 1000  | 1000  | 1000  | 1000  | 1000  | 1000  | ... |
 #            | SFA Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | 0     | ... |
 
-Scenario Outline: One levy learner, levy available, finished on time PV2-261
+Scenario Outline: One levy learner, levy available, ILR submitted several months later but before AY end PV2-340
 	# levy balance > agreed price for all months
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	# New Commitment line
