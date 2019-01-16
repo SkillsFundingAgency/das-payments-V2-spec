@@ -3,7 +3,7 @@
 #        And the apprenticeship funding band maximum is 17000
 #        And levy balance > agreed price for all months
 #
-#    Scenario: Earnings and payments for a DAS learner, levy available, where the apprenticeship standard changes and data lock is passed in both instances
+#    Scenario: Earnings and payments for a DAS learner, levy available, where the apprenticeship standard changes
 #        Given the following commitments exist on 03/12/2018:
 #            | commitment Id | version Id | ULN       | standard code | start date | end date   | agreed price | effective from | effective to |
 #            | 1             | 1-001      | learner a | 51            | 01/08/2018 | 01/08/2019 | 15000        | 01/08/2018     | 31/10/2018   |
