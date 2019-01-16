@@ -126,7 +126,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider and enough levy PV2-267
 		| learner b | May/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0            | 1500       | 0         |
@@ -138,7 +138,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider and enough levy PV2-267
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500          | Completion       |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500          | Completion       |

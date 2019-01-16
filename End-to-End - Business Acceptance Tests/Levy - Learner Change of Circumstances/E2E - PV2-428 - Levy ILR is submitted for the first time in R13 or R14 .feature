@@ -57,7 +57,7 @@ Scenario Outline: One levy learner, levy available, ILR submitted for the first 
         | Jun/Current Academic Year | 1000         | 0          | 0         |
         | Jul/Current Academic Year | 1000         | 0          | 0         |
 
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R13/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
         | R13/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -85,7 +85,7 @@ Scenario Outline: One levy learner, levy available, ILR submitted for the first 
 		| R13/Current Academic Year | Jun/Current Academic Year | 1000         | Learning         |
 		| R13/Current Academic Year | Jul/Current Academic Year | 1000         | Learning         |
 
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R13/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
         | R13/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |

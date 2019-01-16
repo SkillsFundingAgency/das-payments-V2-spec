@@ -126,7 +126,7 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
         | Jun/Current Academic Year | 1000         | 0          | 0         |
         | Jul/Current Academic Year | 1000         | 0          | 0         |
 
-    And the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |Standard Code |
         | R03/Current Academic Year | Aug/Current Academic Year | -1000        | 0          | 0         | 51           |
         | R03/Current Academic Year | Sep/Current Academic Year | -1000        | 0          | 0         | 51           |
@@ -134,7 +134,7 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
         | R03/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 52           |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         | 52           |
 
-    And the following provider payments will be recorded
+    And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
         | R03/Current Academic Year | Aug/Current Academic Year | -1000             | Learning         | 51            |
         | R03/Current Academic Year | Sep/Current Academic Year | -1000             | Learning         | 51            |
@@ -142,7 +142,7 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
         | R03/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         | 52            |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         | 52            |
 
-    And at month end the following provider payments will be generated
+    And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
         | R03/Current Academic Year | Aug/Current Academic Year | -1000             | Learning         | 51            |
         | R03/Current Academic Year | Sep/Current Academic Year | -1000             | Learning         | 51            |

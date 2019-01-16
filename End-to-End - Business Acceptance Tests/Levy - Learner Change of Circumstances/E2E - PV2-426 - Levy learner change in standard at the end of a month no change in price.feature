@@ -84,17 +84,17 @@ Scenario Outline: Levy learner change to standard at the end of a month no chang
         | Jun/Current Academic Year | 1333.33      | 0          | 0         |
         | Jul/Current Academic Year | 1333.33      | 0          | 0         |
 
-    And at month end the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R04/Current Academic Year | Nov/Current Academic Year | 1333.33      | 0          | 0         |
         | R05/Current Academic Year | Dec/Current Academic Year | 1333.33      | 0          | 0         |
 
-    And the following provider payments will be recorded
+    And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R04/Current Academic Year | Nov/Current Academic Year | 1333.33           | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 1333.33           | Learning         |
 
-    And the following provider payments will be generated
+    And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R04/Current Academic Year | Nov/Current Academic Year | 1333.33           | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 1333.33           | Learning         |

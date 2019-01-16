@@ -134,7 +134,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
 		| learner b | May/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0            | 1500       | 0         |
@@ -146,7 +146,7 @@ Scenario Outline: 2 levy learners 2 employers 1 provider not enough levy PV2-268
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 500           | Completion       |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500           | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 1350                   | 150                         | 1500          | Completion       |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | ULN       | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 225                    | 25                          | 250           | Learning         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 500           | Completion       |

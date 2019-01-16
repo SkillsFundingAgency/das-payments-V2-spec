@@ -79,7 +79,7 @@ Scenario Outline: One levy learner, levy available, finishes one month early PV2
 		| May/Current Academic Year | 0            | 0          | 0         |
 		| Jun/Current Academic Year | 0            | 0          | 0         |
 		| Jul/Current Academic Year | 0            | 0          | 0         |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 0            | 0          | 1000      |
         | R01/Current Academic Year | Aug/Current Academic Year | 0            | 3000       | 0         |
@@ -87,7 +87,7 @@ Scenario Outline: One levy learner, levy available, finishes one month early PV2
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Balancing        |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000          | Completion       |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Balancing        |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000          | Completion       |

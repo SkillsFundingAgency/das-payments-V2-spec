@@ -145,11 +145,11 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
 		| learner b | May/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
 		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
-    And only the following payments will be calculated for "provider a"
+    And at month end only the following payments will be calculated for "provider a"
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 0            | 1500       | 0         |
-    And only the following payments will be calculated for "provider b"
+    And at month end only the following payments will be calculated for "provider b"
         | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 0            | 3000       | 0         |
@@ -161,11 +161,11 @@ Scenario Outline: Two levy learners, one employer but two providers and enough l
         | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
-	And at month end only the following "provider a" payments will be generated
+	And only the following "provider a" payments will be generated
         | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | learner a | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
         | learner a | R02/Current Academic Year | Sep/Current Academic Year | 1500          | Completion       |
-	And at month end only the following "provider b" payments will be generated
+	And only the following "provider b" payments will be generated
         | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | learner b | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | learner b | R02/Current Academic Year | Sep/Current Academic Year | 3000          | Completion       |
