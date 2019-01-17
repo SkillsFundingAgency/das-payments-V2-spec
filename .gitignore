@@ -3,3 +3,6 @@
 ################################################################################
 /.vs
 .vs/das-payments-V2-spec/v15/.suo
+.vs/VSWorkspaceState.json
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
