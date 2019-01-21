@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\End-to-End - Business Acceptance Tests",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Learner Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Refunds",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Additional Payments English and Maths",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Disadvantage - Uplift",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Employer change of circumstances"
+    "\\End-to-End - Business Acceptance Tests"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day\\E2E - PV2-261 - One levy learner finishes on time.feature",
   "PreviewInSolutionExplorer": false
 }
