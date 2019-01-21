@@ -6,3 +6,4 @@
 .vs/VSWorkspaceState.json
 .vs/ProjectSettings.json
 .vs/slnx.sqlite
+*.json
