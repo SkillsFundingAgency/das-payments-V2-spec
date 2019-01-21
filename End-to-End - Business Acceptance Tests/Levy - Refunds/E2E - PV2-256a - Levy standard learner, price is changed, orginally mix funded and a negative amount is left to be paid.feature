@@ -47,13 +47,13 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
 	Given The employers levy balance is <Levy Balance> 
 
 	And the following commitment exists
-       | commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | effective from               | effective to                 | standard code | programme type |
-       | 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 03/Oct/Current Academic Year | 25            | 25             |
+		| start date                   | end date                     | agreed price |
+		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        |
        
 
 	And the provider previously submitted the following learner details
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -107,7 +107,7 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | Jul/Current Academic Year | 0            | 0          | 0         |
 
 	
-	And Only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R03/Current Academic Year | Oct/Current Academic Year | -100         | 0          | 0         |
 
@@ -115,7 +115,7 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments |
         | R03/Current Academic Year | Oct/Current Academic Year | -50           | -45                    | -5                          |
 
-    And the following provider payments will be generated
+	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments |
         | R03/Current Academic Year | Oct/Current Academic Year | -50           | -45                    | -5                          |
 
