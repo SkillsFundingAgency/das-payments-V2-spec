@@ -32,15 +32,16 @@
 
 Scenario Outline: Earnings and payments for a levy learner when the negotiated price changes at the end of the month PV2-359
 
-	Given the employer levy account balance is 17000
+	Given the levy account balance in collection period <Collection_Period> is <Levy Balance>
 
-	And The following commitment exists
-		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | Standard Code |
-		| 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 51            |
+	And the following commitments exist on "03/Dec/Current Academic Year"
+		| commitment Id | version Id | ULN       | start date | end date   | agreed price | effective from | effective to |
+		| 1             | 1-001      | learner a | 01/08/2018 | 01/08/2019 | 15000        | 01/08/2018     | 31/10/2018   |
+		| 1             | 1-002      | learner a | 01/08/2018 | 01/08/2019 | 5625         | 03/11/2018     |              |
 
 	And the provider previously submitted the following learner details
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 0.90                        | ContractWithEmployer | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -61,58 +62,41 @@ Scenario Outline: Earnings and payments for a levy learner when the negotiated p
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         |
- 
-
-        
-    But The commitment is now changed as follows 
-		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | Standard Code |
-		| 1             | 2          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 52            |
-
-	And the Provider now changes the Learner details as follows
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         |
+       
+    But the Provider now changes the Learner details as follows
+        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 5000                 | 03/Nov/Current Academic Year        | 625                   | 03/Nov/Current Academic Year         | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
-	When the amended ILR file is re-submitted for the learners in collection period R03/Current Academic Year
+	When the amended ILR file is re-submitted for the learners in collection period "R04/Current Academic Year"
 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
         | Sep/Current Academic Year | 1000         | 0          | 0         |
         | Oct/Current Academic Year | 1000         | 0          | 0         |
-        | Nov/Current Academic Year | 1000         | 0          | 0         |
-        | Dec/Current Academic Year | 1000         | 0          | 0         |
-        | Jan/Current Academic Year | 1000         | 0          | 0         |
-        | Feb/Current Academic Year | 1000         | 0          | 0         |
-        | Mar/Current Academic Year | 1000         | 0          | 0         |
-        | Apr/Current Academic Year | 1000         | 0          | 0         |
-        | May/Current Academic Year | 1000         | 0          | 0         |
-        | Jun/Current Academic Year | 1000         | 0          | 0         |
-        | Jul/Current Academic Year | 1000         | 0          | 0         |
+        | Nov/Current Academic Year | 500          | 0          | 0         |
+        | Dec/Current Academic Year | 500          | 0          | 0         |
+        | Jan/Current Academic Year | 500          | 0          | 0         |
+        | Feb/Current Academic Year | 500          | 0          | 0         |
+        | Mar/Current Academic Year | 500          | 0          | 0         |
+        | Apr/Current Academic Year | 500          | 0          | 0         |
+        | May/Current Academic Year | 500          | 0          | 0         |
+        | Jun/Current Academic Year | 500          | 0          | 0         |
+        | Jul/Current Academic Year | 500          | 0          | 0         |
 
-    And the following payments will be calculated
-        | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |Standard Code |
-        | R03/Current Academic Year | Aug/Current Academic Year | -1000        | 0          | 0         | 51           |
-        | R03/Current Academic Year | Sep/Current Academic Year | -1000        | 0          | 0         | 51           |
-        | R03/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 52           |
-        | R03/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 52           |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         | 52           |
+    And at month end only the following payments will be calculated
+        | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | Standard Code |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         | 52            |
 
-    And the following provider payments will be recorded
+    And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
-        | R03/Current Academic Year | Aug/Current Academic Year | -1000             | Learning         | 51            |
-        | R03/Current Academic Year | Sep/Current Academic Year | -1000             | Learning         | 51            |
-        | R03/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         | 52            |
-        | R03/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         | 52            |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         | 52            |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500               | Learning         | 52            |
 
-    And at month end the following provider payments will be generated
+    And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
-        | R03/Current Academic Year | Aug/Current Academic Year | -1000             | Learning         | 51            |
-        | R03/Current Academic Year | Sep/Current Academic Year | -1000             | Learning         | 51            |
-        | R03/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         | 52            |
-        | R03/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         | 52            |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         | 52            |
-
+        | R04/Current Academic Year | Nov/Current Academic Year | 500               | Learning         | 52            |
+     
 		Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
