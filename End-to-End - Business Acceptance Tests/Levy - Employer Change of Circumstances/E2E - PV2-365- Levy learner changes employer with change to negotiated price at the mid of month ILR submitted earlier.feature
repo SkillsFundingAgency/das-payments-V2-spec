@@ -97,9 +97,11 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
         | May/Current Academic Year | 500          | 0          | 0         |
         | Jun/Current Academic Year | 500          | 0          | 0         |
         | Jul/Current Academic Year | 500          | 0          | 0         |
+	# Query for Alex to confirm Nov payments
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0            | 0          | 0         |
+        | R05/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 500          | 0          | 0         |
 		| R07/Current Academic Year | Feb/Current Academic Year | 500          | 0          | 0         |
@@ -110,7 +112,8 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
 		| R12/Current Academic Year | Jul/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | Learning         |
+		| R05/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
         | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         |
         | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         |
@@ -121,7 +124,8 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | Learning         |
+		| R05/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
         | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         |
         | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         |
