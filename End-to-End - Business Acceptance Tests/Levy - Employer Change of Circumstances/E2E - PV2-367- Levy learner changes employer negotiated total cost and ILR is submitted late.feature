@@ -36,6 +36,7 @@
         #    | employer 1 | DAS  | 03/08/2018                |
         #    | employer 2 | DAS  | 03/11/2018                |
 
+
 Feature: Earnings and payments for a levy learner, levy available, where a total cost changes during the programme and ILR is submitted late
 
 Scenario Outline: Levy learner changes employer, negotiated total cost and ILR is submitted late PV2-367
@@ -117,12 +118,12 @@ Examples:
         | R01/Current Academic Year | 15500                       | 7125                        |
         | R02/Current Academic Year | 15500                       | 7125                        |
         | R03/Current Academic Year | 15500                       | 7125                        |
-        | R04/Current Academic Year | 12500                       | 5625                        |
-        | R05/Current Academic Year | 12500                       | 5125                        |
-		| R06/Current Academic Year | 12500                       | 4625                        |
-		| R07/Current Academic Year | 12500                       | 4125                        |
-		| R08/Current Academic Year | 12500                       | 3525                        |
-		| R09/Current Academic Year | 12500                       | 3125                        |
-		| R10/Current Academic Year | 12500                       | 2625                        |
-		| R11/Current Academic Year | 12500                       | 2125                        |
-		| R12/Current Academic Year | 12500                       | 1625                        |
+        | R04/Current Academic Year | 15500                       | 7125                        |
+        | R05/Current Academic Year | 12500                       | 5625                        |
+		| R06/Current Academic Year | 12500                       | 5125                        |
+		| R07/Current Academic Year | 12500                       | 4625                        |
+		| R08/Current Academic Year | 12500                       | 4125                        |
+		| R09/Current Academic Year | 12500                       | 3525                        |
+		| R10/Current Academic Year | 12500                       | 3125                        |
+		| R11/Current Academic Year | 12500                       | 2625                        |
+		| R12/Current Academic Year | 12500                       | 2125                        |
