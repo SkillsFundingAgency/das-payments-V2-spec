@@ -97,20 +97,54 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
         | May/Current Academic Year | 500          | 0          | 0         |
         | Jun/Current Academic Year | 500          | 0          | 0         |
         | Jul/Current Academic Year | 500          | 0          | 0         |
-    And at month end no payments will be calculated 
- 	And no provider payments will be recorded
-	And no provider payments will be generated
+	# Query for Alex to confirm Nov payments
+    And at month end only the following payments will be calculated
+        | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0            | 0          | 0         |
+        | R05/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
+		| R06/Current Academic Year | Jan/Current Academic Year | 500          | 0          | 0         |
+		| R07/Current Academic Year | Feb/Current Academic Year | 500          | 0          | 0         |
+		| R08/Current Academic Year | Mar/Current Academic Year | 500          | 0          | 0         |
+		| R09/Current Academic Year | Apr/Current Academic Year | 500          | 0          | 0         |
+		| R10/Current Academic Year | May/Current Academic Year | 500          | 0          | 0         |
+		| R11/Current Academic Year | Jun/Current Academic Year | 500          | 0          | 0         |
+		| R12/Current Academic Year | Jul/Current Academic Year | 500          | 0          | 0         |
+	And only the following provider payments will be recorded
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | Learning         |
+		| R05/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
+        | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         |
+        | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         |
+        | R08/Current Academic Year | Mar/Current Academic Year | 500           | Learning         |
+        | R09/Current Academic Year | Apr/Current Academic Year | 500           | Learning         |
+        | R10/Current Academic Year | May/Current Academic Year | 500           | Learning         |
+        | R11/Current Academic Year | Jun/Current Academic Year | 500           | Learning         |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
+	And only the following provider payments will be generated
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | Learning         |
+		| R05/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
+        | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         |
+        | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         |
+        | R08/Current Academic Year | Mar/Current Academic Year | 500           | Learning         |
+        | R09/Current Academic Year | Apr/Current Academic Year | 500           | Learning         |
+        | R10/Current Academic Year | May/Current Academic Year | 500           | Learning         |
+        | R11/Current Academic Year | Jun/Current Academic Year | 500           | Learning         |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
         | R01/Current Academic Year | 15500                       | 7125                        |
         | R02/Current Academic Year | 14500                       | 7125                        |
         | R03/Current Academic Year | 13500                       | 7125                        |
-        | R04/Current Academic Year | 13500                       | 7125                        |
-        | R05/Current Academic Year | 13500                       | 7125                        |
-		| R06/Current Academic Year | 13500                       | 7125                        |
-		| R07/Current Academic Year | 13500                       | 7125                        |
-		| R08/Current Academic Year | 13500                       | 7125                        |
-		| R09/Current Academic Year | 13500                       | 7125                        |
-		| R10/Current Academic Year | 13500                       | 7125                        |
-		| R11/Current Academic Year | 13500                       | 7125                        |
-		| R12/Current Academic Year | 13500                       | 7125                        |
+        | R04/Current Academic Year | 13500                       | 5625                        |
+        | R05/Current Academic Year | 13500                       | 5125                        |
+		| R06/Current Academic Year | 13500                       | 4625                        |
+		| R07/Current Academic Year | 13500                       | 4125                        |
+		| R08/Current Academic Year | 13500                       | 3525                        |
+		| R09/Current Academic Year | 13500                       | 3125                        |
+		| R10/Current Academic Year | 13500                       | 2625                        |
+		| R11/Current Academic Year | 13500                       | 2125                        |
+		| R12/Current Academic Year | 13500                       | 1625                        |

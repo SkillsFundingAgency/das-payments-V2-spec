@@ -16,7 +16,7 @@
     #    
     #    When an ILR file is submitted with the following data:
     #        | ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date | Residual training price | Residual training price effective date | Residual assessment price | Residual assessment price effective date |
-    #        | learner a | 01/08/2018 | 04/08/2019       | 31/10/2018      | withdrawn         | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |                         |                                        |                           |                                          |
+    #        | learner a | 01/08/2018 | 04/08/2019       | 31/10/2018      | planned break     | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |                         |                                        |                           |                                          |
     #        | learner a | 01/01/2019 | 04/10/2019       |                 | continuing        |                      |                                     |                        |                                       | 5000                    | 01/01/2019                             | 625                       | 01/01/2019                               |
     #       
     #    #Then the data lock status of the ILR in 03/12/2018 is:
@@ -36,6 +36,7 @@
     #        | Employer 2 Levy account debited | 0     | 0     | 0     | 0     | 0     | 0     | 500   | 500   |
     #        | SFA Levy employer budget        | 1000  | 1000  | 1000  | 0     | 0     | 500   | 500   | 500   |
     #        | SFA Levy co-funding budget      | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
+
 
 # For DC integration
     #    And the learner changes employers
@@ -58,7 +59,7 @@ Scenario Outline: Levy learner changes employer after break in learning at the e
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 3 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 3 months        | planned break     | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 1000         | 0          | 0         |
