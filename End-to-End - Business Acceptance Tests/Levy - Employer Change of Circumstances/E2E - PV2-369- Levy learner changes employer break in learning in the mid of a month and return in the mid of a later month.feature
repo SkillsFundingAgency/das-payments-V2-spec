@@ -1,9 +1,9 @@
-    Scenario: Earnings and payments for a levy learner, levy available, and they have a break in learning at the end of a month and return at the start of a later month with a different employer
-    
-        Given the apprenticeship funding band maximum is 17000
+Scenario: Earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer
+
         Given The learner is programme only DAS
         And the employer 1 has a levy balance > agreed price for all months
         And the employer 2 has a levy balance > agreed price for all months
+        
         And the learner changes employers
             | Employer   | Type | ILR employment start date |
             | employer 1 | DAS  | 01/08/2018                |
@@ -16,8 +16,8 @@
         
         When an ILR file is submitted with the following data:
             | ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date | Residual training price | Residual training price effective date | Residual assessment price | Residual assessment price effective date |
-            | learner a | 01/08/2018 | 04/08/2019       | 31/10/2018      | withdrawn         | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |                         |                                        |                           |                                          |
-            | learner a | 01/01/2019 | 04/10/2019       |                 | continuing        |                      |                                     |                        |                                       | 5000                    | 01/01/2019                             | 625                       | 01/01/2019                               |
+            | learner a | 03/08/2018 | 04/08/2019       | 18/11/2018      | withdrawn         | 12000                | 03/08/2018                          | 3000                   | 03/08/2018                            |                         |                                        |                           |                                          |
+            | learner a | 11/01/2019 | 04/10/2019       |                 | continuing        |                      |                                     |                        |                                       | 5000                    | 11/01/2019                             | 625                       | 11/01/2019                               |
            
         #Then the data lock status of the ILR in 03/12/2018 is:
         #    | Payment type | 08/18               | 09/18               | 10/18               | 11/18 | 12/18 | 01/19               | 02/19               | 03/19               |
@@ -30,7 +30,7 @@
             | Provider Earned from Employer 1 | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
             | Provider Earned from Employer 2 | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
             | Provider Paid by SFA            | 0     | 1000  | 1000  | 1000  | 0     | 0     | 500   | 500   |
-            | Payment due from employer 1     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 
+            | Payment due from employer 1     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
             | Payment due from employer 2     | 0     | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
             | Employer 1 Levy account debited | 0     | 1000  | 1000  | 1000  | 0     | 0     | 0     | 0     |
             | Employer 2 Levy account debited | 0     | 0     | 0     | 0     | 0     | 0     | 500   | 500   |
@@ -43,9 +43,9 @@
         #| employer 1 | DAS  | 01/08/2018                |
         #| employer 2 | DAS  | 01/01/2019                |
 
-Feature: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month
+Feature: Levy learner changes employer after break in learning in the mid of a month and return in the mid of a later month
 
-Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-368
+Scenario Outline: Levy learner changes employer after break in learning in the mid of a month and return in the mid of a later month PV2-369
 	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
@@ -53,8 +53,8 @@ Scenario Outline: Levy learner changes employer after break in learning at the e
 	And the following commitments exist on "03/Dec/Current Academic Year"
 	# Additional fields
         | Employer   | commitment Id | version Id | ULN       | start date | end date   | agreed price | status    | effective from | effective to | stop effective from |
-        | employer 1 | 1             | 1-001      | learner a | 01/08/2018 | 31/08/2019 | 15000        | cancelled | 01/08/2018     | 31/10/2018   | 01/11/2018          |
-        | employer 2 | 2             | 1-001      | learner a | 01/01/2019 | 31/10/2019 | 5625         | active    | 01/01/2019     |              |                     |
+        | employer 1 | 1             | 1-001      | learner a | 01/08/2018 | 31/08/2019 | 15000        | cancelled | 01/08/2018     | 31/10/2018   | 01/11/2018   |
+        | employer 2 | 2             | 1-001      | learner a | 01/01/2019 | 31/10/2019 | 5625         | active    | 01/01/2019     |              |              |
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
