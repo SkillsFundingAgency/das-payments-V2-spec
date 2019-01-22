@@ -35,6 +35,11 @@
   #          | SFA Levy employer budget        | 1000  | 1000  | 0     | 0     | 0     |
   #          | SFA Levy co-funding budget      | 0     | 0     | 0     | 0     | 0     |
 
+  # For DC Integration
+    #      And the learner changes employers
+  #          | Employer   | Type | ILR employment start date |
+  #          | employer 1 | DAS  | 04/08/2018                |
+  #          | employer 2 | DAS  | 10/11/2018                |
  Scenario Outline: Levy learner changes employer with change to negotiated price in mid month PV2-363
 	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
@@ -68,12 +73,12 @@
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
     But the Provider now changes the Learner details as follows
-		| Start Date                   | Planned Duration | Employer 1 Applicable Date   | Employer 2 Applicable Date   | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/Aug/Current Academic Year | 12 months        | 04/Aug/Current Academic Year | 10/Nov/Current Academic Year |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |  
+		| Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/Aug/Current Academic Year | 12 months        |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |  
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
         | 1st price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details | 0                    |                                     | 0                      |                                       | 5000                    | 25/Oct/Current Academic Year           | 625                       | 25/Oct/Current Academic Year             |
+        | 2nd price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 25/Oct/Current Academic Year           | 625                       | 25/Oct/Current Academic Year             |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
