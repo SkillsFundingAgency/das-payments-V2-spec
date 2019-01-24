@@ -37,7 +37,7 @@
 #        | Provider 16-18 incentive     | 0     | 0     | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     |
 
-Feature: Earnings and payments for a levy learner, levy available, where a total cost changes during the programme and ILR is submitted late
+Feature: Provider earnings and payments for a learner with a negotiated price above the funding band cap
 Scenario Outline: Capping - Payment for Levy learner with a negotiated price above funding cap PV2-528	
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
