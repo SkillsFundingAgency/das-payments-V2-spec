@@ -38,15 +38,15 @@
 #
 
 
-Scenario Outline: A non-levy learner with a framework uplift and 16-18 Additional Incentives finishes on time PV2-572
+Scenario Outline: A Levy learner with a framework uplift payments finishes early PV2-571
 
-Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
 		| start date                   | end date                  | agreed price |
 		| 06/Aug/Current Academic Year | 09/Aug/Next Academic Year | 8250         |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                 | SFA Contribution Percentage |
-		| 06/Aug/Current Academic Year | 12 months        | 8250                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
+		| 06/Aug/Current Academic Year | 12 months        | 8250                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgramme16To18FrameworkUplift |
         | Aug/Current Academic Year | 550          | 0          | 0         | 120                              |
@@ -83,7 +83,7 @@ Given the employer levy account balance in collection period <Collection_Period>
         | R09/Current Academic Year | Apr/Current Academic Year | 0             | 120                       | OnProgramme16To18FrameworkUplift |
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                 | SFA Contribution Percentage |
-		| 06/Aug/Current Academic Year | 9 months         | 8250                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
+		| 06/Aug/Current Academic Year | 9 months         | 8250                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period "R10/Current Academic Year"
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgramme16To18FrameworkUplift | Completion16To18FrameworkUplift | Balancing16To18FrameworkUplift |
