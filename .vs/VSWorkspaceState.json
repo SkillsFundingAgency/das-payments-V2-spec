@@ -2,14 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
+    "\\End-to-End - Business Acceptance Tests\\Capping - Levy and Non-Levy",
+    "\\End-to-End - Business Acceptance Tests\\Levy - Additional Payments",
+    "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day",
     "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Learner Change of Circumstances",
     "\\End-to-End - Business Acceptance Tests\\Levy - Refunds",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Master Branch\\Non-Levy Learner\\Employer Change of CIrcumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Employer change of circumstances"
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances\\E2E - PV2-365- Levy learner changes employer with change to negotiated price at the mid of month ILR submitted earlier.feature",
+  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\E2E - PV2-572 - Non-Levy Learner framework uplift payments finishes early.feature",
   "PreviewInSolutionExplorer": false
 }

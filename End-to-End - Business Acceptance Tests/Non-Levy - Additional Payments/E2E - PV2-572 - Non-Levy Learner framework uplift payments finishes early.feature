@@ -21,12 +21,12 @@
 #
 #      And the transaction types for the payments are:
 #        | Payment type                 | 09/18 | 10/18 | ... | 04/19 | 05/19 | 06/19 |
-#        | On-program                   | 0     | 495   | ... | 495   | 495   | 0     |
+#        | On-program                   | 495   | 495   | ... | 495   | 495   | 0     |
 #        | Completion                   | 0     | 0     | ... | 0     | 0     | 1485  |
 #        | Balancing                    | 0     | 0     | ... | 0     | 0     | 1485  |
-#        | Framework uplift on-program  | 0     | 120   | ... | 120   | 120   | 360   |
+#        | Framework uplift on-program  | 120   | 120   | ... | 120   | 120   | 0     |
 #        | Framework uplift completion  | 0     | 0     | ... | 0     | 0     | 360   |
-#        | Framework uplift balancing   | 0     | 0     | ... | 0     | 0     | 0     |
+#        | Framework uplift balancing   | 0     | 0     | ... | 0     | 0     | 360   |
 #        | Provider disadvantage uplift | 0     | 0     | ..  | 0     | 0     | 0     |
 
 
