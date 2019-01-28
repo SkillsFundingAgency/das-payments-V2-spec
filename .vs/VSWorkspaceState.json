@@ -2,16 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
-    "\\End-to-End - Business Acceptance Tests\\Capping - Levy and Non-Levy",
     "\\End-to-End - Business Acceptance Tests\\Levy - Additional Payments",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Basic Day",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances",
     "\\End-to-End - Business Acceptance Tests\\Levy - Refunds",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
     "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Small Employer"
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments\\E2E - PV2-572 - Non-Levy Learner framework uplift payments finishes early.feature",
+  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Refunds\\E2E - PV2-252 - Levy learner insufficient levy available to cover full payments provider retrospectively notifies of a withdrawal.feature",
   "PreviewInSolutionExplorer": false
 }
