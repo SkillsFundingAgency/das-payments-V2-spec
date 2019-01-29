@@ -50,8 +50,8 @@ Scenario Outline: Learner changes from a non-levy to levy employer, levy is avai
 	# Date added in the end
 	And the following commitments exist on "03/Apr/Current Academic Year"
 	# Additional fields
-        | Employer   | commitment Id | version Id | ULN       | start date | end date   | agreed price | status    | effective from | effective to |
-        | employer 2 | 1             | 1-001      | learner a | 01/04/2019 | 01/08/2019 | 3500         | active    | 01/04/2019     |              |
+        | Employer   | commitment Id | version Id | ULN       | start date                   | end date                  | agreed price | status | effective from               | effective to |
+        | employer 2 | 1             | 1-001      | learner a | 01/Apr/Current Academic Year | 01/Aug/Next Academic Year | 3500         | active | 01/Apr/Current Academic Year |              |
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |

@@ -52,9 +52,9 @@ Scenario Outline: Levy learner changes employer after break in learning in the m
 	# Date added in the end
 	And the following commitments exist on "03/Dec/Current Academic Year"
 	# Additional fields
-        | Employer   | commitment Id | version Id | ULN       | start date | end date   | agreed price | status    | effective from | effective to | stop effective from |
-        | employer 1 | 1             | 1-001      | learner a | 01/08/2018 | 31/08/2019 | 15000        | cancelled | 01/08/2018     | 31/10/2018   | 01/11/2018          |
-        | employer 2 | 2             | 1-001      | learner a | 01/01/2019 | 31/10/2019 | 5625         | active    | 01/01/2019     |              |                     |
+        | Employer   | commitment Id | version Id | ULN       | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 1             | 1-001      | learner a | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
+        | employer 2 | 2             | 1-001      | learner a | 01/Jan/Current Academic Year | 31/Oct/Next Academic Year | 5625         | active    | 01/Jan/Current Academic Year |                              |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 3 months        | planned break     | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
