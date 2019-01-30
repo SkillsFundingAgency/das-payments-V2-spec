@@ -13,7 +13,7 @@
     #        | employer 1 | 1             | 1-001      | learner a | 01/08/2018 | 28/08/2019 | 15000        | cancelled | 01/08/2018     | 14/11/2018   | 15/11/2018   |
     #        | employer 2 | 2             | 1-001      | learner a | 15/11/2018 | 28/08/2019 | 5625         | active    | 15/11/2018     |              |              |
     #    
-    #    When an ILR file is submitted on 03/12/2017 with the following data:
+    #    When an ILR file is submitted on 03/12/2018 with the following data:
     #        | ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date | Residual training price | Residual training price effective date | Residual assessment price | Residual assessment price effective date |
     #        | learner a | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            | 5000                    | 15/11/2018                             | 625                       | 15/11/2018                               |
     #    
