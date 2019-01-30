@@ -2,12 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\End-to-End - Business Acceptance Tests",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Additional Payments",
-    "\\End-to-End - Business Acceptance Tests\\Levy - Refunds",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Additional Payments",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Provider change of circumstances",
-    "\\End-to-End - Business Acceptance Tests\\Non-Levy Learner - Refunds"
+    "\\End-to-End - Business Acceptance Tests\\Levy - Capping",
+    "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances",
+    "\\End-to-End - Business Acceptance Tests\\Non-Levy - Capping",
+    "\\End-to-End - Business Acceptance Tests\\XX - Master Branch",
+    "\\End-to-End - Business Acceptance Tests\\XX - Master Branch\\Non-Levy Learner - Basic Day"
   ],
-  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Refunds\\E2E - PV2-252 - Levy learner insufficient levy available to cover full payments provider retrospectively notifies of a withdrawal.feature",
+  "SelectedNode": "\\End-to-End - Business Acceptance Tests\\Levy - Employer Change of Circumstances\\E2E - PV2-365- Levy learner changes employer with change to negotiated price at the mid of month ILR submitted earlier - v0 - delete.feature",
   "PreviewInSolutionExplorer": false
 }
