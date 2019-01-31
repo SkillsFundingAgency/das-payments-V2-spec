@@ -49,8 +49,8 @@
 		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 03/Oct/Current Academic Year |
 																																																	   
 	And the provider submitted the following learner details
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |

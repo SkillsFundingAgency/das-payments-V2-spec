@@ -83,127 +83,127 @@ Scenario Outline: Levy learner, levy available, 2 providers - one provider retro
       | 1           | 2             | provider b | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        |
 
 	And the "provider a" previously submitted the following learner details
-		| ULN       | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-		| learner a | 01/Aug/Current Academic Year | 12 months        | 5625                 | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| learner a  | 01/Aug/Current Academic Year | 12 months        | 5625                 | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
 	And the "provider b" previously submitted the following learner details
-		| ULN       | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-		| learner b | 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| learner b  | 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner for "provider a"
-        | ULN       | Delivery Period        | On-Programme | Completion | Balancing |
-        | learner a | Aug/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Sep/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Oct/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Nov/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Dec/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jan/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Feb/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Mar/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Apr/Current Academic Year | 375          | 0          | 0         |
-        | learner a | May/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jun/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jul/Current Academic Year | 375          | 0          | 0         |
+        | Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+        | learner a  | Aug/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Sep/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Oct/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Nov/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Dec/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jan/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Feb/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Mar/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Apr/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | May/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jun/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jul/Current Academic Year | 375          | 0          | 0         |  |
 
 	And the following earnings had been generated for the learner for "provider b"
-		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
-		| learner b | Aug/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Sep/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Oct/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Nov/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Dec/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Jan/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Feb/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Mar/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Apr/Current Academic Year | 750          | 0          | 0         |
-		| learner b | May/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Jun/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Jul/Current Academic Year | 750          | 0          | 0         |
+		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner b  | Aug/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Sep/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Oct/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Nov/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Dec/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Jan/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Feb/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Mar/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Apr/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | May/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Jun/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Jul/Current Academic Year | 750          | 0          | 0         |
 
     And the following "provider a" payments had been generated
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner a | R01/Current Academic Year | Aug/Current Academic Year | 375           | Learning         |
-        | learner a | R02/Current Academic Year | Sep/Current Academic Year | 375           | Learning         |
-        | learner a | R03/Current Academic Year | Oct/Current Academic Year | 375           | Learning         |
-        | learner a | R04/Current Academic Year | Nov/Current Academic Year | 375           | Learning         |
-        | learner a | R05/Current Academic Year | Dec/Current Academic Year | 375           | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 375           | Learning         |
+        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 375           | Learning         |
+        | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 375           | Learning         |
+        | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 375           | Learning         |
+        | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 375           | Learning         |
          
   
 	And the following "provider b" payments had been generated
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner b | R01/Current Academic Year | Aug/Current Academic Year | 750           | Learning         |
-        | learner b | R02/Current Academic Year | Sep/Current Academic Year | 750           | Learning         |
-        | learner b | R03/Current Academic Year | Oct/Current Academic Year | 750           | Learning         |
-        | learner b | R04/Current Academic Year | Nov/Current Academic Year | 750           | Learning         |
-        | learner b | R05/Current Academic Year | Dec/Current Academic Year | 750           | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 750           | Learning         |
+        | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 750           | Learning         |
+        | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 750           | Learning         |
+        | learner b  | R04/Current Academic Year | Nov/Current Academic Year | 750           | Learning         |
+        | learner b  | R05/Current Academic Year | Dec/Current Academic Year | 750           | Learning         |
           
      But The "provider b" now changes the Learner details as follows
-		| ULN       | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-		| learner b | 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          | 3 months        | withdrawn         | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| learner b  | 01/Aug/Current Academic Year | 12 months        | 11250                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          | 3 months        | withdrawn         | 90%                         | Act1          | 1                   | ZPROG001      | 25            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 	
 	When the amended ILR file is re-submitted for the learner in collection period <Collection_Period> by "provider b"
 	When the amended ILR file is re-submitted for the learner in collection period <Collection_Period> by "provider a"
 	
 	Then the following learner earnings should be generated for "provider a"
-        | ULN       | Delivery Period           | On-Programme | Completion | Balancing |
-        | learner a | Aug/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Sep/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Oct/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Nov/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Dec/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jan/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Feb/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Mar/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Apr/Current Academic Year | 375          | 0          | 0         |
-        | learner a | May/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jun/Current Academic Year | 375          | 0          | 0         |
-        | learner a | Jul/Current Academic Year | 375          | 0          | 0         |
+        | Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+        | learner a  | Aug/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Sep/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Oct/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Nov/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Dec/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jan/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Feb/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Mar/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Apr/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | May/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jun/Current Academic Year | 375          | 0          | 0         |
+        | learner a  | Jul/Current Academic Year | 375          | 0          | 0         |
 
 	And the following learner earnings should be generated for "provider b"
-		| ULN       | Delivery Period           | On-Programme | Completion | Balancing |
-		| learner b | Aug/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Sep/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Oct/Current Academic Year | 750          | 0          | 0         |
-		| learner b | Nov/Current Academic Year | -750         | 0          | 0         |
-		| learner b | Dec/Current Academic Year | -750         | 0          | 0         |
-		| learner b | Jan/Current Academic Year | 0            | 0          | 0         |
-		| learner b | Feb/Current Academic Year | 0            | 0          | 0         |
-		| learner b | Mar/Current Academic Year | 0            | 0          | 0         |
-		| learner b | Apr/Current Academic Year | 0            | 0          | 0         |
-		| learner b | May/Current Academic Year | 0            | 0          | 0         |
-		| learner b | Jun/Current Academic Year | 0            | 0          | 0         |
-		| learner b | Jul/Current Academic Year | 0            | 0          | 0         |
+		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner b  | Aug/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Sep/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Oct/Current Academic Year | 750          | 0          | 0         |
+		| learner b  | Nov/Current Academic Year | -750         | 0          | 0         |
+		| learner b  | Dec/Current Academic Year | -750         | 0          | 0         |
+		| learner b  | Jan/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Feb/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Mar/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Apr/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | May/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Jun/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Jul/Current Academic Year | 0            | 0          | 0         |
 
     And at month end only the following payments will be calculated for "provider a"
-        | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | learner a | R06/Current Academic Year | Jan/Current Academic Year | 375          | 0          | 0         |
+        | Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+        | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 375          | 0          | 0         |
  
 
     And at month end only the following payments will be calculated for "provider b"
-        | ULN       | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | learner b | R06/Current Academic Year | Nov/Current Academic Year | -750         | 0          | 0         |
-        | learner b | R06/Current Academic Year | Dec/Current Academic Year | -750         | 0          | 0         |
-        | learner b | R06/Current Academic Year | Jan/Current Academic Year | 0            | 0          | 0         |
+        | Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+        | learner b  | R06/Current Academic Year | Nov/Current Academic Year | -750         | 0          | 0         |
+        | learner b  | R06/Current Academic Year | Dec/Current Academic Year | -750         | 0          | 0         |
+        | learner b  | R06/Current Academic Year | Jan/Current Academic Year | 0            | 0          | 0         |
 
 	And only the following provider payments will be recorded for "provider a"
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner a | R06/Current Academic Year | Jan/Current Academic Year | 375           | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 375           | Learning         |
 
 	And only the following provider payments will be recorded for "provider b"
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner b | R06/Current Academic Year | Nov/Current Academic Year | -750          | Learning         |
-        | learner b | R06/Current Academic Year | Dec/Current Academic Year | -750          | Learning         |
-        | learner b | R06/Current Academic Year | Jan/Current Academic Year | 0             | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner b  | R06/Current Academic Year | Nov/Current Academic Year | -750          | Learning         |
+        | learner b  | R06/Current Academic Year | Dec/Current Academic Year | -750          | Learning         |
+        | learner b  | R06/Current Academic Year | Jan/Current Academic Year | 0             | Learning         |
         
 	And only the following provider payments will be generated for "provider a"
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner a | R06/Current Academic Year | Jan/Current Academic Year | 375           | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 375           | Learning         |
 
 	And only the following provider payments will be generated for "provider b"
-        | ULN       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | learner b | R06/Current Academic Year | Nov/Current Academic Year | -750          | Learning         |
-        | learner b | R06/Current Academic Year | Dec/Current Academic Year | -750          | Learning         |
-        | learner b | R06/Current Academic Year | Jan/Current Academic Year | 0             | Learning         |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | learner b  | R06/Current Academic Year | Nov/Current Academic Year | -750          | Learning         |
+        | learner b  | R06/Current Academic Year | Dec/Current Academic Year | -750          | Learning         |
+        | learner b  | R06/Current Academic Year | Jan/Current Academic Year | 0             | Learning         |
         
 Examples: 
         | Collection_Period         | Levy Balance |

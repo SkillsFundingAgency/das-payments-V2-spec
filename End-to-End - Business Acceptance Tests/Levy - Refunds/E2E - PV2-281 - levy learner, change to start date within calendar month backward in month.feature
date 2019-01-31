@@ -36,8 +36,8 @@ Scenario Outline:  Start date for the DAS-Learner is pushed back  within a Calen
 		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 9000         |
 
 	And the provider previously submitted the following learner details
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
-        | learner a | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
+        | learner a  | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 600          | 0          | 0         |
@@ -61,8 +61,8 @@ Scenario Outline:  Start date for the DAS-Learner is pushed back  within a Calen
         | R05/Current Academic Year | Dec/Current Academic Year | 600               | Learning         |
         
     But the Provider now changes the Learner details as follows
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
-        | learner a | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | 3 months        | withdrawn         | 90%                         | Act1          | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
+        | learner a  | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | 3 months        | withdrawn         | 90%                         | Act1          | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
 	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
     Then the following learner earnings should be generated

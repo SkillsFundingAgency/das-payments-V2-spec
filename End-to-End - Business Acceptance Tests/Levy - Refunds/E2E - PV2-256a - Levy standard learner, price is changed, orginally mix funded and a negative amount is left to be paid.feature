@@ -77,12 +77,12 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | R02/Current Academic Year | Sep/Current Academic Year | 375               | 337.5                  | 37.5                        | Learning         |
 
     But  The Commitment details are changed as follows
-		| commitment Id | version Id | ULN       | priority | start date                   | end date                     | agreed price | standard code | programme type |
-		| 1             | 2          | learner a | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
+		| commitment Id | version Id | Learner ID | priority | start date                   | end date                     | agreed price | standard code | programme type |
+		| 1             | 2          | learner a  | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
 
     And  The Provider now changes the Learner details as follows
-		| ULN       | Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
-		| learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
+		| Learner ID | Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
+		| learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
 
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date |
