@@ -72,12 +72,12 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
 	Given the employer levy account balance is 17000
 
 	And The following commitment exists
-		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | Standard Code |
-		| 1             | 1          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 51            |
+		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
+		| 1             | 1          | learner a  | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 51            |
 
 	And the provider previously submitted the following learner details
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 0.90                        | ContractWithEmployer | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 0.90                        | ContractWithEmployer | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -102,12 +102,12 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
 
         
     But The commitment is now changed as follows 
-		| commitment Id | version Id | ULN       | start date                   | end date                     | status | agreed price | Standard Code |
-		| 1             | 2          | learner a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 52            |
+		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
+		| 1             | 2          | learner a  | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 52            |
 
 	And the Provider now changes the Learner details as follows
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
 	When the amended ILR file is re-submitted for the learners in collection period R03/Current Academic Year
 

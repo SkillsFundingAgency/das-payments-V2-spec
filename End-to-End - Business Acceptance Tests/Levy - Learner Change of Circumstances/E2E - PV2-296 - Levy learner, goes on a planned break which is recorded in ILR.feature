@@ -18,9 +18,9 @@
      Given  the employer levy account balance is 17000
 
 	And The following commitments exist
-		| commitment Id | version Id | ULN       | start date                | end date                     | status | agreed price |
-		| 1             | 1          | learner a | 01/Sep/Last Academic Year | 30/Sep/Current Academic Year | Active | 15000        |
-		| 1             | 2          | learner a | 01/Sep/Last Academic Year | 30/Sep/Current Academic Year | Paused | 15000        |
+		| commitment Id | version Id | Learner ID | start date                | end date                     | status | agreed price |
+		| 1             | 1          | learner a  | 01/Sep/Last Academic Year | 30/Sep/Current Academic Year | Active | 15000        |
+		| 1             | 2          | learner a  | 01/Sep/Last Academic Year | 30/Sep/Current Academic Year | Paused | 15000        |
 	 The provider previously submitted the following learner details
         | Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Funding Line Type                                  | SFA Contribution Percentage |
         | 1        | 01/Sep/Last Academic Year | 12 months        | 12000                | 01/Sep/Last Academic Year           | 3000                   | 01/Sep/Current Academic Year          | 2 months        | planned break     | Act1          | 1                   | ZPROG001      | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -47,8 +47,8 @@
 
     But The commitment is now changed as follows
 
-	    | commitment Id | version Id | ULN       | start date                 | end date                     | status | agreed price |
-        | 1             | 3          | learner a | 01/Sep/Last Academic Year  | 30/Sep/Current Academic Year | Active | 15000        |
+	    | commitment Id | version Id | Learner ID | start date                 | end date                     | status | agreed price |
+        | 1             | 3          | learner a  | 01/Sep/Last Academic Year  | 30/Sep/Current Academic Year | Active | 15000        |
 	
 	And the Provider now changes the Learner details as follows
 		| Priority | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code  | Programme Type | Funding Line Type                                   | SFA Contribution Percentage |

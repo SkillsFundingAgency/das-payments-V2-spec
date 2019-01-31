@@ -41,8 +41,8 @@ Feature: Provider earnings and payments for a learner with a negotiated price ab
 Scenario Outline: Capping - Payment for Levy learner with a negotiated price above funding cap PV2-528	
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-		| commitment Id | version Id | Provider   | ULN       | start date                   | end date                  | agreed price | standard code | status | effective from               |
-		| 1             | 1          | provider a | learner a | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 18000        | 50            | active | 01/Aug/Current Academic Year |
+		| commitment Id | version Id | Provider   | Learner ID | start date                   | end date                  | agreed price | standard code | status | effective from               |
+		| 1             | 1          | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 18000        | 50            | active | 01/Aug/Current Academic Year |
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 18000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
