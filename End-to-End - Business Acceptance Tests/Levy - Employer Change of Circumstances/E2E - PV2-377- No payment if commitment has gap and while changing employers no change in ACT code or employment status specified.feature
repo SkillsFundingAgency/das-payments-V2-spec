@@ -49,10 +49,9 @@
 Feature: No payment if commitment has gap and while changing employers no change in ACT code or employment status specified.
 #Learner changes employer and there is a gap between commitments - provider receives no payment during the gap as they do not change the ACT code or employment status on the ILR
 
-Scenario: Levy Learner, no payment if commitment has gap while changing employers and no change in ACT code or employment status specified PV2-377
-	# levy balance is enough for both employers
-	Given the "employer 1" levy account balance is 15500
-	And  the "employer 2" levy account balance is 6125
+Scenario Outline: Levy Learner, no payment if commitment has gap while changing employers and no change in ACT code or employment status specified PV2-377
+	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
+	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
         | Employer   | commitment Id | version Id | Learner ID | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
         | employer 1 | 1             | 1-001      | learner a  | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 02/Oct/Current Academic Year | 03/Oct/Current Academic Year |
@@ -64,7 +63,7 @@ Scenario: Levy Learner, no payment if commitment has gap while changing employer
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
         | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
         | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             |
-	When the ILR file is submitted for the learners for collection period "R04/Current Academic Year"
+	When the ILR file is submitted for the learners for collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -81,19 +80,30 @@ Scenario: Levy Learner, no payment if commitment has gap while changing employer
         | Jul/Current Academic Year | 500          | 0          | 0         |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
-        | R04/Current Academic Year | Oct/Current Academic Year | 0            | 0          | 0         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0            | 0          | 0         |
         | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
+		| R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Oct/Current Academic Year | 0             | Learning         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+		| R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
         | R04/Current Academic Year | Oct/Current Academic Year | 0             | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
+		| R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
+
+	Examples:
+		| Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
+		| R01/Current Academic Year | 15500                       | 6125                        |
+		| R02/Current Academic Year | 14500                       | 6125                        |
+		| R03/Current Academic Year | 13500                       | 6125                        |
+		| R04/Current Academic Year | 13500                       | 6125                        |
+		| R05/Current Academic Year | 13500                       | 5625                        |
