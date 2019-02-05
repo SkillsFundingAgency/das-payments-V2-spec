@@ -122,7 +122,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | May/Current Academic Year | 0            | 0          | 0         | 39.25                      |
         | Jun/Current Academic Year | 0            | 0          | 0         | 0                          |
         | Jul/Current Academic Year | 0            | 0          | 0         | 0                          |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
         | R01/Current Academic Year | Aug/Current Academic Year | 0            | 3000       | 0         | 39.25                      |
         | R02/Current Academic Year | Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      |
@@ -147,7 +147,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | R08/Current Academic Year | Mar/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R09/Current Academic Year | Apr/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R10/Current Academic Year | May/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000          | 0                         | Completion                 |
         | R01/Current Academic Year | Aug/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
