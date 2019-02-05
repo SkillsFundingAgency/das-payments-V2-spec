@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+/.vs
+.vs/das-payments-V2-spec/v15/.suo
+.vs/VSWorkspaceState.json
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+*.json
+.vs/VSWorkspaceState.json
+.vs/VSWorkspaceState.json
