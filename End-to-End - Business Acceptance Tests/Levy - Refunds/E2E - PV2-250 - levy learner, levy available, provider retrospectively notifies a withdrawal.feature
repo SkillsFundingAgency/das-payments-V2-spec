@@ -37,7 +37,7 @@
 #        | SFA Levy employer budget      | 750   | 750   | 750   | 0     | 0     | 0     | 0     |
 #        | SFA Levy co-funding budget    | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
 
-Scenario Outline:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
+    Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
     Given The employer levy account balance is 15000
 
 	And The following commitments exist

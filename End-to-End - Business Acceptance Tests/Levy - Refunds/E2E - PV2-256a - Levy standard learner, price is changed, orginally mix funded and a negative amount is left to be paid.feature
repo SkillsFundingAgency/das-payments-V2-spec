@@ -44,9 +44,9 @@
 
 Scenario Outline: Levy standard learner, price is changed, orginally mix funded and a negative amount is left to be paid PV2-256a
 
-	Given The employers levy balance is <Levy Balance> 
+	Given The employers levy balance in collection period <Collection_Period> is <Levy Balance>
 
-	And the following commitment exists
+	And the following commitments exist
 		| start date                   | end date                     | agreed price |
 		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        |
        
@@ -121,6 +121,6 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
 
 Examples: 
         | Collection_Period         | Levy Balance |
-        | R02/Current Academic Year | 750          |
-        | R03/Current Academic Year | 375          |
-        | R04/Current Academic Year | 1050         |
+        | R01/Current Academic Year | 750          |
+        | R02/Current Academic Year | 375          |
+        | R03/Current Academic Year | 0            |

@@ -40,13 +40,13 @@
  #       | SFA Levy employer budget       | 0   | 0   | 0   | 0   | ... | 0   |
  #       | SFA Levy co-funding budget     | 0   | 0   | 0   | 0   | ... | 0   |
 
- Scenario Outline: Levy learner, price is changed and a negative amount is left to be paid,resulting in a refund PV2-259
+ Scenario: Levy learner, price is changed and a negative amount is left to be paid,resulting in a refund PV2-259
 
     Given The employer levy account balance is 15000
 
-	And The following commitment exists
+	And The following commitments exist
 		| commitment Id | version Id | start date                   | end date                     | status | agreed price | effective from               | effective to                 |
-		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 03/Oct/Current Academic Year |
+		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year |
 																																																	   
 	And the provider submitted the following learner details
         | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
