@@ -73,9 +73,9 @@ Scenario Outline: Levy learner with English & Maths funding within band maximum,
         | Jul/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-		| R04/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
-		| R04/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
-		| R04/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
+		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
+		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
+		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
         | R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
         | R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
 		| R06/Current Academic Year | Jan/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
@@ -87,9 +87,9 @@ Scenario Outline: Levy learner with English & Maths funding within band maximum,
 		| R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         | 39.25                      |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | 0                         | Learning                   |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | 0                         | Learning                   |
-        | R04/Current Academic Year | Oct/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                         | Learning                   |
         | R04/Current Academic Year | Nov/Current Academic Year | 1000          | 0                         | Learning                   |
         | R05/Current Academic Year | Dec/Current Academic Year | 1000          | 0                         | Learning                   |
         | R06/Current Academic Year | Jan/Current Academic Year | 1000          | 0                         | Learning                   |
@@ -113,9 +113,9 @@ Scenario Outline: Levy learner with English & Maths funding within band maximum,
         | R12/Current Academic Year | Jul/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | 0                         | Learning                   |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | 0                         | Learning                   |
-        | R04/Current Academic Year | Oct/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                         | Learning                   |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                         | Learning                   |
         | R04/Current Academic Year | Nov/Current Academic Year | 1000          | 0                         | Learning                   |
         | R05/Current Academic Year | Dec/Current Academic Year | 1000          | 0                         | Learning                   |
         | R06/Current Academic Year | Jan/Current Academic Year | 1000          | 0                         | Learning                   |
@@ -140,7 +140,7 @@ Scenario Outline: Levy learner with English & Maths funding within band maximum,
 Examples: 
         | Collection_Period         | Levy Balance |
         | R01/Current Academic Year | 15500        |
-        | R02/Current Academic Year | 1400         |
+        | R02/Current Academic Year | 14000        |
         | R03/Current Academic Year | 13500        |
         | R04/Current Academic Year | 12500        |
         | R05/Current Academic Year | 11500        |
