@@ -164,8 +164,8 @@ Scenario Outline: Levy learner, levy available, 2 providers - one provider retro
 		| learner b  | Aug/Current Academic Year | 750          | 0          | 0         |
 		| learner b  | Sep/Current Academic Year | 750          | 0          | 0         |
 		| learner b  | Oct/Current Academic Year | 750          | 0          | 0         |
-		| learner b  | Nov/Current Academic Year | -750         | 0          | 0         |
-		| learner b  | Dec/Current Academic Year | -750         | 0          | 0         |
+		| learner b  | Nov/Current Academic Year | 0            | 0          | 0         |
+		| learner b  | Dec/Current Academic Year | 0            | 0          | 0         |
 		| learner b  | Jan/Current Academic Year | 0            | 0          | 0         |
 		| learner b  | Feb/Current Academic Year | 0            | 0          | 0         |
 		| learner b  | Mar/Current Academic Year | 0            | 0          | 0         |
@@ -208,4 +208,3 @@ Scenario Outline: Levy learner, levy available, 2 providers - one provider retro
 Examples: 
         | Collection_Period         | Levy Balance |
         | R06/Current Academic Year | 0            |
-        | R07/Current Academic Year | 1125         |

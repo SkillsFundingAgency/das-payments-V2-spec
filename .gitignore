@@ -10,3 +10,5 @@
 .vs/VSWorkspaceState.json
 .vs/VSWorkspaceState.json
 *.sqlite
+*.json
+*.sqlite
