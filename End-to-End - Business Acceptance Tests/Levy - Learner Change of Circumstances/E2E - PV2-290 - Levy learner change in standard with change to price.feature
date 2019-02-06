@@ -27,6 +27,7 @@
 Scenario Outline: Levy learner change to standard at the end of a month no change in price PV2-290
 
 	Given the employer levy account balance is 15500
+	# Do I need to move the second commitment after history?	
 	And the following commitments exist
 		| commitment Id | version Id | Learner ID | standard code | start date                   | end date                  | agreed price | effective from               | effective to                 |
 		| 1             | 1-001      | learner a  | 51            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
