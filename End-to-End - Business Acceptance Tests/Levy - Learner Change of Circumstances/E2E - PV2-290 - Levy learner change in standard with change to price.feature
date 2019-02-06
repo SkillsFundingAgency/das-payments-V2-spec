@@ -27,6 +27,10 @@
 Scenario Outline: Levy learner change to standard at the end of a month no change in price PV2-290
 
 	Given the employer levy account balance is 15500
+	And the following commitments exist
+		| commitment Id | version Id | Learner ID | standard code | start date                   | end date                  | agreed price | effective from               | effective to                 |
+		| 1             | 1-001      | learner a  | 51            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
+		| 1             | 1-002      | learner a  | 52            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 5625         | 03/Nov/Current Academic Year |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 3 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -52,8 +56,7 @@ Scenario Outline: Levy learner change to standard at the end of a month no chang
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Nov/Current Academic Year | 9 months         | 4500                 | 03/Nov/Current Academic Year        | 1125                   | 03/Nov/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
-	 
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>	 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -68,23 +71,20 @@ Scenario Outline: Levy learner change to standard at the end of a month no chang
         | May/Current Academic Year | 500          | 0          | 0         |
         | Jun/Current Academic Year | 500          | 0          | 0         |
         | Jul/Current Academic Year | 500          | 0          | 0         |
-
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
-
     And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R04/Current Academic Year | Nov/Current Academic Year | 500               | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500               | Learning         |
-
     And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R04/Current Academic Year | Nov/Current Academic Year | 500               | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 500               | Learning         |
 
-	Examples: 
+Examples: 
         | Collection_Period         |
         | R04/Current Academic Year |
         | R05/Current Academic Year |
