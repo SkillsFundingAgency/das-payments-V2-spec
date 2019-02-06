@@ -30,9 +30,9 @@ Scenario Outline: Levy learner changes to the agreed price at the end of the mon
 	# Additional fields
 	# Do I need to move the second commitment after history?	
 	And the following commitments exist
-        | commitment Id | version Id | Learner ID | start date | end date   | status | agreed price | effective from | effective to |
-        | 1             | 1-001      | learner a  | 01/08/2018 | 31/08/2019 | active | 15000        | 01/08/2018     | 31/10/2018   |
-        | 1             | 1-002      | learner a  | 01/08/2018 | 31/08/2019 | active | 9375         | 01/11/2018     |              |
+        | commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price | effective from               | effective to                 |
+        | 1             | 1-001      | learner a  | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | active | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
+        | 1             | 1-002      | learner a  | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | active | 9375         | 01/Nov/Current Academic Year |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
