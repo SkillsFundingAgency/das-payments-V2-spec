@@ -42,15 +42,15 @@
 
  Scenario: Levy learner, price is changed and a negative amount is left to be paid,resulting in a refund PV2-259
 
-    Given The employer levy account balance is 15000
+    Given the employer levy account balance in collection period R03/Current Academic Year is 15000
 
 	And The following commitments exist
 		| commitment Id | version Id | start date                   | end date                     | status | agreed price | effective from               | effective to                 |
 		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year |
 																																																	   
-	And the provider submitted the following learner details
-        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+	And the provider previously submitted the following learner details
+        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | 1        | 01/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -67,20 +67,18 @@
         | Jun/Current Academic Year | 750          | 0          | 0         |
         | Jul/Current Academic Year | 750          | 0          | 0         |
 
-    And the following provider payments have been generated
+    And the following provider payments had been generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750           | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 750           | Learning         |
 
         
-    But The commitment is now changed to
-
+    But  the Commitment details are changed as follows
 		| commitment Id | version Id | start date                   | end date                     | status | agreed price | effective from               | effective to                 |
 		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 03/Oct/Current Academic Year |
 		| 1             | 2          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 1400         | 04/Oct/Current Academic Year |                              |
 
 	And the Provider now changes the Learner details as follows
-
         | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status |
         | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        |
 

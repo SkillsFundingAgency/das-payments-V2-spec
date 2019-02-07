@@ -3,7 +3,7 @@
 #  Given The learner is programme only DAS
 #    And the apprenticeship funding band maximum is 17000
 #    And levy balance > agreed price for all months
-#	And the following commitments exist:
+# And the following commitments exist:
 #		| commitment Id | version Id | ULN       | start date | end date   | status | agreed price | effective from | effective to | programme type |
 #		| 1             | 1          | learner a | 04/08/2018 | 01/08/2019 | active | 11250        | 01/08/2018     |              | 25				|
 #
@@ -11,7 +11,7 @@
 #		| ULN       | start date | aim sequence number |  completion status | programme type	|
 #		| learner a | 04/08/2018 | 1                   |  continuing        | 25				|
 #  
-#	And the following earnings and payments have been made to the provider A for learner a:
+# And the following earnings and payments have been made to the provider A for learner a:
 #	    | Type                          | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | 01/19 |
 #        | Provider Earned Total         | 750   | 750   | 750   | 750   | 750   | 0     |       
 #        | Provider Earned from SFA      | 750   | 750   | 750   | 750   | 750   | 0     |       
@@ -37,16 +37,25 @@
 #        | SFA Levy employer budget      | 750   | 750   | 750   | 0     | 0     | 0     | 0     |
 #        | SFA Levy co-funding budget    | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
 
-    Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
-    Given The employer levy account balance is 15000
 
-	And The following commitments exist
+
+	Feature: Levy Learner is withdrawn retrospectively PV2-250
+	As a provider,
+    I want a levy learner, where levy is available the provider retrospectively notifies a withdrawal and previously paid monthly instalments are refunded
+	So that I am accurately paid my apprenticeship provision.
+
+	Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-250
+
+	Given the employer levy account balance in collection period R06/Current Academic Year is 15000
+
+    And the following commitments exist
+
 		| start date                   | end date                     | agreed price |
 		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        |
 
-	And the provider previously submitted the following learner details
-        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a  | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+    And the provider previously submitted the following learner details
+        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | 01/Aug/Current Academic Year         |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -72,8 +81,8 @@
         | R05/Current Academic Year | Dec/Current Academic Year | 750               | Learning         |
         
     But the Provider now changes the Learner details as follows
-        | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a  | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type        | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | 1        | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         | 3 months        | withdrawn         | .9                          | ContractWithEmployer | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
 	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
 

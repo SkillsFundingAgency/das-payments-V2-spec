@@ -74,9 +74,16 @@
 
 
 
+  
+  Feature: Levy learner, levy available, provider retrospectively notifies a withdrawal and previously paid monthly instalments need to be refunded
+  As a provider,
+  I want a levy learner, where levy is available the provider retrospectively notifies a withdrawal and previously paid monthly instalments are refunded
+  So that I am accurately paid my apprenticeship provision.
+
   Scenario: Levy learner, levy available, 2 providers - one provider retrospectively notifies a withdrawal need to be refunded PV2-253
 	
 	Given the employer levy account balance in collection period R06/Current Academic Year is 0
+
 	And the following commitments exist 
       | employer Id | commitment Id | Provider   | start date                   | end date                     | status | agreed price |
       | 1           | 1             | provider a | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 5625         |
@@ -127,8 +134,7 @@
         | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 375           | Learning         |
         | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 375           | Learning         |
         | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 375           | Learning         |
-         
-  
+      
 	And the following "provider b" payments had been generated
         | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 750           | Learning         |

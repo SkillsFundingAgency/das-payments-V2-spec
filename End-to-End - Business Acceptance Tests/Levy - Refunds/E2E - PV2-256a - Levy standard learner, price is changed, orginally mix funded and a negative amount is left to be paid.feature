@@ -42,7 +42,12 @@
 #        | SFA Levy co-funding budget     | 0    |337.50| 0    | 0   | ... | 0   |
 
 
-Scenario Outline: Levy standard learner, price is changed, orginally mix funded and a negative amount is left to be paid PV2-256a
+	Feature:Levy standard learner, price is changed, originally mix funded and a negative amount is left to be paid - results in a refund
+	As a provider,
+    I want a levy learner, where price is changed, originally mix funded and a negative amount is left to be paid - results in a refund
+	So that I am accurately paid my apprenticeship provision.
+
+	Scenario Outline: Levy standard learner, price is changed, orginally mix funded and a negative amount is left to be paid PV2-256a
 
 	Given The employers levy balance in collection period <Collection_Period> is <Levy Balance>
 
@@ -70,26 +75,27 @@ Scenario Outline: Levy standard learner, price is changed, orginally mix funded 
         | Jun/Current Academic Year | 750          | 0          | 0         |
         | Jul/Current Academic Year | 750          | 0          | 0         |
 
-    And the following provider payments had been generated and levy acccount has been debited
+    And the following provider payments had been generated 
 
         | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750               | 0                      | 0                           | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 375               | 337.5                  | 37.5                        | Learning         |
 
-    But  The Commitment details are changed as follows
+    But  the Commitment details are changed as follows
+
 		| commitment Id | version Id | Learner ID | priority | start date                   | end date                     | agreed price | standard code | programme type |
 		| 1             | 2          | learner a  | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
 
     And  The Provider now changes the Learner details as follows
-		| Learner ID | Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
-		| learner a  | 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
+		| Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
+		| 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
 
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date |
         | 1st price details | 9000                 | Aug/Current Academic Year           | 2250                  | Aug/Current Academic Year            |
         | 2nd price details | 1200                 | Oct/Current Academic Year           | 200                   | Oct/Current Academic Year            |
 
-	When the amended ILR file is re-submitted for the learners in collection period <R03/Current Academic Year>
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |

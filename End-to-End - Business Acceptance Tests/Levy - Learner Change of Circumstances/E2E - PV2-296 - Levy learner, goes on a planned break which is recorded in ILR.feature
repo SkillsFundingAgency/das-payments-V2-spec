@@ -29,7 +29,7 @@
         | 1        | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Next Academic Year             | 2 months        | planned break     | Act1          | 1                   | ZPROG001      | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
     And the following earnings had been generated for the learner
-        | Delivery Period        | On-Programme | Completion | Balancing |
+        | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 0            | 0          | 0         |
         | Sep/Current Academic Year | 1000         | 0          | 0         |
         | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -50,8 +50,8 @@
 
     But the commitment is now changed as follows
 
-	    | commitment Id | version Id | Learner ID | start date                 | end date                     | status | agreed price |
-        | 1             | 3          | learner a  | 01/Sep/Current Academic Year  | 30/Sep/Next Academic Year | Active | 15000        |
+	    | commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price |
+	    | 1             | 3          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
 	
 	And the Provider now changes the Learner details as follows
 		| Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
