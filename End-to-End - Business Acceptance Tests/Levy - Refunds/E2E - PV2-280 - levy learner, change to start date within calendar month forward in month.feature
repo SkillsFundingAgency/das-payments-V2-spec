@@ -29,7 +29,12 @@
 #        | SFA Levy additional payments budget | 0     | 0     | 0     | 0     |
 #        | SFA non-Levy co-funding budget      | 0     | 0     | 0     | 0     | 
 
-Scenario Outline:  For a DAS-Learner, the start date of apprenticeship is moved forward within a calendar month PV2-280
+    Feature: Levy learner - Change to start date within calendar month, forward in month
+	As a provider,
+    I want a levy learner, where change to start date within calendar month, forward in month is paid the correct amount
+	So that I am accurately paid my apprenticeship provision
+
+	Scenario:  For a DAS-Learner, the start date of apprenticeship is moved forward within a calendar month PV2-280
 
     Given The following commitments exist
 		| start date                   | end date                     | agreed price |
@@ -64,7 +69,7 @@ Scenario Outline:  For a DAS-Learner, the start date of apprenticeship is moved 
         | Learner ID | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | framework code | programme type | pathway code | Funding Line Type                                  |
         | learner a  | 1        | 15/Aug/Current Academic Year | 12 months        | 9000                 | Aug/Current Academic Year           | Aug/Current Academic Year            | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 403            | 2              | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract |
 		 
-	When the amended ILR file is re-submitted for the learners in collection period <R06/Current Academic Year>
+	When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
