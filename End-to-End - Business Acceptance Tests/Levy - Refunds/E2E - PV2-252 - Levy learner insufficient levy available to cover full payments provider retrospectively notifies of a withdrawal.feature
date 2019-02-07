@@ -35,7 +35,10 @@
 #        | SFA Levy employer budget      | 500   | 500   | 500   | 0     | 0     | 0     | 0     |
 #        | SFA Levy co-funding budget    | 225   | 225   | 225   | 0     | 0     | 0     | 0     |
 
-    Feature: 
+    Feature: Levy learner, insufficient levy available to cover full payments, provider retrospectively notifies a withdrawal and previously paid monthly instalments need to be refunded
+	As a provider,
+	I want a Levy learner, where there is insufficient levy available to cover full payments the provider retrospectively notifies a withdrawal and previously paid monthly instalments are refunded
+	So that I am accurately paid my apprenticeship provision. PV2-252
  
 	Scenario:  A levy learner in co-funding and provider retrospectively notifies of a withdrawal after payments have already been made PV2-252
 

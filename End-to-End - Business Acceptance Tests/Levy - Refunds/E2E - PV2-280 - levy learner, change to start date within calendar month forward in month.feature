@@ -31,12 +31,14 @@
 
     Feature: Levy learner - Change to start date within calendar month, forward in month
 	As a provider,
-    I want a levy learner, where change to start date within calendar month, forward in month is paid the correct amount
+    I want a levy learner, where change to start date within calendar month, forward in month is paid the correct amount  PV2-280
 	So that I am accurately paid my apprenticeship provision
 
 	Scenario:  For a DAS-Learner, the start date of apprenticeship is moved forward within a calendar month PV2-280
 
-    Given The following commitments exist
+    Given the employer levy account balance in collection period R06/Current Academic Year is 15000
+
+	And the following commitments exist
 		| start date                   | end date                     | agreed price |
 		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 9000         |
 
@@ -57,6 +59,7 @@
         | May/Current Academic Year | 600          | 0          | 0         |
         | Jun/Current Academic Year | 600          | 0          | 0         |
         | Jul/Current Academic Year | 600          | 0          | 0         |
+
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 600               | Learning         |

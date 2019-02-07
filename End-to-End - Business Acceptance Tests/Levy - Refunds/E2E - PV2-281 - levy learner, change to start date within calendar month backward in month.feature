@@ -30,8 +30,15 @@
 #        | SFA Levy additional payments budget | 0     | 0     | 0     | 0     |
 #        | SFA non-Levy co-funding budget      | 0     | 0     | 0     | 0     |
 
-Scenario Outline:  Start date for the DAS-Learner is pushed back  within a Calendar month and there is no refund PV2-281
-    Given The following commitments exist
+	Feature: Levy learner - Change to start date within calendar month, forward in month
+	As a Provider
+	I want a levy learner, where change to start date within calendar month, forward in month is paid the correct amount PV2-281
+	So that I am accurately paid my apprenticeship provision
+	Scenario: Start date for the DAS-Learner is pushed back  within a Calendar month and there is no refund PV2-281
+
+    Given The employer levy account balance in collection period R06/Current Academic Year is 15000
+
+	And the following commitment exists
 		| start date                   | end date                     | agreed price |
 		| 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 9000         |
 

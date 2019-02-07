@@ -40,7 +40,12 @@
 #        | SFA Levy co-funding budget     | 0       | 0       | 0       | 0           | 0       |
 #        | SFA non-Levy co-funding budget | 0       | 0       | 0       | 0           | 0       |
 
- Scenario: Levy learner, price is changed and a negative amount is left to be paid,resulting in a refund PV2-257
+	Feature:Levy standard learner, where original commitment is withdrawn after payments made and new commitment is created with lower price and a negative amount is left to be paid - results in a refund
+	As a provider,
+	I want a levy learner, where original commitment is withdrawn after payments made and new commitment is created with lower price and a negative amount is left to be paid - results in a refund
+	So that I am accurately paid my apprenticeship provision PV2-257
+
+	Scenario: Levy learner, price is changed and a negative amount is left to be paid,resulting in a refund PV2-257
 
     Given the employer levy account balance in collection period R03/Current Academic Year is 15000
 
