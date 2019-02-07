@@ -47,7 +47,7 @@ Scenario Outline: Capping - Payment for Levy learner with a negotiated price abo
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 18000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	# New capping section
-	And the following capping will apply to the price episodes:
+	And the following capping will apply to the price episodes
         | negotiated price | funding cap | previous funding paid | price above cap | effective price for SFA payments |
         | 18000            | 15000       | 0                     | 3000            | 15000                            |
 	When the ILR file is submitted for the learners for collection period <Collection_Period>
