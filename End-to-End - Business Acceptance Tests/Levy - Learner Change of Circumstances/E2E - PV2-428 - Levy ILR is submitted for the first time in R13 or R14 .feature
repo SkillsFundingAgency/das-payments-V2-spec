@@ -28,7 +28,7 @@
 #            | SFA Levy employer budget   | 1000  | 1000  | 1000  | 1000  | 1000  | 1000  | ... |
 #            | SFA Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | 0     | ... |	
 
-Scenario Outline: One levy learner, levy available, ILR submitted for the first time in R13/R14 PV2-428
+    Scenario Outline: One levy learner, levy available, ILR submitted for the first time in R13/R14 PV2-428
 	# levy balance > agreed price for all months
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	# New Commitment line
@@ -40,10 +40,10 @@ Scenario Outline: One levy learner, levy available, ILR submitted for the first 
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
         | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 
 	
-	When the ILR file is submitted for the learners for collection period <collection_period>
+	When the ILR file is submitted for the learners for collection period <Collection_period>
 
 	Then the following learner earnings should be generated
-        | Delivery Period        | On-Programme | Completion | Balancing |
+        | Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 0            | 0          | 0         |
         | Sep/Current Academic Year | 1000         | 0          | 0         |
         | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -73,17 +73,17 @@ Scenario Outline: One levy learner, levy available, ILR submitted for the first 
 	# Levy Payments
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R13/Current Academic Year | Sep/Current Academic Year | 1000         | Learning         |
-        | R13/Current Academic Year | Oct/Current Academic Year | 1000         | Learning         |
-        | R13/Current Academic Year | Nov/Current Academic Year | 1000         | Learning         |
-        | R13/Current Academic Year | Dec/Current Academic Year | 1000         | Learning         |
-        | R13/Current Academic Year | Jan/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | Feb/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | Mar/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | Apr/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | May/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | Jun/Current Academic Year | 1000         | Learning         |
-		| R13/Current Academic Year | Jul/Current Academic Year | 1000         | Learning         |
+        | R13/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Nov/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Dec/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Jan/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Feb/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Mar/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Apr/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | May/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Jun/Current Academic Year | 1000          | Learning         |
+        | R13/Current Academic Year | Jul/Current Academic Year | 1000          | Learning         |
 
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |

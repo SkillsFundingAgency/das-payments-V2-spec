@@ -71,7 +71,7 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
 
 	Given the employer levy account balance is 17000
 
-	And The following commitment exists
+	And the following commitment exists
 		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
 		| 1             | 1          | learner a  | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 51            |
 
@@ -98,10 +98,8 @@ Scenario Outline: Levy learner change to standard in ILR but no change in price 
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         |
- 
-
-        
-    But The commitment is now changed as follows 
+         
+    But the commitment is now changed as follows 
 		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
 		| 1             | 2          | learner a  | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 52            |
 
