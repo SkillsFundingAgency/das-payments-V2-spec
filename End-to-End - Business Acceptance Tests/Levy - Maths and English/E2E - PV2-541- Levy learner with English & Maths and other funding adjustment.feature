@@ -50,8 +50,8 @@ Feature: Levy learner with English & Maths and prior funding adjustment
 Scenario Outline: Levy learner with English & Maths and prior funding adjustment PV2-535
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-        | Learner ID | start date                   | end date                  | agreed price | status |
-        | learner a  | 06/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        | active |
+        | start date                   | end date                  | agreed price | status |
+        | 06/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        | active |
 	And the following learners
         | Learner Reference Number | Uln      |
         | abc123                   | 12345678 |

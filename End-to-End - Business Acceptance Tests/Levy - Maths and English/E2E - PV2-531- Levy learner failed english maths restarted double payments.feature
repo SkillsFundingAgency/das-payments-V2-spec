@@ -45,8 +45,8 @@ Feature: Levy learner, takes single level 2 aim, fails, retakes beyond programme
 Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond programme end, completes to time PV2-531
 	Given The employer levy account balance is 15500
 	And the following commitments exist
-        | Learner ID | start date                | end date                     | agreed price | status |
-        | learner a  | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year | 15000        | active |
+        | start date                | end date                     | agreed price | status |
+        | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year | 15000        | active |
 	And the following learners
         | Learner Reference Number | Uln      |
         | abc123                   | 12345678 |
