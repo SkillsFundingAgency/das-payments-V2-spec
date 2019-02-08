@@ -20,7 +20,12 @@
 #            | SFA Levy employer budget   | 1000  | 1000  | 1000  | 1000  | 1000  | 1000  | ... |
 #            | SFA Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | 0     | ... |
 
-Scenario Outline: One levy learner, levy available, ILR submitted several months later but before AY end PV2-340
+	Feature: For a Levy Learner , the ILR is submitted several months after course commences. 
+	As a provider,
+	I want a levy learner, where ILR is submitted several months after learning has started, to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision. PV2-340
+
+	Scenario Outline: One levy learner, levy available, ILR submitted several months later but before AY end PV2-340
 	# levy balance > agreed price for all months
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	# New Commitment line
@@ -28,11 +33,11 @@ Scenario Outline: One levy learner, levy available, ILR submitted several months
         | start date                | end date                     | agreed price |
         | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
 
-	Given the provider is providing training for the following learners
+	And the provider submitted the following learner details
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
         | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |  
 	
-	When the ILR file is submitted for the learners for collection period <collection_period>
+	When the ILR file is submitted for the learners for collection period <Collection_Period>
 
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
