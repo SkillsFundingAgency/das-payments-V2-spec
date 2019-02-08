@@ -50,8 +50,8 @@
     Given the employer levy account balance in collection period R03/Current Academic Year is 15000
 
 	And The following commitments exist
-		| commitment Id | version Id | start date                   | end date                     | agreed price | status  | effective from | stop effective from | 
-		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        | stopped | 01/08/2018     | 01/08/2018          | 
+		| commitment Id | version Id | start date                   | end date                     | agreed price | status | effective from               |
+		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        | active | 01/Aug/Current Academic Year |
 
 	And the provider previously submitted the following learner details
         | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
@@ -79,8 +79,9 @@
         
     But the Commitment details are changed as follows
 
-		| commitment Id | version Id | start date                   | end date                     | status | agreed price | effective from |
-		| 1             | 2          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 1            | 04/10/2018     |
+		| commitment Id | version Id | start date                   | end date                     | status  | agreed price | effective from               | stop effective from          |
+		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | stopped | 11250        | 01/Aug/Current Academic Year | 01/Aug/Current Academic Year |
+		| 2             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active  | 1            | 04/Oct/Current Academic Year |                              |
 
 	And the Provider now changes the Learner details as follows
         | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
