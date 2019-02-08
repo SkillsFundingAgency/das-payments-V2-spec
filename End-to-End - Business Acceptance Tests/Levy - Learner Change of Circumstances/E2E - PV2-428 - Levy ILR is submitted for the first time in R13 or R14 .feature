@@ -28,19 +28,25 @@
 #            | SFA Levy employer budget   | 1000  | 1000  | 1000  | 1000  | 1000  | 1000  | ... |
 #            | SFA Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | 0     | ... |	
 
-    Scenario Outline: One levy learner, levy available, ILR submitted for the first time in R13/R14 PV2-428
+    Feature: ILR submitted for the first time for Levy Learner in R13/R14
+	As a provider,
+	I want to ensure that when a levy learner is submitted for the first time in R13/R14 that payments are calculated correctly.
+	So that I am accurately paid my apprenticeship provision.PV2-428
+
+	Scenario: One levy learner, levy available, ILR submitted for the first time in R13/R14 PV2-428
 	# levy balance > agreed price for all months
-	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+
+	Given the employer levy account balance in collection period R13/Current Academic Year is 15000
 	# New Commitment line
 	And the following commitments exist
-        | start date                | end date                     | agreed price |
-        | 01/Sep/Last Academic Year | 08/Sep/Current Academic Year | 15000        |
+        | start date                   | end date                  | agreed price |
+        | 01/Sep/Current Academic Year | 08/Sep/Next Academic Year | 15000        |
 
-	Given the provider is providing training for the following learners
+	And the provider submitted the following learner details
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
         | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 
 	
-	When the ILR file is submitted for the learners for collection period <Collection_period>
+	When the ILR file is submitted for the learners for collection period R13/Current Academic Year 
 
 	Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -98,8 +104,3 @@
         | R13/Current Academic Year | May/Current Academic Year | 1000          | Learning         |
         | R13/Current Academic Year | Jun/Current Academic Year | 1000          | Learning         |
         | R13/Current Academic Year | Jul/Current Academic Year | 1000          | Learning         |
-
-# Levy Balance
-Examples: 
-        | Collection_Period         | Levy Balance |
-        | R13/Current Academic Year | 12000        |

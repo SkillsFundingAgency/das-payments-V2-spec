@@ -15,12 +15,18 @@
  #           | Levy account debited     | 0     | 1000  | 1000  | 0     | 0     | 1000  | ... | 1000  | 1000  |
  #           | SFA Levy employer budget | 1000  | 1000  | 0     | 0     | 1000  | 1000  | ... | 1000  | 0     |
 
+	
+	Feature: Learner takes a planned break from learning. 
+	As a provider,
+	I want a levy learner, that goes on a planned break which is recorded in ILR, to be paid the correct amount
+	So that I am accurately paid my apprenticeship PV2-296
+
 	Scenario Outline: E2E - Levy learner, goes on a planned break which is recorded in ILR  PV2-296
 
 	Given the employer levy account balance is 17000
 
 	And the following commitments exist
-		| commitment Id | version Id | Learner ID | start date                | end date                     | status | agreed price |
+		| commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price |
 		| 1             | 1          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
 		| 1             | 2          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
 
@@ -51,6 +57,8 @@
     But the commitment is now changed as follows
 
 	    | commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price |
+		| 1             | 1          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
+		| 1             | 2          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
 	    | 1             | 3          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
 	
 	And the Provider now changes the Learner details as follows

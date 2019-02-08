@@ -39,7 +39,12 @@
 
 
 # This test needs to be discussed with David Young. Changes may also apply to Non-Levy version.
-    Scenario Outline: Levy learner change to standard at the end of a month no change in price PV2-426
+    Feature: Levy Learner changes course but price is the same
+	As a provider,
+	I want to ensure when my levy learner, the changes apprenticeship standard and negotiated price remains the same, to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision. PV2-426
+
+	Scenario Outline: Levy learner change to standard at the end of a month no change in price PV2-426
 
 	Given the employer levy account balance is 18500
 
