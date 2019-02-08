@@ -71,6 +71,7 @@ Scenario Outline: Levy learner changes provider but remains with the same employ
     But the "provider a" now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                   | 06/Aug/Current Academic Year          | 7 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 19-24 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+	# New
 	And the "provider b" is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 05/Mar/Current Academic Year | 5 months         | 3000                 | 05/Mar/Current Academic Year        | 1500                   | 05/Mar/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 19-24 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -87,6 +88,7 @@ Scenario Outline: Levy learner changes provider but remains with the same employ
 		| Dec/Current Academic Year | 500          | 0          | 0         |
 		| Jan/Current Academic Year | 500          | 0          | 0         |
 		| Feb/Current Academic Year | 500          | 0          | 0         |
+		# changed provider
 		| Mar/Current Academic Year | 0            | 0          | 0         |
 		| Apr/Current Academic Year | 0            | 0          | 0         |
 		| May/Current Academic Year | 0            | 0          | 0         |
@@ -101,6 +103,7 @@ Scenario Outline: Levy learner changes provider but remains with the same employ
         | Dec/Current Academic Year | 0            | 0          | 0         |
         | Jan/Current Academic Year | 0            | 0          | 0         |
         | Feb/Current Academic Year | 0            | 0          | 0         |
+		# "provider b"
         | Mar/Current Academic Year | 720          | 0          | 0         |
         | Apr/Current Academic Year | 720          | 0          | 0         |
         | May/Current Academic Year | 720          | 0          | 0         |
