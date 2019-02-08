@@ -44,8 +44,8 @@ Feature: Levy learner taking single Level 1 aim, progressing to and completing s
 Scenario Outline: Levy learner taking single Level 1 aim progressing to and completing single Level 2 aim on time PV2-532
 	Given The employer levy account balance is 15500
 	And the following commitments exist
-        | Learner ID | start date                | end date                  | agreed price | status |
-        | learner a  | 06/Aug/Last Academic Year | 08/Aug/Next Academic Year | 15000        | active |
+        | start date                | end date                  | agreed price | status |
+        | 06/Aug/Last Academic Year | 08/Aug/Next Academic Year | 15000        | active |
 	And the following learners
         | Learner Reference Number | Uln      |
         | abc123                   | 12345678 |

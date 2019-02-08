@@ -46,8 +46,8 @@ Feature: Levy learner with English & Maths submits first ILR in R08
 Scenario Outline: Levy learner with English & Maths submits first ILR in R08 PV2-543
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-        | Learner ID | start date                   | end date                  | agreed price | status |
-        | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active |
+        | start date                   | end date                  | agreed price | status |
+        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active |
 	And the following learners
         | Learner Reference Number | Uln      |
         | abc123                   | 12345678 |
