@@ -38,8 +38,8 @@
 Feature: Payment for a non-DAS learner with a negotiated price above the funding band cap
 Scenario Outline: Capping - Payment for Non-Levy learner with a negotiated price above funding cap PV2-529
     Given the provider is providing training for the following learners
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/Aug/Current Academic Year | 12 months        | 18000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
+		| 06/Aug/Current Academic Year | 12 months        | 18000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
 	# New capping section
 	And the following capping will apply to the price episodes
         | negotiated price | funding cap | previous funding paid | price above cap | effective price for SFA payments |
@@ -59,7 +59,7 @@ Scenario Outline: Capping - Payment for Non-Levy learner with a negotiated price
         | May/Current Academic Year | 1000         | 0          | 0         |
         | Jun/Current Academic Year | 1000         | 0          | 0         |
         | Jul/Current Academic Year | 1000         | 0          | 0         |
-    And at month end only the following payments will be calculated
+    And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
@@ -87,7 +87,7 @@ Scenario Outline: Capping - Payment for Non-Levy learner with a negotiated price
         | R10/Current Academic Year | May/Current Academic Year | 900                    | 100                         | Learning         |
         | R11/Current Academic Year | Jun/Current Academic Year | 900                    | 100                         | Learning         |
         | R12/Current Academic Year | Jul/Current Academic Year | 900                    | 100                         | Learning         |
-	And only the following provider payments will be generated
+	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
