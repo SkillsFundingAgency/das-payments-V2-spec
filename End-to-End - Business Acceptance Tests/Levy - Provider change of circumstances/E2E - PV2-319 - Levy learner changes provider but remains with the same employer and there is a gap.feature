@@ -1,52 +1,56 @@
-Scenario: Apprentice changes provider but remains with the same employer, and there is a gap between the two learning spells
-        Given The learner is programme only DAS
-        And levy balance > agreed price for all months
-		And the apprenticeship funding band maximum is 15000
-        And the following commitments exist:
-            | commitment Id | version Id | Provider   | start date | end date   | agreed price | status    | effective from | effective to | stop effective from |
-            | 1             | 1          | provider a | 01/08/2018 | 01/08/2019 | 7500         | cancelled | 01/08/2018     | 04/03/2019   | 05/03/2019   |
-            | 2             | 1          | provider b | 01/06/2019 | 01/11/2019 | 4500         | active    | 06/06/2019     |              |              |
-        
-        When the providers submit the following ILR files:
-            | Provider   | ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-            | provider a | learner a | 06/08/2018 | 08/08/2019       | 04/03/2019      | withdrawn         | 6000                 | 06/08/2018                          | 1500                   | 06/08/2018                            |
-            | provider b | learner a | 06/06/2019 | 20/11/2019       |                 | continuing        | 3000                 | 06/06/2019                          | 1500                   | 06/06/2019                            |
-        
-        #Then the data lock status will be as follows:
-        #    | Payment type | 08/18               | 09/18               | 10/18               | ... | 02/19               | 03/19 | 04/19 | 05/19 | 06/19               | 07/19               | 08/19               | 09/19               | 10/19               | 
-        #    | On-program   | commitment 1 v1-001 | commitment 1 v1-001 | commitment 1 v1-001 | ... | commitment 1 v1-001 |       |       |       | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | 
-        
-        Then OBSOLETE - the earnings and payments break down for provider a is as follows:
-            | Type                           | 08/18 | 09/18 | 10/18 | ... | 02/19 | 03/19 | 04/19 | ... | 11/19 |
-            | Provider Earned Total          | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
-            | Provider Earned from SFA       | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
-            | Provider Earned from Employer  | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
-            | Provider Paid by SFA           | 0     | 500   | 500   | ... | 500   | 500   | 0     | ... | 0     |
-            | Payment due from Employer      | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
-            | Levy account debited           | 0     | 500   | 500   | ... | 500   | 500   | 0     | ... | 0     |
-            | SFA Levy employer budget       | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
-            | SFA Levy co-funding budget     | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
-            | SFA non-Levy co-funding budget | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
-        
-        And OBSOLETE - the earnings and payments break down for provider b is as follows:
-            | Type                           | 08/18 | ... | 06/19 | 07/19 | 08/19 | 09/19 | 10/19 | 11/19 |
-            | Provider Earned Total          | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
-            | Provider Earned from SFA       | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
-            | Provider Earned from Employer  | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
-            | Provider Paid by SFA           | 0     | ... | 0     | 720   | 720   | 720   | 720   | 720   |
-            | Payment due from Employer      | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
-            | Levy account debited           | 0     | ... | 0     | 720   | 720   | 720   | 720   | 720   |
-            | SFA Levy employer budget       | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
-            | SFA Levy co-funding budget     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
-            | SFA non-Levy co-funding budget | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
+#Scenario: Apprentice changes provider but remains with the same employer, and there is a gap between the two learning spells
+#        Given The learner is programme only DAS
+#        And levy balance > agreed price for all months
+#		And the apprenticeship funding band maximum is 15000
+#        And the following commitments exist:
+#            | commitment Id | version Id | Provider   | start date | end date   | agreed price | status    | effective from | effective to | stop effective from |
+#            | 1             | 1          | provider a | 01/08/2018 | 01/08/2019 | 7500         | cancelled | 01/08/2018     | 04/03/2019   | 05/03/2019   |
+#            | 2             | 1          | provider b | 01/06/2019 | 01/11/2019 | 4500         | active    | 06/06/2019     |              |              |
+#        
+#        When the providers submit the following ILR files:
+#            | Provider   | ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#            | provider a | learner a | 06/08/2018 | 08/08/2019       | 04/03/2019      | withdrawn         | 6000                 | 06/08/2018                          | 1500                   | 06/08/2018                            |
+#            | provider b | learner a | 06/06/2019 | 20/11/2019       |                 | continuing        | 3000                 | 06/06/2019                          | 1500                   | 06/06/2019                            |
+#        
+#        #Then the data lock status will be as follows:
+#        #    | Payment type | 08/18               | 09/18               | 10/18               | ... | 02/19               | 03/19 | 04/19 | 05/19 | 06/19               | 07/19               | 08/19               | 09/19               | 10/19               | 
+#        #    | On-program   | commitment 1 v1-001 | commitment 1 v1-001 | commitment 1 v1-001 | ... | commitment 1 v1-001 |       |       |       | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | commitment 2 v2-001 | 
+#        
+#        Then OBSOLETE - the earnings and payments break down for provider a is as follows:
+#            | Type                           | 08/18 | 09/18 | 10/18 | ... | 02/19 | 03/19 | 04/19 | ... | 11/19 |
+#            | Provider Earned Total          | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
+#            | Provider Earned from SFA       | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
+#            | Provider Earned from Employer  | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
+#            | Provider Paid by SFA           | 0     | 500   | 500   | ... | 500   | 500   | 0     | ... | 0     |
+#            | Payment due from Employer      | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
+#            | Levy account debited           | 0     | 500   | 500   | ... | 500   | 500   | 0     | ... | 0     |
+#            | SFA Levy employer budget       | 500   | 500   | 500   | ... | 500   | 0     | 0     | ... | 0     |
+#            | SFA Levy co-funding budget     | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
+#            | SFA non-Levy co-funding budget | 0     | 0     | 0     | ... | 0     | 0     | 0     | ... | 0     |
+#        
+#        And OBSOLETE - the earnings and payments break down for provider b is as follows:
+#            | Type                           | 08/18 | ... | 06/19 | 07/19 | 08/19 | 09/19 | 10/19 | 11/19 |
+#            | Provider Earned Total          | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
+#            | Provider Earned from SFA       | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
+#            | Provider Earned from Employer  | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
+#            | Provider Paid by SFA           | 0     | ... | 0     | 720   | 720   | 720   | 720   | 720   |
+#            | Payment due from Employer      | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
+#            | Levy account debited           | 0     | ... | 0     | 720   | 720   | 720   | 720   | 720   |
+#            | SFA Levy employer budget       | 0     | ... | 720   | 720   | 720   | 720   | 720   | 0     |
+#            | SFA Levy co-funding budget     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
+#            | SFA non-Levy co-funding budget | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     |
 
+Feature: Apprentice changes provider but remains with the same employer, and there is a gap between the two learning spells
+	As a provider,
+	I want a levy learner, that changes provider but remains with the same employer and there is a gap between the two learning spells, to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes provider but remains with the same employer and there is a gap PV2-319
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-        | commitment Id | version Id | Provider   | Learner ID | start date                   | end date                  | agreed price | status    | effective from               | effective to              | stop effective from       |
-        | 1             | 1-001      | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 7500         | cancelled | 01/Aug/Current Academic Year | 04/Mar/Next Academic Year | 05/Mar/Next Academic Year |
-        | 2             | 1-001      | provider b | learner a  | 01/Jun/Next Academic Year    | 01/Nov/Next Academic Year | 4500         | active    | 06/Jun/Next Academic Year    |                           |                           |
+        | commitment Id | version Id | Provider   | Learner ID | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | 1             | 1-001      | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 7500         | cancelled | 01/Aug/Current Academic Year | 04/Mar/Current Academic Year | 05/Mar/Current Academic Year |
+        | 2             | 1-001      | provider b | learner a  | 01/Jun/Current Academic Year | 01/Nov/Next Academic Year | 4500         | active    | 06/Jun/Current Academic Year |                              |                              |
 	And the "provider a" previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 19-24 Apprenticeship (From May 2017) Levy Contract | 90%                         |
