@@ -49,7 +49,7 @@
 
     Given the employer levy account balance in collection period R03/Current Academic Year is 15000
 
-	And The following commitments exist
+	And the following commitments exist
 		| commitment Id | version Id | start date                   | end date                     | status | agreed price | effective from               | effective to                 |
 		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 11250        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year |
 																																																	   
