@@ -24,18 +24,23 @@
   #          | SFA Levy employer budget      | 1000  | 1000  | 1000  | 833.33 | 833.33 | ... | 833.33 | 0      |
   #          | SFA Levy co-funding budget    | 0     | 0     | 0     | 0      | 0      | ... | 0      | 0      |
 
-  Scenario Outline: Earnings and payments for a levy learner when the negotiated price changes in the middle of the month PV2-360
+	Feature: Levy Employer Change of circumsances- Change to negotiated price mid-month
+	As a provider,
+	I want earnings and payments for a levy learner, levy available, and there is a change to the Negotiated Cost which happens in the middle of the month to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision.PV2-360
 
-	Given the levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Scenario: Earnings and payments for a levy learner when the negotiated price changes in the middle of the month PV2-360
 
-	And the following commitments exist on "03/Dec/Current Academic Year"
-		| commitment Id | version Id | ULN       | start date                   | end date                     | agreed price | effective from               | effective to                 |
-		| 1             | 1-001      | learner a | 01/Aug/Current Academic Year | 01/Jul/Current Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
-		| 1             | 1-002      | learner a | 01/Aug/Current Academic Year | 01/Jul/Current Academic Year | 9375         | 01/Nov/Current Academic Year |                              |
+	Given the levy account balance in collection period R04/Current Academic Year is 13000
+
+	And the following commitments exist 
+		| commitment Id | version Id | start date                   | end date                     | agreed price | effective from               | effective to                 |
+		| 1             | 1-001      | 01/Aug/Current Academic Year | 01/Jul/Current Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
+		| 1             | 1-002      | 01/Aug/Current Academic Year | 01/Jul/Current Academic Year | 9375         | 01/Nov/Current Academic Year |                              |
 
 	And the provider previously submitted the following learner details
-        | ULN       | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | learner a | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
