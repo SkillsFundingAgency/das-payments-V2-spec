@@ -74,7 +74,7 @@
 
 	Scenario: Levy learner change to standard in ILR but no change in price PV2-525
 
-	Given the employer levy account balance is 17000
+	Given the employer levy account balance in collection period R03/Current Academic Year is 17000
 
 	And the following commitments exist
 		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
