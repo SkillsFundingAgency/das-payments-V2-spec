@@ -44,7 +44,12 @@
         #| employer 1 | DAS     | 03/08/2018                |
         #| employer 2 | Non DAS | 03/11/2018                |
 
-Scenario Outline: Levy learner changes employer with change to negotiated price in mid month PV2-362
+	Feature: Levy -Employer Change in circumstances - Leavt learner switches from DAS to Non-Das at the end of the month.
+	As a provider,
+	I want earnings and payments for a levy learner, levy available, where a learner switches from levy to non-levy employer at the end of month, to be paid the correct amount
+	So that I am accurately paid my apprenticeship provision.
+
+	Scenario Outline: Levy learner changes employer and switches from DAS to Non-DAS at the end of the month PV2-362
 	# levy balance
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	# Date added in the end
