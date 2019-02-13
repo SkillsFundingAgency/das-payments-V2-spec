@@ -71,7 +71,13 @@
 #                | SFA Levy co-funding budget     | 450   | 450   | 450   | 450   | ... | 450   | 0     |
 #                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
-Scenario Outline: Two levy learners, full levy available for one learner, partial levy available for the other
+	
+	Feature:
+	As a provider,
+	I want 2 Levy learners, where levy is spent in priority order and there is only enough levy available for one and half learners
+	So that I am accurately paid the apprenticeship amount by SFA  PV2-604
+
+	Scenario Outline: Two levy learners, full levy available for one learner, partial levy available for the other PV2-604
 
 	# levy balance = agreed price for all months for only one learner
 	Given the employer levy account balance in collection period  <Collection Period> is <Levy Balance>
