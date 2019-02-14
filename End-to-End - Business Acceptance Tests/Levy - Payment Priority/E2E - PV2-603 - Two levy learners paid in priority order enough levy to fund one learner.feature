@@ -12,12 +12,12 @@
 #                | 09/18 | 10/18 | 11/18 | 12/18 | ... | 09/19 | 10/19 |
 #                | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
 #        
-#		And the following commitments exist on 03/12/2018:
+#		And the following commitments exist on 03/11/2018:
 #                | priority | ULN | start date | end date   | agreed price |
 #                | 1        | 123 | 01/08/2018 | 28/08/2019 | 15000        |
 #                | 2        | 456 | 01/08/2018 | 28/08/2019 | 15000        |
 #        
-#		When an ILR file is submitted on 03/12/2018 with the following data:
+#		When an ILR file is submitted on 03/11/2018 with the following data:
 #                | ULN | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
 #                | 123 | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
 #                | 456 | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
@@ -27,9 +27,9 @@
 #                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
 #                | Provider Earned from SFA       | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
 #                | Provider Earned from Employer  | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#                | Provider Paid by SFA           | 0     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
+#                | Provider Paid by SFA           | 0     | 0     | 0     | 3000  | ... | 1000  | 1000  |
 #                | Payment due from Employer      | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#                | Levy account debited           | 0     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
+#                | Levy account debited           | 0     | 0     | 0     | 3000  | ... | 1000  | 1000  |
 #                | SFA Levy employer budget       | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
 #                | SFA Levy co-funding budget     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
@@ -46,8 +46,8 @@
 #                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
 #                | Provider Earned from SFA       | 900   | 900   | 900   | 900   | ... | 900   | 0     |
 #                | Provider Earned from Employer  | 100   | 100   | 100   | 100   | ... | 100   | 0     |
-#                | Provider Paid by SFA           | 0     | 900   | 900   | 900   | ... | 900   | 900   |
-#                | Payment due from Employer      | 0     | 100   | 100   | 100   | ... | 100   | 100   |
+#                | Provider Paid by SFA           | 0     | 0     | 0     | 2700  | ... | 900   | 900   |
+#                | Payment due from Employer      | 0     | 0     | 0     | 300   | ... | 100   | 100   |
 #                | Levy account debited           | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #                | SFA Levy employer budget       | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #                | SFA Levy co-funding budget     | 900   | 900   | 900   | 900   | ... | 900   | 0     |
@@ -65,12 +65,13 @@
 #                | Provider Earned Total          | 2000  | 2000  | 2000  | 2000  | ... | 2000  | 0     |
 #                | Provider Earned from SFA       | 1900  | 1900  | 1900  | 1900  | ... | 1900  | 0     |
 #                | Provider Earned from Employer  | 100   | 100   | 100   | 100   | ... | 100   | 0     |
-#                | Provider Paid by SFA           | 0     | 1900  | 1900  | 1900  | ... | 1900  | 1900  |
-#                | Payment due from Employer      | 0     | 100   | 100   | 100   | ... | 100   | 100   |
-#                | Levy account debited           | 0     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
+#                | Provider Paid by SFA           | 0     | 0     | 0     | 5700  | ... | 1900  | 1900  |
+#                | Payment due from Employer      | 0     | 0     | 0     | 300   | ... | 100   | 100   |
+#                | Levy account debited           | 0     | 0     | 0     | 3000  | ... | 1000  | 1000  |
 #                | SFA Levy employer budget       | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
 #                | SFA Levy co-funding budget     | 900   | 900   | 900   | 900   | ... | 900   | 0     |
 #                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+
 
 Feature: Two levy learners, levy available but for only one learner, levy spent in priority order
 	As a provider,
@@ -116,8 +117,9 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner b  | Jul/Current Academic Year | 1000         | 0          | 0         |
 	And at month end only the following payments will be calculated
         | Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+        | learner a  | R03/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+        | learner a  | R03/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 1000         | 0          | 0         |
@@ -127,8 +129,8 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner a  | R10/Current Academic Year | May/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         |
-        | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+        | learner b  | R03/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+        | learner b  | R03/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
         | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
         | learner b  | R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
         | learner b  | R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         |
@@ -141,8 +143,8 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner b  | R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         |
 	And only the following provider payments will be recorded
         | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R03/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R03/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
@@ -153,8 +155,8 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
-        | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b  | R03/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b  | R03/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R04/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | 0             | Learning         |
@@ -167,8 +169,8 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner b  | R12/Current Academic Year | Jul/Current Academic Year | 900                    | 100                         | 0             | Learning         |
     And only the following provider payments will be generated
         | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R03/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R03/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
@@ -179,8 +181,8 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
         | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
-        | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b  | R03/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+        | learner b  | R03/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R04/Current Academic Year | Nov/Current Academic Year | 900                    | 100                         | 0             | Learning         |
         | learner b  | R05/Current Academic Year | Dec/Current Academic Year | 900                    | 100                         | 0             | Learning         |
@@ -193,9 +195,7 @@ Scenario Outline: Two levy learners, levy available but for only one learner, le
         | learner b  | R12/Current Academic Year | Jul/Current Academic Year | 900                    | 100                         | 0             | Learning         |
 Examples: 
         | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 1000         |
-        | R02/Current Academic Year | 1000         |
-        | R03/Current Academic Year | 1000         |
+        | R03/Current Academic Year | 3000         |
         | R04/Current Academic Year | 1000         |
         | R05/Current Academic Year | 1000         |
         | R06/Current Academic Year | 1000         |
