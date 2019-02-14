@@ -2,36 +2,69 @@
 #
 #Background: 2 learners, paid in priority order
 #
-#Scenario: Earnings and payments for two Levy learners, levy is spent in priority order and there is enough levy to fund one and a half learners
+#Scenario: Two Levy learners, levy is spent in priority order and there is not enough levy to fund both learners, and employer changes priority in R04
 #
 #        Given Two learners are programme only DAS 
 #		And the apprenticeship funding band maximum for each learner is 17000
 #        
 #		And the employer's levy balance is:
-#                | 09/18 | 10/18 | 11/18 | 12/18 | ...  | 09/19 | 10/19 |
-#                | 1500  | 1500  | 1500  | 1500  | 1500 | 1500  | 1500  |
+#                | 08/18 | 09/18 | 10/18 | 11/18 | ...  | 07/19 | 08/19 |
+#                | 1500  | 1500  | 700   | 1250  | 1250 | 1250  | 1250  |
 #        
-#		And the following commitments exist on 03/12/2018:
+#		And the following commitments exist in period R01:
 #                | priority | ULN | start date | end date   | agreed price |
-#                | 1        | 123 | 01/08/2018 | 28/08/2019 | 15000        |
+#                | 1        | 123 | 01/08/2018 | 28/08/2019 | 7500         |
 #                | 2        | 456 | 01/08/2018 | 28/08/2019 | 15000        |
+#				
 #        
-#		When an ILR file is submitted on 03/12/2018 with the following data:
+#		And an ILR file is submitted for collection period R01 with the following data:
 #                | ULN | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#                | 123 | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
+#                | 123 | 01/08/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
 #                | 456 | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
+#       
+#	   
+#												
+#		When the following commitments exist in R04:
+#                | priority | ULN | start date | end date   | agreed price |
+#                | 2        | 123 | 01/08/2018 | 28/08/2019 | 7500         |
+#                | 1        | 456 | 01/08/2018 | 28/08/2019 | 15000        |
+#				
 #        
+#		And an ILR file is submitted for collection period R04 with the following data:
+#                | priority | ULN | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#                | 2        | 123 | 01/10/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
+#                | 1        | 456 | 01/10/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
+#	   
 #		Then the provider earnings and payments break down for ULN 123 as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
-#                | Provider Earned from SFA       | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
-#                | Provider Earned from Employer  | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#                | Provider Paid by SFA           | 0     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
-#                | Payment due from Employer      | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#                | Levy account debited           | 0     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
-#                | SFA Levy employer budget       | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
-#                | SFA Levy co-funding budget     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 500   | 500   | 500   | 500   | 500   | ... | 500   | 0     |
+#                | Provider Earned from SFA       | 500   | 500   | 500   | 475   | 475   | ... | 475   | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 0     | 25    | 25    | ... | 25    | 0     |
+#                | Provider Paid by SFA           | 0     | 500   | 500   | 500   | 475   | ... | 475   | 475   |
+#                | Payment due from Employer      | 0     | 0     | 0     | 0     | 25    | ... | 25    | 25    |
+#                | Levy account debited           | 0     | 500   | 500   | 500   | 250   | ... | 250   | 250   |
+#                | SFA Levy employer budget       | 500   | 500   | 500   | 250   | 250   | ... | 250   | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 0     | 225   | 225   | ... | 225   | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        
+#		And the transaction types for the payments for ULN 123 are:
+#				| Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
+#				| On-program                     | 500   | 500   | 500   | ... | 500   | 500   |
+#				| Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
+#				| Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
+#		
+#		
+#		And the provider earnings and payments break down for ULN 456 as follows:
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
+#                | Provider Earned from SFA       | 1000  | 1000  | 920   | 1000  | 1000  | ... | 1000  | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 80    | 0     | 0     | ... | 0     | 0     |
+#                | Provider Paid by SFA           | 0     | 1000  | 1000  | 920   | 1000  | ... | 1000  | 1000  |
+#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 0     | ... | 0     | 0     |
+#                | Levy account debited           | 0     | 1000  | 1000  | 200   | 1000  | ... | 1000  | 1000  |
+#                | SFA Levy employer budget       | 1000  | 1000  | 200   | 1000  | 1000  | ... | 1000  | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 0     | 0     | ... | 0     | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #        
 #		And the transaction types for the payments for ULN 123 are:
 #				| Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
@@ -40,49 +73,30 @@
 #				| Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
 #		
 #		
-#		And the provider earnings and payments break down for ULN 456 as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
-#                | Provider Earned from SFA       | 950   | 950   | 950   | 950   | ... | 950   | 0     |
-#                | Provider Earned from Employer  | 50    | 50    | 50    | 50    | ... | 50    | 0     |
-#                | Provider Paid by SFA           | 0     | 950   | 950   | 950   | ... | 950   | 950   |
-#                | Payment due from Employer      | 0     | 50    | 50    | 50    | ... | 50    | 50    |
-#                | Levy account debited           | 0     | 500   | 500   | 500   | ... | 500   | 500   |
-#                | SFA Levy employer budget       | 500   | 500   | 500   | 500   | ... | 500   | 0     |
-#                | SFA Levy co-funding budget     | 450   | 450   | 450   | 450   | ... | 450   | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        
-#		And the transaction types for the payments for ULN 123 are:
-#				| Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#				| On-program                     | 950   | 950   | 950   | ... | 950   | 950   |
-#				| Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
-#				| Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
-#		
-#		
 #		And OBSOLETE - the provider earnings and payments break down as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 2000  | 2000  | 2000  | 2000  | ... | 2000  | 0     |
-#                | Provider Earned from SFA       | 1950  | 1950  | 1950  | 1950  | ... | 1950  | 0     |
-#                | Provider Earned from Employer  | 50    | 50    | 50    | 50    | ... | 50    | 0     |
-#                | Provider Paid by SFA           | 0     | 1950  | 1950  | 1950  | ... | 1950  | 1950  |
-#                | Payment due from Employer      | 0     | 50    | 50    | 50    | ... | 50    | 50    |
-#                | Levy account debited           | 0     | 1500  | 1500  | 1500  | ... | 1500  | 1500  |
-#                | SFA Levy employer budget       | 1500  | 1500  | 1500  | 1500  | ... | 1500  | 0     |
-#                | SFA Levy co-funding budget     | 450   | 450   | 450   | 450   | ... | 450   | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 1500  | 1500  | 1500  | 1500  | 1500  | ... | 1500  | 0     |
+#                | Provider Earned from SFA       | 1500  | 1500  | 1420  | 1475  | 1475  | ... | 1475  | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 80    | 25    | 25    | ... | 25    | 0     |
+#                | Provider Paid by SFA           | 0     | 1500  | 1500  | 1420  | 1475  | ... | 1475  | 1475  |
+#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 25    | ... | 25    | 25    |
+#                | Levy account debited           | 0     | 1500  | 1500  | 700   | 1250  | ... | 1250  | 1250  |
+#                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1500  | 1500  | ... | 1500  | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 225   | 225   | ... | 225   | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
 Scenario Outline: Two levy learners, full levy available for one learner, partial levy available for the other
 
-	Given the employer levy account balance in collection period  <Collection Period> is <Levy Balance>
+	Given the employer levy account balance in collection period  <Collection_Period> is <Levy_Balance>
 	# Commitment lines
 	And the following commitments exist
         | Learner ID | priority | start date                   | end date                  | agreed price |
-        | learner a  | 1        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        |
+        | learner a  | 1        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 7500         |
         | learner b  | 2        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        |
 	And the provider previously submitted the following learner details
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| learner a  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a  | 01/Aug/Current Academic Year | 12 months        | 7500                 | 01/Aug/Current Academic Year        |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
         | Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a  | Aug/Current Academic Year | 500          | 0          | 0         |
@@ -167,8 +181,8 @@ Scenario Outline: Two levy learners, full levy available for one learner, partia
         | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 225                    | 25                          | 250           | Learning         |
         | learner b  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |  
 Examples: 
-        | Collection_Period         | Levy Balance |
+        | Collection_Period         | Levy_Balance |
         | R01/Current Academic Year | 1500         |
         | R02/Current Academic Year | 1500         |
-        | R03/Current Academic Year | 700         |
+        | R03/Current Academic Year | 700          |
         | R04/Current Academic Year | 1250         |
