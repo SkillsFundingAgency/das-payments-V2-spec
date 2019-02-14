@@ -83,7 +83,6 @@ Scenario Outline: Levy learner changes provider but remains with the same employ
 	# one resubmit and another first submission
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period> by "provider a"
 	When the ILR file is submitted for the learners for collection period <Collection_Period> by "provider b"
-	# Should these earnings be merged in one table?
 	Then the following learner earnings should be generated for "provider a"
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 500          | 0          | 0         |
