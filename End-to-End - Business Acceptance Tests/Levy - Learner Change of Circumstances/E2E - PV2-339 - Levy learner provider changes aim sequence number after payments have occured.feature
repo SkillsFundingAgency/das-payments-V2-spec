@@ -39,16 +39,16 @@ As a provider,
 I want a levy learner, where provider changes aim sequence number after payments have occurred, to be paid the correct amount
 So that I am accurately paid my apprenticeship provision.PV2-339
 
-Scenario: Levy apprentice, provider changes aim sequence numbers in ILR after payments have already occurred PV2-339
+Scenario Outline: Levy apprentice, provider changes aim sequence numbers in ILR after payments have already occurred PV2-339
 
-	Given the employer levy account balance in collection period  <Collection Period> is <Levy Balance>
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy_Balance>
 	# Commitment lines
-	And the following commitments exist:
-		| commitment Id | version Id | start date | end date   | framework code | programme type | pathway code | agreed price | status | effective from | effective to |
-		| 1             | 1          | 01/08/2018 | 01/08/2019 | 593            | 20             | 1            | 9000         | Active | 01/08/2018     |              |
+	And the following commitments exist
+		| commitment Id | version Id | start date                   | end date                     | framework code | programme type | pathway code | agreed price | status | effective from               | effective to |
+		| 1             | 1          | 01/Aug/Current Academic Year | 31/Aug/Current Academic Year | 593            | 20             | 1            | 9000         | Active | 01/Aug/Current Academic Year |              |
 
 	And the following aims
-		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
+		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 16-18 Apprenticeship Levy | continuing        |
 
 	And price details as follows	
@@ -168,15 +168,15 @@ Scenario: Levy apprentice, provider changes aim sequence numbers in ILR after pa
         | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
         | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
 Examples: 
-        | Collection_Period         |
-        | R03/Current Academic Year |
-        | R04/Current Academic Year |
-        | R05/Current Academic Year |
-        | R06/Current Academic Year |
-        | R07/Current Academic Year |
-        | R08/Current Academic Year |
-        | R09/Current Academic Year |
-        | R10/Current Academic Year |
-        | R11/Current Academic Year |
-        | R12/Current Academic Year |
+        | Collection_Period         | Levy_Balance |
+        | R03/Current Academic Year | 1200         |
+        | R04/Current Academic Year | 1200         |
+        | R05/Current Academic Year | 1200         |
+        | R06/Current Academic Year | 1200         |
+        | R07/Current Academic Year | 1200         |
+        | R08/Current Academic Year | 1200         |
+        | R09/Current Academic Year | 1200         |
+        | R10/Current Academic Year | 1200         |
+        | R11/Current Academic Year | 1200         |
+        | R12/Current Academic Year | 1200         |
 	
