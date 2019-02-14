@@ -65,14 +65,15 @@
 #
 #We expect the employer contributions to total 600 in order for the completion payment to be released to the training provider.
 
-Scenario Outline: Levy Learner -in co-funding,completion payment held back due to insuffucient employer contribution - payment is released when sufficient contribution evidenced
+Scenario: Levy Learner -in co-funding,completion payment held back due to insuffucient employer contribution - payment is released when sufficient contribution evidenced
 
-	Given the employer levy account balance for all Collection Periods is 0
+	Given the employer levy account balance is 0
+	# double check above
 
 	And the following commitments exist
 	# "Last Academic Year is used to highlight 1718 academic year
-        | start date                | end date                     | agreed price |
-        | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         |
+        | start date                | end date                     | agreed price | status |
+        | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |
 
 	And the provider previously submitted the following learner details in collection period R11/Last Academic Year
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -110,11 +111,13 @@ Scenario Outline: Levy Learner -in co-funding,completion payment held back due t
 		| Apr/Current Academic Year | 600          | 0          | 0         |
 		| May/Current Academic Year | 600          | 0          | 0         |
 		| Jun/Current Academic Year | 0            | 1800       | 0         |
+		# double check above
 		| Jul/Current Academic Year | 0            | 0          | 0         |
 
+	# New field in the ILR line
 	And the provider previously submitted the following learner details in collection period R11/Current Academic Year
-	| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
-	| 01/Jun/Last Academic Year | 12 months        | 15000                | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 719                   |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
+		| 01/Jun/Last Academic Year | 12 months        | 15000                | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 719                   |
 
     And the following provider payments had been generated 
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
@@ -130,11 +133,10 @@ Scenario Outline: Levy Learner -in co-funding,completion payment held back due t
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | Learning         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | Completion       |
 
     But the Provider now changes the Learner details as follows
 	| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
-	| 01/Jun/Last Academic Year | 12 months        | 15000                | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 720                   |	
+	| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 720                   |
 
 	When the amended ILR file is re-submitted for the learners in collection period R12/Current Academic Year
 
@@ -155,11 +157,11 @@ Scenario Outline: Levy Learner -in co-funding,completion payment held back due t
 
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0            | 1800       | 0         |
+        | R12/Current Academic Year | Jun/Current Academic Year | 0            | 1800       | 0         | 
 
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R12/Current Academic Year | Jul/Current Academic Year | 1620                   | 180                         | Completion       |
+        | R12/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | Completion       |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R12/Current Academic Year | Jul/Current Academic Year | 1620                   | 180                         | Completion       |
+        | R12/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | Completion       |
