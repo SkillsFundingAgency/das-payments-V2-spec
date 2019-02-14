@@ -114,7 +114,7 @@ Scenario: Levy Learner -in co-funding,completion payment held back due to insuff
 		# double check above
 		| Jul/Current Academic Year | 0            | 0          | 0         |
 
-	# New field in the ILR line
+	# New field in the ILR line -  Employer Contribution
 	And the provider previously submitted the following learner details in collection period R11/Current Academic Year
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 719                   |
