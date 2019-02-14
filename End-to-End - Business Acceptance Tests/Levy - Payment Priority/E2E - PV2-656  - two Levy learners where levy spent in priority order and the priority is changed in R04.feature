@@ -81,7 +81,7 @@
 #                | Provider Paid by SFA           | 0     | 1500  | 1500  | 1420  | 1475  | ... | 1475  | 1475  |
 #                | Payment due from Employer      | 0     | 0     | 0     | 80    | 25    | ... | 25    | 25    |
 #                | Levy account debited           | 0     | 1500  | 1500  | 700   | 1250  | ... | 1250  | 1250  |
-#                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1500  | 1500  | ... | 1500  | 0     |
+#                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1250  | 1250  | ... | 1250  | 0     |
 #                | SFA Levy co-funding budget     | 0     | 0     | 720   | 225   | 225   | ... | 225   | 0     |
 #                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
