@@ -58,6 +58,11 @@
 #
 #We expect the employer contributions to total 720 in order for the completion payment to be released to the training provider.
 
+Feature:
+As a provider,
+I want a Non levy learner, where the planned end date is the last day of month and the employer has paid their 10% co-investment for the on-program element for the first 12 months, but has not yet paid the employer completion payment element and the 13th month on program payment
+So that I am accurately paid the completion payment by SFA
+
 Scenario: Non-Levy Learner,completion payment held back due to insufficient employer contribution - payment is released when sufficient contribution evidenced
 
 	Given the provider previously submitted the following learner details in collection period R11/Last Academic Year

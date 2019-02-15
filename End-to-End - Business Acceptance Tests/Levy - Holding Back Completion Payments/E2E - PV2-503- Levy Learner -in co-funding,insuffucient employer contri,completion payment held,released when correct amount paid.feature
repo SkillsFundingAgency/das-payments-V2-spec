@@ -65,6 +65,11 @@
 #
 #We expect the employer contributions to total 600 in order for the completion payment to be released to the training provider.
 
+Feature:
+As a provider,
+I want a levy learner, where the employer initially pays less than the 10% co-investment for the on-program element in the month of completion, but in the following month the employer achieves the 10% co-investment, although has not yet paid the employer completion payment element
+So that I am accurately paid the completion payment by SFA 
+
 Scenario: Levy Learner -in co-funding,completion payment held back due to insuffucient employer contribution - payment is released when sufficient contribution evidenced
 
 	Given the employer levy account balance is 0
