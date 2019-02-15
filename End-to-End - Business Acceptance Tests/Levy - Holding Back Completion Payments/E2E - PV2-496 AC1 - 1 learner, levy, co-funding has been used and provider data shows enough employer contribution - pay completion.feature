@@ -59,7 +59,9 @@
 #
 #We expect the employer contributions to total 720 in order for the completion payment to be released to the training provider.
 
-Scenario: Levy Learner -in co-funding,completion payment held back due to insuffucient employer contribution - payment is released when sufficient contribution evidenced
+Feature: Holding back completion payments
+
+Scenario: Levy Learner-in co-funding,completion payment made as enough employer contribution
 
 	Given the employer levy account balance is 0
 	# double check above
