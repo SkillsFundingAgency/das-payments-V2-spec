@@ -118,7 +118,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
 		| Jul/Current Academic Year | 0            | 0          | 0         |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | R01/Current Academic Year | Sep/Current Academic Year | 600          | 0          | 0         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
         | R02/Current Academic Year | Sep/Current Academic Year | 600          | 0          | 0         |
         | R03/Current Academic Year | Oct/Current Academic Year | 600          | 0          | 0         |
         | R04/Current Academic Year | Nov/Current Academic Year | 600          | 0          | 0         |
@@ -131,7 +131,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R11/Current Academic Year | Jun/Current Academic Year | 0            | 1800       | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0             | Learning         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 540                    | 60                          | 0             | Learning         |
@@ -144,7 +144,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0             | Learning         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 540                    | 60                          | 0             | Learning         |
