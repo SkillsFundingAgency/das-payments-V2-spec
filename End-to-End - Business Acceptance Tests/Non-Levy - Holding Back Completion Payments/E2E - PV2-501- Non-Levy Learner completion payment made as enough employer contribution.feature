@@ -100,7 +100,7 @@ Scenario Outline: Non-Levy Learner-in co-funding no completion payment made as n
 		| Jul/Current Academic Year | 0            | 0          | 0         |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-        | R01/Current Academic Year | Sep/Current Academic Year | 600          | 0          | 0         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
         | R02/Current Academic Year | Sep/Current Academic Year | 600          | 0          | 0         |
         | R03/Current Academic Year | Oct/Current Academic Year | 600          | 0          | 0         |
         | R04/Current Academic Year | Nov/Current Academic Year | 600          | 0          | 0         |
@@ -112,7 +112,7 @@ Scenario Outline: Non-Levy Learner-in co-funding no completion payment made as n
         | R10/Current Academic Year | May/Current Academic Year | 600          | 0          | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | Learning         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 540                    | 60                          | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 540                    | 60                          | Learning         |
@@ -124,7 +124,7 @@ Scenario Outline: Non-Levy Learner-in co-funding no completion payment made as n
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | Learning         |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | Learning         |
+        | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 540                    | 60                          | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 540                    | 60                          | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 540                    | 60                          | Learning         |
