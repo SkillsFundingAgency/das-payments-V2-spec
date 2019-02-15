@@ -41,7 +41,7 @@ As a provider,
 I want a 16-18 Levy learner, where the small employer flag is added retrospectively in the ILR, and previous on-programme payments are refunded and repaid according to the latest small employer status
 So that I am accurately paid the apprenticeship amount by SFA PV2-650
 
-Scenario:  Provider retrospectively notifies of a withdrawal for a levy learner after payments have already been made PV2-650
+Scenario:  16-18 Levy apprentice, provider retrospectively adds small employer flag in the ILR, previous on-programme payments are refunded and repaid according to latest small employer status PV2-650
  # And the employment status in the ILR is
  #       | Employer   | Employment Status  | Employment Status Applies	  | Small Employer |
  #       | employer 1 | in paid employment | 05/Aug/Current Academic Year |                |
