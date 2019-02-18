@@ -42,7 +42,7 @@
         | start date                   | end date                  | agreed price |
         | 01/Sep/Current Academic Year | 08/Sep/Next Academic Year | 15000        |
 
-	And the provider submitted the following learner details
+	And the provider is providing training for the following learners
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
         | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 
 	
