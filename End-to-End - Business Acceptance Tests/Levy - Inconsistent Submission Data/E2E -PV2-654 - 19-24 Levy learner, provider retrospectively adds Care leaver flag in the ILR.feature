@@ -1,21 +1,21 @@
 #Feature: Inconsistent Submission Data
-#
-#Scenario: 19-24 year old Levy apprentice, small employer flag added, provider retrospectively adds Education Health Care (EHC) plan flag in the ILR, previous on-programme payments are refunded and repaid according to latest EHC plan status
+#			
+#Scenario: 19-24 year old Levy apprentice, small employer flag added, provider retrospectively adds care leaver flag in the ILR, previous on-programme payments are refunded and repaid according to latest care leaver status
 #
 #		Given The learner is programme only DAS
 #        And levy balance > agreed price for all months
 #        And the apprenticeship funding band maximum is 9000
 #		And the agreed price is 9000
 #
-#        And the ILR has been submitted on 30/09/2018 with the following data:
+#       And the ILR has been submitted on 30/09/2018 with the following data:
 #  
 #            | ULN       | learner type             | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
 #            | learner a | 19-24 programme only DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | No value    |
-#		       
+#        
+#			       
 #        When an ILR file is submitted on 31/10/18 with the following data:
-#
 #            | ULN       | learner type             | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
-#            | learner a | 19-24 programme only DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | EEF2        |
+#            | learner a | 19-24 programme only DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | EEF4        |
 #        
 #  
 #        Then the provider earnings and payments break down as follows:
@@ -33,14 +33,14 @@
 #            | SFA Levy co-funding budget              | 600    | 600    | 600    | 0      | 
 #            | SFA Levy additional payments budget     | 0      | 0      | 0      | 0      | 
 #            | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0      | 
-#            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      |  
+#			 | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      |  
 
 Feature: Inconsistent Submission Data
 As a provider,
-I want a 19-24 yr old Levy learner, where the small employer flag is added but the Education Health Care (EHC) plan flag is added retrospectively to the ILR, and previous on-programme payments are refunded and repaid according to the latest EHC plan status
-So that I am accurately paid the apprenticeship amount by SFA PV2-652
+I want a 19-24 yr old Levy learner, where the small employer flag is added but the care leaver flag is added retrospectively to the ILR, and previous on-programme payments are refunded and repaid according to the latest care leaver status
+So that I am accurately paid the apprenticeship amount by SFA PV2-654
 
-Scenario:  19-24 year old Levy apprentice, small employer flag added, provider retrospectively adds Education Health Care (EHC) plan flag in the ILR, previous on-programme payments are refunded and repaid according to latest EHC plan status PV2-652
+Scenario: 19-24 year old Levy apprentice, small employer flag added, provider retrospectively adds care leaver flag in the ILR, previous on-programme payments are refunded and repaid according to latest care leaver status PV2-654
  # And the employment status in the ILR is
  #       | Employer   | Employment Status  | Employment Status Applies	  | Small Employer |
  #       | employer 1 | in paid employment | 05/Aug/Current Academic Year | SEM1           |
@@ -82,7 +82,7 @@ And the following provider payments had been generated
     
 But the Provider now changes the Learner details as follows
     | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | LearnDelFam | Funding Line Type                                  |
-    | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         |                 | continuing        | 100%                        | Act1          | 1                   | ZPROG001      | 17            | 25             | EEF2        | 19-24 Apprenticeship (From May 2017) Levy Contract |
+    | 04/Aug/Current Academic Year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 01/Aug/Current Academic Year         |                 | continuing        | 100%                        | Act1          | 1                   | ZPROG001      | 17            | 25             | EEF4        | 19-24 Apprenticeship (From May 2017) Levy Contract |
 	 
 When the amended ILR file is re-submitted for the learners in collection period R06/Current Academic Year
 
