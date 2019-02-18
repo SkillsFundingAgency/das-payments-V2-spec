@@ -23,12 +23,12 @@
 
 	Scenario Outline: E2E - Levy learner, goes on a planned break which is recorded in ILR  PV2-296
 
-	Given the employer levy account balance is 17000
+	Given the employer levy account balance in collection period <Collection_Period> is 17000
 
 	And the following commitments exist
-		| commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price |
-		| 1             | 1          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
-		| 1             | 2          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
+		| Learner ID | start date                   | end date                  | status | agreed price |
+		| learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
+		| learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
 
 	And the provider previously submitted the following learner details
         | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Funding Line Type                                  | SFA Contribution Percentage |
@@ -54,12 +54,12 @@
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
 
-    But the commitment is now changed as follows
+	But the Commitment details are changed as follows
 
-	    | commitment Id | version Id | Learner ID | start date                   | end date                  | status | agreed price |
-		| 1             | 1          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
-		| 1             | 2          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
-	    | 1             | 3          | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
+	    | Learner ID | start date                   | end date                  | status | agreed price |
+		| learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
+		| learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        |
+	    | learner a  | 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Active | 15000        |
 	
 	And the Provider now changes the Learner details as follows
 		| Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
