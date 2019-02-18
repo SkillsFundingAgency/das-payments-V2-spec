@@ -36,7 +36,6 @@
 #            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      | 
 
 
-
 # DC integration
 #| Employment Status    | Employment Status Applies | Employer Id | Small Employer |
 #| In paid employment	| 05/08/2018	            | 12345678    |	SEM1           |

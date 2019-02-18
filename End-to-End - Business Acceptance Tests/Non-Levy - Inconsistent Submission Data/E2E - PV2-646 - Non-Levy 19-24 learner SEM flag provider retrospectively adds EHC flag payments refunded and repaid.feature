@@ -1,23 +1,24 @@
-﻿#Scenario: 16-18 Non-Levy apprentice, provider retrospectively adds small employer flag in the ILR, previous on-programme payments are refunded and repaid according to latest small employer status
+﻿#Feature: Inconsistent Submission Data
+#
+#Scenario: 19-24 year old Non-Levy apprentice, small employer flag added, provider retrospectively adds Education Health Care (EHC) plan flag in the ILR, previous on-programme payments are refunded and repaid according to latest EHC plan status
 #
 #		Given The learner is programme only non-DAS
 #        And the apprenticeship funding band maximum is 9000
-#		And the agreed total price is 9000
+#		And total price is 9000
 #
 #        And the ILR has been submitted on 30/09/2018 with the following data:
 #  
-#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer |
-#            | learner a | 16-18 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	No value       |
-#        
-#			       
-#        When the ILR file is submitted on 31/10/18 with the following data:
+#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | No value    |
 #
-#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer |
-#            | learner a | 16-18 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           |
+#		       
+#        When an ILR file is submitted on 31/10/18 with the following data:
+#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | EEF2        |
 #        
 #  
 #        Then the provider earnings and payments break down as follows:
-#            | Type                                    | 08/18  | 09/18  | 10/18  | 11/18  | 
+#            | Type                                    | 08/17  | 09/17  | 10/17  | 11/17  | 
 #            | Provider Earned Total                   | 600    | 600    | 600    | 0      | 
 #            | Provider Earned from SFA                | 600    | 600    | 600    | 0      | 
 #            | Provider Earned from Employer           | 0      | 0      | 0      | 0      | 
@@ -33,17 +34,18 @@
 #            | SFA non-Levy co-funding budget          | 600    | 600    | 600    | 0      | 
 #            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      |  
 
-
 # DC integration
-#| Employment Status  | Employment Status Applies | Employer Id | Small Employer |
-#| In paid employment | 05/08/2018                | 12345678    | No value       |
-#| In paid employment | 05/08/2018                | 12345678    | SEM1           |
+#| Employment Status  | Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#| In paid employment | 05/08/2018                | 12345678    | SEM1           | No value    |
+#| In paid employment | 05/08/2018                | 12345678    | SEM1           | EEF2        |
 
 Feature: Inconsistent Submission Data
 	As a provider,
-	I want a 16-18 Non levy learner, where the small employer flag is added retrospectively in the ILR, and previous on-programme payments are refunded and repaid according to the latest small employer status
+	I want a 19-24 yr old Non levy learner, where the small employer flag is added but the Education Health Care (EHC) plan flag is added retrospectively to the ILR, and previous on-programme payments are refunded and repaid according to the latest EHC plan status
 	So that I am accurately paid the apprenticeship amount by SFA
-Scenario Outline: Non-Levy learner provider retrospectively adds small employer flag previous on-prog payments refunded PV2-644
+
+Scenario Outline: Non-Levy 19-24 learner SEM flag provider retrospectively adds EHC flag payments refunded and repaid PV2-646
+19-24 year old Non-Levy apprentice, small employer flag added, provider retrospectively adds Education Health Care (EHC) plan flag in the ILR, previous on-programme payments are refunded and repaid according to latest EHC plan status
 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
@@ -110,4 +112,4 @@ Scenario Outline: Non-Levy learner provider retrospectively adds small employer 
 Examples: 
         | Collection_Period         |
         | R03/Current Academic Year |
-		| R04/Current Academic Year |
+		| R04/Current Academic Year |	
