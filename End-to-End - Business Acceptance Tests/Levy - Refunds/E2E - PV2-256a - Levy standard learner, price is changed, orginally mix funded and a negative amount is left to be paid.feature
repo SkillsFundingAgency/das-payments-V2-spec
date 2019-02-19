@@ -87,8 +87,8 @@
 		| 1             | 2          | learner a  | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
 
     And  The Provider now changes the Learner details as follows
-		| Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
-		| 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
+		| Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
+		| 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
 
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date |
