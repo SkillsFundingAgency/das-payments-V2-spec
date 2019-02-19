@@ -45,7 +45,6 @@ Feature: Inconsistent Submission Data
 	So that I am accurately paid the apprenticeship amount by SFA
 
 Scenario Outline: Non-Levy 19-24 learner SEM flag provider retrospectively adds EHC flag payments refunded and repaid PV2-646
-19-24 year old Non-Levy apprentice, small employer flag added, provider retrospectively adds Education Health Care (EHC) plan flag in the ILR, previous on-programme payments are refunded and repaid according to latest EHC plan status
 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
