@@ -54,8 +54,8 @@
 		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 11250        | active | 01/Aug/Current Academic Year |
 
 	And the provider previously submitted the following learner details
-        | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | 1        | start of academic year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | Aug/Current Academic Year            | 0               | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | start of academic year | 12 months        | 9000                 | 01/Aug/Current Academic Year        | 2250                  | Aug/Current Academic Year            | 0               | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -73,7 +73,7 @@
         | Jul/Current Academic Year | 750          | 0          | 0         |
 
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750               | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 750               | Learning         |
         
@@ -84,8 +84,8 @@
 		| 2             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active  | 1            | 04/Oct/Current Academic Year |                              |
 
 	And the Provider now changes the Learner details as follows
-        | Priority | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | 1        | start of academic year | 12 months        | 1                    | Oct/Current Academic Year           | 0                     | Oct/Current Academic Year            | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Start Date             | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+        | start of academic year | 12 months        | 1                    | Oct/Current Academic Year           | 0                     | Oct/Current Academic Year            | 12 months       | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
 	When the amended ILR file is re-submitted for the learners in collection period R03/Current Academic Year
 
@@ -109,9 +109,9 @@
         | R03/Current Academic Year | Oct/Current Academic Year | -1499.86666  | 0          | 0         |
 
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R03/Current Academic Year | Oct/Current Academic Year | -1499.86666       | Learning         |
 
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R03/Current Academic Year | Oct/Current Academic Year | -1499.86666       | Learning         |

@@ -77,7 +77,7 @@
 
     And the following provider payments had been generated 
 
-        | Collection Period         | Delivery Period           | SFA Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 750               | 0                      | 0                           | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 375               | 337.5                  | 37.5                        | Learning         |
 
@@ -87,8 +87,8 @@
 		| 1             | 2          | learner a  | 1        | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 1400         | 25            | 25             |
 
     And  The Provider now changes the Learner details as follows
-		| Priority | Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
-		| 1        | 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
+		| Start Date                   | Planned Duration | Actual Duration | Programme Type | Completion Status | SFA Contribution Percentage |
+		| 01/Aug/Current Academic Year | 12 months        | 12 months       | 25             | continuing        | 90%                         |
 
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date |
