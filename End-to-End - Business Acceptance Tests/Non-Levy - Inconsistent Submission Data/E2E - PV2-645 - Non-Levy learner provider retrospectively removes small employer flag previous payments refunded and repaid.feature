@@ -45,6 +45,7 @@ Feature: Inconsistent Submission Data
 	As a provider,
 	I want a 16-18 Non levy learner, where the small employer flag is retrospectively removed from the ILR, and previous on-programme payments are refunded and repaid according to the latest small employer status
 	So that I am accurately paid the apprenticeship amount by SFA
+
 Scenario Outline: Non-Levy learner provider retrospectively removes small employer flag previous payments refunded and repaid PV2-645
 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
