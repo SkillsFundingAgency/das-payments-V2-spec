@@ -70,7 +70,7 @@ Scenario Outline: Levy Learner-in co-funding, insufficient employer contribution
 ## For DC Integration - ILR entry
 #      <LearningDeliveryFAM>
 #        <LearnDelFAMType>LDM</LearnDelFAMType>
-#        <LearnDelFAMCode>356</LearnDelFAMCode>
+#        <LearnDelFAMCode>361</LearnDelFAMCode>
 #      </LearningDeliveryFAM>
 	Given the employer levy account balance is 0
 	And the following commitments exist
