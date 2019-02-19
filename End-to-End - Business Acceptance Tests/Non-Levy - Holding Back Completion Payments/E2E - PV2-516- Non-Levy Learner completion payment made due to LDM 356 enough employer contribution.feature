@@ -21,7 +21,7 @@
 #                                                                         
 #    Then the provider earnings and payments break down as follows:       
 #
-#        | Type                                	  | 06/17 | 07/17 | 08/17 | ... | 05/18 | 06/18 | 07/18 |
+#        | Type                                	  | 06/18 | 07/18 | 08/18 | ... | 05/19 | 06/19 | 07/19 |
 #        | Provider Earned Total               	  | 600   | 600   | 600   | ... | 600   | 1800  | 0	    |
 #		| Provider Earned from SFA                | 540   | 540   | 540   | ... | 540   | 1620  | 0	    |
 #		| Provider Earned from Employer           | 60    | 60    | 60    | ... | 60    | 180   | 0	    |

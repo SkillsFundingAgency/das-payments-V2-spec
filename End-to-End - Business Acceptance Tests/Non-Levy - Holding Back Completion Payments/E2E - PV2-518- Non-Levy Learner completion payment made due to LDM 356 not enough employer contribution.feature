@@ -4,24 +4,24 @@
 #
 #	Given the apprenticeship funding band maximum is 9000 
 #
-#    When an ILR file is submitted for academic year 1617 in period R11 with the following data:
+#    When an ILR file is submitted for academic year 1718 in period R11 with the following data:
 #
 #        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status |  LDM code |
-#        | learner a | programme only non-DAS | 9000         | 06/06/2017 | 08/06/2018       | 	              | continuing        |  356	  |
+#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 	              | continuing        |  356	  |
 #		
-#	And an ILR file is submitted for academic year 1718 in period R01 with the following data:
+#	And an ILR file is submitted for academic year 1819 in period R01 with the following data:
 #		
 #		| ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status |  LDM code |
-#        | learner a | programme only non-DAS | 9000         | 06/06/2017 | 08/06/2018       | 	              | continuing        |  356	  |
+#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 	              | continuing        |  356	  |
 #		
-#	And an ILR file is submitted for academic year 1718 in period R11 with the following data:
+#	And an ILR file is submitted for academic year 1819 in period R11 with the following data:
 #
 #        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status |  LDM code | employer contributions |
-#        | learner a | programme only non-DAS | 9000         | 06/06/2017 | 08/06/2018       | 18/06/2018      | completed         |  356	  | 1					   |
-#                                                                        
+#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 18/06/2019      | completed         |  356	  | 1					   |
+#
 #    Then the provider earnings and payments break down as follows:       
 #
-#        | Type                                	  | 06/17 | 07/17 | 08/17 | ... | 05/18 | 06/18 | 07/18 |
+#        | Type                                	  | 06/18 | 07/18 | 08/18 | ... | 05/19 | 06/19 | 07/19 |
 #        | Provider Earned Total               	  | 600   | 600   | 600   | ... | 600   | 1800  | 0	    |
 #		| Provider Earned from SFA                | 540   | 540   | 540   | ... | 540   | 1620  | 0	    |
 #		| Provider Earned from Employer           | 60    | 60    | 60    | ... | 60    | 180   | 0	    |
@@ -36,7 +36,7 @@
 #
 #    And the transaction types for the payments are:
 #
-#	    | Payment type                            | 07/17 | 08/17 | 09/17 | ... | 05/18 | 06/18 | 07/18 |
+#	    | Payment type                            | 07/18 | 08/18 | 09/18 | ... | 05/19 | 06/19 | 07/19 |
 #        | On-program                              | 540   | 540   | 540   | ... | 540   | 540   | 0	    |
 #        | Completion                              | 0     | 0     | 0     | ... | 0     | 0     | 1620  |
 #        | Balancing                               | 0     | 0     | 0     | ... | 0     | 0     | 0	    |
