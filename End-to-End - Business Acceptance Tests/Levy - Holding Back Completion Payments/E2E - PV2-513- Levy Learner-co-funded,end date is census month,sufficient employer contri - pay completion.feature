@@ -73,7 +73,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 8125         | active |
 	# Do we need delivery period in the end?
 	#And the provider previously submitted the following learner details in collection period "R11/Last Academic Year"
-	And the provider previously submitted the following learner details
+	And the provider previously submitted the following learner details in collection period <Collection_Period>
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Jun/Last Academic Year | 13 months        | 8125                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	# Do we need delivery period in the end?
@@ -158,17 +158,19 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
 
 Examples: 
         | Collection_Period         |
+        | R11/Last Academic Year    |
+        | R12/Last Academic Year    |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |
-		| R04/Current Academic Year |
-		| R05/Current Academic Year |
-		| R06/Current Academic Year |
-		| R07/Current Academic Year |
-		| R08/Current Academic Year |
-		| R09/Current Academic Year |
-		| R10/Current Academic Year |
-		| R11/Current Academic Year |
+        | R04/Current Academic Year |
+        | R05/Current Academic Year |
+        | R06/Current Academic Year |
+        | R07/Current Academic Year |
+        | R08/Current Academic Year |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
+        | R11/Current Academic Year |
  
 
     
