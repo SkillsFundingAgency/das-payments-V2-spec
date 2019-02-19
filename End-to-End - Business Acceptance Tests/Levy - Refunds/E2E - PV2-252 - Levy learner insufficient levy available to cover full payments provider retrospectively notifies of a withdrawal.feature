@@ -68,7 +68,7 @@
         | Jul/Current Academic Year | 750          | 0          | 0         |
 
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 225                    | 25                          | 500               | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 225                    | 25                          | 500               | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 225                    | 25                          | 500               | Learning         |
