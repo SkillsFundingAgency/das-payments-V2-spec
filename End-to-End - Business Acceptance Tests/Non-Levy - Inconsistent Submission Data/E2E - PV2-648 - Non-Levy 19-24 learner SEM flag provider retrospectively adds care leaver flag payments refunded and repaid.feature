@@ -1,49 +1,50 @@
-﻿Feature: Inconsistent Submission Data
-
-Scenario: 19-24 year old Non-Levy apprentice, small employer flag added, provider retrospectively removes care leaver flag in the ILR, previous on-programme payments are refunded and repaid according to latest care leaver status
-
-		Given The learner is programme only non-DAS
-        And the apprenticeship funding band maximum is 9000
-		And the total price is 9000
-
-       And the ILR has been submitted on 30/09/2018 with the following data:
-  
-            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
-            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | EEF4        |
-        
-			       
-        When an ILR file is submitted on 31/10/17 with the following data:
-            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
-            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    | SEM1           | No value    |
-        
-  
-        Then the provider earnings and payments break down as follows:
-            | Type                                    | 08/18  | 09/18  | 10/18  | 11/18  | 
-            | Provider Earned Total                   | 600    | 600    | 600    | 0      | 
-            | Provider Earned from SFA                | 540    | 540    | 540    | 0      | 
-            | Provider Earned from Employer           | 60     | 60     | 60     | 0      | 
-            | Provider Paid by SFA                    | 0      | 600    | 600    | 1620   | 
-            | Refund taken by SFA                     | 0      | 0      | 0      | -1200  | 
-            | Payment due from Employer               | 0      | 0      | 0      | 180    | 
-            | Refund due to employer                  | 0      | 0      | 0      | 0      | 
-            | Levy account debited                    | 0      | 0      | 0      | 0      | 
-            | Levy account credited                   | 0      | 0      | 0      | 0      | 
-            | SFA Levy employer budget                | 0      | 0      | 0      | 0      | 
-            | SFA Levy co-funding budget              | 0      | 0      | 0      | 0      | 
-            | SFA Levy additional payments budget     | 0      | 0      | 0      | 0      | 
-            | SFA non-Levy co-funding budget          | 540    | 540    | 540    | 0      | 
-            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      | 
+﻿#Feature: Inconsistent Submission Data
+#			
+#Scenario: 19-24 year old Non-Levy apprentice, small employer flag added, provider retrospectively adds care leaver flag in the ILR, previous on-programme payments are refunded and repaid according to latest care leaver status
+#
+#		Given The learner is programme only non-DAS
+#        And the apprenticeship funding band maximum is 9000
+#		And the total price is 9000
+#
+#    And the ILR has been submitted on 30/09/2018 with the following data:
+#  
+#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | No value    |
+#        
+#		       
+#        When an ILR file is submitted on 31/10/18 with the following data:
+#            | ULN       | learner type                 | start date | aim sequence number | aim type  | completion status | framework code | programme type | pathway code | Employment Status	| Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#            | learner a | 19-24 programme only non-DAS | 06/08/2018 | 1                   | programme | continuing        | 403            | 2              | 1            | In paid employment	| 05/08/2018	            | 12345678    |	SEM1           | EEF4        |
+#        
+#  
+#        Then the provider earnings and payments break down as follows:
+#            | Type                                    | 08/18  | 09/18  | 10/18  | 11/18  | 
+#            | Provider Earned Total                   | 600    | 600    | 600    | 0      | 
+#            | Provider Earned from SFA                | 600    | 600    | 600    | 0      | 
+#            | Provider Earned from Employer           | 0      | 0      | 0      | 0      | 
+#            | Provider Paid by SFA                    | 0      | 540    | 540    | 1800   | 
+#            | Refund taken by SFA                     | 0      | 0      | 0      | -1080  | 
+#            | Payment due from Employer               | 0      | 60     | 60     | 0      | 
+#            | Refund due to employer                  | 0      | 0      | 0      | 120    | 
+#            | Levy account debited                    | 0      | 0      | 0      | 0      | 
+#            | Levy account credited                   | 0      | 0      | 0      | 0      | 
+#            | SFA Levy employer budget                | 0      | 0      | 0      | 0      | 
+#            | SFA Levy co-funding budget              | 0      | 0      | 0      | 0      | 
+#            | SFA Levy additional payments budget     | 0      | 0      | 0      | 0      | 
+#            | SFA non-Levy co-funding budget          | 600    | 600    | 600    | 0      | 
+#            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0      |  
 
 # DC integration
-#| Employment Status  | Employment Status Applies | Employer Id | Small Employer |
-#| In paid employment | 05/08/2018                | 12345678    | No value       |
-#| In paid employment | 05/08/2018                | 12345678    | SEM1           |
+#| Employment Status  | Employment Status Applies | Employer Id | Small Employer | LearnDelFam |
+#| In paid employment | 05/08/2018                | 12345678    | SEM1           | No value    |
+#| In paid employment | 05/08/2018                | 12345678    | SEM1           | EEF4        |
 
 Feature: Inconsistent Submission Data
 	As a provider,
-	I want a 16-18 Non levy learner, where the small employer flag is added retrospectively in the ILR, and previous on-programme payments are refunded and repaid according to the latest small employer status
+	I want a 19-24 yr old Non levy learner, where the small employer flag is added but the care leaver flag is added retrospectively to the ILR, and previous on-programme payments are refunded and repaid according to the latest care leaver status
 	So that I am accurately paid the apprenticeship amount by SFA
-Scenario Outline: Non-Levy learner provider retrospectively adds small employer flag previous on-prog payments refunded PV2-644
+
+Scenario Outline: Non-Levy 19-24 learner SEM flag provider retrospectively adds care leaver flag payments refunded and repaid PV2-648
 	Given the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 9000                 | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
