@@ -1,6 +1,6 @@
 ﻿#Feature: Holding back completion payments
 # 
-#Scenario: AC16 - 1 learner, non levy, LDM code 361 used, co-funding has been used and provider data shows not enough employer contribution – pay completion
+#Scenario: AC14 - 1 learner, non levy, LDM code 361 used, co-funding has been used and provider data shows enough employer contribution – pay completion
 #
 #	Given the apprenticeship funding band maximum is 9000 
 #
@@ -17,7 +17,7 @@
 #	And an ILR file is submitted for academic year 1819 in period R11 with the following data:
 #
 #        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status |  LDM code | employer contributions |
-#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 18/06/2019      | completed         |  361	  | 1					   |
+#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 18/06/2019      | completed         |  361	  | 720					   |
 #                                                                         
 #    Then the provider earnings and payments break down as follows:       
 #
@@ -56,10 +56,10 @@
 
 Feature: Holding back completion payments
 As a provider,
-I want a Non-levy learner, where the employer has used LDM code 361, and has not paid their 10% co-investment for the on-program element, and has not yet paid the employer completion payment element
-So that I am accurately paid the completion payment by SFA PV2-522
+I want a Non-levy learner, where the employer has used LDM code 361, and paid their 10% co-investment for the on-program element only, but has not yet paid the employer completion payment element
+So that I am accurately paid the completion payment by SFA PV2-520
 
-Scenario Outline: Non-Levy Learner, insufficient employer co-investment , LDM code 361 used - completion payment made PV2-522
+Scenario Outline: Non-Levy Learner, sufficient employer co-investment , LDM code 361 used - completion payment made PV2-520
 	Given the provider previously submitted the following learner details for collection period <Collection_Period>
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | LDM Code | Funding Line Type                                      | SFA Contribution Percentage |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 361      | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
@@ -83,7 +83,7 @@ Scenario Outline: Non-Levy Learner, insufficient employer co-investment , LDM co
         | R12/Last Academic Year | Jul/Last Academic Year | 540                    | 60                          | Learning         |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | LDM Code | Funding Line Type                                      | SFA Contribution Percentage | Employer Contribution |
-		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 361      | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         | 1                     |
+		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 361      | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         | 720                     |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
