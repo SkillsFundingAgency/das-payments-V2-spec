@@ -61,6 +61,11 @@
 #
 #Completion Payment always released when LDM code 361 has been submitted in ILR.
 
+## For DC Integration
+#      <LearningDeliveryFAM>
+#        <LearnDelFAMType>LDM</LearnDelFAMType>
+#        <LearnDelFAMCode>361</LearnDelFAMCode>
+#      </LearningDeliveryFAM>
 
 Feature: Holding back completion payments
 	As a provider,
