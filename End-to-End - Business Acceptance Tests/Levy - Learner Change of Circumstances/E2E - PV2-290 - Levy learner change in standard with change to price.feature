@@ -32,11 +32,10 @@
 	Scenario Outline: Levy learner change to standard at the end of a month along with change in price PV2-290
 
 	Given the employer levy account balance is 15500
-	# Do I need to move the second commitment after history?	
 	And the following commitments exist
 		| commitment Id | version Id | standard code | start date                   | end date                  | agreed price | effective from               | effective to                 |
 		| 1             | 1-001      | 51            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
-		| 1             | 1-002      | 52            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 5625         | 03/Nov/Current Academic Year |                              |
+		| 2             | 1-002      | 52            | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 5625         | 03/Nov/Current Academic Year |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 3 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
