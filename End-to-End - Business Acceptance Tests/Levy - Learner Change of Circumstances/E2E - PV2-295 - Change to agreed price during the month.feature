@@ -26,7 +26,7 @@ Feature: Levy learner, and there is a change to the negotiated price which happe
 	So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes to the agreed price during the month PV2-295
-	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Given the employer levy account balance in collection period R01/Current Academic Year is 15000
 	And the following commitments exist
         | commitment Id | version Id | start date                   | end date                  | status | agreed price | effective from               | effective to                 |
         | 1             | 1-001      | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | active | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
@@ -105,16 +105,13 @@ Scenario Outline: Levy learner changes to the agreed price during the month PV2-
         | R11/Current Academic Year | Jun/Current Academic Year | 500           | Learning         |
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
 Examples: 
-        | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 15000        |
-        | R02/Current Academic Year | 14000        |
-        | R03/Current Academic Year | 13000        |
-        | R04/Current Academic Year | 12500        |
-        | R05/Current Academic Year | 12000        |
-        | R06/Current Academic Year | 11500        |
-        | R07/Current Academic Year | 11000        |
-        | R08/Current Academic Year | 10500        |
-        | R09/Current Academic Year | 10000        |
-        | R10/Current Academic Year | 9500         |
-        | R11/Current Academic Year | 9000         |
-        | R12/Current Academic Year | 8500         |
+        | Collection_Period         |
+        | R04/Current Academic Year |
+        | R05/Current Academic Year |
+        | R06/Current Academic Year |
+        | R07/Current Academic Year |
+        | R08/Current Academic Year |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
+        | R11/Current Academic Year |
+        | R12/Current Academic Year |
