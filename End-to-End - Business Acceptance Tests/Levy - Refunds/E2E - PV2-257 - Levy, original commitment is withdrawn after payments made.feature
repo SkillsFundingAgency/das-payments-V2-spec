@@ -91,8 +91,8 @@
 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
-        | Aug/Current Academic Year | 750          | 0          | 0         |
-        | Sep/Current Academic Year | 750          | 0          | 0         |
+        | Aug/Current Academic Year | 0.06667      | 0          | 0         |
+        | Sep/Current Academic Year | 0.06667      | 0          | 0         |
         | Oct/Current Academic Year | 0.06667      | 0          | 0         |
         | Nov/Current Academic Year | 0.06667      | 0          | 0         |
         | Dec/Current Academic Year | 0.06667      | 0          | 0         |
