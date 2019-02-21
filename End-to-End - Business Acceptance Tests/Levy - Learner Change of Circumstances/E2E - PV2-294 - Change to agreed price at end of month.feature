@@ -27,8 +27,6 @@ Feature: Levy learner, and there is a change to the negotiated price which happe
 
 Scenario Outline: Levy learner changes to the agreed price at the end of the month PV2-294
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
-	# Additional fields
-	# Do I need to move the second commitment after history?	
 	And the following commitments exist
         | commitment Id | version Id | start date                   | end date                  | status | agreed price | effective from               | effective to                 |
         | 1             | 1-001      | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | active | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
