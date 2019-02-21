@@ -44,8 +44,8 @@ Scenario Outline: Levy apprentice, provider changes aim sequence numbers in ILR 
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy_Balance>
 	# Commitment lines
 	And the following commitments exist
-		| commitment Id | version Id | start date                   | end date                     | framework code | programme type | pathway code | agreed price | status | effective from               | effective to |
-		| 1             | 1          | 01/Aug/Current Academic Year | 31/Aug/Current Academic Year | 593            | 20             | 1            | 9000         | Active | 01/Aug/Current Academic Year |              |
+		| start date                   | end date                     | framework code | programme type | pathway code | agreed price | status | effective from               | effective to |
+		| 01/Aug/Current Academic Year | 31/Aug/Current Academic Year | 593            | 20             | 1            | 9000         | Active | 01/Aug/Current Academic Year |              |
 
 	And the following aims
 		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |

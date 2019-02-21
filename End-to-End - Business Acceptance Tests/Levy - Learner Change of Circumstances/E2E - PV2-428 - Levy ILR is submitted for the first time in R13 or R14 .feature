@@ -13,7 +13,7 @@
 #            | ULN       | priority | start date | end date   | agreed price |
 #            | learner a | 1        | 01/09/2018 | 08/09/2019 | 15000        |
 #        
-#		When an ILR file is submitted for the first time on 28/08/19 with the following data:
+#		When an ILR file is submitted for the first time on 28/0 with the following data:
 #		
 #            | ULN       | learner type       | agreed price | start date | planned end date | completion status |
 #            | learner a | programme only DAS | 15000        | 01/09/2018 | 08/09/2019       | continuing        |
