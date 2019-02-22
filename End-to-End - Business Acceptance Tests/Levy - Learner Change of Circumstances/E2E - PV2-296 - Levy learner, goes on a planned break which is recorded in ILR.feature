@@ -31,7 +31,8 @@
 		| 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | Paused | 15000        | 01/Nov/Current Academic Year | 02/Jan/Current Academic Year |
 																							
 	And the provider previously submitted the following learner details
-        | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+        | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference |
+		Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
         | 01/Sep/Current Academic Year | 12 months        | 12000                | 01/Sep/Current Academic Year        | 3000                   | 01/Sep/Next Academic Year             | 2 months        | planned break     | Act1          | 1                   | ZPROG001      | 55            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
     And the following earnings had been generated for the learner
