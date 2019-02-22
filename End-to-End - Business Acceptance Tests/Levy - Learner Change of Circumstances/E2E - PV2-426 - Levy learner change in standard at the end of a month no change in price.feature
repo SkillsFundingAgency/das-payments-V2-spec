@@ -46,7 +46,7 @@
 
 	Scenario Outline: Levy learner change to standard at the end of a month no change in price PV2-426
 
-	Given the employer levy account balance in collection period <Collection_Period> is 18500
+	Given the employer levy account balance in collection period R01/Current Academic Year is 18500
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
