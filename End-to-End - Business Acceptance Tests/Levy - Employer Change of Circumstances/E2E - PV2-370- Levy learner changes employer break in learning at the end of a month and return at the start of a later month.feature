@@ -43,9 +43,9 @@
         #| employer 2 | DAS  | 01/01/2019                |
 
 Feature: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month
-As a provider,
-I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer - before the second commitment is in place, to be paid the correct amount
-So that I am accurately paid my apprenticeship provision.
+		As a provider,
+		I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer - before the second commitment is in place, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-368
 	# levy balance is enough for both employers

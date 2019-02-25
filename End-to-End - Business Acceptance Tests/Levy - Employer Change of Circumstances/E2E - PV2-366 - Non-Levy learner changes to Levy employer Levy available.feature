@@ -44,12 +44,12 @@
         #| employer 1 | Non DAS | 06/08/2018                |
         #| employer 2 | DAS     | 01/04/2019                |
 
-	Feature: Levy -Employer Change of Circumstances learner changes from Non-Levy to Levy employer
+Feature: Levy -Employer Change of Circumstances learner changes from Non-Levy to Levy employer
 	As a provider,
 	I want an apprentice that changes from a non-levy to levy employer, levy is available for the levy employer, to be paid the correct amount
 	So that I am accurately paid my apprenticeship provision.
 
-	Scenario Outline: Learner changes from a non-levy to levy employer, levy is available for the levy employer PV2-366
+Scenario Outline: Learner changes from a non-levy to levy employer, levy is available for the levy employer PV2-366
 	# levy balance
 	Given the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	# Date added in the end
@@ -57,7 +57,6 @@
 	# Additional fields
         | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status | effective from               | effective to |
         | employer 2 | 1             | 1-001      | 01/Apr/Current Academic Year | 01/Aug/Next Academic Year | 3500         | active | 01/Apr/Current Academic Year |              |
-
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
@@ -85,7 +84,6 @@
 		| R06/Current Academic Year | Jan/Current Academic Year | 360                    | 40                          | Learning         |
 		| R07/Current Academic Year | Feb/Current Academic Year | 360                    | 40                          | Learning         |
 		| R08/Current Academic Year | Mar/Current Academic Year | 360                    | 40                          | Learning         |
-
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |

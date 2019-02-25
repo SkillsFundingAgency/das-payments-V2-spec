@@ -45,12 +45,11 @@
         #And the employment status in the ILR is:
         #    | Employer   | Employment Status      | Employment Status Applies |
         #    | employer 1 | in paid employment     | 02/08/2018                |
-
+		
 Feature: No payment if commitment has gap and while changing employers no change in ACT code or employment status specified.
-As a provider,
-I want provider earnings and payments where learner changes employer and there is a gap between commitments - provider receives no payment during the gap as they do not change the ACT code or employment status on the ILR, to be paid the correct amount
-So that I am accurately paid my apprenticeship provision.
-#Learner changes employer and there is a gap between commitments - provider receives no payment during the gap as they do not change the ACT code or employment status on the ILR
+		As a provider,
+		I want provider earnings and payments where learner changes employer and there is a gap between commitments - provider receives no payment during the gap as they do not change the ACT code or employment status on the ILR, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy Learner, no payment if commitment has gap while changing employers and no change in ACT code or employment status specified PV2-377
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
@@ -102,8 +101,7 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
         | R04/Current Academic Year | Oct/Current Academic Year | 0             | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
-
-	Examples:
+Examples:
 		| Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
 		| R01/Current Academic Year | 15500                       | 6125                        |
 		| R02/Current Academic Year | 14500                       | 6125                        |

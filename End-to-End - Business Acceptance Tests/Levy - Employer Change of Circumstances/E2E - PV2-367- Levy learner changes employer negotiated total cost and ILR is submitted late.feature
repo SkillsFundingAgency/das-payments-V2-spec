@@ -38,9 +38,9 @@
 
 
 Feature: Earnings and payments for a levy learner, levy available, where a total cost changes during the programme and ILR is submitted late
-As a provider,
-I want earnings and payments for a levy learner, levy available, where a total cost changes during the programme and ILR is submitted late, to be paid the correct amount
-So that I am accurately paid my apprenticeship provision
+		As a provider,
+		I want earnings and payments for a levy learner, levy available, where a total cost changes during the programme and ILR is submitted late, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner changes employer, negotiated total cost and ILR is submitted late PV2-367
 	# levy balance is enough for both employers
