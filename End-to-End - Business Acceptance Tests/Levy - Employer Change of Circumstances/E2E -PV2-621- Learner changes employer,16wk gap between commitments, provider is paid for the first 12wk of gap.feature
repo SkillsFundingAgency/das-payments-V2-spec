@@ -53,9 +53,9 @@
   #          | employer 2  | DAS     | 01/02/2018                |
   #     And the employment status in the ILR is:
   #          | Employer   | Employment Status      | Employment Status Applies |
-  #          | employer 1 | in paid employment     | 02/08/2018                |
+  #          | employer 1 | in paid employment     | 01/08/2018                |
   #          |            | not in paid employment | 03/10/2018                |
-  #          | employer 2 | in paid employment     | 03/02/2018                | 
+  #          | employer 2 | in paid employment     | 01/02/2018                | 
 
 	Scenario Outline: Learner changes employer and there is a gap between commitments - provider receives full payment for first 12weeks during the gap as they amend the ACT code and employment status code correctly, then no payment for remaining 4weeks, as learner can only get paid for up to 12weeks gap.
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
@@ -72,7 +72,7 @@
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
         | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details | 0                    |                                     | 0                      |                                       | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             |
+        | 2nd price details | 0                    |                                     | 0                      |                                       | 4500                    | 03/Feb/Current Academic Year           | 1125                      | 03/Feb/Current Academic Year             |
 
 	When the ILR file is submitted for the learners for collection period <Collection_Period>
 
