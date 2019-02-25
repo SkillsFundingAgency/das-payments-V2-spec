@@ -54,7 +54,7 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
 	And the following commitments exist on "03/Dec/Current Academic Year"
 	# Additional fields
         | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 28/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 14/Nov/Current Academic Year | 15/Nov/Current Academic Year |
+        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 28/Aug/Next Academic Year | 15000        | stopped | 01/Aug/Current Academic Year | 14/Nov/Current Academic Year | 15/Nov/Current Academic Year |
         | employer 2 | 2             | 1-001      | 15/Nov/Current Academic Year | 28/Aug/Next Academic Year | 5625         | active    | 15/Nov/Current Academic Year |                              |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
