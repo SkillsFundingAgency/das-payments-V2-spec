@@ -24,14 +24,15 @@
 #            | SFA Levy employer budget   | 1000  | 1000  | 1000  | 500   | 500   |
 #            | SFA Levy co-funding budget | 0     | 0     | 0     | 0     | 0     |
 
-	Feature: Levy learner changes course and there is a change in price
+Feature: Levy learner changes course and there is a change in price
 	As a provider,
 	I want a levy learner, that changes standard with change to negotiated price, to be paid correct amount
 	So that I am accurately paid my apprenticeship provision. PV2-290
 
-	Scenario Outline: Levy learner change to standard at the end of a month along with change in price PV2-290
+Scenario Outline: Levy learner change to standard at the end of a month along with change in price PV2-290
 
-	Given the employer levy account balance is 15500
+
+	Given the employer levy account balance in collection period R01/Current Academic Year is 15500
 
 	And the following commitments exist
 		| commitment Id | version Id | standard code | start date                   | end date                  | agreed price | effective from               | effective to                 |

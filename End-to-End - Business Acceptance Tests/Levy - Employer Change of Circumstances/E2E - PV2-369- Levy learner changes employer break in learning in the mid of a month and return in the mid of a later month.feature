@@ -44,9 +44,9 @@
         #| employer 2 | DAS  | 01/01/2019                |
 
 Feature: Levy learner changes employer after break in learning in the mid of a month and return in the mid of a later month
-As a provider,
-I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer, to be paid the correct amount
-So that I am accurately paid my apprenticeship provision.
+		As a provider,
+		I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision.
 Scenario Outline: Levy learner changes employer after break in learning in the mid of a month and return in the mid of a later month PV2-369
 	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
@@ -102,7 +102,6 @@ Scenario Outline: Levy learner changes employer after break in learning in the m
 		| May/Current Academic Year | 500          | 0          | 0         |
 		| Jun/Current Academic Year | 500          | 0          | 0         |
 		| Jul/Current Academic Year | 500          | 0          | 0         |
-	# Delete 0 entry rows if need be
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R04/Current Academic Year | Nov/Current Academic Year | 0            | 0          | 0         |

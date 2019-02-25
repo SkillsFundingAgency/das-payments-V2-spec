@@ -41,7 +41,9 @@
     #        | employer 2 | DAS  | 15/11/2018                |
 
 Feature: Levy learner changes employer with change to negotiated price in mid month and ILR submitted before price details change
-#Earnings and payments for a levy learner, levy available, commitment entered for a new employer in the middle of the month and ILR file is submitted before new price episode, and there is a change to the employer and negotiated cost in the middle of a month in the ILR
+		As a provider,
+		I want earnings and payments for a levy learner, levy available, commitment entered for a new employer in the middle of the month and ILR file is submitted before new price episode, and there is a change to the employer and negotiated cost in the middle of a month in the ILR, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes employer with change to negotiated price in mid month and ILR submitted before price details change PV2-365
 	# levy balance is enough for both employers

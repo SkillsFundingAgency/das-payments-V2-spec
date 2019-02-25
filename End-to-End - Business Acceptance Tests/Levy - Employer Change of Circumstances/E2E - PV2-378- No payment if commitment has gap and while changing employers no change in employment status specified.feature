@@ -58,10 +58,9 @@
         #    | DAS           | 03/11/2018 | 04/08/2019 |
 
 Feature: No payment if commitment has gap and while changing employers no change in employment status specified.
-As a provider,
-I want provider earnings and payments where learner changes employer and there is a gap between commitments - provider does not receive payment during the gap as they amend the ACT code but do not amend the employment status code correctly, to be paid the correct amount
-So that I am accurately paid my apprenticeship provision.
-#Learner changes employer and there is a gap between commitments - provider receives no payment during the gap as they do not change the ACT code or employment status on the ILR
+		As a provider,
+		I want provider earnings and payments where learner changes employer and there is a gap between commitments - provider does not receive payment during the gap as they amend the ACT code but do not amend the employment status code correctly, to be paid the correct amount
+		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy Learner, no payment if commitment has gap while changing employers and no change employment status specified PV2-378
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
@@ -114,8 +113,7 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
         | R03/Current Academic Year | Oct/Current Academic Year | 0             | 900                    | 0                           | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | 0                      | 0                           | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500           | 0                      | 0                           | Learning         |
-
-	Examples:
+Examples:
 		| Collection_Period         | Contract Type | Levy Balance for employer 1 | Levy Balance for employer 2 |
 		| R01/Current Academic Year | Act1          | 15500                       | 6125                        |
 		| R02/Current Academic Year | Act1          | 14500                       | 6125                        |
