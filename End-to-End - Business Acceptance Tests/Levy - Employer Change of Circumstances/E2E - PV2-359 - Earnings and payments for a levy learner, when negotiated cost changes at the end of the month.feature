@@ -40,9 +40,9 @@
 	Given the levy account balance in collection period R04/Current Academic Year is 15000
 
 	And the following commitments exist 
-		| commitment Id | version Id | start date                   | end date                     | agreed price | effective from               | effective to                 |
-		| 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
-		| 1             | 2          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 5625         | 03/Nov/Current Academic Year |                              |
+		| version Id | start date                   | end date                     | agreed price | effective from               | effective to                 |
+		| 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year |
+		| 2          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 5625         | 03/Nov/Current Academic Year |                              |
 
 	And the provider previously submitted the following learner details
         | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
