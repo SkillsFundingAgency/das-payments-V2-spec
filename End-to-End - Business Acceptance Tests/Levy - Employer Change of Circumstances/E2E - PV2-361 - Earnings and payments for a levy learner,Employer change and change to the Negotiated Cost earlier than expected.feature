@@ -52,12 +52,14 @@
 	# Date added in the end
 	And the following commitments exist 
 	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                     | agreed price | status  | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | stopped | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
-        | employer 2 | 2             | 1-001      | 01/Nov/Current Academic Year | 31/Jul/Current Academic Year | 5625         | active  | 01/Nov/Current Academic Year |                              |                              |
+        | Employer   | commitment Id | version Id | start date                   | end date                     | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |  
+        | employer 2 | 2             | 1          | 01/Nov/Current Academic Year | 31/Jul/Current Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
+
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
 		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          |                 | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+
     And the following earnings had been generated for the learner
         | Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -72,19 +74,24 @@
 		| May/Current Academic Year | 1000         | 0          | 0         |
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
+
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |  
+
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
         | 1st price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
         | 2nd price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 25/Oct/Current Academic Year           | 625                       | 25/Oct/Current Academic Year             |
+
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
+
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
