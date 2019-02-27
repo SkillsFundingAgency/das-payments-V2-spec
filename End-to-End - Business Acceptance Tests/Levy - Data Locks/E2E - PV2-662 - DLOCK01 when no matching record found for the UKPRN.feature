@@ -49,7 +49,7 @@ Scenario: DLOCK01 - When no matching record found in an employer digital account
         | Price Episode identifier | Apprenticeship Id | Learner ID | ILR Start Date               | ILR Training Price |
         | 20-593-1-01/05/2018      | 73                | learner a  | 01/May/Current Academic Year | 10000              |
 	# New step
-	And the data lock event has the following errors:   
+	And the data lock event has the following errors   
         | Price Episode identifier | Error code | Error Description                                                     |
         | 20-593-1-01/05/2018      | DLOCK_01   | No matching record found in an employer digital account for the UKPRN |
 	# New step
