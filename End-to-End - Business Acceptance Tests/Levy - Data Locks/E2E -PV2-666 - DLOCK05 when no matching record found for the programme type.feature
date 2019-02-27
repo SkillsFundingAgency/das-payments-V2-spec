@@ -37,8 +37,8 @@
  		Scenario Outline: DLOCK05 - When no matching record found in an employer digital account for for the framework code then datalock DLOCK_05 will be produced PV2-666
  
  			Given the following commitments exist		 
- 			| commitment Id | version Id | ULN       | framework code | programme type | pathway code | agreed price | start date | end date   | status | effective from |
- 			| 73            | 73-125     | learner a | 593            | 20             | 1            | 10000        | 01/05/2018 | 01/05/2019 | active | 01/05/2018     |
+ 			| commitment Id | version Id | ULN       | framework code | programme type | pathway code | agreed price | start date                | end date                      | status | effective from            |
+ 			| 73            | 73-125     | learner a | 593            | 20             | 1            | 10000        | 01/May/Last Academic Year | 01/June/Current Academic Year | active | 01/May/Last Academic Year |
  				
  			And the provider is providing training for the following learners
  			| ULN       	| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
