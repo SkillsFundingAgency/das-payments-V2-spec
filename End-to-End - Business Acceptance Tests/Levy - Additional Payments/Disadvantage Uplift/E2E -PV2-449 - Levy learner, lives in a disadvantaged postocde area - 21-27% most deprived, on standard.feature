@@ -26,6 +26,10 @@
 #        | Balancing                    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
+#DC Integration
+#| home postcode deprivation |
+#| 21-27%                     |
+
 Feature: Payment for a DAS learner, lives in a disadvantaged postocde area - 21-27% most deprived, undertaking apprenticeship standard -Disadvantage Uplift is not paid
 		As a provider,
 		I want a levy learner living in a Disadvantaged Postcode area (21-27% most deprived) to undertake an Apprenticeship Standard course

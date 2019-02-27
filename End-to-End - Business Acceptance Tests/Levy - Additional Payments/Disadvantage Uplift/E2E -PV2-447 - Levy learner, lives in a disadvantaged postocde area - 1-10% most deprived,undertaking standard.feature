@@ -26,6 +26,9 @@
 #        | Balancing                    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
+#DC Integration
+#| home postcode deprivation |
+#| 1-10%                     |
 
 Feature: Payment for a DAS learner, lives in a disadvantaged postocde area - 1-10% most deprived, undertaking apprenticeship standard - Disadvantage Uplift is not paid
 		As a provider,
