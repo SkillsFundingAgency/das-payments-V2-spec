@@ -11,23 +11,23 @@
 #    Then the following data lock event is returned:
 #	
 #        | Price Episode identifier  | Apprenticeship Id | ULN       | ILR Start Date | ILR Training Price | 
-#        | 2-450-1-01/05/2018        | 73                | learner a | 01/05/2018     | 10000              |
+#        |20-589-1-01/05/2018        | 73                | learner a | 01/05/2018     | 10000              |
 #    
 #	And the data lock event has the following errors:    
 #        | Price Episode identifier  | Error code | Error Description										                       |
-#        | 2-450-1-01/05/2018        | DLOCK_04   | No matching record found in the employer digital account for the framework code |
+#        |20-589-1-01/05/2018        | DLOCK_04   | No matching record found in the employer digital account for the framework code |
 #    
 #	And the data lock event has the following periods:  
 #	
 #        | Price Episode identifier | Period   | Payable Flag | Transaction Type |
-#        | 2-450-1-01/05/2018       | 1718-R10 | false        | Learning         |
-#        | 2-450-1-01/05/2018       | 1718-R11 | false        | Learning         |
-#        | 2-450-1-01/05/2018       | 1718-R12 | false        | Learning         |
+#        |20-589-1-01/05/2018       | 1718-R10 | false        | Learning         |
+#        |20-589-1-01/05/2018       | 1718-R11 | false        | Learning         |
+#        |20-589-1-01/05/2018       | 1718-R12 | false        | Learning         |
 #    
 #	And the data lock event used the following commitments:
 #	
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
-#        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 451            | 2              | 1            | 10000            | 01/05/2018     |
+#        |20-589-1-01/05/2018       | 73-125             | 01/05/2018 | 451            | 2              | 1            | 10000            | 01/05/2018     |
 
 		Feature:Datalocks
 		As a Provider,
@@ -48,22 +48,22 @@
 			When the ILR file is submitted for the learners for collection period <Collection_Period>
 
 			Then the following data lock event is returned
-				      | Price Episode identifier  | Apprenticeship Id | ULN       | ILR Start Date | ILR Training Price | 
-				      | 2-450-1-01/05/2018        | 73                | learner a | 01/05/2018     | 10000              |
+				 | Price Episode identifier  | Apprenticeship Id | ULN       | ILR Start Date | ILR Training Price | 
+				 |20-589-1-01/05/2018        | 73                | learner a | 01/05/2018     | 10000              |
 			# New steps /lines for datalocks	  
 			 And the data lock event has the following errors:    
 			      | Price Episode identifier | Error code | Error Description                                                               |
-			      | 2-450-1-01/05/2018       | DLOCK_04   | No matching record found in the employer digital account for the framework code |
+			      |20-589-1-01/05/2018       | DLOCK_04   | No matching record found in the employer digital account for the framework code |
 			  
 			 And the data lock event has the following periods:  
 			      | Price Episode identifier | Period   | Payable Flag | Transaction Type |
-			      | 2-450-1-01/05/2018       | 1718-R10 | false        | Learning         |
-			      | 2-450-1-01/05/2018       | 1718-R11 | false        | Learning         |
-			      | 2-450-1-01/05/2018       | 1718-R12 | false        | Learning         |
+			      |20-589-1-01/05/2018       | 1718-R10 | false        | Learning         |
+			      |20-589-1-01/05/2018       | 1718-R11 | false        | Learning         |
+			      |20-589-1-01/05/2018       | 1718-R12 | false        | Learning         |
 			  
 			 And the data lock event used the following commitments:
 			      | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
-			      | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 451            | 2              | 1            | 10000            | 01/05/2018     |
+			      |20-589-1-01/05/2018       | 73-125             | 01/05/2018 | 593            | 20             | 1            | 10000            | 01/05/2018     |
 
 	   		 And the following learner earnings should be generated
 				| Delivery Period           | On-Programme | Completion | Balancing |
