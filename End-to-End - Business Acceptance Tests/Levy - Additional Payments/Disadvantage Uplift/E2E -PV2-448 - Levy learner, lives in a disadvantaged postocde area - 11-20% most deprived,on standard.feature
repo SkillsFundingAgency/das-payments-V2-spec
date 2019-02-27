@@ -1,4 +1,4 @@
-#Scenario: Payment for a DAS learner, lives in a disadvantaged postocde area - 11-20% most deprived, undertaking apprenticeship standard - Disadvantage Uplift is not paid
+ #Scenario: Payment for a DAS learner, lives in a disadvantaged postocde area - 11-20% most deprived, undertaking apprenticeship standard - Disadvantage Uplift is not paid
 #    Given levy balance > agreed price for all months
 #    And the following commitments exist:
 #        | commitment Id | version Id | ULN       | start date | end date   | standard code | agreed price | status |
@@ -26,6 +26,10 @@
 #        | Balancing                    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 		
+#DC Integration
+#| home postcode deprivation |
+#| 11-20%                     |
+
 Feature: Payment for a DAS learner, lives in a disadvantaged postocde area - 11-20% most deprived, undertaking apprenticeship standard - Disadvantage Uplift is not paid
 		As a provider,
 		I want a levy learner living in a Disadvantaged Postcode area (11-20% most deprived) to undertake an Apprenticeship Standard course
