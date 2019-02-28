@@ -43,15 +43,12 @@ Feature: Earnings and payments for a levy learner, levy available, where a total
 		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner changes employer, negotiated total cost and ILR is submitted late PV2-367
-	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-	# Date added in the end
-	And the following commitments exist on "03/Dec/Current Academic Year"
-	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1          | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
-        | employer 2 | 2             | 1          | 01/Nov/Current Academic Year | 31/Aug/Next Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
+	And the following commitments exist
+        | Employer   | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
+        | employer 2 | 01/Nov/Current Academic Year | 31/Aug/Next Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -89,19 +86,19 @@ Scenario Outline: Levy learner changes employer, negotiated total cost and ILR i
 		| R11/Current Academic Year | Jun/Current Academic Year | 500          | 0          | 0         |
 		| R12/Current Academic Year | Jul/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
-        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
-        | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         |
-        | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         |
-        | R08/Current Academic Year | Mar/Current Academic Year | 500           | Learning         |
-        | R09/Current Academic Year | Apr/Current Academic Year | 500           | Learning         |
-        | R10/Current Academic Year | May/Current Academic Year | 500           | Learning         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 500           | Learning         |
-        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R04/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         | employer 2 |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         | employer 2 |
+        | R06/Current Academic Year | Jan/Current Academic Year | 500           | Learning         | employer 2 |
+        | R07/Current Academic Year | Feb/Current Academic Year | 500           | Learning         | employer 2 |
+        | R08/Current Academic Year | Mar/Current Academic Year | 500           | Learning         | employer 2 |
+        | R09/Current Academic Year | Apr/Current Academic Year | 500           | Learning         | employer 2 |
+        | R10/Current Academic Year | May/Current Academic Year | 500           | Learning         | employer 2 |
+        | R11/Current Academic Year | Jun/Current Academic Year | 500           | Learning         | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         | employer 2 |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
