@@ -66,18 +66,18 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
-        | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 02/Oct/Current Academic Year | 03/Oct/Current Academic Year |
-        | employer 2 | 2             | 1-001      | 01/Nov/Current Academic Year | 04/Aug/Next Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
+        | Employer   | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 02/Oct/Current Academic Year | 03/Oct/Current Academic Year |
+        | employer 2 | 01/Nov/Current Academic Year | 04/Aug/Next Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
-        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             |
-	# New task to handle contract type
-	When the ILR file is submitted for the learners for collection period <Collection_Period> and <Contract Type>
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type |
+        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act1          |
+        | 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act2          |
+        | 3rd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             | Act1          |
+	When the ILR file is submitted for the learners for collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
         | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -100,12 +100,12 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
         | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                      | 0                           | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                      | 0                           | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 900                    | 0                           | Learning         |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | 0                      | 0                           | Learning         |
-		| R05/Current Academic Year | Dec/Current Academic Year | 500           | 0                      | 0                           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer    |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                      | 0                           | Learning         | employer 1  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                      | 0                           | Learning         | employer 1  |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 900                    | 0                           | Learning         | no employer |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500           | 0                      | 0                           | Learning         | employer 2  |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500           | 0                      | 0                           | Learning         | employer 2  |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                      | 0                           | Learning         |
@@ -114,9 +114,9 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | 0                      | 0                           | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500           | 0                      | 0                           | Learning         |
 Examples:
-		| Collection_Period         | Contract Type | Levy Balance for employer 1 | Levy Balance for employer 2 |
-		| R01/Current Academic Year | Act1          | 15500                       | 6125                        |
-		| R02/Current Academic Year | Act1          | 14500                       | 6125                        |
-		| R03/Current Academic Year | Act2          | 13500                       | 6125                        |
-		| R04/Current Academic Year | Act1          | 13500                       | 6125                        |
-		| R05/Current Academic Year | Act1          | 13500                       | 5625                        |
+		| Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
+		| R01/Current Academic Year | 15500                       | 6125                        |
+		| R02/Current Academic Year | 14500                       | 6125                        |
+		| R03/Current Academic Year | 13500                       | 6125                        |
+		| R04/Current Academic Year | 13500                       | 6125                        |
+		| R05/Current Academic Year | 13500                       | 5625                        |
