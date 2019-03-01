@@ -1,33 +1,27 @@
-	#Scenario: DLOCK05 - When no matching record found in an employer digital account for the programme type then datalock DLOCK_05 will be produced
- #   
-	#Given the following commitments exist:
-	#
- #       | commitment Id | version Id | Provider   | ULN       | framework code | programme type | pathway code | agreed price | start date | end date   | status | effective from |
- #       | 73            | 73-125     | Provider a | learner a | 450            | 3              | 1            | 10000        | 01/May/Last Academic Year | 01/05/2019 | active | 01/May/Last Academic Year     |
- #       
- #   
-	#When an ILR file is submitted with the following data:  
- #       | Provider   | ULN       | framework code | programme type | pathway code | start date | planned end date | completion status | Total training price | Total training price effective date |
- #       | Provider a | learner a | 450            | 2              | 1            | 01/May/Last Academic Year | 08/08/2019       | continuing        | 10000                | 01/May/Last Academic Year                          |
- #   
- #   
-	#Then the following data lock event is returned:
- #       | Price Episode identifier  | Apprenticeship Id | ULN       | ILR Start Date | ILR Training Price | 
- #       | 21-593-1-01/May/Last Academic Year        | 73                | learner a | 01/May/Last Academic Year     | 10000              |
- #   
-	#And the data lock event has the following errors:    
- #       | Price Episode identifier  | Error code | Error Description										                       |
- #       | 21-593-1-01/May/Last Academic Year        | DLOCK_05   | No matching record found in the employer digital account for the programme type |
- #   
-	#And the data lock event has the following periods    
- #       | Price Episode identifier | Period   | Payable Flag | Transaction Type |
- #       | 21-593-1-01/May/Last Academic Year       | 1718-R10 | false        | Learning         |
- #       | 21-593-1-01/May/Last Academic Year       | 1718-R11 | false        | Learning         |
- #       | 21-593-1-01/May/Last Academic Year       | 1718-R12 | false        | Learning         |
- #   
-	#And the data lock event used the following commitments   
- #       | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
- #       | 21-593-1-01/May/Last Academic Year       | 73-125             | 01/May/Last Academic Year | 450            | 3              | 1            | 10000            | 01/May/Last Academic Year     |
+#Scenario: DLOCK06 - When no matching record found in an employer digital account for the pathway code then datalock DLOCK_06 will be produced
+#
+#    Given the following commitments exist:
+#        | commitment Id | version Id | Provider   | ULN       | framework code | programme type | pathway code | agreed price | start date | end date   | status | effective from |
+#        | 73            | 73-125     | Provider a | learner a | 450            | 2              | 6            | 10000        | 01/May/Last Academic Year | 01/05/2019 | active | 01/May/Last Academic Year     |
+#        
+#    When an ILR file is submitted with the following data:  
+#        | Provider   | ULN       | framework code | programme type | pathway code | start date | planned end date | completion status | Total training price | Total training price effective date |
+#        | Provider a | learner a | 450            | 2              | 1            | 01/May/Last Academic Year | 08/08/2019       | continuing        | 10000                | 01/May/Last Academic Year                          |
+#    
+#    Then the following data lock event is returned:
+#        | Price Episode identifier  | Apprenticeship Id | ULN       | ILR Start Date | ILR Training Price | 
+#        | 2-450-1-01/May/Last Academic Year        | 73                | learner a | 01/05/2017     | 10000              |
+#    And the data lock event has the following errors:    
+#        | Price Episode identifier  | Error code | Error Description										                       |
+#        | 2-450-1-01/May/Last Academic Year        | DLOCK_06   | No matching record found in the employer digital account for the pathway code   |
+#    And the data lock event has the following periods    
+#        | Price Episode identifier | Period   | Payable Flag | Transaction Type |
+#        | 2-450-1-01/May/Last Academic Year       | 1718-R10 | false        | Learning         |
+#        | 2-450-1-01/May/Last Academic Year       | 1718-R11 | false        | Learning         |
+#        | 2-450-1-01/May/Last Academic Year       | 1718-R12 | false        | Learning         |
+#    And the data lock event used the following commitments   
+#        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
+#        | 2-450-1-01/May/Last Academic Year       | 73-125             | 01/May/Last Academic Year | 450            | 2              | 6            | 10000            | 01/May/Last Academic Year     |
 
  		Feature:Datalocks
  		As a Provider,
@@ -48,8 +42,8 @@
  			When the ILR file is submitted for the learners for collection period <Collection_Period>
  
  			Then the following data lock event is returned
-				  | Price Episode identifier | Apprenticeship Id | Learner ID | ILR Start Date | ILR Training Price |
-				  | 21-593-1-01/May/Last Academic Year      | 73                | learner a  | 01/May/Last Academic Year     | 10000              |
+				  | Price Episode identifier  | Apprenticeship Id | Learner ID       | ILR Start Date | ILR Training Price | 
+ 				  | 21-593-1-01/May/Last Academic Year        | 73                | learner a | 01/May/Last Academic Year     | 10000              |
  			# New steps /lines for datalocks	  
  			 And the data lock event has the following errors:    
  			      | Price Episode identifier | Error code | Error Description                                                               |

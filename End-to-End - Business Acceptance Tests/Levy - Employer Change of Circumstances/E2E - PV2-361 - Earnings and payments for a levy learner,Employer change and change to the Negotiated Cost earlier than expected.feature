@@ -45,16 +45,16 @@
 	I want earnings and payments for a levy learner, levy available, and there is a change to the Negotiated Cost earlier than expected to be paid the correct amount
 	So that I am accurately paid my apprenticeship provision.
 
-	Scenario Outline: Levy learner changes employer with change to negotiated price in mid month PV2-363
+	Scenario Outline: Levy learner changes employer with change to negotiated price earlier than expected PV2-361
 	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	# Date added in the end
 	And the following commitments exist 
 	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                     | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1          | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |  
-        | employer 2 | 2             | 1          | 01/Nov/Current Academic Year | 31/Jul/Current Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
+        | Employer   | start date                   | end date                     | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |  
+        | employer 2 | 01/Nov/Current Academic Year | 31/Jul/Current Academic Year | 5625         | active    | 01/Nov/Current Academic Year |                              |                              |
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
