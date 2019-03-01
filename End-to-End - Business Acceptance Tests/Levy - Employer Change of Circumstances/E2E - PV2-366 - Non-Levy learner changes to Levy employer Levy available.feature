@@ -50,13 +50,10 @@ Feature: Levy -Employer Change of Circumstances learner changes from Non-Levy to
 	So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Learner changes from a non-levy to levy employer, levy is available for the levy employer PV2-366
-	# levy balance
 	Given the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-	# Date added in the end
-	And the following commitments exist on "03/Apr/Current Academic Year"
-	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status | effective from               | effective to |
-        | employer 2 | 1             | 1-001      | 01/Apr/Current Academic Year | 01/Aug/Next Academic Year | 3500         | active | 01/Apr/Current Academic Year |              |
+	And the following commitments exist
+        | Employer   | start date                   | end date                  | agreed price | status | effective from               | effective to |
+        | employer 2 | 01/Apr/Current Academic Year | 01/Aug/Next Academic Year | 3500         | active | 01/Apr/Current Academic Year |              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
@@ -75,15 +72,15 @@ Scenario Outline: Learner changes from a non-levy to levy employer, levy is avai
 		| Jun/Current Academic Year | 400          | 0          | 0         |
 		| Jul/Current Academic Year | 400          | 0          | 0         |
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 360                    | 40                          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 360                    | 40                          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 360                    | 40                          | Learning         |
-        | R04/Current Academic Year | Nov/Current Academic Year | 360                    | 40                          | Learning         |
-        | R05/Current Academic Year | Dec/Current Academic Year | 360                    | 40                          | Learning         |
-		| R06/Current Academic Year | Jan/Current Academic Year | 360                    | 40                          | Learning         |
-		| R07/Current Academic Year | Feb/Current Academic Year | 360                    | 40                          | Learning         |
-		| R08/Current Academic Year | Mar/Current Academic Year | 360                    | 40                          | Learning         |
+        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+        | R04/Current Academic Year | Nov/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+        | R05/Current Academic Year | Dec/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+		| R06/Current Academic Year | Jan/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+		| R07/Current Academic Year | Feb/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
+		| R08/Current Academic Year | Mar/Current Academic Year | 360                    | 40                          | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -113,11 +110,11 @@ Scenario Outline: Learner changes from a non-levy to levy employer, levy is avai
 		| R11/Current Academic Year | Jun/Current Academic Year | 700          | 0          | 0         |
 		| R12/Current Academic Year | Jul/Current Academic Year | 700          | 0          | 0         |
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R09/Current Academic Year | Apr/Current Academic Year | 700           | Learning         |
-        | R10/Current Academic Year | May/Current Academic Year | 700           | Learning         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 700           | Learning         |
-        | R12/Current Academic Year | Jul/Current Academic Year | 700           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R09/Current Academic Year | Apr/Current Academic Year | 700           | Learning         | employer 2 |
+        | R10/Current Academic Year | May/Current Academic Year | 700           | Learning         | employer 2 |
+        | R11/Current Academic Year | Jun/Current Academic Year | 700           | Learning         | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 700           | Learning         | employer 2 |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R09/Current Academic Year | Apr/Current Academic Year | 700           | Learning         |

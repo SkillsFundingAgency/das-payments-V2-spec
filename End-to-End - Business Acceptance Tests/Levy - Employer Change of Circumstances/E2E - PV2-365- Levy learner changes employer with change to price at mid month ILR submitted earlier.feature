@@ -46,15 +46,12 @@ Feature: Levy learner changes employer with change to negotiated price in mid mo
 		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes employer with change to negotiated price in mid month and ILR submitted before price details change PV2-365
-	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-	# Date added in the end
-	And the following commitments exist on "03/Dec/Current Academic Year"
-	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 28/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 14/Nov/Current Academic Year | 15/Nov/Current Academic Year |
-        | employer 2 | 2             | 1-001      | 15/Nov/Current Academic Year | 28/Aug/Next Academic Year | 5625         | active    | 15/Nov/Current Academic Year |                              |                              |
+	And the following commitments exist
+        | Employer   | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 28/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 14/Nov/Current Academic Year | 15/Nov/Current Academic Year |
+        | employer 2 | 15/Nov/Current Academic Year | 28/Aug/Next Academic Year | 5625         | active    | 15/Nov/Current Academic Year |                              |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -73,10 +70,10 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |

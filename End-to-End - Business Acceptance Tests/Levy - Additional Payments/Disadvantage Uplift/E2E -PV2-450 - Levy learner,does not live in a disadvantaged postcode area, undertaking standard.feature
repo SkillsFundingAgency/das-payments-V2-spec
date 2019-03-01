@@ -29,7 +29,7 @@ Feature: Payment for a DAS learner,does not live in a disadvantaged postcode are
 		I want a non-levy learner who does not live in a Disadvantaged Postcode area to undertake an Apprenticeship Standard course
 		So that I am not paid the Disadvantage Uplift payment.
 
-Scenario Outline: Levy learner, on standard, Disadvantage Uplift 11-20% not paid PV2-450
+Scenario Outline: Levy learner, on standard, Disadvantage Uplift not paid PV2-450
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
 		| version Id | start date                   | end date                  | agreed price | standard code | status |

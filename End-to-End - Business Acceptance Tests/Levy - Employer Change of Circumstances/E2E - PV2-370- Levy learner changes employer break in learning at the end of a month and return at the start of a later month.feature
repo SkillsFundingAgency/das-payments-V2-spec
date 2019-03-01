@@ -42,21 +42,20 @@
         #| employer 1 | DAS  | 01/08/2018                |
         #| employer 2 | DAS  | 01/01/2019                |
 
+# Restart indicator will be possibly needed for integration in case of planned break.
+
 Feature: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month
 		As a provider,
 		I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer - before the second commitment is in place, to be paid the correct amount
 		So that I am accurately paid my apprenticeship provision.
 
 Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-368
-	# levy balance is enough for both employers
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-	# Date added in the end
-	And the following commitments exist on "03/Dec/Current Academic Year"
-	# Additional fields
-        | Employer   | commitment Id | version Id | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
-        | employer 2 | 2             | 1-001      | 01/Jan/Current Academic Year | 31/Oct/Next Academic Year | 5625         | active    | 01/Jan/Current Academic Year |                              |                              |
+	And the following commitments exist
+        | Employer   | start date                   | end date                  | agreed price | status    | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 31/Aug/Next Academic Year | 15000        | cancelled | 01/Aug/Current Academic Year | 31/Oct/Current Academic Year | 01/Nov/Current Academic Year |
+        | employer 2 | 01/Jan/Current Academic Year | 31/Oct/Next Academic Year | 5625         | active    | 01/Jan/Current Academic Year |                              |                              |
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 3 months        | planned break     | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -75,14 +74,13 @@ Scenario Outline: Levy learner changes employer after break in learning at the e
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 21/Dec/Current Academic Year | 9 months         |                      |                                     |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-		# 2nd price details has no TNP1 and TNP2 values
 	And price details as follows
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
         | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
