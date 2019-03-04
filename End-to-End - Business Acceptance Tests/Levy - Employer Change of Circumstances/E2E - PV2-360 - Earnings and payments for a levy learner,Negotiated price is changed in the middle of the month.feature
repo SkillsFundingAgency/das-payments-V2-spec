@@ -58,7 +58,7 @@
         | Jul/Current Academic Year | 1000         | 0          | 0         |
 
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         |
@@ -89,12 +89,12 @@
         | R04/Current Academic Year | Nov/Current Academic Year | 833.33       | 0          | 0         | 51            |
 
     And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
-        | R04/Current Academic Year | Nov/Current Academic Year | 833.33            | Learning         | 51            |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Standard Code |
+        | R04/Current Academic Year | Nov/Current Academic Year | 833.33        | Learning         | 51            |
 
     And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
-        | R04/Current Academic Year | Nov/Current Academic Year | 833.33            | Learning         | 51            |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Standard Code |
+        | R04/Current Academic Year | Nov/Current Academic Year | 833.33        | Learning         | 51            |
      
 
 
