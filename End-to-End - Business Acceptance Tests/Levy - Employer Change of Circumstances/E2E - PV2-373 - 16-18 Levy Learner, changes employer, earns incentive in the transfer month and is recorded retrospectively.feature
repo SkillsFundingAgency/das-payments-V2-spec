@@ -126,8 +126,7 @@
 
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive | First16To18ProviderIncentive | Second16To18ProviderIncentive |
-        | R04/Current Academic Year | Nov/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
-		| R05/Current Academic Year | Dec/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+    	| R05/Current Academic Year | Dec/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
         | R06/Current Academic Year | Jan/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
         | R07/Current Academic Year | Feb/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
         | R08/Current Academic Year | Mar/Current Academic Year | 562.5        | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
@@ -163,8 +162,7 @@
         | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    |employer 2 |
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-		| R04/Current Academic Year | 13500                       | 7125                        |
-        | R05/Current Academic Year | 13500                       | 7125                        |
+		| R05/Current Academic Year | 13500                       | 7125                        |
 		| R06/Current Academic Year | 13500                       | 7125                        |
 		| R07/Current Academic Year | 13500                       | 7125                        |
 		| R08/Current Academic Year | 13500                       | 7125                        |
