@@ -60,12 +60,13 @@
 	Scenario Outline: Learner changes employer and there is a gap between commitments - provider receives full payment for first 12weeks during the gap as they amend the ACT code and employment status code correctly, then no payment for remaining 4weeks, as learner can only get paid for up to 12weeks gap.
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-	And the following commitments exist
-        | Employer   | commitment Id | version Id | Learner ID | start date                   | end date                  | agreed price | status  | effective from               | effective to                 | stop effective from          |
-        | employer 1 | 1             | 1-001      | learner a  | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 15000        | stopped | 01/Aug/Current Academic Year | 02/Oct/Current Academic Year | 03/Oct/Current Academic Year |
-        | employer 2 | 2             | 1-001      | learner a  | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 5625         | active  | 01/Feb/Current Academic Year |                              |                              |
 
-   And the provider is providing training for the following learners
+	And the following commitments exist
+        | Employer   | start date                   | end date                  | agreed price | status  | effective from               | effective to                 | stop effective from          |
+        | employer 1 | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 15000        | stopped | 01/Aug/Current Academic Year | 02/Oct/Current Academic Year | 03/Oct/Current Academic Year |
+        | employer 2 | 01/Aug/Current Academic Year | 04/Aug/Next Academic Year | 5625         | active  | 01/Feb/Current Academic Year |                              |                              |
+
+    And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
