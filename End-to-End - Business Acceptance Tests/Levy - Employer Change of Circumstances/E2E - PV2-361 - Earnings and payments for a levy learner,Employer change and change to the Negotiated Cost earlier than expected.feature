@@ -76,10 +76,10 @@
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
 
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |employer 1 |
 
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
