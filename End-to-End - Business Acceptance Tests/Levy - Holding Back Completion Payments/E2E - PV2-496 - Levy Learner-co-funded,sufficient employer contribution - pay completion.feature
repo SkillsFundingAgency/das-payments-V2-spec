@@ -59,27 +59,19 @@
 #
 #We expect the employer contributions to total 720 in order for the completion payment to be released to the training provider.
 
-
-
-
 Feature: Holding back completion payments
 	As a provider,
 	I want a levy learner with co-funding, where the employer has paid their 10% co-investment for the on-program element only, but has not yet paid the employer completion payment element
 	So that I am accurately paid the completion payment by SFA
 
-# Should the delivery periods be in quotes
 Scenario Outline: Levy Learner-in co-funding completion payment made as enough employer contribution PV2-496
-	Given the employer levy account balance is 0
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |
-	# Do we need delivery period in the end?
-	#And the provider previously submitted the following learner details in collection period "R11/Last Academic Year"
-	And the provider previously submitted the following learner details in collection period <Collection_Period>
+	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	# Do we need delivery period in the end?
-	##And the following earnings had been generated for the learner for "R11/Last Academic Year"
 	And the following earnings had been generated
         | Delivery Period        | On-Programme | Completion | Balancing |
         | Aug/Last Academic Year | 0            | 0          | 0         |
@@ -156,17 +148,17 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 Examples: 
-        | Collection_Period         |
-        | R11/Last Academic Year    |
-        | R12/Last Academic Year    |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
-        | R04/Current Academic Year |
-        | R05/Current Academic Year |
-        | R06/Current Academic Year |
-        | R07/Current Academic Year |
-        | R08/Current Academic Year |
-        | R09/Current Academic Year |
-        | R10/Current Academic Year |
-        | R11/Current Academic Year |
+        | Collection_Period         | Levy Balance |
+        | R11/Last Academic Year    | 0            |
+        | R12/Last Academic Year    | 0            |
+        | R01/Current Academic Year | 0            |
+        | R02/Current Academic Year | 0            |
+        | R03/Current Academic Year | 0            |
+        | R04/Current Academic Year | 0            |
+        | R05/Current Academic Year | 0            |
+        | R06/Current Academic Year | 0            |
+        | R07/Current Academic Year | 0            |
+        | R08/Current Academic Year | 0            |
+        | R09/Current Academic Year | 0            |
+        | R10/Current Academic Year | 0            |
+        | R11/Current Academic Year | 0            |
