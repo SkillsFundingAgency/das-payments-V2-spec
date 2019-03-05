@@ -91,9 +91,10 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | R11/Last Academic Year | Jun/Last Academic Year | 540                    | 60                          | 0             | Learning         |
         | R12/Last Academic Year | Jul/Last Academic Year | 540                    | 60                          | 0             | Learning         |
+	# New field - Employer Contribution
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
-		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 700                   |
+		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 719                   |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -107,6 +108,7 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
 		| Mar/Current Academic Year | 600          | 0          | 0         |
 		| Apr/Current Academic Year | 600          | 0          | 0         |
 		| May/Current Academic Year | 600          | 0          | 0         |
+		# should 1800 be 0 - will earning calc return the completion payment when there is not enough employer contribution
 		| Jun/Current Academic Year | 0            | 1800       | 0         |
 		| Jul/Current Academic Year | 0            | 0          | 0         |
     And at month end only the following payments will be calculated
