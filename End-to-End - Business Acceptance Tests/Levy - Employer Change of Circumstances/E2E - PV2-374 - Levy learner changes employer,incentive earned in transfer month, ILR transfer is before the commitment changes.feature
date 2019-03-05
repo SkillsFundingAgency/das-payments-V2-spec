@@ -86,10 +86,10 @@
         | Jun/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
         | Jul/Current Academic Year | 500          | 0          | 0         | 0                            | 500                           | 0                            | 500                           |
     And the following provider payments had been generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 500           | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 500           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 500           | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 500           | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 3000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
