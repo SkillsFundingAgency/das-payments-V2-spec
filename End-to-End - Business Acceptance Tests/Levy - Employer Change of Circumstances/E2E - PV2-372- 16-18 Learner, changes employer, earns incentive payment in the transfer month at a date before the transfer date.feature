@@ -74,19 +74,19 @@
 		| 01/Aug/Current Academic Year | 12 months        | 6000                 | 01/Aug/Current Academic Year        | 1500                   | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
     And the following earnings had been generated for the learner
-        | Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive |
-        | Aug/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Sep/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Oct/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Nov/Current Academic Year | 500          | 0          | 0         | 500                          | 0                             |
-        | Dec/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jan/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Feb/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Mar/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Apr/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | May/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jun/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jul/Current Academic Year | 500          | 1500       | 0         | 0                            | 500                           |
+        | Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive | First16To18ProviderIncentive | Second16To18ProviderIncentive |
+        | Aug/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Sep/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Oct/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Nov/Current Academic Year | 500          | 0          | 0         | 500                          | 0                             | 500                          | 0                             |
+        | Dec/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jan/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Feb/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Mar/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Apr/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | May/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jun/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jul/Current Academic Year | 500          | 1500       | 0         | 0                            | 500                           | 0                            | 500                           |
 
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
@@ -104,8 +104,6 @@
         | 1st price details | 6000                 | 01/Aug/Current Academic Year        | 1500                   | 01/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
         | 2nd price details | 6000                 | 01/Aug/Current Academic Year        | 1500                   | 01/Aug/Current Academic Year          | 5000                    | 05/Nov/Current Academic Year           | 625                       | 05/Nov/Current Academic Year             |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
-
-# Query :  Do we need to include incentive for Provider?  Most probably not ...
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive | First16To18ProviderIncentive | Second16To18ProviderIncentive |
 		| Aug/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
@@ -147,8 +145,8 @@
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning                      | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    | employer 2 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18EmployerIncentive  | employer 1 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18ProviderIncentive  | employer 1 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18ProviderIncentive | employer 2 |
  
 	And only the following provider payments will be generated
@@ -164,8 +162,8 @@
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning                      | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    | employer 2 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18EmployerIncentive  | employer 1 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18ProviderIncentive  | employer 1 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18ProviderIncentive | employer 2 |
 
 Examples: 

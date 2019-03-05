@@ -93,7 +93,6 @@
         | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning                     | employer 1 |
         | R02/Current Academic Year | Sep/Current Academic Year | 500           | Learning                     | employer 1 |
         | R03/Current Academic Year | Oct/Current Academic Year | 500           | Learning                     | employer 1 |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning                     | employer 1 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18EmployerIncentive | employer 1 |
         | R04/Current Academic Year | Nov/Current Academic Year | 500           | First16To18ProviderIncentive | employer 1 |
 
@@ -146,20 +145,22 @@
         | R11/Current Academic Year | Jun/Current Academic Year | 562.5         | Learning                      | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 562.5         | Learning                      | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
+		| R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18ProviderIncentive | employer 2 |
         | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    | employer 2 |
 
 	And only the following provider payments will be generated for Employer 2
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type              |Employer   |
-        | R05/Current Academic Year | Dec/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R06/Current Academic Year | Jan/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R07/Current Academic Year | Feb/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R08/Current Academic Year | Mar/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R09/Current Academic Year | Apr/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R10/Current Academic Year | May/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R11/Current Academic Year | Jun/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 562.5         | Learning                      |employer 2 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive |employer 2 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    |employer 2 |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type              | Employer   |
+        | R05/Current Academic Year | Dec/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R06/Current Academic Year | Jan/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R07/Current Academic Year | Feb/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R08/Current Academic Year | Mar/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R09/Current Academic Year | Apr/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R10/Current Academic Year | May/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R11/Current Academic Year | Jun/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 562.5         | Learning                      | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18EmployerIncentive | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 500           | Second16To18ProviderIncentive | employer 2 |
+        | R12/Current Academic Year | Jul/Current Academic Year | 1125          | Completion                    | employer 2 |
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
 		| R05/Current Academic Year | 13500                       | 7125                        |

@@ -72,19 +72,19 @@
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Aug/Current Academic Year | 12 months        | 6000                 | 06/Aug/Current Academic Year        | 1500                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
-        | Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive |
-        | Aug/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Sep/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Oct/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Nov/Current Academic Year | 500          | 0          | 0         | 500                          | 0                             |
-        | Dec/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jan/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Feb/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Mar/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Apr/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | May/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jun/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             |
-        | Jul/Current Academic Year | 500          | 0          | 0         | 0                            | 500                           |
+        | Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive | First16To18ProviderIncentive | Second16To18ProviderIncentive |
+        | Aug/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Sep/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Oct/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Nov/Current Academic Year | 500          | 0          | 0         | 500                          | 0                             | 500                          | 0                             |
+        | Dec/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jan/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Feb/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Mar/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Apr/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | May/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jun/Current Academic Year | 500          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jul/Current Academic Year | 500          | 0          | 0         | 0                            | 500                           | 0                            | 500                           |
     And the following provider payments had been generated
         | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 500           | Learning         |
@@ -99,19 +99,19 @@
         | 2nd price details | 6000                 | 06/Aug/Current Academic Year        | 1500                   | 06/Aug/Current Academic Year          | 4000                    | 09/Nov/Current Academic Year           | 1625                      | 09/Nov/Current Academic Year             |
 	When the amended ILR file is re-submitted for the learners in collection period R04/Current Academic Year
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive |
-        | Aug/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             |
-        | Sep/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             |
-        | Oct/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             |
-        | Nov/Current Academic Year | 450          | 0          | 0         | 500                          | 0                             |
-        | Dec/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Jan/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Feb/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Mar/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Apr/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | May/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Jun/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             |
-        | Jul/Current Academic Year | 450          | 0          | 0         | 0                            | 500                           |
+		| Delivery Period           | On-Programme | Completion | Balancing | First16To18EmployerIncentive | Second16To18EmployerIncentive | First16To18ProviderIncentive | Second16To18ProviderIncentive |
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Nov/Current Academic Year | 450          | 0          | 0         | 500                          | 0                             | 500                          | 0                             |
+        | Dec/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jan/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Feb/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Mar/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Apr/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | May/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jun/Current Academic Year | 450          | 0          | 0         | 0                            | 0                             | 0                            | 0                             |
+        | Jul/Current Academic Year | 450          | 0          | 0         | 0                            | 500                           | 0                            | 500                           |
     And at month end no payments will be calculated 
  	And no provider payments will be recorded
 	And no provider payments will be generated
