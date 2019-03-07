@@ -98,19 +98,19 @@ Scenario Outline: Levy Learner-co-funded,sufficient employer contribution LDM co
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 720                   | 356      |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing |
-		| Aug/Current Academic Year | 600          | 0          | 0         |
-		| Sep/Current Academic Year | 600          | 0          | 0         |
-		| Oct/Current Academic Year | 600          | 0          | 0         |
-		| Nov/Current Academic Year | 600          | 0          | 0         |
-		| Dec/Current Academic Year | 600          | 0          | 0         |
-		| Jan/Current Academic Year | 600          | 0          | 0         |
-		| Feb/Current Academic Year | 600          | 0          | 0         |
-		| Mar/Current Academic Year | 600          | 0          | 0         |
-		| Apr/Current Academic Year | 600          | 0          | 0         |
-		| May/Current Academic Year | 600          | 0          | 0         |
-		| Jun/Current Academic Year | 0            | 1800       | 0         |
-		| Jul/Current Academic Year | 0            | 0          | 0         |
+		| Delivery Period           | On-Programme | Completion | Balancing | PMR |
+		| Aug/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Sep/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Oct/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Nov/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Dec/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Jan/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Feb/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Mar/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Apr/Current Academic Year | 600          | 0          | 0         | 0   |
+		| May/Current Academic Year | 600          | 0          | 0         | 0   |
+		| Jun/Current Academic Year | 0            | 1800       | 0         | 720 |
+		| Jul/Current Academic Year | 0            | 0          | 0         | 0   |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
