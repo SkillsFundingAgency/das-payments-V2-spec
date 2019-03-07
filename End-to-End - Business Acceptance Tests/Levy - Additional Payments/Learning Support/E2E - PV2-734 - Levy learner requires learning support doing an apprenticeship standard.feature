@@ -46,11 +46,11 @@ Feature:  Levy learner requires learning support doing an apprenticeship standar
 Scenario: Levy learner requires learning support doing an apprenticeship standard PV2-734
 	Given the levy account balance in collection period R01/Last Academic Year is 15000
 	And the following commitments exist
-        | start date                | end date                     | agreed price | standard code |
-        | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 15000        | 51            |
+        | start date                | end date                     | standard code | agreed price | status |
+        | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 51            | 15000        | active |
 	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 100%                        |
+		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | LearningSupport |
         | Aug/Last Academic Year | 1000         | 0          | 0         | 150             |
@@ -93,7 +93,7 @@ Scenario: Levy learner requires learning support doing an apprenticeship standar
         | R12/Last Academic Year | Jul/Last Academic Year | 0             | 150                       | LearningSupport  |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 100%                        |
+		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period R01/Current Academic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
