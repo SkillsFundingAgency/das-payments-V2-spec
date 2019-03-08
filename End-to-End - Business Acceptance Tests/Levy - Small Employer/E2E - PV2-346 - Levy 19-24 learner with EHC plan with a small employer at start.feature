@@ -34,7 +34,7 @@
 #        | Framework uplift balancing   | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | ..  | 0     | 0     |
 
-Feature:  Levy learner 16-18 employed with a small employer at start fully funded PV2-346
+Feature:  Levy learner 19-24 employed with a small employer at start fully funded PV2-346
 	As a provider,
 	I want a levy learner aged 19-24 with an Educational Health Care (EHC) plan, employed with a small employer at start, is fully funded for on programme and completion payments, to be paid the correct amount
 	So that I am accurately paid my apprenticeship provision.
