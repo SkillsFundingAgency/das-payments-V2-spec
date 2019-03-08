@@ -49,8 +49,8 @@ Feature:  Levy learner 19-24 employed with a small employer at start fully funde
 Scenario: Levy learner 19-24 with an Education Health Care (EHC) plan employed with a small employer at start fully funded PV2-346
 	Given the levy account balance in collection period R01/Last Academic Year is 7500
 	And the following commitments exist
-        | start date                | end date                     | agreed price | framework code | programme type | pathway code |
-        | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year | 7500         | 593            | 1              | 20           |
+        | framework code | programme type | pathway code | agreed price | start date                | end date                     |
+        | 593            | 1              | 20           | 7500         | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year |
 	# 100% contribution for small employer, 19-24 learner due to EEF2 code
 	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
