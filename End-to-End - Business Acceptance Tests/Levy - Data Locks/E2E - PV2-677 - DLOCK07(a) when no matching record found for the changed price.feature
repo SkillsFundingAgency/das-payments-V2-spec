@@ -65,6 +65,10 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
 	But the Provider now changes the Learner details as follows
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| learner a  | 01/May/Current Academic Year | 12 months        | 14000                | 01/Jul/Current Academic Year        | 0                      | 01/Jul/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+	And price details as follows
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | SFA Contribution Percentage |
+        | 1st price details | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          | 90%                         |
+        | 2nd price details | 14000                | 01/Jul/Current Academic Year        | 0                      | 01/Jul/Current Academic Year          | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period "R12/Current Academic Year"
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
