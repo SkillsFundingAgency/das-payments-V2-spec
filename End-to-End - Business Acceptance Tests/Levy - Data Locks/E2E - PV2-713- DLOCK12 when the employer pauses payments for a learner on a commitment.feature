@@ -84,7 +84,7 @@ Scenario: DLOCK12 - when the employer pauses payments for a learner on a commitm
 	# New step
     And the following data lock event is returned
         | Price Episode identifier | Apprenticeship Id | ILR Start Date               | ILR Training Price |
-        | 20-593-1-01/07/2018      | 73                | 01/May/Current Academic Year | 10000              |
+        | 20-593-1-01/05/2018      | 73                | 01/May/Current Academic Year | 10000              |
 	# New step
 	And the data lock event has the following errors   
         | Price Episode identifier | Error code | Error Description                                    |
