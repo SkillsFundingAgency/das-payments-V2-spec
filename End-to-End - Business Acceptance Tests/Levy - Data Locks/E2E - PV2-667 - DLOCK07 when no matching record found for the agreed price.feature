@@ -35,17 +35,17 @@ Feature: Data Lock - DLOCK07 - no matching agreed price
 Scenario: DLOCK07 - When no matching record found in an employer digital account for the agreed price then datalock DLOCK_07 will be produced PV2-667
 	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
-		| commitment Id | version Id | Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| 73            | 73-125     | learner a  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+		| commitment Id | version Id | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| 73            | 73-125     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 	And the provider is providing training for the following learners
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| learner a  | 01/May/Current Academic Year | 12 months        | 10010                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	When the ILR file is submitted for the learners for collection period "R10/Current Academic Year"
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/May/Current Academic Year | 12 months        | 10010                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+	When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
 	Then the no learner earnings should be generated
 	# New step
     And the following data lock event is returned
-        | Price Episode identifier | Apprenticeship Id | Learner ID | ILR Start Date               | ILR Training Price |
-        | 20-593-1-01/05/2018      | 73                | learner a  | 01/May/Current Academic Year | 10010              |
+        | Price Episode identifier | Apprenticeship Id | ILR Start Date               | ILR Training Price |
+        | 20-593-1-01/05/2018      | 73                | 01/May/Current Academic Year | 10010              |
 	# New step
 	And the data lock event has the following errors   
         | Price Episode identifier | Error code | Error Description                                                                            |
