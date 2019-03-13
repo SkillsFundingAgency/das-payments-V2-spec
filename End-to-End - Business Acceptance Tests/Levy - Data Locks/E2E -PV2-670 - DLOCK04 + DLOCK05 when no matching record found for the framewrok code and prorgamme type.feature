@@ -58,8 +58,8 @@
 		      |20-589-1-01/May/Last Academic Year       | 1718-R12 | false        | Learning         |
 		  
 		And the data lock event used the following commitments:
-		      | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
-		      |20-589-1-01/May/Last Academic Year       | 73-125             | 01/May/Last Academic Year | 593            | 20             | 1            | 10000            | 01/May/Last Academic Year     |
+		      | Price Episode identifier           | Apprentice Version | Start Date                | framework code | programme type | pathway code | Negotiated Price | Effective Date            |
+		      | 20-589-1-01/May/Last Academic Year | 73-125             | 01/May/Last Academic Year | 593            | 20             | 1            | 10000            | 01/May/Last Academic Year |
 
    		And the following learner earnings should be generated
 			| Delivery Period           | On-Programme | Completion | Balancing |
