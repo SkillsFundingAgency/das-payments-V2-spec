@@ -55,8 +55,8 @@
 	# Date added in the end
 	And the following commitments exist 
 	# Additional fields
-        | Employer   | commitment Id | version Id | start date | end date   | agreed price | status | effective from | effective to |
-        | employer 1 | 1             | 1          | 01/08/2019 | 04/08/2019 | 15000        | active | 01/08/2018     |              |
+        | Employer   | start date | end date   | agreed price | status | effective from | effective to |
+        | employer 1 | 01/08/2019 | 04/08/2019 | 15000        | active | 01/08/2018     |              |
 
 	And the provider previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -149,12 +149,12 @@ Examples:
         | R01/Current Academic Year | 15000                       |
         | R02/Current Academic Year | 14000                       |
         | R03/Current Academic Year | 13000                       |
-        | R04/Current Academic Year |                             |
-        | R05/Current Academic Year |                             |
-        | R06/Current Academic Year |                             |
-        | R07/Current Academic Year |                             |
-        | R08/Current Academic Year |                             |
-        | R09/Current Academic Year |                             |
-        | R10/Current Academic Year |                             |
-        | R11/Current Academic Year |                             |
-        | R12/Current Academic Year |                             |
+        | R04/Current Academic Year | 13000                       |
+        | R05/Current Academic Year | 13000                       |
+        | R06/Current Academic Year | 13000                       |
+        | R07/Current Academic Year | 13000                       |
+        | R08/Current Academic Year | 13000                       |
+        | R09/Current Academic Year | 13000                       |
+        | R10/Current Academic Year | 13000                       |
+        | R11/Current Academic Year | 13000                       |
+        | R12/Current Academic Year | 13000                       |
