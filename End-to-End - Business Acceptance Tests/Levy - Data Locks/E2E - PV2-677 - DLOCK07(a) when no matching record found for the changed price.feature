@@ -36,7 +36,7 @@ Feature: Data Lock - DLOCK07(a) - no matching changed price
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK07(a) - When price is changed, then effective to is set on previous price episode PV2-677
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 14000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 14000
 	And the following commitments exist
 		| commitment Id | version Id | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               | effective to                 |
 		| 73            | 73-125     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year | 30/Jun/Current Academic Year |

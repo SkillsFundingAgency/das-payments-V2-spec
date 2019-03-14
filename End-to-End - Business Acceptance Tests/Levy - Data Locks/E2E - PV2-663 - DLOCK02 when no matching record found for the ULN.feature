@@ -16,7 +16,7 @@ Feature: Data Lock - DLOCK02 - no matching ULN
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK02 - When no matching record found in an employer digital account for the ULN then datalock DLOCK_02 will be produced PV2-663
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
 		| Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| learner b  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |

@@ -37,7 +37,7 @@ Feature: Data Lock - DLOCK10 - when the employer stops payments for a learner on
 		So that I can take the correct action for that learner
 
 Scenario: DLOCK10 - when the employer stops payments for a learner on a commitmen PV2-711
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
 		| commitment Id | version Id | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status  | effective from               | effective to                 |
 		| 73            | 73-125     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active  | 01/May/Current Academic Year | 01/Jun/Current Academic Year |

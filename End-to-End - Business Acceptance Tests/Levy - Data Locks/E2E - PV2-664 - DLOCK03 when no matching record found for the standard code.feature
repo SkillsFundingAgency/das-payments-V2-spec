@@ -38,7 +38,7 @@ Feature: Data Lock - DLOCK03 - no matching standard code
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK03 - When no matching record found in an employer digital account for for the standard code then datalock DLOCK_03 will be produced PV2-664
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
 	# Learner ID kept for data lock event
 		| commitment Id | version Id | Learner ID | standard code | agreed price | start date                   | end date                  | status | effective from               |

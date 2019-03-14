@@ -33,7 +33,7 @@ Feature: Data Lock - DLOCK07 - no matching agreed price
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK07 - When no matching record found in an employer digital account for the agreed price then datalock DLOCK_07 will be produced PV2-667
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
 		| commitment Id | version Id | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| 73            | 73-125     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
