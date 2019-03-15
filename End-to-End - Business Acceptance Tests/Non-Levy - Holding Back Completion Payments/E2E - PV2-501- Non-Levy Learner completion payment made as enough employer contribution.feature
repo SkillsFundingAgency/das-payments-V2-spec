@@ -86,18 +86,19 @@ Scenario Outline: Non-Levy Learner-in co-funding no completion payment made as n
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | PMR |
-		| Aug/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Sep/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Oct/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Nov/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Dec/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Jan/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Feb/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Mar/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Apr/Current Academic Year | 600          | 0          | 0         | 0   |
-		| May/Current Academic Year | 600          | 0          | 0         | 0   |
-		| Jun/Current Academic Year | 0            | 1800       | 0         | 719 |
-		| Jul/Current Academic Year | 0            | 0          | 0         | 0   |
+		| Aug/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Sep/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Oct/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Nov/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Dec/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Jan/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Feb/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Mar/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Apr/Current Academic Year | 600          | 0          | 0         | 720 |
+		| May/Current Academic Year | 600          | 0          | 0         | 720 |
+		| Jun/Current Academic Year | 0            | 1800       | 0         | 720 |
+		| Jul/Current Academic Year | 0            | 0          | 0         | 720 |
+		# Double check if Jun PMR should be 719?
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
