@@ -148,8 +148,6 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
 Examples: 
         | Collection_Period         | Levy Balance |
-        | R11/Last Academic Year    | 0            |
-        | R12/Last Academic Year    | 0            |
         | R01/Current Academic Year | 0            |
         | R02/Current Academic Year | 0            |
         | R03/Current Academic Year | 0            |
