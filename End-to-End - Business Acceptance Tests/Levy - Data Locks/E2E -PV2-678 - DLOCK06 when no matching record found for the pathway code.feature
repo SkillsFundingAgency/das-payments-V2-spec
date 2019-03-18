@@ -25,18 +25,18 @@
 
  		Feature:Datalocks
  		As a Provider,
- 		I want to be notified with a DLOCK05 when no matching record found in an employer digital account for the Programme Type
+ 		I want to be notified with a DLOCK06 when no matching record found in an employer digital account for the pathway code
  		So that I can correct the data mis-match between the Commitment and ILR PV2-666
  
- 		Scenario Outline: DLOCK05 - When no matching record found in an employer digital account for for the framework code then datalock DLOCK_05 will be produced PV2-666
+ 		Scenario Outline: DLOCK06 - When no matching record found in an employer digital account for the pathway code then datalock DLOCK_06 will be produced PV2-678
  
  			Given the following commitments exist		 
- 			| commitment Id | version Id | Learner ID       | framework code | programme type | pathway code | agreed price | start date                | end date                      | status | effective from            |
- 			| 73            | 73-125     | learner a | 593            | 20             | 1            | 10000        | 01/May/Last Academic Year | 01/June/Current Academic Year | active | 01/May/Last Academic Year |
+ 			| commitment Id | version Id | Learner ID | framework code | programme type | pathway code | agreed price | start date                | end date                      | status | effective from            |
+ 			| 73            | 73-125     | learner a  | 593            | 20             | 1            | 10000        | 01/May/Last Academic Year | 01/June/Current Academic Year | active | 01/May/Last Academic Year |
  				
  			And the provider is providing training for the following learners
- 			| Learner ID       	| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
- 			| learner a 	| 01/May/Last Academic Year | 15 months        | 10000                | 01/May/Last Academic Year           | continuing        | Act1          | 1                   | ZPROG001      | 593            | 21             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+ 			| Learner ID | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
+ 			| learner a  | 01/May/Last Academic Year | 15 months        | 10000                | 01/May/Last Academic Year           | continuing        | Act1          | 1                   | ZPROG001      | 593            | 20             | 2            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
  
  			
  			When the ILR file is submitted for the learners for collection period <Collection_Period>
@@ -46,18 +46,18 @@
  				  | 21-593-1-01/May/Last Academic Year        | 73                | learner a | 01/May/Last Academic Year     | 10000              |
  			# New steps /lines for datalocks	  
  			 And the data lock event has the following errors:    
- 			      | Price Episode identifier | Error code | Error Description                                                               |
- 			      | 21-593-1-01/May/Last Academic Year       | DLOCK_05   | No matching record found in the employer digital account for the programme type |
+ 			      | Price Episode identifier           | Error code | Error Description                                                             |
+ 			      | 21-593-1-01/May/Last Academic Year | DLOCK_06   | No matching record found in the employer digital account for the pathway code |
  			  
  			 And the data lock event has the following periods:  
  			      | Price Episode identifier | Period   | Payable Flag | Transaction Type |
- 			      | 21-593-1-01/May/Last Academic Year      | 1718-R10 | false        | Learning         |
- 			      | 21-593-1-01/May/Last Academic Year      | 1718-R11 | false        | Learning         |
- 			      | 21-593-1-01/May/Last Academic Year      | 1718-R12 | false        | Learning         |
+ 			      | 20-593-2-01/May/Last Academic Year      | 1718-R10 | false        | Learning         |
+ 			      | 20-593-2-01/May/Last Academic Year      | 1718-R11 | false        | Learning         |
+ 			      | 20-593-2-01/May/Last Academic Year      | 1718-R12 | false        | Learning         |
  			  
  			 And the data lock event used the following commitments:
- 			      | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
- 			      | 21-593-1-01/May/Last Academic Year      | 73-125             | 01/May/Last Academic Year | 593            | 20             | 1            | 10000            | 01/May/Last Academic Year     |
+ 			      | Price Episode identifier           | Apprentice Version | Start Date                | framework code | programme type | pathway code | Negotiated Price | Effective Date            |
+ 			      | 20-593-2-01/May/Last Academic Year | 73-125             | 01/May/Last Academic Year | 593            | 20             | 1            | 10000            | 01/May/Last Academic Year |
  
  	   		 And the following learner earnings should be generated
  				| Delivery Period           | On-Programme | Completion | Balancing |
