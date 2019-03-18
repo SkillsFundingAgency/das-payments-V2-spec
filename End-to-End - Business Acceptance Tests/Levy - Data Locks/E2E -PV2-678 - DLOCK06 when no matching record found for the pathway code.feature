@@ -25,10 +25,10 @@
 
  		Feature:Datalocks
  		As a Provider,
- 		I want to be notified with a DLOCK06 when no matching record found in an employer digital account for the Programme Type
+ 		I want to be notified with a DLOCK06 when no matching record found in an employer digital account for the pathway code
  		So that I can correct the data mis-match between the Commitment and ILR PV2-666
  
- 		Scenario Outline: DLOCK05 - When no matching record found in an employer digital account for for the framework code then datalock DLOCK_06 will be produced PV2-678
+ 		Scenario Outline: DLOCK06 - When no matching record found in an employer digital account for the pathway code then datalock DLOCK_06 will be produced PV2-678
  
  			Given the following commitments exist		 
  			| commitment Id | version Id | Learner ID | framework code | programme type | pathway code | agreed price | start date                | end date                      | status | effective from            |
