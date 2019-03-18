@@ -152,8 +152,6 @@ Scenario Outline: Levy Learner-co-funded,sufficient employer contribution LDM co
         | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 Examples: 
         | Collection_Period         |
-        | R11/Last Academic Year    |
-        | R12/Last Academic Year    |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |

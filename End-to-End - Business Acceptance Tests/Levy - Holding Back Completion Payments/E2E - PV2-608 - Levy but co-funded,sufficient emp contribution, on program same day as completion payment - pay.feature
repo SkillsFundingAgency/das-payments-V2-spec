@@ -1,6 +1,6 @@
 ﻿#Feature: Holding back completion payments
 # 
-#Scenario: AC1 - 1 learner, levy, co-funding has been used and provider data shows enough employer contribution – pay completion
+#Scenario: AC1 - 1 learner, levy, co-funding has been used, final on program payment is same day as completion payment, provider data shows enough employer contribution – pay completion
 #
 #	Given the levy balance is 0 for all months
 #	
@@ -24,29 +24,29 @@
 #	And an ILR file is submitted for academic year 1819 in period R11 with the following data:
 #
 #        | ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | employer contributions |
-#        | learner a | programme only DAS | 9000         | 06/06/2018 | 08/06/2019       | 18/06/2019      | completed         | 720					   |
+#        | learner a | programme only DAS | 9000         | 06/06/2018 | 08/06/2019       | 30/05/2019      | completed         | 720					   |
 #
 #    Then the provider earnings and payments break down as follows:
 #
-#        | Type                                    | 06/18 | 07/18 | 08/18 | ... | 05/19 | 06/19 | 07/19 |
-#        | Provider Earned Total                   | 600   | 600   | 600   | ... | 600   | 1800  | 0	    |
-#		| Provider Earned from SFA                | 540   | 540   | 540   | ... | 540   | 1620  | 0	    |
-#		| Provider Earned from Employer           | 60    | 60    | 60    | ... | 60    | 180   | 0	    |
-#        | Provider Paid by SFA                    | 0     | 540   | 540   | ... | 540   | 540   | 1620  | 
-#	    | Payment due from Employer               | 0     | 60    | 60    | ... | 60    | 60    | 180   |
+#        | Type                                    | 06/18 | 07/18 | 08/18 | ... | 04/18 | 05/19 | 06/19 |
+#        | Provider Earned Total                   | 600   | 600   | 600   | ... | 600   | 2400  | 0     | (Completion Payment £1800 + Final Program Payment £600) in May
+#	| Provider Earned from SFA                | 540   | 540   | 540   | ... | 540   | 2160  | 0     | (Completion Payment £1620 + Final Program Payment £540) in May 
+#	| Provider Earned from Employer           | 60    | 60    | 60    | ... | 60    | 240   | 0     | (Completion Payment £180 + Final Program Payment £60) in May
+#        | Provider Paid by SFA                    | 0     | 540   | 540   | ... | 540   | 540   | 2160  | 
+#	| Payment due from Employer               | 0     | 60    | 60    | ... | 60    | 60    | 240   |
 #        | Levy account debited                    | 0     | 0     | 0     | ... | 0     | 0     | 0     | 
 #        | SFA Levy employer budget                | 0     | 0     | 0     | ... | 0     | 0     | 0     |
-#        | SFA Levy co-funding budget              | 540   | 540   | 540   | ... | 540   | 1620  | 0     |
-#        | SFA Levy additional payments budget     | 0     | 0     | 0     | ... | 0     | 0	    | 0     |
-#		| SFA non-Levy co-funding budget          | 0     | 0     | 0     | ... | 0     | 0     | 0     | 
-#	    | SFA non-Levy additional payments budget | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#        | SFA Levy co-funding budget              | 540   | 540   | 540   | ... | 540   | 2160  | 0     |
+#        | SFA Levy additional payments budget     | 0     | 0     | 0     | ... | 0     | 0     | 0	    |
+#	| SFA non-Levy co-funding budget          | 0     | 0     | 0     | ... | 0     | 0     | 0     | 
+#	| SFA non-Levy additional payments budget | 0     | 0     | 0     | ... | 0     | 0     | 0     |
 #
 #    And the transaction types for the payments are:
 #
-#	    | Payment type                            | 07/18 | 08/18 | 09/18 | ... | 05/19 | 06/19 | 07/19 |
-#        | On-program                              | 540   | 540   | 540   | ... | 540   | 540   | 0	    |
-#        | Completion                              | 0     | 0     | 0     | ... | 0     | 0     | 1620  |
-#        | Balancing                               | 0     | 0     | 0     | ... | 0     | 0     | 0	    |
+#	| Payment type                            | 07/18 | 08/18 | 09/18 | ... | 05/19 | 06/19 |
+#        | On-program                              | 540   | 540   | 540   | ... | 540   | 540   |
+#        | Completion                              | 0     | 0     | 0     | ... | 0     | 1620  |
+#        | Balancing                               | 0     | 0     | 0     | ... | 0     | 0     |
 #
 #Maths.
 #Price x 0.20 = £7,200
@@ -61,10 +61,10 @@
 
 Feature: Holding back completion payments
 	As a provider,
-	I want a levy learner with co-funding, where the employer has paid their 10% co-investment for the on-program element only, but has not yet paid the employer completion payment element
+	I want a levy learner with co-funding, where the employer has paid their 10% co-investment for the on-program element, but has not yet paid the employer completion payment element, and the final on program payment is the same day as the completion payment
 	So that I am accurately paid the completion payment by SFA
 
-Scenario Outline: Levy Learner-in co-funding completion payment made as enough employer contribution PV2-496
+Scenario Outline: Levy learner but co-funded, sufficient employer contribution, on program payment same day as completion payment - pay completion PV2-608
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
@@ -106,8 +106,8 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
 		| Feb/Current Academic Year | 600          | 0          | 0         |
 		| Mar/Current Academic Year | 600          | 0          | 0         |
 		| Apr/Current Academic Year | 600          | 0          | 0         |
-		| May/Current Academic Year | 600          | 0          | 0         |
-		| Jun/Current Academic Year | 0            | 1800       | 0         |
+		| May/Current Academic Year | 600          | 1800       | 0         |
+		| Jun/Current Academic Year | 0            | 0          | 0         |
 		| Jul/Current Academic Year | 0            | 0          | 0         |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -120,8 +120,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R07/Current Academic Year | Feb/Current Academic Year | 600          | 0          | 0         |
         | R08/Current Academic Year | Mar/Current Academic Year | 600          | 0          | 0         |
         | R09/Current Academic Year | Apr/Current Academic Year | 600          | 0          | 0         |
-        | R10/Current Academic Year | May/Current Academic Year | 600          | 0          | 0         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 0            | 1800       | 0         |
+        | R10/Current Academic Year | May/Current Academic Year | 600          | 1800       | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0             | Learning         |
@@ -134,7 +133,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
+        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0             | Learning         |
@@ -147,7 +146,7 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
-        | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
+        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 Examples: 
         | Collection_Period         | Levy Balance |
         | R01/Current Academic Year | 0            |
@@ -160,4 +159,3 @@ Examples:
         | R08/Current Academic Year | 0            |
         | R09/Current Academic Year | 0            |
         | R10/Current Academic Year | 0            |
-        | R11/Current Academic Year | 0            |
