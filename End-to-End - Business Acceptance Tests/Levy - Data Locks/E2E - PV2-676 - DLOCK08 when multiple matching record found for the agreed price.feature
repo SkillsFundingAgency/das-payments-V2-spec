@@ -30,16 +30,29 @@ Feature: Data Lock - DLOCK08 - multiple matching agreed price
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK08 - When multiple matching record found in an employer digital account then datalock DLOCK_08 will be produced PV2-676
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
 	And the following commitments exist
-		| commitment Id | version Id | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| 73            | 73-125     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
-		| 74            | 74-002     | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
-	And the provider is providing training for the following learners
+		| commitment Id | version Id | Provider   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| 73            | 73-125     | Provider a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+		| 74            | 74-002     | Provider b | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+	And the "provider a" is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
-	Then the no learner earnings should be generated
+	When the ILR file is submitted for the learners for the collection period "R12/Current Academic Year" by "provider a"
+	Then the following learner earnings should be generated for "provider a"	
+		| Delivery Period           | On-Programme | Completion | Balancing |
+		| Aug/Current Academic Year | 0            | 0          | 0         |
+		| Sep/Current Academic Year | 0            | 0          | 0         |
+		| Oct/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Dec/Current Academic Year | 0            | 0          | 0         |
+		| Jan/Current Academic Year | 0            | 0          | 0         |
+		| Feb/Current Academic Year | 0            | 0          | 0         |
+		| Mar/Current Academic Year | 0            | 0          | 0         |
+		| Apr/Current Academic Year | 0            | 0          | 0         |
+		| May/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	# New step
     And the following data lock event is returned
         | Price Episode identifier | Apprenticeship Id | ILR Start Date               | ILR Training Price |

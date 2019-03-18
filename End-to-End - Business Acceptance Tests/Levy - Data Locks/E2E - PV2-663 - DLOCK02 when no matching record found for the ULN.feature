@@ -16,7 +16,7 @@ Feature: Data Lock - DLOCK02 - no matching ULN
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK02 - When no matching record found in an employer digital account for the ULN then datalock DLOCK_02 will be produced PV2-663
-	Given Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
 	And the following commitments exist
 		| Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| learner b  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
@@ -24,7 +24,20 @@ Scenario: DLOCK02 - When no matching record found in an employer digital account
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	When the ILR file is submitted for the learners for collection period "R10/Current Academic Year"
-	Then the no learner earnings should be generated
+	Then the following learner earnings should be generated
+		| Delivery Period           | On-Programme | Completion | Balancing |
+		| Aug/Current Academic Year | 0            | 0          | 0         |
+		| Sep/Current Academic Year | 0            | 0          | 0         |
+		| Oct/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Dec/Current Academic Year | 0            | 0          | 0         |
+		| Jan/Current Academic Year | 0            | 0          | 0         |
+		| Feb/Current Academic Year | 0            | 0          | 0         |
+		| Mar/Current Academic Year | 0            | 0          | 0         |
+		| Apr/Current Academic Year | 0            | 0          | 0         |
+		| May/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	# New step
     And no data lock event is returned
     And at month end no payments will be calculated
