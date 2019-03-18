@@ -42,12 +42,12 @@
  			When the ILR file is submitted for the learners for collection period <Collection_Period>
  
  			Then the following data lock event is returned
-				  | Price Episode identifier  | Apprenticeship Id | Learner ID       | ILR Start Date | ILR Training Price | 
- 				  | 21-593-1-01/May/Last Academic Year        | 73                | learner a | 01/May/Last Academic Year     | 10000              |
+				  | Price Episode identifier           | Apprenticeship Id | Learner ID | ILR Start Date            | ILR Training Price |
+				  | 20-593-2-01/May/Last Academic Year | 73                | learner a  | 01/May/Last Academic Year | 10000              |
  			# New steps /lines for datalocks	  
  			 And the data lock event has the following errors:    
  			      | Price Episode identifier           | Error code | Error Description                                                             |
- 			      | 21-593-1-01/May/Last Academic Year | DLOCK_06   | No matching record found in the employer digital account for the pathway code |
+ 			      | 20-593-2-01/May/Last Academic Year | DLOCK_06   | No matching record found in the employer digital account for the pathway code |
  			  
  			 And the data lock event has the following periods:  
  			      | Price Episode identifier | Period   | Payable Flag | Transaction Type |
