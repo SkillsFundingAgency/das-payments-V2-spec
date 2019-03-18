@@ -96,22 +96,20 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 01/Jun/Last Academic Year           | 0                      |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 719                   |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
-	# New field - PMR - If it is less than expected then don't pay completion payment
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing | PMR |
-		| Aug/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Sep/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Oct/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Nov/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Dec/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Jan/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Feb/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Mar/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Apr/Current Academic Year | 600          | 0          | 0         | 720 |
-		| May/Current Academic Year | 600          | 0          | 0         | 720 |
-		| Jun/Current Academic Year | 0            | 1800       | 0         | 720 |
-		| Jul/Current Academic Year | 0            | 0          | 0         | 720 |
-		# Double check if Jun PMR should be 719?
+		| Delivery Period           | On-Programme | Completion | Balancing |
+		| Aug/Current Academic Year | 600          | 0          | 0         |
+		| Sep/Current Academic Year | 600          | 0          | 0         |
+		| Oct/Current Academic Year | 600          | 0          | 0         |
+		| Nov/Current Academic Year | 600          | 0          | 0         |
+		| Dec/Current Academic Year | 600          | 0          | 0         |
+		| Jan/Current Academic Year | 600          | 0          | 0         |
+		| Feb/Current Academic Year | 600          | 0          | 0         |
+		| Mar/Current Academic Year | 600          | 0          | 0         |
+		| Apr/Current Academic Year | 600          | 0          | 0         |
+		| May/Current Academic Year | 600          | 0          | 0         |
+		| Jun/Current Academic Year | 0            | 1800       | 0         |
+		| Jul/Current Academic Year | 0            | 0          | 0         |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
