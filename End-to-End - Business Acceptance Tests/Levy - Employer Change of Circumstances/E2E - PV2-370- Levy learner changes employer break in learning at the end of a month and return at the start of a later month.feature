@@ -105,9 +105,6 @@ Scenario Outline: Levy learner changes employer after break in learning at the e
 	And no provider payments will be generated
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-        | R01/Current Academic Year | 15500                       | 7125                        |
-        | R02/Current Academic Year | 14500                       | 7125                        |
-        | R03/Current Academic Year | 13500                       | 7125                        |
         | R04/Current Academic Year | 13500                       | 7125                        |
         | R05/Current Academic Year | 13500                       | 7125                        |
         | R06/Current Academic Year | 13500                       | 7125                        |
