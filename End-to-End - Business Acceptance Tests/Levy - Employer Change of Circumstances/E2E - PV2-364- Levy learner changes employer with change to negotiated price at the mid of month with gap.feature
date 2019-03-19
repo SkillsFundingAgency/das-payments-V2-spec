@@ -132,10 +132,7 @@ Scenario Outline: Levy learner changes employer with change to negotiated price 
         | R12/Current Academic Year | Jul/Current Academic Year | 500           | Learning         |
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-        | R01/Current Academic Year | 15500                       | 7125                        |
-        | R02/Current Academic Year | 14500                       | 7125                        |
-        | R03/Current Academic Year | 13500                       | 7125                        |
-        | R04/Current Academic Year | 13500                       | 5625                        |
+		| R04/Current Academic Year | 13500                       | 5625                        |
         | R05/Current Academic Year | 13500                       | 5125                        |
 		| R06/Current Academic Year | 13500                       | 4625                        |
 		| R07/Current Academic Year | 13500                       | 4125                        |
