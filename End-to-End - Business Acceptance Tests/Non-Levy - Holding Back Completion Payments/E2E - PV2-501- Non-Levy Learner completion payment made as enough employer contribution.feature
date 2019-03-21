@@ -99,6 +99,7 @@ Scenario Outline: Non-Levy Learner-in co-funding no completion payment made as n
 		| May/Current Academic Year | 600          | 0          | 0         |
 		| Jun/Current Academic Year | 0            | 1800       | 0         |
 		| Jul/Current Academic Year | 0            | 0          | 0         |
+	# New step needed to check if employer contribution is less than the required
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
@@ -148,4 +149,3 @@ Examples:
 		| R09/Current Academic Year |
 		| R10/Current Academic Year |
 		| R11/Current Academic Year |
-		| R12/Current Academic Year |

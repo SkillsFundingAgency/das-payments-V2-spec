@@ -66,7 +66,7 @@ Feature: Holding back completion payments
 	So that I am not paid the completion payment by SFA
 
 Scenario Outline: Levy Learner-in co-funding no completion payment made as not enough employer contribution PV2-500
-	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Given the employer levy account balance is 0
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |
@@ -110,6 +110,7 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
 		| May/Current Academic Year | 600          | 0          | 0         |
 		| Jun/Current Academic Year | 0            | 1800       | 0         |
 		| Jul/Current Academic Year | 0            | 0          | 0         |
+	# New step needed to check if employer contribution is less than the required
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R01/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         |
@@ -147,16 +148,15 @@ Scenario Outline: Levy Learner-in co-funding no completion payment made as not e
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
 Examples: 
-        | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 0            |
-        | R02/Current Academic Year | 0            |
-        | R03/Current Academic Year | 0            |
-        | R04/Current Academic Year | 0            |
-        | R05/Current Academic Year | 0            |
-        | R06/Current Academic Year | 0            |
-        | R07/Current Academic Year | 0            |
-        | R08/Current Academic Year | 0            |
-        | R09/Current Academic Year | 0            |
-        | R10/Current Academic Year | 0            |
-        | R11/Current Academic Year | 0            |
-        | R12/Current Academic Year | 0            |
+        | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
+        | R03/Current Academic Year |
+        | R04/Current Academic Year |
+        | R05/Current Academic Year |
+        | R06/Current Academic Year |
+        | R07/Current Academic Year |
+        | R08/Current Academic Year |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
+        | R11/Current Academic Year |

@@ -88,20 +88,21 @@ Scenario Outline: Levy Learner, no payment if commitment has gap while changing 
         | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
-		# Should below employer be no employer? I think we will get Data Lock error.
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | Learning         | employer 1 |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         | employer 2 |
-        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         | employer 2 |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer    |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1  |
+		# Double check if below is correct (Should 'No employer' be 'employer 1')
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | Learning         | No employer |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         | employer 2  |
+        | R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         | employer 2  |
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R04/Current Academic Year | Oct/Current Academic Year | 0             | Learning         |
-        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         |
-		| R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer    |
+        | R04/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1  |
+        | R04/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1  |
+		# Double check if below is correct (Should 'No employer' be 'employer 1')
+        | R04/Current Academic Year | Oct/Current Academic Year | 0             | Learning         | No employer |
+        | R04/Current Academic Year | Nov/Current Academic Year | 500           | Learning         | employer 2  |
+		| R05/Current Academic Year | Dec/Current Academic Year | 500           | Learning         | employer 2  |
 Examples:
 		| Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
 		| R01/Current Academic Year | 15500                       | 6125                        |
