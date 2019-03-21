@@ -65,7 +65,7 @@ Feature: Holding back completion payments
 	So that I am accurately paid the completion payment by SFA
 
 Scenario Outline: Levy learner but co-funded, sufficient employer contribution, on program payment same day as completion payment - pay completion PV2-608
-	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Given the employer levy account balance is 0
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |
@@ -148,14 +148,14 @@ Scenario Outline: Levy learner but co-funded, sufficient employer contribution, 
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 Examples: 
-        | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 0            |
-        | R02/Current Academic Year | 0            |
-        | R03/Current Academic Year | 0            |
-        | R04/Current Academic Year | 0            |
-        | R05/Current Academic Year | 0            |
-        | R06/Current Academic Year | 0            |
-        | R07/Current Academic Year | 0            |
-        | R08/Current Academic Year | 0            |
-        | R09/Current Academic Year | 0            |
-        | R10/Current Academic Year | 0            |
+        | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
+        | R03/Current Academic Year |
+        | R04/Current Academic Year |
+        | R05/Current Academic Year |
+        | R06/Current Academic Year |
+        | R07/Current Academic Year |
+        | R08/Current Academic Year |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
