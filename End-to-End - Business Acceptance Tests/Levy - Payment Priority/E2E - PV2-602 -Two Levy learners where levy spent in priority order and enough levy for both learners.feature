@@ -84,7 +84,7 @@ Scenario Outline:  Earnings and payments for two DAS learners, levy is spent in 
 		| learner a  | 01/Sep/Last Academic Year | 12 months        | 7500                 | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 		| learner b  | 01/Sep/Last Academic Year | 12 months        | 15000                | 01/Sep/Last Academic Year           | 0                      | 01/Sep/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
-    And the following earnings had been generated for the learner for "provider a"
+    And the following earnings had been generated
         | Learner ID | Delivery Period        | On-Programme | Completion | Balancing |
         | learner a  | Aug/Last Academic Year | 0            | 0          | 0         |
         | learner a  | Sep/Last Academic Year | 500          | 0          | 0         |
