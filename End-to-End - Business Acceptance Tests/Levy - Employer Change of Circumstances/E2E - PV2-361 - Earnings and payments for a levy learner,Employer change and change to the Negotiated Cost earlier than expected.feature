@@ -82,10 +82,18 @@
 		| Jun/Current Academic Year | 450          | 0          | 0         |
 		| Jul/Current Academic Year | 450          | 0          | 0         |
 
-    And at month end no payments will be calculated 
- 	And no provider payments will be recorded
-	And no provider payments will be generated
-
+    And at month end only the following payments will be calculated
+        | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+	And only the following provider payments will be recorded
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
+	And only the following provider payments will be generated
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
         | R01/Current Academic Year | 15500                       | 7500                        |
