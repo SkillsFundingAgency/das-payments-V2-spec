@@ -44,7 +44,7 @@
         #| employer 1 | Non DAS | 06/08/2018                |
         #| employer 2 | DAS     | 01/04/2019                |
 
-Feature: Levy -Employer Change of Circumstances learner changes from Non-Levy to Levy employer
+Feature: Learner changes from a non-levy to levy employer, levy is available for the levy employer PV2-366
 	As a provider,
 	I want an apprentice that changes from a non-levy to levy employer, levy is available for the levy employer, to be paid the correct amount
 	So that I am accurately paid my apprenticeship provision.
@@ -85,9 +85,9 @@ Scenario Outline: Learner changes from a non-levy to levy employer, levy is avai
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Current Academic Year | 12 months        | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
-        | 1st price details | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          | 2500                    | 01/Apr/Current Academic Year           | 1000                      | 01/Apr/Current Academic Year             |
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
+        | 1st price details | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 90%                         |
+        | 2nd price details | 5000                 | 06/Aug/Current Academic Year        | 1000                   | 06/Aug/Current Academic Year          | 2500                    | 01/Apr/Current Academic Year           | 1000                      | 01/Apr/Current Academic Year             | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
