@@ -81,13 +81,13 @@
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
  
     But the Provider now changes the Learner details as follows
-		| Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/Aug/Current Academic Year | 12 months        |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| 01/Aug/Current Academic Year | 12 months        |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
 	And price details as follows
-	    | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
-	    | 1st price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-	    | 2nd price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 25/Oct/Current Academic Year           | 625                       | 25/Oct/Current Academic Year             |	
+	    | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
+	    | 1st price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 90%                         |
+	    | 2nd price details | 12000                | 01/Aug/Current Academic Year        | 3000                   | 01/Aug/Current Academic Year          | 5000                    | 25/Oct/Current Academic Year           | 625                       | 25/Oct/Current Academic Year             | 90%                         |	
 
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	
