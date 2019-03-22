@@ -87,9 +87,9 @@ And the following provider payments had been generated
     | R03/Current Academic Year | Oct/Current Academic Year | 500           | Learning         | employer 1 |
 
 But the Provider now changes the Learner details as follows
-	| Employer id | Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-	| Employer1   | 05/Aug/Current Academic Year | 12 months        | 3 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	| Employer2   | 15/Nov/Current Academic Year | 12 months        | 9 months        | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+	| Employer id | Start Date                   | Planned Duration | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+	| Employer1   | 05/Aug/Current Academic Year | 12 months        | 3 months        | withdrawn         | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+	| Employer2   | 15/Nov/Current Academic Year | 12 months        | 9 months        | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 
 And price details as follows
     | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
