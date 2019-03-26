@@ -49,7 +49,7 @@ Feature: Levy learner changes employer after break in learning at the end of a m
 		I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer - before the second commitment is in place, to be paid the correct amount
 		So that I am accurately paid my apprenticeship provision.
 
-Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-368
+Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-370
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
