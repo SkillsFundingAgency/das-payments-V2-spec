@@ -72,8 +72,7 @@ So that I am accurately paid the completion payment by SFA
 
 Scenario: Levy Learner -in co-funding,completion payment held back due to insuffucient employer contribution - payment is released when sufficient contribution evidenced
 
-	Given the employer levy account balance is 0
-	# double check above
+	Given the employer levy account balance in collection period R12/Current Academic Year is 0
 
 	And the following commitments exist
 	# "Last Academic Year is used to highlight 1718 academic year

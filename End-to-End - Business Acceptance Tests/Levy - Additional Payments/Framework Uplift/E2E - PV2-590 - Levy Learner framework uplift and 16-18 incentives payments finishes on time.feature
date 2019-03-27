@@ -44,7 +44,7 @@
 
 Scenario: A Levy learner with a framework uplift and 16-18 Additional Incentives finishes on time PV2-590
 
-	Given The employer levy account balance is 8750
+	Given the employer levy account balance in collection period R01/Current Academic Year is 8750
 	And the following commitments exist
 		| start date                | end date                  | agreed price |
 		| 06/Aug/Last Academic Year | 09/Aug/Next Academic Year | 8250         |
