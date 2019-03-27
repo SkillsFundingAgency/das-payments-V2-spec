@@ -65,7 +65,7 @@ Feature: Holding back completion payments
 	So that I am accurately paid the completion payment by SFA
 
 Scenario Outline: Levy learner but co-funded, sufficient employer contribution, on program payment same day as completion payment - pay completion PV2-608
-	Given the employer levy account balance is 0
+	Given the employer levy account balance in collection period <Collection_Period> is 0
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |

@@ -43,8 +43,8 @@ Feature:  Levy learner requires learning support doing an apprenticeship standar
 # | learning support code | learning support date from | learning support date to |
 # | 1                     | 06/08/2018                 | 10/08/2019				  |
 
-Scenario: Levy learner requires learning support doing an apprenticeship standard PV2-734
-	Given the levy account balance in collection period R01/Last Academic Year is 15000
+Scenario: Levy learner requires learning support doing an apprenticeship standard PV2-734	
+	Given the employer levy account balance in collection period R01/Current Academic Year is 15000	
 	And the following commitments exist
         | start date                | end date                     | standard code | agreed price | status |
         | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 51            | 15000        | active |
