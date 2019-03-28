@@ -148,3 +148,5 @@ Examples:
         | R08/Current Academic Year |
         | R09/Current Academic Year |
         | R10/Current Academic Year |
+		# Keep this to ensure completion payment hasn't been clawed back - v1 issue
+		| R11/Current Academic Year |
