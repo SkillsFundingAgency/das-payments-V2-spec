@@ -14,10 +14,10 @@
 #        | ULN       | learner type       	 | agreed price | start date | planned end date | actual end date | completion status | 
 #        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 	              | continuing        |
 #
-#	And an ILR file is submitted for academic year 1819 in period R11 with the following data:
+#	And an ILR file is submitted for academic year 1819 in period R10 with the following data:
 #
 #        | ULN       | learner type       	 | agreed price | start date | planned end date | actual end date | completion status | employer contributions |
-#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 30/05/2019      | completed         | 720					   |
+#        | learner a | programme only non-DAS | 9000         | 06/06/2018 | 08/06/2019       | 31/05/2019      | completed         | 720					   |
 #
 #    Then the provider earnings and payments break down as follows:
 #
