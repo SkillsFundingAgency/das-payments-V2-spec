@@ -45,6 +45,11 @@
 #		| Provider learning support      | 150   | 150   | ... | 150   | 150   | 150   | 150   | 150   | 150   | 0     |	
 
 
+# DC Integration
+#| learning support code | learning support date from | learning support date to |
+#| 1                     | 06/08/2018                 | 06/10/2019               |
+#| 1                     | 06/08/2018                 | 06/10/2019               |
+
 Feature: Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning PV2-803
 		As a provider,
 		I want a Levy learner, with Learning Support, where English & Maths exceeds end date of programme aim
