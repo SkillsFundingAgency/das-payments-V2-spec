@@ -1,34 +1,37 @@
-Feature: Learning Support	
+#Feature: Learning Support	
+#
+#Scenario: Non Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning
+#
+#	When an ILR file is submitted with the following data:
+#		| ULN       | learner type           | aim type         | agreed price | aim rate | start date | planned end date | actual end date | completion status | learning support code | learning support date from | learning support date to | employer contribution |
+#		| learner a | programme only non-DAS | programme        | 15000        |          | 06/08/2018 | 08/08/2019       | 08/08/2019      | completed         | 1                     | 06/08/2018                 | 06/10/2019               | 1200                  |
+#		| learner a | programme only non-DAS | maths or english |              | 471      | 06/08/2018 | 06/10/2019       | 06/10/2019      | completed         | 1                     | 06/08/2018                 | 06/10/2019               | 1200                  |
+#	
+#	Then the provider earnings and payments break down as follows:
+#		| Type                                    | 08/18   | 09/18   | 10/18   | ... | 05/19   | 06/19   | 07/19   | 08/19   | 09/19   | 10/19  | 11/19 |
+#		| Provider Earned Total                   | 1183.64 | 1183.64 | 1183.64 | ... | 1183.64 | 1183.64 | 1183.64 | 3183.64 | 183.64  | 0      | 0     |
+#		| Provider Paid by SFA                    | 0       | 1083.64 | 1083.64 | ... | 1083.64 | 1083.64 | 1083.64 | 1083.64 | 2883.64 | 183.64 | 0     |
+#		| Payment due from Employer               | 0       | 100     | 100     | ... | 100     | 100     | 100     | 100     | 300     | 0      | 0     |
+#		| Levy account debited                    | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
+#		| SFA Levy employer budget                | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
+#		| SFA Levy co-funding budget              | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
+#		| SFA non-Levy co-funding budget          | 900     | 900     | 900     | ... | 900     | 900     | 900     | 2700    | 0       | 0      | 0     |
+#		| SFA Levy additional payments budget     | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
+#		| SFA non-Levy additional payments budget | 183.64  | 183.64  | 183.64  | ... | 183.64  | 183.64  | 183.64  | 183.64  | 183.64  | 0      | 0     | 
+#    
+#	And the transaction types for the payments are:
+#		| Payment type                   | 09/18 | 10/18 | ... | 05/19 | 06/19 | 07/19 | 08/19 | 09/19 | 10/19 | 11/19 |
+#		| On-program                     | 900   | 900   | ... | 900   | 900   | 900   | 900   | 0     | 0     | 0     |
+#		| Completion                     | 0     | 0     | ... | 0     | 0     | 0     | 0     | 2700  | 0     | 0     |
+#		| Balancing                      | 0     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
+#		| English and maths on programme | 33.64 | 33.64 | ... | 33.64 | 33.64 | 33.64 | 33.64 | 33.64 | 33.64 | 0     |
+#		| English and maths Balancing    | 0     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
+#		| Provider learning support      | 150   | 150   | ... | 150   | 150   | 150   | 150   | 150   | 150   | 0     |
 
-Scenario: Non Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning
-
-	When an ILR file is submitted with the following data:
-		| ULN       | learner type           | aim type         | agreed price | aim rate | start date | planned end date | actual end date | completion status | learning support code | learning support date from | learning support date to | employer contribution |
-		| learner a | programme only non-DAS | programme        | 15000        |          | 06/08/2018 | 08/08/2019       | 08/08/2019      | completed         | 1                     | 06/08/2018                 | 06/10/2019               | 1200                  |
-		| learner a | programme only non-DAS | maths or english |              | 471      | 06/08/2018 | 06/10/2019       | 06/10/2019      | completed         | 1                     | 06/08/2018                 | 06/10/2019               | 1200                  |
-	
-	Then the provider earnings and payments break down as follows:
-		| Type                                    | 08/18   | 09/18   | 10/18   | ... | 05/19   | 06/19   | 07/19   | 08/19   | 09/19   | 10/19  | 11/19 |
-		| Provider Earned Total                   | 1183.64 | 1183.64 | 1183.64 | ... | 1183.64 | 1183.64 | 1183.64 | 3183.64 | 183.64  | 0      | 0     |
-		| Provider Paid by SFA                    | 0       | 1083.64 | 1083.64 | ... | 1083.64 | 1083.64 | 1083.64 | 1083.64 | 2883.64 | 183.64 | 0     |
-		| Payment due from Employer               | 0       | 100     | 100     | ... | 100     | 100     | 100     | 100     | 300     | 0      | 0     |
-		| Levy account debited                    | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
-		| SFA Levy employer budget                | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
-		| SFA Levy co-funding budget              | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
-		| SFA non-Levy co-funding budget          | 900     | 900     | 900     | ... | 900     | 900     | 900     | 2700    | 0       | 0      | 0     |
-		| SFA Levy additional payments budget     | 0       | 0       | 0       | ... | 0       | 0       | 0       | 0       | 0       | 0      | 0     |
-		| SFA non-Levy additional payments budget | 183.64  | 183.64  | 183.64  | ... | 183.64  | 183.64  | 183.64  | 183.64  | 183.64  | 0      | 0     | 
-    
-	And the transaction types for the payments are:
-		| Payment type                   | 09/18 | 10/18 | ... | 05/19 | 06/19 | 07/19 | 08/19 | 09/19 | 10/19 | 11/19 |
-		| On-program                     | 900   | 900   | ... | 900   | 900   | 900   | 900   | 0     | 0     | 0     |
-		| Completion                     | 0     | 0     | ... | 0     | 0     | 0     | 0     | 2700  | 0     | 0     |
-		| Balancing                      | 0     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
-		| English and maths on programme | 33.64 | 33.64 | ... | 33.64 | 33.64 | 33.64 | 33.64 | 33.64 | 33.64 | 0     |
-		| English and maths Balancing    | 0     | 0     | ... | 0     | 0     | 0     | 0     | 0     | 0     | 0     |
-		| Provider learning support      | 150   | 150   | ... | 150   | 150   | 150   | 150   | 150   | 150   | 0     |
-
-Feature: Non Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning
+Feature: Non Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning PV2-802
+		As a provider,
+		I want a Non Levy learner, with Learning Support, where English & Maths exceeds end date of programme aim
+		So that I am paid Learning Support by SFA until English & Maths completes
 
 Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual end date of the programme aim and learning support is applicable to all learning PV2-802
 	Given the following learners
@@ -95,9 +98,9 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | R11/Last Academic Year | Jun/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
         | R12/Last Academic Year | Jul/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
     But aims details are changed as follows
-		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status |
-		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Non-Levy | completed         |
-		| Maths or English | 12345         | 06/Aug/Last Academic Year | 14 months        | 14 months       | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Non-Levy | completed         |
+		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status | Employer Contribution |
+		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Non-Levy | completed         | 1200                  |
+		| Maths or English | 12345         | 06/Aug/Last Academic Year | 14 months        | 14 months       | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Non-Levy | completed         | 1200                  |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | LearningSupport |
@@ -134,15 +137,13 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-
 	And at month end only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
+        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 2700                   | 300                         | 0                         | Learning                   |
         | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
