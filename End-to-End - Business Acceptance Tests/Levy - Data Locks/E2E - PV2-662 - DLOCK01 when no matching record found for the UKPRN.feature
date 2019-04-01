@@ -35,7 +35,7 @@ Feature: Data Lock - DLOCK01 - no matching UKPRN
 
 Scenario: DLOCK01 - When no matching record found in an employer digital account for the UKPRN then datalock DLOCK_01 will be produced PV2-662
 	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
-	And the following apprenticeships exist
+	And the following commitments exist
 		| Apprenticeship | Provider   | Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprentice a   | Provider b | learner a  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |	
 	And the "provider a" is providing training for the following learners
@@ -62,10 +62,10 @@ Scenario: DLOCK01 - When no matching record found in an employer digital account
         | learner a  | 01/May/Current Academic Year | 10000              | 593            | 20             | 1            |
 
     And the following data lock failures were generated
-        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description                                                     |
-        |                | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | No matching record found in an employer digital account for the UKPRN |
-        |                | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | No matching record found in an employer digital account for the UKPRN |
-        |                | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | No matching record found in an employer digital account for the UKPRN |
+        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
+        |                | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 01          |
+        |                | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 01          |
+        |                | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 01          |
     And at month end no payments will be calculated
 	And no provider payments will be generated
 	And no provider payments will be recorded
