@@ -30,6 +30,8 @@
 #        | Framework uplift balancing   | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     | 0     |
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | 0     | ..  | 0     | 0     | 0     | 0     |
 
+#For DC Integration
+#To generate 120 framework uplift payment: the apprenticeship funding band maximum is 9000
 
 Scenario: A non-levy learner with a framework uplift and 16-18 Additional Incentives finishes on time PV2-487
 	Given the provider previously submitted the following learner details

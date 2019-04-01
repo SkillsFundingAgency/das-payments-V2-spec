@@ -29,6 +29,9 @@
 #        | Framework uplift balancing   | 0     | 0     | ... | 0     | 0     | 360   |
 #        | Provider disadvantage uplift | 0     | 0     | ..  | 0     | 0     | 0     |
 
+#For DC Integration
+#To generate 120 framework uplift payment: the apprenticeship funding band maximum is 9000
+
 Feature: Non Levy learner, with a framework uplift, finishes early, Balancing payment applied PV2-572
 		As a provider,
 		I want a Non-Levy learner with a framework uplift, where the learner finishes earlier than planned end date, and a balancing payment is applied

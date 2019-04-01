@@ -42,6 +42,9 @@
 #| learner type             |
 #| 16-18 programme only DAS |
 
+#For DC Integration
+#To generate 120 framework uplift payment: the apprenticeship funding band maximum is 9000
+
 Feature: Levy learner, with a framework uplift, finishes on time PV2-590
 		As a provider,
 		I want a Levy learner with a framework uplift, where the learner finishes on time
