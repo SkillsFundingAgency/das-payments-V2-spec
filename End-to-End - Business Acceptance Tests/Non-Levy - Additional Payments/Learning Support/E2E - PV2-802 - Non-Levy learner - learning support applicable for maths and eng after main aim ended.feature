@@ -53,18 +53,18 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | 2nd price details | 0                    | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 2                   | 100%                        |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | LearningSupport | OnProgrammeMathsAndEnglish |
-        | Aug/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Sep/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Oct/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Nov/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Dec/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Jan/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Feb/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Mar/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Apr/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | May/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Jun/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
-        | Jul/Last Academic Year | 1000         | 0          | 0         | 150             | 39.25                      |
+        | Aug/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Sep/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Oct/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Nov/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Dec/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Jan/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Feb/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Mar/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Apr/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | May/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Jun/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
+        | Jul/Last Academic Year | 1000         | 0          | 0         | 150             | 33.64                      |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Last Academic Year | Aug/Last Academic Year | 900                    | 100                         | 0                         | Learning                   |
@@ -91,18 +91,18 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | R10/Last Academic Year | May/Last Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R11/Last Academic Year | Jun/Last Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R12/Last Academic Year | Jul/Last Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
-        | R01/Last Academic Year | Aug/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R02/Last Academic Year | Sep/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R03/Last Academic Year | Oct/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R05/Last Academic Year | Dec/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R06/Last Academic Year | Jan/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R07/Last Academic Year | Feb/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R08/Last Academic Year | Mar/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R09/Last Academic Year | Apr/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R10/Last Academic Year | May/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R11/Last Academic Year | Jun/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R12/Last Academic Year | Jul/Last Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R01/Last Academic Year | Aug/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R02/Last Academic Year | Sep/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R03/Last Academic Year | Oct/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R05/Last Academic Year | Dec/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R06/Last Academic Year | Jan/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R07/Last Academic Year | Feb/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R08/Last Academic Year | Mar/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R09/Last Academic Year | Apr/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R10/Last Academic Year | May/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R11/Last Academic Year | Jun/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R12/Last Academic Year | Jul/Last Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
     But aims details are changed as follows
 		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type             | Completion Status | Employer Contribution |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Non-Levy | completed         | 1200                  |
@@ -110,8 +110,8 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | LearningSupport | OnProgrammeMathsAndEnglish |
-        | Aug/Current Academic Year | 0            | 3000       | 0         | 150             | 39.25                      |
-        | Sep/Current Academic Year | 0            | 0          | 0         | 150             | 39.25                      |
+        | Aug/Current Academic Year | 0            | 3000       | 0         | 150             | 33.64                      |
+        | Sep/Current Academic Year | 0            | 0          | 0         | 150             | 33.64                      |
         | Oct/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
         | Nov/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
         | Dec/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
@@ -124,8 +124,8 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | Jul/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
     And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | LearningSupport | OnProgrammeMathsAndEnglish |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0            | 3000       | 0         | 150             | 39.25                      |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0            | 0          | 0         | 150             | 39.25                      |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0            | 3000       | 0         | 150             | 33.64                      |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0            | 0          | 0         | 150             | 33.64                      |
         | R03/Current Academic Year | Oct/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
         | R04/Current Academic Year | Nov/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
         | R05/Current Academic Year | Dec/Current Academic Year | 0            | 0          | 0         | 0               | 0                          |
@@ -141,15 +141,15 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | R01/Current Academic Year | Aug/Current Academic Year | 2700                   | 300                         | 0                         | Learning                   |
         | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
 	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 2700                   | 300                         | 0                         | Learning                   |
         | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
         | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 150                       | LearningSupport            |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 33.64                     | OnProgrammeMathsAndEnglish |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
