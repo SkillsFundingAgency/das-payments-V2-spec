@@ -122,7 +122,7 @@ Scenario Outline: Non-Levy learner, sufficient employer contribution, on program
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | Learning         |
-        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | Completion       |
+        | R10/Current Academic Year | May/Current Academic Year | 1620                   | 180                         | Completion       |
 	And at month end only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | Learning         |
@@ -135,7 +135,7 @@ Scenario Outline: Non-Levy learner, sufficient employer contribution, on program
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | Learning         |
-        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | Completion       |
+        | R10/Current Academic Year | May/Current Academic Year | 1620                   | 180                         | Completion       |
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
