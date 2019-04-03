@@ -54,15 +54,15 @@
 #
 #We expect the employer contributions to total 600 in order for the completion payment to be released to the training provider.
 
-Feature:
-As a provider,
-I want a Non levy learner, where the planned end date is the last day of month and the employer has paid their 10% co-investment for the on-program element for the first 12 months, but has not yet paid the employer completion payment element and the 13th month on program payment
-So that I am accurately paid the completion payment by SFA PV2-514
+Feature: Non-Levy Learner-in co-funding and planned end date is last day of month, completion payment made as enough employer contribution PV2-514
+		As a provider,
+		I want a Non levy learner, where the planned end date is the last day of month and the employer has paid their 10% co-investment for the on-program element for the first 12 months, but has not yet paid the employer completion payment element and the 13th month on program payment
+		So that I am accurately paid the completion payment by SFA PV2-514
 
-Scenario Outline: Levy Learner-in co-funding completion payment made as enough employer contribution PV2-514
+Scenario Outline: Non-Levy Learner-in co-funding and planned end date is last day of month, completion payment made as enough employer contribution PV2-514
 	Given the provider previously submitted the following learner details
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/Jun/Last Academic Year | 13 months        | 8125                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage |
+		| 01/Jun/Last Academic Year | 13 months        | 8125                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
 	And the following earnings had been generated
         | Delivery Period        | On-Programme | Completion | Balancing |
         | Aug/Last Academic Year | 0            | 0          | 0         |
@@ -82,8 +82,8 @@ Scenario Outline: Levy Learner-in co-funding completion payment made as enough e
         | R11/Last Academic Year | Jun/Last Academic Year | 450                    | 50                          | 0             | Learning         |
         | R12/Last Academic Year | Jul/Last Academic Year | 450                    | 50                          | 0             | Learning         |
     But the Provider now changes the Learner details as follows
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage | Employer Contribution |
-		| 01/Jun/Last Academic Year | 13 months        | 8125                 | 01/Jun/Last Academic Year           | 0                      |                                       | 13 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         | 600                   |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                      | SFA Contribution Percentage | Employer Contribution |
+		| 01/Jun/Last Academic Year | 13 months        | 8125                 | 01/Jun/Last Academic Year           | 0                      |                                       | 13 months       | completed         | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         | 600                   |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -154,6 +154,7 @@ Examples:
 		| R09/Current Academic Year |
 		| R10/Current Academic Year |
 		| R11/Current Academic Year |
+		| R12/Current Academic Year |
  
 
     
