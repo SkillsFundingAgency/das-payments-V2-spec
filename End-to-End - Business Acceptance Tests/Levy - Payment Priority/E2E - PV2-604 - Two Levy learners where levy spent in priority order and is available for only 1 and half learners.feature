@@ -81,20 +81,20 @@
 
 	# levy balance = agreed price for all months for only one learner
 	Given the employer levy account balance in collection period  <Collection Period> is <Levy Balance>
-	# Commitment lines
 	And the following commitments exist
         | Learner ID | priority | start date                   | end date                  | agreed price |
-        | learner a  | 1        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 7500         |
+        | learner a  | 1        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        |
         | learner b  | 2        | 01/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        |
 	And the provider previously submitted the following learner details
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| learner a  | 01/Aug/Current Academic Year | 12 months        | 7500                 | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                               | SFA Contribution Percentage |
+		| learner a  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship Non-Levy Contract (procured) | 90%                         |
+		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship Non-Levy Contract (procured) | 90%                         |
 
     When the ILR file is submitted for the learners in collection period <Collection Period>
 
 	Then the following learner earnings should be generated
 		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+		# Learner a
 		| learner a  | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner a  | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| learner a  | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -107,6 +107,7 @@
 		| learner a  | May/Current Academic Year | 1000         | 0          | 0         |
 		| learner a  | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| learner a  | Jul/Current Academic Year | 1000         | 0          | 0         |
+		# Learner b
 		| learner b  | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -120,8 +121,9 @@
 		| learner b  | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Jul/Current Academic Year | 1000         | 0          | 0         |
 
-    And at month end only the following payments will be calculated for learner a
+    And at month end only the following payments will be calculated
         | Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+		# Learner a
         | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -134,39 +136,7 @@
         | learner a  | R10/Current Academic Year | May/Current Academic Year | 1000         | 0          | 0         |
         | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| learner a  | R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         |
-
-	And only the following provider payments will be recorded for learner a
-        | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R07/Current Academic Year | Feb/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R08/Current Academic Year | Mar/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R09/Current Academic Year | Apr/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-
-	And only the following provider payments will be generated for learner a
-        | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         | 
-		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R06/Current Academic Year | Jan/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R07/Current Academic Year | Feb/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R08/Current Academic Year | Mar/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R09/Current Academic Year | Apr/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-
-	And at month end only the following payments will be calculated for learner b
-		| Learner ID |  Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+		# Learner b
 		| learner b  |  R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  |  R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  |  R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -180,8 +150,23 @@
 		| learner b  |  R11/Current Academic Year | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  |  R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         |
 
-	And only the following provider payments will be recorded for learner b
-	    | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+
+	And only the following provider payments will be recorded
+        | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		# Learner a
+        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R06/Current Academic Year | Jan/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R07/Current Academic Year | Feb/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R08/Current Academic Year | Mar/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R09/Current Academic Year | Apr/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		# Learner b - mixed funded
 	    | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 450                    | 50                          | 500           | Learning         |
@@ -194,9 +179,24 @@
 	    | learner b  | R10/Current Academic Year | May/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R11/Current Academic Year | Jun/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R12/Current Academic Year | Jul/Current Academic Year | 450                    | 50                          | 500           | Learning         |
-	
-	And only the following provider payments will be generated for learner a
-	    | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+
+
+	And only the following provider payments will be generated
+        | Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		# Learner a
+        | learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+        | learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         | 
+		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R06/Current Academic Year | Jan/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R07/Current Academic Year | Feb/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R08/Current Academic Year | Mar/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R09/Current Academic Year | Apr/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R10/Current Academic Year | May/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		# Learner b - mixed funded
 	    | learner b  | R01/Current Academic Year | Aug/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R02/Current Academic Year | Sep/Current Academic Year | 450                    | 50                          | 500           | Learning         |
 	    | learner b  | R03/Current Academic Year | Oct/Current Academic Year | 450                    | 50                          | 500           | Learning         |
