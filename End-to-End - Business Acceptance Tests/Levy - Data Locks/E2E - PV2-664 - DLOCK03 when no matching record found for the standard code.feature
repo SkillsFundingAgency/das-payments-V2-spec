@@ -42,8 +42,8 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
 	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
 	And the following commitments exist
 	# Learner ID kept for data lock event
-		| Apprentice   | Learner   | standard code | agreed price | start date                   | end date                  | status | effective from               |
-		| Apprentice a | learner a | 21            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+		| Apprenticeship | Learner   | standard code | agreed price | start date                   | end date                  | status | effective from               |
+		| Apprentice a   | learner a | 21            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 	And the provider is providing training for the following learners
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| learner a  | 01/May/Current Academic Year | 12 months        | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
@@ -67,7 +67,10 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
         | Learner ID | ILR Start Date               |ILR Training Price | framework code | programme type | pathway code |
         | learner a  | 01/May/Current Academic Year |10000              | 593            | 20             | 1            |
     And the following data lock failures were generated
-        | Apprentice   | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
-        | apprentice a | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 03          |
-        | apprentice a | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 03          |
-        | apprentice a | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 03          |
+        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
+        | apprentice a   | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 03   |
+        | apprentice a   | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 03   |
+        | apprentice a   | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 03   |
+    And at month end no payments will be calculated
+	And no provider payments will be generated
+	And no provider payments will be recorded
