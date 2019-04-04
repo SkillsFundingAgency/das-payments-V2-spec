@@ -60,7 +60,7 @@ I want a Non-levy learner, where the employer has used LDM code 361, and paid th
 So that I am accurately paid the completion payment by SFA PV2-520
 
 Scenario Outline: Non-Levy Learner, sufficient employer co-investment , LDM code 361 used - completion payment made PV2-520
-	Given the provider previously submitted the following learner details for collection period <Collection_Period>
+	Given the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | LDM Code | Funding Line Type                                      | SFA Contribution Percentage |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 361      | 16-18 Apprenticeship (From May 2017) Non-Levy Contract | 90%                         |
 	And the following earnings had been generated
@@ -140,8 +140,6 @@ Scenario Outline: Non-Levy Learner, sufficient employer co-investment , LDM code
         | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | Completion       |
 Examples: 
         | Collection_Period         |
-        | R11/Last Academic Year    |
-        | R12/Last Academic Year    |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |

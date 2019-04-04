@@ -34,7 +34,7 @@
 #        | Provider disadvantage uplift | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     |
 #        | Provider learning support    | 0     | 150   | 150   | 150   | 150   | ... | 150   | 150   | 0     |
 
-Feature:  Levy learner requires learning support doing an apprenticeship standard
+Feature:  Levy learner requires learning support doing an apprenticeship standard PV2-734
 		As a provider,
 		I want a Levy learner, with Learning Support, completing an apprenticeship standard
 		So that I am paid the correct apprenticeship funding by SFA
@@ -43,11 +43,11 @@ Feature:  Levy learner requires learning support doing an apprenticeship standar
 # | learning support code | learning support date from | learning support date to |
 # | 1                     | 06/08/2018                 | 10/08/2019				  |
 
-Scenario: Levy learner requires learning support doing an apprenticeship standard PV2-734
-	Given the levy account balance in collection period R01/Last Academic Year is 15000
+Scenario: Levy learner requires learning support doing an apprenticeship standard PV2-734	
+	Given the employer levy account balance in collection period R01/Current Academic Year is 15000	
 	And the following commitments exist
-        | start date                | end date                     | standard code | agreed price | status |
-        | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 51            | 15000        | active |
+        | start date                | end date                     | agreed price | status |
+        | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 15000        | active |
 	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |

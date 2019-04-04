@@ -42,15 +42,23 @@
 #| learner type             |
 #| 16-18 programme only DAS |
 
+#For DC Integration
+#To generate 120 framework uplift payment: the apprenticeship funding band maximum is 9000
+
+Feature: Levy learner, with a framework uplift, finishes on time PV2-590
+		As a provider,
+		I want a Levy learner with a framework uplift, where the learner finishes on time
+		So that I am accurately paid my apprenticeship provision
+
 Scenario: A Levy learner with a framework uplift and 16-18 Additional Incentives finishes on time PV2-590
 
-	Given The employer levy account balance is 8750
+	Given the employer levy account balance in collection period R01/Current Academic Year is 8750
 	And the following commitments exist
 		| start date                | end date                  | agreed price |
 		| 06/Aug/Last Academic Year | 09/Aug/Next Academic Year | 8250         |
 	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                 | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 8250                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
+		| 06/Aug/Last Academic Year | 12 months        | 8250                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | OnProgramme16To18FrameworkUplift | First16To18EmployerIncentive | First16To18ProviderIncentive |
         | Aug/Last Academic Year | 550          | 0          | 0         | 120                              | 0                            | 0                            |
@@ -95,8 +103,8 @@ Scenario: A Levy learner with a framework uplift and 16-18 Additional Incentives
         | R04/Last Academic Year | Nov/Last Academic Year | 0             | 500                       | First16To18ProviderIncentive     |
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                 | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 8250                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
-	When the amended ILR file is re-submitted for the learners in collection period "R01/Current Academic Year"
+		| 06/Aug/Last Academic Year | 12 months        | 8250                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract (non-procured) | 90%                         |
+	When the amended ILR file is re-submitted for the learners in collection period R01/Current Academic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | Second16To18EmployerIncentive | Second16To18ProviderIncentive | Completion16To18FrameworkUplift |
 		| Aug/Current Academic Year | 0            | 1650       | 0         | 500                           | 500                           | 360                             |
@@ -126,4 +134,3 @@ Scenario: A Levy learner with a framework uplift and 16-18 Additional Incentives
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 500                       | Second16To18EmployerIncentive   |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 500                       | Second16To18ProviderIncentive   |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 360                       | Completion16To18FrameworkUplift |
-

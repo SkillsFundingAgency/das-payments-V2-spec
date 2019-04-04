@@ -21,10 +21,10 @@
 #        | ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | 
 #        | learner a | programme only DAS | 9000         | 06/06/2018 | 08/06/2019       | 	              | continuing        |
 #
-#	And an ILR file is submitted for academic year 1819 in period R11 with the following data:
+#	And an ILR file is submitted for academic year 1819 in period R10 with the following data:
 #
 #        | ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | employer contributions |
-#        | learner a | programme only DAS | 9000         | 06/06/2018 | 08/06/2019       | 30/05/2019      | completed         | 720					   |
+#        | learner a | programme only DAS | 9000         | 06/06/2018 | 08/06/2019       | 31/05/2019      | completed         | 720					   |
 #
 #    Then the provider earnings and payments break down as follows:
 #
@@ -65,7 +65,7 @@ Feature: Holding back completion payments
 	So that I am accurately paid the completion payment by SFA
 
 Scenario Outline: Levy learner but co-funded, sufficient employer contribution, on program payment same day as completion payment - pay completion PV2-608
-	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
+	Given the employer levy account balance in collection period <Collection_Period> is 0
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Jun/Last Academic Year | 01/Jun/Current Academic Year | 9000         | active |
@@ -133,7 +133,7 @@ Scenario Outline: Levy learner but co-funded, sufficient employer contribution, 
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
-        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
+        | R10/Current Academic Year | May/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
         | R01/Current Academic Year | Aug/Current Academic Year | 540                    | 60                          | 0             | Learning         |
@@ -146,16 +146,18 @@ Scenario Outline: Levy learner but co-funded, sufficient employer contribution, 
         | R08/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R09/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R10/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
-        | R10/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
+        | R10/Current Academic Year | May/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
 Examples: 
-        | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 0            |
-        | R02/Current Academic Year | 0            |
-        | R03/Current Academic Year | 0            |
-        | R04/Current Academic Year | 0            |
-        | R05/Current Academic Year | 0            |
-        | R06/Current Academic Year | 0            |
-        | R07/Current Academic Year | 0            |
-        | R08/Current Academic Year | 0            |
-        | R09/Current Academic Year | 0            |
-        | R10/Current Academic Year | 0            |
+        | Collection_Period         |
+        | R01/Current Academic Year |
+        | R02/Current Academic Year |
+        | R03/Current Academic Year |
+        | R04/Current Academic Year |
+        | R05/Current Academic Year |
+        | R06/Current Academic Year |
+        | R07/Current Academic Year |
+        | R08/Current Academic Year |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
+		# Keep this to ensure completion payment hasn't been clawed back - v1 issue
+		| R11/Current Academic Year |

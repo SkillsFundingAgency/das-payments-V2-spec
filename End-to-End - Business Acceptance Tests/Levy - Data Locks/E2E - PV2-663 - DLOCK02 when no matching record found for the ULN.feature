@@ -8,6 +8,9 @@
 #        | Provider   | ULN       | framework code | programme type | pathway code | start date | planned end date | completion status | Total training price | Total training price effective date |
 #        | Provider a | learner a | 450            | 2              | 1            | 01/05/2018 | 08/08/2019       | continuing        | 10000                | 01/05/2018                          |
 #    
+
+
+
 #    Then no data lock event is returned
 
 Feature: Data Lock - DLOCK02 - no matching ULN
@@ -39,7 +42,15 @@ Scenario: DLOCK02 - When no matching record found in an employer digital account
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	# New step
-    And no data lock event is returned
+    And the following non-payable earnings were generated
+        | Learner ID | ILR Start Date               |ILR Training Price | framework code | programme type | pathway code |
+        | learner a  | 01/May/Current Academic Year |10000              | 593            | 20             | 1            |
+
+    And the following data lock failures were generated
+        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
+        |                | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 02          |
+        |                | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 02          |
+        |                | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 02          |
     And at month end no payments will be calculated
 	And no provider payments will be generated
 	And no provider payments will be recorded

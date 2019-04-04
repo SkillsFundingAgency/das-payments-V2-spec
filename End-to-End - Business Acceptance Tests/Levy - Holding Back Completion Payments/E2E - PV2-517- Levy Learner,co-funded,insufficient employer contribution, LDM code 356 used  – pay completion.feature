@@ -81,12 +81,12 @@ Scenario Outline: Levy Learner-in co-funding, insufficient employer contribution
 	# Do we need delivery period in the end?
 	#And the provider previously submitted the following learner details in collection period "R11/Last Academic Year"
 	#Please note : New field added -LDM code
-	And the provider previously submitted the following learner details in collection period <Collection_Period>
+	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | LDM Code | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/Jun/Last Academic Year | 12 months        | 9000                 | 06/Jun/Last Academic Year           | 0                      | 06/Jun/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 356      | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	# Do we need delivery period in the end?
 	##And the following earnings had been generated for the learner for "R11/Last Academic Year"
-	And the following earnings had been generated for collection period <Collection_Period>
+	And the following earnings had been generated
 	    | Delivery Period        | On-Programme | Completion | Balancing |
         | Aug/Last Academic Year | 0            | 0          | 0         |
         | Sep/Last Academic Year | 0            | 0          | 0         |
@@ -163,8 +163,6 @@ Scenario Outline: Levy Learner-in co-funding, insufficient employer contribution
         | R11/Current Academic Year | Jun/Current Academic Year | 1620                   | 180                         | 0             | Completion       |
     Examples: 
         | Collection_Period         |
-        | R11/Last Academic Year    |
-        | R12/Last Academic Year    |
         | R01/Current Academic Year |
         | R02/Current Academic Year |
         | R03/Current Academic Year |

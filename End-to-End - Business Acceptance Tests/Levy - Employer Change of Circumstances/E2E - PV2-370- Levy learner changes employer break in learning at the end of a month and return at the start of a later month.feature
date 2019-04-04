@@ -49,7 +49,7 @@ Feature: Levy learner changes employer after break in learning at the end of a m
 		I want earnings and payments for a levy learner, levy available, and they have a break in learning in the middle of a month and return in the middle of a later month with a different employer - before the second commitment is in place, to be paid the correct amount
 		So that I am accurately paid my apprenticeship provision.
 
-Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-368
+Scenario Outline: Levy learner changes employer after break in learning at the end of a month and return at the start of a later month PV2-370
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the following commitments exist
@@ -79,12 +79,12 @@ Scenario Outline: Levy learner changes employer after break in learning at the e
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         | employer 1 |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         | employer 1 |
     But the Provider now changes the Learner details as follows
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 21/Dec/Current Academic Year | 9 months         |                      |                                     |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
+		| 21/Dec/Current Academic Year | 9 months         |                      |                                     |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 	And price details as follows
-        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date |
-        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          |
-        | 2nd price details |                      |                                     |                        |                                       | 5000                    | 21/Dec/Current Academic Year           | 625                       | 21/Dec/Current Academic Year             |
+        | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | SFA Contribution Percentage |
+        | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | 90%                         |
+        | 2nd price details |                      |                                     |                        |                                       | 5000                    | 21/Dec/Current Academic Year           | 625                       | 21/Dec/Current Academic Year             | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -109,8 +109,3 @@ Examples:
         | R05/Current Academic Year | 13500                       | 7125                        |
         | R06/Current Academic Year | 13500                       | 7125                        |
         | R07/Current Academic Year | 13500                       | 7125                        |
-        | R08/Current Academic Year | 13500                       | 7125                        |
-        | R09/Current Academic Year | 13500                       | 7125                        |
-        | R10/Current Academic Year | 13500                       | 7125                        |
-        | R11/Current Academic Year | 13500                       | 7125                        |
-        | R12/Current Academic Year | 13500                       | 7125                        |
