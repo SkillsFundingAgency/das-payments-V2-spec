@@ -126,7 +126,7 @@ Scenario: Levy Learner-co-funded,insufficient employer contribution, completion 
         | R11/Current Academic Year | Mar/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R11/Current Academic Year | Apr/Current Academic Year | 540                    | 60                          | 0             | Learning         |
         | R11/Current Academic Year | May/Current Academic Year | 540                    | 60                          | 0             | Learning         |
-
+	# Remove the learner details if not required as duplicated in aims
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Actual Duration |
 		| 01/Jun/Last Academic Year | 12 months        | 12 months       |
@@ -143,19 +143,19 @@ Scenario: Levy Learner-co-funded,insufficient employer contribution, completion 
 	When the amended ILR file is re-submitted for the learners in collection period R12/Current Academic Year
 
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing | Price Episode Identifier |
-		| Aug/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Sep/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Oct/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Nov/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Dec/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Jan/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Feb/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Mar/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Apr/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| May/Current Academic Year | 600          | 0          | 0         | pe-1                     |
-		| Jun/Current Academic Year | 0            | 1800       | 0         | pe-1                     |
-		| Jul/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Delivery Period           | On-Programme | Completion | Balancing | Aim Sequence Number | Price Episode Identifier |
+		| Aug/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Sep/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Oct/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Nov/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Dec/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Jan/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Feb/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Mar/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Apr/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| May/Current Academic Year | 600          | 0          | 0         | 1                   | pe-1                     |
+		| Jun/Current Academic Year | 0            | 1800       | 0         | 1                   | pe-1                     |
+		| Jul/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
 
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
