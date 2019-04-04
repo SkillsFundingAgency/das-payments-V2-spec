@@ -47,10 +47,10 @@ Scenario: DLOCK02 - When no matching record found in an employer digital account
         | learner a  | 01/May/Current Academic Year |10000              | 593            | 20             | 1            |
 
     And the following data lock failures were generated
-        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
-        |                | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 02          |
-        |                | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 02          |
-        |                | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 02          |
+        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
+        |                | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 02   |
+        |                | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 02   |
+        |                | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 02   |
     And at month end no payments will be calculated
 	And no provider payments will be generated
 	And no provider payments will be recorded
