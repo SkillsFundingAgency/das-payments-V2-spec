@@ -69,9 +69,6 @@ Scenario Outline: Levy learner with learning support and maths and eng changes p
         | start date                   | end date                     | agreed price | status | effective from               | effective to                 |
         | 01/Aug/Current Academic Year | 01/Aug/Current Academic Year | 11250        | active | 01/Aug/Current Academic Year | 10/Nov/Current Academic Year |
         | 01/Aug/Current Academic Year | 01/Aug/Current Academic Year | 6750         | active | 11/Nov/Current Academic Year |                              |
-	And the following learners
-        | Learner Reference Number | Uln      |
-        | abc123                   | 12345678 |
 	And the following aims
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Programme        | ZPROG001      | 04/Aug/Current Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
