@@ -60,9 +60,6 @@ Scenario Outline: Levy learner, Eng aim planned end date exceeds the actual end 
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 01/Aug/Last Academic Year | 01/Aug/Current Academic Year | 15000        | active |
-	And the following learners
-        | Learner Reference Number | Uln      |
-        | abc123                   | 12345678 |
 	And the following aims
 		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
