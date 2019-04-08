@@ -64,8 +64,8 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	# New step
     And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               |ILR Training Price | framework code | programme type | pathway code |
-        | learner a  | 01/May/Current Academic Year |10000              | 593            | 20             | 1            |
+        | Learner ID | ILR Start Date               |ILR Training Price | standard code | programme type |
+        | learner a  | 01/May/Current Academic Year |10000              | 17            | 25             |
     And the following data lock failures were generated
         | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
         | apprentice a   | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 03   |
