@@ -92,7 +92,7 @@ Then the following learner earnings should be generated
 	| Jun/Current Academic Year | 0            | 0          | 0         | 0                         |
 	| Jul/Current Academic Year | 0            | 0          | 0         | 0                         |
 
-    And at month end no payments will be calculated
+    And Month end is triggered
 	And no provider payments will be recorded
 	And no provider payments will be generated
 
