@@ -35,7 +35,7 @@ Feature: Data Lock - DLOCK01 - no matching UKPRN
 
 Scenario: DLOCK01 - When no matching record found in an employer digital account for the UKPRN then datalock DLOCK_01 will be produced PV2-662
 	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
-	And the following commitments exist
+	And the following apprenticeships exist
 		| Apprenticeship | Provider   | Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprentice a   | Provider b | learner a  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |	
 	And the "provider a" is providing training for the following learners

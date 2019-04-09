@@ -31,14 +31,22 @@ Feature: Data Lock - DLOCK08 - multiple matching agreed price
 
 Scenario: DLOCK08 - When multiple matching record found in an employer digital account then datalock DLOCK_08 will be produced PV2-676
 	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
-	And the following commitments exist
-		| commitment Id | version Id | Provider   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| 73            | 73-125     | Provider a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
-		| 74            | 74-002     | Provider b | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
-	And the "provider a" is providing training for the following learners
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+	And the following apprenticeship exists
+	   	| Apprenticeship   | Learner   | Provider   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+	   	| apprenticeship a | learner a | Provider a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+	   	| apprenticeship b | learner a | Provider b | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+
+    And the apprenticeship has the following apprenticeship price episode periods
+		| Apprenticeship   | agreed price | effective from               | effective to                  |
+		| apprenticeship a | 10000        | 01/May/Current Academic Year | 31/July/Current Academic Year |
+		| apprenticeship a | 10000        | 01/Aug/Next Academic Year    |                               |
+		
+	Given the provider a is providing training for the following learners
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		
 	When the ILR file is submitted for the learners for the collection period "R12/Current Academic Year" by "provider a"
+
 	Then the following learner earnings should be generated for "provider a"	
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |
@@ -54,23 +62,17 @@ Scenario: DLOCK08 - When multiple matching record found in an employer digital a
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	# New step
-    And the following data lock event is returned
-        | Price Episode identifier | Apprenticeship Id | ILR Start Date               | ILR Training Price |
-        | 20-593-1-01/05/2018      | 73                | 01/May/Current Academic Year | 10000              |
+    And the following non-payable earnings were generated
+        | Learner ID | Provider   | ILR Start Date               | framework code | programme type | pathway code |
+        | learner a  | Provider a | 01/May/Current Academic Year | 593            | 20             | 1            |
+
 	# New step
-	And the data lock event has the following errors   
-        | Price Episode identifier | Error code | Error Description                                               |
-        | 20-593-1-01/05/2018      | DLOCK_08   | Multiple matching records found in the employer digital account |
-	# New step
-	And the data lock event has the following periods    
-        | Price Episode identifier | Period                    | Payable Flag | Transaction Type |
-        | 20-593-1-01/05/2018      | Current Academic Year-R10 | false        | Learning         |
-        | 20-593-1-01/05/2018      | Current Academic Year-R11 | false        | Learning         |
-        | 20-593-1-01/05/2018      | Current Academic Year-R12 | false        | Learning         |
-	# New step
-	And the data lock event used the following commitments 	
-        | Price Episode identifier | Apprentice Version | Start Date                   | framework code | programme type | pathway code | Negotiated Price | Effective Date               |
-        | 20-593-1-01/05/2018      | 73-125             | 01/May/Current Academic Year | 593            | 20             | 1            | 10000            | 01/May/Current Academic Year |
+	And the following data lock failures were generated
+        | Apprentice   | Learner ID | Provider   | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
+        | apprentice a | learner a  | Provider a | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 08          |
+
     And at month end no payments will be calculated
+
 	And no provider payments will be generated
+
 	And no provider payments will be recorded
