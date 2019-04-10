@@ -39,7 +39,7 @@
 #		  | English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     | ... | 0     | 0     |
 
 
-Feature: Levy learner taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time 
+Feature: Levy learner taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time - PV2-532
 
 Scenario Outline: Levy learner taking single Level 1 aim progressing to and completing single Level 2 aim on time PV2-532
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
