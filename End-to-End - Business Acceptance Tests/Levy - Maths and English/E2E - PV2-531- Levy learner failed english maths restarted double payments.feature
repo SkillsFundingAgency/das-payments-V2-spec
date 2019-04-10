@@ -40,7 +40,7 @@
 # For DC integration
 # 3rd ILR line has restart indicator as YES
 
-Feature: Levy learner, takes single level 2 aim, fails, retakes beyond programme end, completes to time
+Feature: Levy learner, takes single level 2 aim, fails, retakes beyond programme end, completes to time -  PV2-531
 
 Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond programme end, completes to time PV2-531
 	Given The employer levy account balance is 15500
@@ -48,6 +48,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | start date                | end date                     | agreed price | status |
         | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year | 15000        | active |
 	# New columns - Restart Indicator
+	# Do we need it for payments service?
 	And the following aims
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status | Restart Indicator |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year    | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        | No                |
@@ -83,8 +84,8 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | Feb/Last Academic Year | 0            | 0          | 0         | 47.10                      | 2                   | pe-2                     |
         | Mar/Last Academic Year | 0            | 0          | 0         | 47.10                      | 2                   | pe-2                     |
         | Apr/Last Academic Year | 0            | 0          | 0         | 47.10                      | 2                   | pe-2                     |
-		# Period 10 is not paid as withdrawn
-        | May/Last Academic Year | 0            | 0          | 0         | 47.10                      | 2                   | pe-2                     |
+		# Period 10 is 0 and not paid as withdrawn
+        | May/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
         | Jun/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
         | Jul/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
 		#p3
@@ -127,12 +128,14 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
 	#	| R10/Last Academic Year | May/Last Academic Year | 0             | 0                         | OnProgrammeMathsAndEnglish |
         | R11/Last Academic Year | Jun/Last Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R12/Last Academic Year | Jul/Last Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+
 	# Updated main aim completion status to completed
     But aims details are changed as follows
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year    | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | completed         |
 		| Maths or English | 12345         | 06/Aug/Last Academic Year    | 10 months        | 9 months        | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | withdrawn         |
 		| Maths or English | 12345         | 09/Jun/Current Academic Year | 12 months        |                 | 3                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
+
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
@@ -188,6 +191,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | R08/Current Academic Year | Mar/Current Academic Year | 0            | 0          | 0         | 39.25                      |
         | R09/Current Academic Year | Apr/Current Academic Year | 0            | 0          | 0         | 39.25                      |
         | R10/Current Academic Year | May/Current Academic Year | 0            | 0          | 0         | 39.25                      |
+
     And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000          | 0                         | Completion                 |
@@ -201,6 +205,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | R08/Current Academic Year | Mar/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R09/Current Academic Year | Apr/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R10/Current Academic Year | May/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 3000          | 0                         | Completion                 |
@@ -214,6 +219,7 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | R08/Current Academic Year | Mar/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R09/Current Academic Year | Apr/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R10/Current Academic Year | May/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+
 Examples: 
         | Collection_Period         |
         | R01/Current Academic Year |
