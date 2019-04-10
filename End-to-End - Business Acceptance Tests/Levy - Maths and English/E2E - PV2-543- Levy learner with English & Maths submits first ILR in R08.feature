@@ -42,6 +42,9 @@
 
 
 Feature: Levy learner with English & Maths submits first ILR in R08 - PV2-543
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the, provider submits first ILR in R08 showing ACT1 from the start of learning and the correct Maths or English refunds are processed
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner with English & Maths submits first ILR in R08 PV2-543
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>

@@ -48,6 +48,9 @@
 #| 0%                                    | n/a                      |
 
 Feature: Levy learner with English & Maths and prior funding adjustment 0f 0 - PV2-537
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the planned duration is the same as the core program and there is a funding adjustment for prior learning and the learner completes English & Maths aim on time
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner with English & Maths and prior funding adjustment of 0 PV2-537
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>

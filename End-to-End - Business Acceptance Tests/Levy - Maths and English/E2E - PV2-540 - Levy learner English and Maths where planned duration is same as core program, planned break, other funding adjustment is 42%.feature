@@ -49,9 +49,10 @@
  #| 42% for remaining period|                                 | n/a                      |
 
 Feature:  Levy learner with English & Maths and prior funding adjustment and planned break in learning - PV2-540
-As a provider,
-I want a Levy learner with English & Maths aim, where the planned duration is the same as the core program and there is other funding adjustment for planned break for English & Maths, and the learner completes English & Maths aim
-So that I am accurately paid my apprenticeship provision PV2-540
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the planned duration is the same as the core program and 
+		there is other funding adjustment for planned break for English & Maths, and the learner completes English & Maths aim
+		So that I am accurately paid my apprenticeship provision PV2-540
 
 Scenario Outline: Levy learner with English & Maths and prior funding adjustment and planned break in learning PV2-540
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
@@ -74,26 +75,28 @@ Scenario Outline: Levy learner with English & Maths and prior funding adjustment
         | Oct/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
         | Nov/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
         | Dec/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Jan/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Feb/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Mar/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Apr/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | May/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Jun/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
-        | Jul/Last Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		# planned break - 0 earnings
+        | Jan/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | Feb/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | Mar/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | Apr/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | May/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | Jun/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
+        | Jul/Last Academic Year | 0            | 0          | 0         | 0                          | 1                   | pe-1                     |
 		#p2
         | Aug/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
         | Sep/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
         | Oct/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
         | Nov/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
         | Dec/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Jan/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Feb/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Mar/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Apr/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | May/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Jun/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-        | Jul/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
+		# planned break - 0 earnings
+        | Jan/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | Feb/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | Mar/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | Apr/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | May/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | Jun/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
+        | Jul/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Last Academic Year | Aug/Last Academic Year | 900           | 0                         | Learning                   |

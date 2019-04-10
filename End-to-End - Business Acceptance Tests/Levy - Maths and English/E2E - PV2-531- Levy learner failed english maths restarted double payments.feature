@@ -41,6 +41,9 @@
 # 3rd ILR line has restart indicator as YES
 
 Feature: Levy learner, takes single level 2 aim, fails, retakes beyond programme end, completes to time -  PV2-531
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the learner takes a single level 2 aim, and fails, but retakes English & Maths aim beyond the core programme end which completes to time
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond programme end, completes to time PV2-531
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>

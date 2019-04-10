@@ -40,6 +40,9 @@
 
 
 Feature: Levy learner taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time - PV2-532
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the learner takes and completes a single Level 1 aim, then progresses to and completes a single Level 2 aim
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner taking single Level 1 aim progressing to and completing single Level 2 aim on time PV2-532
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>

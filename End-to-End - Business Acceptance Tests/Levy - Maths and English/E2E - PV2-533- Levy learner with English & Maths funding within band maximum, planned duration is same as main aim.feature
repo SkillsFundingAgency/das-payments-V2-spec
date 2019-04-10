@@ -39,6 +39,9 @@
 # 19-24 learner
 
 Feature: Levy learner with English & Maths funding within band maximum, planned duration is same as core program - PV2-533
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the planned duration is the same as the core program and the learner completes English & Maths aim on time
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner with English & Maths funding within band maximum, planned duration is same as core program PV2-533
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
