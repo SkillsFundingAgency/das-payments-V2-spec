@@ -30,7 +30,7 @@
  
  		Scenario Outline: DLOCK06 - When no matching record found in an employer digital account for the pathway code then datalock DLOCK_06 will be produced PV2-678
  
- 			Given the following commitments exist		 
+ 			Given the following apprenticeship exists		 
  			| Apprenticeship | Learner   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 			| Apprentice a   | learner a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 				

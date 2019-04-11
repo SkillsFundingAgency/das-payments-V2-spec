@@ -36,35 +36,44 @@
 		| employer a | 0           |
 		
 		And the following apprenticeship exists
-		| Employer   | Apprenticeship   | Standarfd code | programme type | start date                 | end date                     | status |
-		| employer a | apprenticeship a | 17             | 25             | 01/June/Last Academic Year | 31/May/Current Academic Year | active |
+		| Employer   | Apprenticeship   | framework code | programme type | pathway code | start date                   | end date                  | status |
+		| employer a | apprenticeship a | 593            | 20             | 1            | 01/May/Current Academic Year | 31/May/Next Academic Year | active |
 
 		And the apprenticeship has the following apprenticeship price episode periods
-		| Apprenticeship   | agreed price | effective from               | effective to               |
-		| apprenticeship a | 10000        | 01/June/Last Academic Year   | 31/July/Last Academic Year |
-		| apprenticeship a | 10000        | 01/Aug/Current Academic Year |                            |
+		| Apprenticeship   | agreed price | effective from               | effective to |
+		| apprenticeship a | 10000        | 01/May/Current Academic Year |              |
+
 		
-		Given the provider is providing training for the following learners
-		| Learner ID | Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract 
-		| learner a  | 01/May/Last Academic Year | 12 months        | 10000                | 01/May/Last Academic Year           | continuing        | Act1     
+		And the provider is providing training for the following learners
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | framework code | programme type | pathway code | Completion Status | Contract |
+		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        |                        |                                       |                 | 593            | 20             | 1            | continuing        | Act1     |
 
 			
-		When the ILR file is submitted for the learners for collection period "R10/Last Academic Year"
+		When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
 
 		Then the following learner earnings should be generated
-		| Delivery Period        | On-Programme | Completion | Balancing |
-		| May/Last Academic Year | 666.67       | 0          | 0         |
-		| Jun/Last Academic Year | 666.67       | 0          | 0         |
-		| Jul/Last Academic Year | 666.67       | 0          | 0         |
+		| Delivery Period           | On-Programme | Completion | Balancing |
+		| Aug/Current Academic Year | 0            | 0          | 0         |
+		| Sep/Current Academic Year | 0            | 0          | 0         |
+		| Oct/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Dec/Current Academic Year | 0            | 0          | 0         |
+		| Jan/Current Academic Year | 0            | 0          | 0         |
+		| Feb/Current Academic Year | 0            | 0          | 0         |
+		| Mar/Current Academic Year | 0            | 0          | 0         |
+		| Apr/Current Academic Year | 0            | 0          | 0         |
+		| May/Current Academic Year | 666.67       | 0          | 0         |
+		| Jun/Current Academic Year | 666.67       | 0          | 0         |
+		| Jul/Current Academic Year | 666.67       | 0          | 0         |
 
 	# New step
     And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date            | Standard code | programme type |
-        | learner a  | 01/May/Last Academic Year | 17            | 25             |
+        | Learner ID | ILR Start Date               | Standard code | programme type |
+        | learner a  | 01/May/Current Academic Year | 17            | 25             |
 
     And the following data lock failures were generated
-        | Apprentice   | Learner ID | ILR Start Date            | Delivery Period        | Transaction Type | Error Description |
-        | apprentice a | learner a  | 01/May/Last Academic Year | May/Last Academic Year | Learning         | DLOCK 11          |
+        | Apprentice   | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
+        | apprentice a | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 11          |
 				
 
 	And at month end no payments will be calculated
