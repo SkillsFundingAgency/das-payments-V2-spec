@@ -99,11 +99,11 @@ Scenario Outline: Levy learner with English & Maths and prior funding adjustment
         | Jul/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-2                     |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
-        | R01/Last Academic Year | Aug/Last Academic Year | 900           | 0                         | Learning                   |
-        | R02/Last Academic Year | Sep/Last Academic Year | 900           | 0                         | Learning                   |
-        | R03/Last Academic Year | Oct/Last Academic Year | 900           | 0                         | Learning                   |
-        | R04/Last Academic Year | Nov/Last Academic Year | 900           | 0                         | Learning                   |
-        | R05/Last Academic Year | Dec/Last Academic Year | 900           | 0                         | Learning                   |
+        | R01/Last Academic Year | Aug/Last Academic Year | 1000          | 0                         | Learning                   |
+        | R02/Last Academic Year | Sep/Last Academic Year | 1000          | 0                         | Learning                   |
+        | R03/Last Academic Year | Oct/Last Academic Year | 1000          | 0                         | Learning                   |
+        | R04/Last Academic Year | Nov/Last Academic Year | 1000          | 0                         | Learning                   |
+        | R05/Last Academic Year | Dec/Last Academic Year | 1000          | 0                         | Learning                   |
         | R01/Last Academic Year | Aug/Last Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R02/Last Academic Year | Sep/Last Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R03/Last Academic Year | Oct/Last Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
@@ -147,7 +147,7 @@ Scenario Outline: Levy learner with English & Maths and prior funding adjustment
         | May/Current Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-4                     |
         | Jun/Current Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-4                     |
         | Jul/Current Academic Year | 0            | 0          | 0         | 0                          | 2                   | pe-4                     |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 28.26                      |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 28.26                      |
@@ -172,7 +172,7 @@ Scenario Outline: Levy learner with English & Maths and prior funding adjustment
         | R05/Current Academic Year | Dec/Current Academic Year | 0             | 28.26                     | OnProgrammeMathsAndEnglish |
         | R06/Current Academic Year | Jan/Current Academic Year | 0             | 28.26                     | OnProgrammeMathsAndEnglish |
         | R07/Current Academic Year | Feb/Current Academic Year | 0             | 28.26                     | OnProgrammeMathsAndEnglish |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                         | Learning                   |
         | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                         | Learning                   |
