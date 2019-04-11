@@ -41,9 +41,12 @@
 # 3rd ILR line has restart indicator as YES
 
 Feature: Levy learner, takes single level 2 aim, fails, retakes beyond programme end, completes to time -  PV2-531
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the learner takes a single level 2 aim, and fails, but retakes English & Maths aim beyond the core programme end which completes to time
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond programme end, completes to time PV2-531
-	Given The employer levy account balance is 15500
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
         | start date                | end date                     | agreed price | status |
         | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year | 15000        | active |
@@ -221,15 +224,15 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
         | R10/Current Academic Year | May/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
 
 Examples: 
-        | Collection_Period         |
-        | R01/Current Academic Year |
-        | R02/Current Academic Year |
-        | R03/Current Academic Year |
-        | R04/Current Academic Year |
-        | R05/Current Academic Year |
-        | R06/Current Academic Year |
-        | R07/Current Academic Year |
-        | R08/Current Academic Year |
-        | R09/Current Academic Year |
-        | R10/Current Academic Year |
-		| R11/Current Academic Year |
+        | Collection_Period         | Levy Balance |
+        | R01/Current Academic Year | 3500         |
+        | R02/Current Academic Year | 500          |
+        | R03/Current Academic Year | 500          |
+        | R04/Current Academic Year | 500          |
+        | R05/Current Academic Year | 500          |
+        | R06/Current Academic Year | 500          |
+        | R07/Current Academic Year | 500          |
+        | R08/Current Academic Year | 500          |
+        | R09/Current Academic Year | 500          |
+        | R10/Current Academic Year | 500          |
+        | R11/Current Academic Year | 500          |

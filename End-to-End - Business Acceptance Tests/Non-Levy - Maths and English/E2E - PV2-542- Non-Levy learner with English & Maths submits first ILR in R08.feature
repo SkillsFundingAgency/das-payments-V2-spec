@@ -1,39 +1,41 @@
-﻿Feature:  Maths and English		  
+﻿#Feature:  Maths and English		  
+#
+#Scenario: Non-Levy learner, provider submits first ILR in R08 showing ACT2 from the start of learning. Correct Maths or English refunds are processed
+#    
+#	Given the apprenticeship funding band maximum is 9000
+#        
+#	When an ILR file is submitted for period R08 with the following data:
+#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code | contract type | contract type date from |
+#        | learner a | programme only non-DAS | 9000         | 06/08/2017 | 20/08/2018       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            | Non-DAS       | 06/08/2018              |
+#        | learner a | programme only non-DAS |              | 06/08/2017 | 20/08/2018       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |               |                         |
+#        
+#  	
+#	Then the provider earnings and payments break down as follows:
+#        | Type                                    | 08/18  | 09/18  | 10/18  | 11/18  | 12/18  | 01/19  | 02/19  | 03/19  | 04/19   | 05/19  |
+#        | Provider Earned Total                   | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25  | 639.25 |
+#        | Provider Earned from SFA                | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25  | 579.25 |
+#        | Provider Earned from Employer           | 60     | 60     | 60     | 60     | 60     | 60     | 60     | 60     | 60      | 60     |
+#        | Provider Paid by SFA                    | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 4634.00 | 579.25 |
+#        | Refund taken by SFA                     | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | Payment due from Employer               | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 480     | 60     |
+#        | Refund due to employer                  | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | Levy account debited                    | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | Levy account credited                   | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | SFA Levy employer budget                | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
+#        | SFA non-Levy co-funding budget          | 540    | 540    | 540    | 540    | 540    | 540    | 540    | 540    | 540     | 540    |
+#        | SFA non-Levy additional payments budget | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25   | 39.25  |
+#
+#	And the transaction types for the payments are:
+#		| Payment type                   | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#		| On-program                     | 579.25| 579.25| 579.25| 579.25| ... | 579.25| 579.25|
+#		| Completion                     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#		| Balancing                      | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | English and maths on programme | 39.25 | 39.25 | 39.25 | 39.25 | ... | 39.25 | 39.25 |
+#		| English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     |	
 
-Scenario: Non-Levy learner, provider submits first ILR in R08 showing ACT2 from the start of learning. Correct Maths or English refunds are processed
-    
-	Given the apprenticeship funding band maximum is 9000
-        
-	When an ILR file is submitted for period R08 with the following data:
-        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code | contract type | contract type date from |
-        | learner a | programme only non-DAS | 9000         | 06/08/2017 | 20/08/2018       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            | Non-DAS       | 06/08/2018              |
-        | learner a | programme only non-DAS |              | 06/08/2017 | 20/08/2018       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |               |                         |
-        
-  	
-	Then the provider earnings and payments break down as follows:
-        | Type                                    | 08/18  | 09/18  | 10/18  | 11/18  | 12/18  | 01/19  | 02/19  | 03/19  | 04/19   | 05/19  |
-        | Provider Earned Total                   | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25 | 639.25  | 639.25 |
-        | Provider Earned from SFA                | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25 | 579.25  | 579.25 |
-        | Provider Earned from Employer           | 60     | 60     | 60     | 60     | 60     | 60     | 60     | 60     | 60      | 60     |
-        | Provider Paid by SFA                    | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 4634.00 | 579.25 |
-        | Refund taken by SFA                     | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | Payment due from Employer               | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 480     | 60     |
-        | Refund due to employer                  | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | Levy account debited                    | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | Levy account credited                   | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | SFA Levy employer budget                | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0      | 0       | 0      |
-        | SFA non-Levy co-funding budget          | 540    | 540    | 540    | 540    | 540    | 540    | 540    | 540    | 540     | 540    |
-        | SFA non-Levy additional payments budget | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25  | 39.25   | 39.25  |
-
-	And the transaction types for the payments are:
-		| Payment type                   | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
-		| On-program                     | 579.25| 579.25| 579.25| 579.25| ... | 579.25| 579.25|
-		| Completion                     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-		| Balancing                      | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-        | English and maths on programme | 39.25 | 39.25 | 39.25 | 39.25 | ... | 39.25 | 39.25 |
-		| English and maths Balancing    | 0     | 0     | 0     | 0     | ... | 0     | 0     |	
+Feature: Non-Levy learner with English & Maths submits first ILR in R08 PV2-542
 
 Scenario Outline: Non-Levy learner with English & Maths submits first ILR in R08 PV2-542
 	Given the following learners

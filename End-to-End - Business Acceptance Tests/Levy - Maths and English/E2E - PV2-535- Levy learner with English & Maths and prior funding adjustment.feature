@@ -46,39 +46,54 @@
 #| n/a                                   | n/a                      |
 #| 75%                                   | n/a                      |
 
-Feature:  Levy learner with English & Maths and prior funding adjustment
+Feature: Levy learner with English & Maths and prior funding adjustment - PV2-535
+		As a provider,
+		I want a Levy learner with English & Maths aim, where the planned duration is the same as the core program and there is a funding adjustment for prior learning and the learner completes English & Maths aim on time
+		So that I am accurately paid my apprenticeship provision
 
 Scenario Outline: Levy learner with English & Maths and prior funding adjustment PV2-535
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
         | start date                   | end date                  | agreed price | status |
         | 06/Aug/Current Academic Year | 08/Aug/Next Academic Year | 15000        | active |
-	And the following learners
-        | Learner Reference Number | Uln      |
-        | abc123                   | 12345678 |
 	And the following aims
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Programme        | ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
 		| Maths or English | 12345         | 06/Aug/Current Academic Year | 12 months        | 12 months       | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | completed         |
 	And price details as follows	
-        | Price Details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 1st price details | 15000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act1          | 1                   | 90%                         |
-        | 2nd price details | 0                    | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act1          | 2                   | 100%                        |
+        | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+        | pe-1             | 15000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act1          | 1                   | 90%                         |
+        | pe-2             | 0                    | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          | Act1          | 2                   | 100%                        |
 	When the ILR file is submitted for the learners for collection period <Collection_Period>
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
-        | Aug/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Sep/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Oct/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Nov/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Dec/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Jan/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Feb/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Mar/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Apr/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | May/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Jun/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
-        | Jul/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
+		| Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
+		#p1
+		| Aug/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Sep/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Oct/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Nov/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Dec/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Jan/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Feb/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Mar/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Apr/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| May/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Jun/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		| Jul/Current Academic Year | 1000         | 0          | 0         | 0                          | 1                   | pe-1                     |
+		#p2
+		| Aug/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Sep/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Oct/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Nov/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Dec/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Jan/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Feb/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Mar/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Apr/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| May/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Jun/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+		| Jul/Current Academic Year | 0            | 0          | 0         | 29.44                      | 2                   | pe-2                     |
+
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 29.44                      |
@@ -148,7 +163,7 @@ Scenario Outline: Levy learner with English & Maths and prior funding adjustment
 Examples: 
         | Collection_Period         | Levy Balance |
         | R01/Current Academic Year | 15500        |
-        | R02/Current Academic Year | 14000        |
+        | R02/Current Academic Year | 14500        |
         | R03/Current Academic Year | 13500        |
         | R04/Current Academic Year | 12500        |
         | R05/Current Academic Year | 11500        |
