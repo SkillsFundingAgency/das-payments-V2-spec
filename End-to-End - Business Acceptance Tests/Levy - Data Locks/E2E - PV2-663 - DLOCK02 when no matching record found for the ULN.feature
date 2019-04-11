@@ -20,7 +20,7 @@ Feature: Data Lock - DLOCK02 - no matching ULN
 
 Scenario: DLOCK02 - When no matching record found in an employer digital account for the ULN then datalock DLOCK_02 will be produced PV2-663
 	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
-	And the following commitments exist
+	And the following apprenticeship exists
 		| Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| learner b  | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 	And the provider is providing training for the following learners
