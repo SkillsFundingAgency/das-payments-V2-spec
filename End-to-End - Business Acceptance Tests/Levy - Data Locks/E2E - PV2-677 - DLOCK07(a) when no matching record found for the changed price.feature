@@ -45,7 +45,7 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
 		| Apprenticeship   |  agreed price |   effective from               | effective to                 |
 		| apprenticeship a |  10000        |   01/May/Current Academic Year | 30/Jun/Current Academic Year |
 		| apprenticeship a |  15000        |   01/Jul/Current Academic Year |                              |
-	Given the provider is providing training for the following learners
+	And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	And price details as follows
@@ -74,8 +74,8 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
         | learner a  | 01/May/Current Academic Year | 593            | 20             | 1            |
 
     And the following data lock failures were generated
-        | Apprentice   | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
-        | apprentice a | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 07          |
+        | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
+        | apprentice a | learner a  | Jul/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 07          |
 
 	And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
