@@ -40,7 +40,7 @@ Feature: Data Lock - DLOCK03 - no matching standard code
 
 Scenario: DLOCK03 - When no matching record found in an employer digital account for for the standard code then datalock DLOCK_03 will be produced PV2-664
 	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
-	And the following commitments exist
+	And the following aprrenticeship exists
 	# Learner ID kept for data lock event
 		| Apprenticeship | Learner   | standard code | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprentice a   | learner a | 21            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
