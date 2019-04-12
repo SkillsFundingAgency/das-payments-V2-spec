@@ -36,12 +36,12 @@
 #            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        | 0      | 0      |   
 
 
-Feature: Levy learner moves start date forward payments refunded including english & maths - PV2-288A
+Feature: Levy learner moves start date forward payments refunded including english & maths - PV2-288
 		As a levy employer,
 		I want a learner that moves start date forward no prog payments and English & Maths refunded, to be paid correct amount,
-		So that I am accurately paid my apprenticeship provision - PV2-288A
+		So that I am accurately paid my apprenticeship provision - PV2-288
 
-Scenario Outline: Levy learner moves start date forward payments refunded including english & maths - PV2-288A
+Scenario Outline: Levy learner moves start date forward payments refunded including english & maths - PV2-288
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
         | start date                   | end date                  | agreed price | status |
