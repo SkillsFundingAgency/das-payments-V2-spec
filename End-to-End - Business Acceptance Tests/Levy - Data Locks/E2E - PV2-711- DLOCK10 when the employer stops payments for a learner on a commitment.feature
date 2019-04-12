@@ -34,10 +34,10 @@
 Feature: Data Lock - DLOCK10 - when the employer stops payments for a learner on a commitment
 		As a Provider,
 		I want to be notified with a DLOCK10 when Employer puts a stop on a learner's payment
-		So that I can take the correct action for that learner
+		So that I can take the correct action for that learner PV2-711
 
 Scenario: DLOCK10 - when the employer stops payments for a learner on a commitmen PV2-711
-	Given the employer levy account balance in collection period "R10/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
 	And the following apprenticeship exists
 		| apprenticeship   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status  | effective from               | effective to                 |
 		| apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | stopped | 01/May/Current Academic Year | 30/Jun/Current Academic Year |

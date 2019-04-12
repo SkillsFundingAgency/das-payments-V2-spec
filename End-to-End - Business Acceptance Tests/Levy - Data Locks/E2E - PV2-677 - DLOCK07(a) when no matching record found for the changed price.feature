@@ -77,12 +77,17 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
         | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
         | apprentice a | learner a  | Jul/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 07          |
 
-	And only the following payments will be calculated
+	And at month end only the following payments will be calculated
+		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+
+	And only the following payments will be generated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
 
 	And only the following provider payments will be recorded
-		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 600.00000              | 66.66667                    | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 600.00000              | 66.66667                    | Learning         |
+		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
