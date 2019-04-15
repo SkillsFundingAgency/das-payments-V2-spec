@@ -173,12 +173,22 @@ Scenario Outline: Levy learner changes aim reference for eng and maths aim and p
         | Jun/Last Academic Year | 0            | 0          | 0         | 39.25                      | pe-3                     |
         | Jul/Last Academic Year | 0            | 0          | 0         | 39.25                      | pe-3                     |
 
+	# Option 1
 	# -ve and +ve resulted in 0 values - check if we need price episodes here
     And at month end only the following payments will be calculated
         | Collection Period      | Delivery Period        | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
         | R12/Last Academic Year | May/Last Academic Year | 0            | 0          | 0         | 0                          |
         | R12/Last Academic Year | Jun/Last Academic Year | 0            | 0          | 0         | 0                          |
         | R12/Last Academic Year | Jul/Last Academic Year | 600          | 0          | 0         | 39.25                      |
+	
+	# Option 2
+    #And at month end only the following payments will be calculated
+    #    | Collection Period      | Delivery Period        | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
+    #    | R12/Last Academic Year | May/Last Academic Year | 0            | 0          | 0         | -39.25                     |
+    #    | R12/Last Academic Year | Jun/Last Academic Year | 0            | 0          | 0         | -39.25                     |
+    #    | R12/Last Academic Year | May/Last Academic Year | 0            | 0          | 0         | 39.25                      |
+    #    | R12/Last Academic Year | Jun/Last Academic Year | 0            | 0          | 0         | 39.25                      |
+    #    | R12/Last Academic Year | Jul/Last Academic Year | 600          | 0          | 0         | 39.25                      |
 
     And only the following provider payments will be recorded
         | Collection Period      | Delivery Period        | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
