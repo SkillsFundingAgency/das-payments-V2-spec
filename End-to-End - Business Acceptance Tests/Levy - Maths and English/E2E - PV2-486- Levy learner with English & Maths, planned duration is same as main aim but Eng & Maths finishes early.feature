@@ -12,7 +12,7 @@
 #When an ILR file is submitted with the following data:
 #		  | ULN       | Employer   | Provider   | learner type             | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim rate |
 #		  | learner a | employer 0 | provider A | 19-24 programme only DAS | 15000        | 06/08/2018 | 08/08/2019       |                 | continuing        | programme        |          |
-#		  | learner a | employer 0 | provider A | 19-24 programme only DAS |              | 06/08/2018 | 08/08/2019       | 08/05/2019      | completed         | maths or english | 471      |
+#		  | learner a | employer 0 | provider A | 19-24 programme only DAS |              | 06/08/2018 | 08/08/2019       | 08/06/2019      | completed         | maths or english | 471      |
 #		  
 #      
 #Then the provider earnings and payments break down as follows:

@@ -41,15 +41,15 @@
 Feature:  Levy learner 16-18 employed with a small employer at start fully funded PV2-332
 	As a provider,
 	I want a levy learner, payment for a 16-18 levy learner, small employer at start, to be paid the correct amount
-	So that I am accurately paid my apprenticeship provision.
+	So that I am accurately paid my apprenticeship provision - PV2-332
 
 # for DC Integration
 #    And the employment status in the ILR is:
 #        | Employer    | Employment Status      | Employment Status Applies | Small Employer |
 #        | employer 1  | in paid employment     | 05/08/2018                | SEM1           |
 
-Scenario: Levy learner 16-18 employed with a small employer at start fully funded PV2-332
-	Given the levy account balance in collection period R01/Last Academic Year is 7500
+Scenario Outline: Levy learner 16-18 employed with a small employer at start fully funded PV2-332
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
 		| framework code | programme type | pathway code | agreed price | start date                | end date                     |
 		| 593            | 1              | 20           | 7500         | 06/Aug/Last Academic Year | 08/Aug/Current Academic Year |
@@ -101,7 +101,7 @@ Scenario: Levy learner 16-18 employed with a small employer at start fully funde
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 100%                        |
-	When the amended ILR file is re-submitted for the learners in collection period R01/Current Academic Year
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | Second16To18EmployerIncentive | Second16To18ProviderIncentive | Completion16To18FrameworkUplift |
 		| Aug/Current Academic Year | 0            | 1500       | 0         | 500                           | 500                           | 360                             |
@@ -131,3 +131,7 @@ Scenario: Levy learner 16-18 employed with a small employer at start fully funde
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 500                       | Second16To18EmployerIncentive   |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 500                       | Second16To18ProviderIncentive   |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 360                       | Completion16To18FrameworkUplift |
+Examples: 
+        | Collection_Period         | Levy Balance |
+        | R01/Current Academic Year | 2000         |
+        | R02/Current Academic Year | 500          |
