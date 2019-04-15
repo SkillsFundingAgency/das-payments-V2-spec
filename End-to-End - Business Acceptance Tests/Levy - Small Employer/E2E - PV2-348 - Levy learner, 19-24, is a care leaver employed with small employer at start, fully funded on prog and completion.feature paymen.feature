@@ -132,5 +132,5 @@ Scenario Outline: Levy learner 19-24 is a care leaver employed with a small empl
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 360                       | Completion16To18FrameworkUplift |
 Examples: 
         | Collection_Period         | Levy Balance |
-        | R01/Current Academic Year | 2000         |
-		| R02/Current Academic Year | 500          |
+        | R01/Current Academic Year | 7500         |
+        | R02/Current Academic Year | 7500         |
