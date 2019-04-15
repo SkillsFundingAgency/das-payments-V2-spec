@@ -18,3 +18,4 @@
 .vs/VSWorkspaceState.json
 .vs/slnx.sqlite
 /End-to-End - Business Acceptance Tests/Levy - Additional Payments/Learning Support/E2E -PV2-804 - Levy Learner, takes English & Maths which exceeds completion date of main programme aim, learning support not paid as data lock triggered.feature
+.vs/slnx.sqlite

@@ -53,15 +53,15 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
 	# New columns - Restart Indicator
 	# Do we need it for payments service?
 	And the following aims
-		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status | Restart Indicator |
-		| Programme        | ZPROG001      | 06/Aug/Last Academic Year    | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        | No                |
-		| Maths or English | 12345         | 06/Aug/Last Academic Year    | 10 months        | 9 months        | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | withdrawn         | No                |
-		| Maths or English | 12345         | 09/Jun/Current Academic Year | 12 months        |                 | 3                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        | Yes               |
+		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status | Restart Indicator |
+		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        | No                |
+		| Maths or English | 12345         | 06/Aug/Last Academic Year | 10 months        | 9 months        | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | withdrawn         | No                |
+		| Maths or English | 12345         | 09/Jun/Last Academic Year | 12 months        |                 | 3                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        | Yes               |
 	And price details as follows	
         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | pe-1             | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act1          | 1                   | 90%                         |
         | pe-2             | 0                    | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act1          | 2                   | 100%                        |
-        | pe-3             | 0                    | 09/Jun/Current Academic Year        | 0                      | 09/Jun/Current Academic Year          | Act1          | 3                   | 100%                        |
+        | pe-3             | 0                    | 09/Jun/Last Academic Year           | 0                      | 09/Jun/Last Academic Year             | Act1          | 3                   | 100%                        |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
 		#p1
@@ -134,10 +134,10 @@ Scenario Outline: Levy learner takes single level 2 aim, fails, retakes beyond p
 
 	# Updated main aim completion status to completed
     But aims details are changed as follows
-		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
-		| Programme        | ZPROG001      | 06/Aug/Last Academic Year    | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | completed         |
-		| Maths or English | 12345         | 06/Aug/Last Academic Year    | 10 months        | 9 months        | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | withdrawn         |
-		| Maths or English | 12345         | 09/Jun/Current Academic Year | 12 months        |                 | 3                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
+		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
+		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 12 months        | 12 months       | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | completed         |
+		| Maths or English | 12345         | 06/Aug/Last Academic Year | 10 months        | 9 months        | 2                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | withdrawn         |
+		| Maths or English | 12345         | 09/Jun/Last Academic Year | 12 months        |                 | 3                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
 
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
