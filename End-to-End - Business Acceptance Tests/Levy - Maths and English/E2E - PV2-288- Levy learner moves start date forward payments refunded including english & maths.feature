@@ -4,22 +4,26 @@
 #        And levy balance > agreed price for all months
 #        And the apprenticeship funding band maximum is 9000
 #
-#		And the following commitments exist:
+#		And the following commitments exist in R01:
 #			| commitment Id | version Id | ULN       | start date | end date   | framework code | programme type | pathway code | agreed price | status    | effective from | effective to |
-#			| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | 403            | 2              | 1            | 9000         | Active    | 01/08/2018     |              |
-#        
+#			| 1             | 1          | learner a | 01/08/2017 | 01/08/2018 | 403            | 2              | 1            | 9000         | Active    | 01/08/2017     |              |
+# 		
+#		And the following commitments exist in R03:
+#			| commitment Id | version Id | ULN       | start date | end date   | framework code | programme type | pathway code | agreed price | status    | effective from | effective to |
+#			| 1             | 1          | learner a | 01/10/2017 | 01/08/2018 | 403            | 2              | 1            | 9000         | Active    | 01/08/2017     |              |
+#               
 #		When an ILR file is submitted for period R01 with the following data:
 #			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
-#			| learner a | programme only DAS | 9000         | 06/08/2018 | 20/08/2019       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            |
-#			| learner a | programme only DAS |              | 06/08/2018 | 20/08/2019       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |
+#			| learner a | programme only DAS | 9000         | 06/08/2017 | 20/08/2018       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            |
+#			| learner a | programme only DAS |              | 06/08/2017 | 20/08/2018       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |
 #			
 #        And an ILR file is submitted for period R03 with the following data:
 #			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
-#			| learner a | programme only DAS | 9000         | 06/10/2018 | 20/10/2019       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            |
-#			| learner a | programme only DAS |              | 06/10/2018 | 20/10/2019       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |
+#			| learner a | programme only DAS | 9000         | 06/10/2017 | 20/10/2018       |                 | continuing        | programme        | 2                   |          | 403            | 2              | 1            |
+#			| learner a | programme only DAS |              | 06/10/2017 | 20/10/2018       |                 | continuing        | maths or english | 1                   | 471      | 403            | 2              | 1            |
 #  									    
 #        Then the provider earnings and payments break down as follows:
-#            | Type                                    | 08/18  | 09/18  | 10/18  | 11/18    | 12/18  | 01/19  |
+#            | Type                                    | 08/17  | 09/17  | 10/17  | 11/17    | 12/17  | 01/18  |
 #            | Provider Earned Total                   | 639.25 | 639.25 | 639.25 | 639.25   | 639.25 | 639.25 |
 #            | Provider Earned from SFA                | 639.25 | 639.25 | 639.25 | 639.25   | 639.25 | 639.25 |
 #            | Provider Earned from Employer           | 0      | 0      | 0      | 0        | 0      | 0      |
@@ -34,6 +38,7 @@
 #            | SFA Levy additional payments budget     | 0      | 0      | 39.25  | 39.25    | 39.25  | 39.25  |
 #            | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0        | 0      | 0      |
 #            | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        | 0      | 0      |   
+   
 
 
 Feature: Levy learner moves start date forward payments refunded including english & maths - PV2-288
@@ -44,8 +49,8 @@ Feature: Levy learner moves start date forward payments refunded including engli
 Scenario Outline: Levy learner moves start date forward payments refunded including english & maths - PV2-288
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following commitments exist
-        | start date                   | end date                  | agreed price | status |
-        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active |
+        | commitment Id | version Id | start date                   | end date                  | agreed price | status |
+        | 1             | 1          | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active |
 	And the following aims
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Maths or English | 12345         | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
@@ -99,6 +104,13 @@ Scenario Outline: Levy learner moves start date forward payments refunded includ
         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | pe-3             | 471                  | 06/Oct/Current Academic Year        | Act1          | 1                   | 100%                        |  
         | pe-4             | 9000                 | 06/Oct/Current Academic Year        | Act1          | 2                   | 90%                         |
+
+	# This may need changing 
+	And the Commitment details are changed as follows
+	| commitment Id | version Id | start date                   | end date                  | agreed price | status  | stop effective from          |
+	| 1             | 1          | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | stopped | 01/Aug/Current Academic Year |
+	| 1             | 2          | 01/Oct/Current Academic Year | 01/Oct/Next Academic Year | 9000         | active  |                              |
+
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
