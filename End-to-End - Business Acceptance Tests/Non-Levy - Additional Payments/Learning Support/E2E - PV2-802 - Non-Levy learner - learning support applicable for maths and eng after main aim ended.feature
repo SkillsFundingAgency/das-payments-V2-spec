@@ -50,30 +50,30 @@ Scenario Outline: Non Levy learner, Eng aim planned end date exceeds the actual 
         | 2nd price details | 0                    | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             | Act2          | 2                   | 100%                        |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | LearningSupport | OnProgrammeMathsAndEnglish | Aim Sequence Number |
-        | Aug/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Sep/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Oct/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Nov/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Dec/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Jan/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Feb/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Mar/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Apr/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | May/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Jun/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Jul/Last Academic Year | 1000         | 0          | 0         | 0               | 0                          | 1                   |
-        | Aug/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Sep/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Oct/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Nov/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Dec/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Jan/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Feb/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Mar/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Apr/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | May/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Jun/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
-        | Jul/Last Academic Year | 0            | 0          | 0         | 150             | 33.64                      | 2                   |
+        | Aug/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Sep/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Oct/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Nov/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Dec/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Jan/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Feb/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Mar/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Apr/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | May/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Jun/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Jul/Last Academic Year | 1000         | 0          | 0         | 150             | 0                          | 1                   |
+        | Aug/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Sep/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Oct/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Nov/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Dec/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Jan/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Feb/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Mar/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Apr/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | May/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Jun/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
+        | Jul/Last Academic Year | 0            | 0          | 0         | 0               | 33.64                      | 2                   |
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
         | R01/Last Academic Year | Aug/Last Academic Year | 900                    | 100                         | 0                         | Learning                   |
