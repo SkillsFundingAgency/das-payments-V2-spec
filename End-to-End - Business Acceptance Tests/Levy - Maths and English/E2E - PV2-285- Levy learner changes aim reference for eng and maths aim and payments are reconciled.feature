@@ -99,18 +99,18 @@ Scenario Outline: Levy learner changes aim reference for eng and maths aim and p
         | Jun/Last Academic Year | 600          | 0          | 0         | 0                          | 1                   | pe-1                     |
         | Jul/Last Academic Year | 600          | 0          | 0         | 0                          | 1                   | pe-1                     |
 		#p2 - Maths and English
-        | Aug/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Sep/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Oct/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Nov/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Dec/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Jan/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Feb/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Mar/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | Apr/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |
-        | May/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |
-        | Jun/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |
-        | Jul/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |
+        | Aug/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Sep/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Oct/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Nov/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Dec/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Jan/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Feb/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Mar/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | Apr/Last Academic Year | 0            | 0          | 0         | 0                          | 2                   |                          |
+        | May/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+        | Jun/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+        | Jul/Last Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
 
     And the following provider payments had been generated
         | Collection Period      | Delivery Period        | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
