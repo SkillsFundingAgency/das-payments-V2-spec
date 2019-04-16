@@ -48,7 +48,7 @@
 # DC Integration
 #| learning support code | learning support date from | learning support date to |
 #| 1                     | 06/08/2018                 | 06/10/2019               |
-#| 1                     | 06/08/2018                 | 06/10/2019               |
+#| 1                     | 06/08/2018                 | 06/10/2019               | ** ZPROG takes priority and this applied if main aim has been ended
 
 Feature: Levy learner, takes an English qualification that has a planned end date that exceeds the actual end date of the programme aim and learning support is applicable to all learning PV2-803
 		As a provider,
