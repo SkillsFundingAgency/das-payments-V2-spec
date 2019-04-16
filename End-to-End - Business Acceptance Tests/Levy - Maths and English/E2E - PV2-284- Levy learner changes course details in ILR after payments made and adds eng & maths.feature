@@ -84,17 +84,15 @@ Scenario Outline: Levy learner changes course details in ILR after payments made
 		| Aim Type         | Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type         | Completion Status |
 		| Maths or English | 12345         | 06/Aug/Current Academic Year | 12 months        |                 | 1                   | 584            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
 		| Programme        | ZPROG001      | 06/Aug/Current Academic Year | 12 months        |                 | 2                   | 584            | 1            | 20             | 19-24 Apprenticeship Levy | continuing        |
-	# New step
-	And the commitment changed as follows
-        | start date                   | end date                  | agreed price | status    | Framework Code | Pathway Code | Programme Type | stop effective from          |
-        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | cancelled | 593            | 1            | 20             | 01/Aug/Current Academic Year |
-        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active    | 584            | 1            | 20             |                              |
-
 	And price details are changed as follows																																																								                  
         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | pe-1             | 9000                 | 06/Aug/Current Academic Year        | Act1          | 2                   | 90%                         |
         |                  | 471                  | 06/Aug/Current Academic Year        | Act1          | 1                   | 100%                        |  
         | pe-3             | 9000                 | 06/Aug/Current Academic Year        | Act1          | 2                   | 90%                         |
+	And the commitment changed as follows
+        | start date                   | end date                  | agreed price | status    | Framework Code | Pathway Code | Programme Type | stop effective from          |
+        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | cancelled | 593            | 1            | 20             | 01/Aug/Current Academic Year |
+        | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 9000         | active    | 584            | 1            | 20             |                              |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
