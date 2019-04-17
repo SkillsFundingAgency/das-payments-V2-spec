@@ -67,6 +67,6 @@
 				| apprentice a   | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK05    |
 			    | apprentice a   | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK04    |   
 			    | apprentice a   | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK05    |
-			And at month end no payments will be calculated
+			And Month end is triggered
 			And no provider payments will be generated
 			And no provider payments will be recorded	

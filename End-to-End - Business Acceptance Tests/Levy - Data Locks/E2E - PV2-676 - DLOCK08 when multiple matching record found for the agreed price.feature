@@ -71,7 +71,7 @@ Scenario: DLOCK08 - When multiple matching record found in an employer digital a
         | Apprentice   | Learner ID | Provider   | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
         | apprentice a | learner a  | Provider a | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 08          |
 
-    And at month end no payments will be calculated
+  And Month end is triggered
 
 	And no provider payments will be generated
 

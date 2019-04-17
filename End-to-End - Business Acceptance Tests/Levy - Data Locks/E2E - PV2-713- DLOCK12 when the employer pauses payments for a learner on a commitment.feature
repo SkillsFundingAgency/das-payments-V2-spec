@@ -73,6 +73,6 @@ Scenario: DLOCK12 - when the employer pauses payments for a learner on a commitm
         | apprentice a | learner a  | Jul/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 12          |
 	# New step
 
-    And at month end no payments will be calculated
+  And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded

@@ -70,6 +70,6 @@ Scenario: DLOCK07 - When no matching record found in an employer digital account
         | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
         | apprentice a | learner a  | May/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 07          |
 	
-    And at month end no payments will be calculated
+  And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded
