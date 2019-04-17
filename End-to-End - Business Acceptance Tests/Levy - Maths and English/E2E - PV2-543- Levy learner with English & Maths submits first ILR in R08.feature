@@ -58,7 +58,7 @@ Scenario Outline: Levy learner with English & Maths submits first ILR in R08 PV2
 	And price details as follows	
         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | pe-1             | 9000                 | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          | Act1          | 1                   | 90%                         |
-        | pe-2             | 0                    | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          | Act1          | 2                   | 100%                        |
+        |                  | 0                    | 01/Aug/Current Academic Year        | 0                      | 01/Aug/Current Academic Year          | Act1          | 2                   | 100%                        |
 	When the ILR file is submitted for the learners for collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
@@ -76,18 +76,18 @@ Scenario Outline: Levy learner with English & Maths submits first ILR in R08 PV2
 		| Jun/Current Academic Year | 600          | 0          | 0         | 0                          | 1                   | pe-1                     |
 		| Jul/Current Academic Year | 600          | 0          | 0         | 0                          | 1                   | pe-1                     |
 		#p2
-		| Aug/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Oct/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Nov/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Dec/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Jan/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Feb/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Mar/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Apr/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| May/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Jun/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
-		| Jul/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   | pe-2                     |
+		| Aug/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Oct/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Nov/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Dec/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Jan/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Feb/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Mar/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Apr/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| May/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Jun/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
+		| Jul/Current Academic Year | 0            | 0          | 0         | 39.25                      | 2                   |                          |
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
 		| R08/Current Academic Year | Aug/Current Academic Year | 600          | 0          | 0         | 39.25                      |
