@@ -104,7 +104,7 @@
 		| Jun/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             | 0                               |
 		| Jul/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             | 0                               |
 
-    And only the following payments will be calculated
+    And at Month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | Second16To18EmployerIncentive | Second16To18ProviderIncentive |Completion16To18FrameworkUplift |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0            | 1800       | 0         | 500                           | 500                           |360                             |
 			
