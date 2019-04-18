@@ -31,13 +31,13 @@
 #        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 450            | 2              | 1            | stopped | 10000            | 01/07/2018     |
 
 
-Feature: Data Lock - DLOCK10 - when the employer stops payments for a learner on a commitment
+Feature: Data Lock - DLOCK10 - when the employer stops payments for a learner on a commitment PV2-711
 		As a Provider,
 		I want to be notified with a DLOCK10 when Employer puts a stop on a learner's payment
-		So that I can take the correct action for that learner PV2-711
+		So that I can take the correct action for that learner 
 
 Scenario: DLOCK10 - when the employer stops payments for a learner on a commitmen PV2-711
-	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period R12/Current Academic Year is 11000
 	And the following apprenticeship exists
 		| apprenticeship   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status  | effective from               | effective to                 |
 		| apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | stopped | 01/May/Current Academic Year | 30/Jun/Current Academic Year |
@@ -47,7 +47,7 @@ Scenario: DLOCK10 - when the employer stops payments for a learner on a commitme
 		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
 	
-	When the ILR file is submitted for the learners in collection period "R12/Current Academic Year"
+	When the ILR file is submitted for the learners in collection period R12/Current Academic Year
 
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -78,11 +78,12 @@ Scenario: DLOCK10 - when the employer stops payments for a learner on a commitme
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
 
-	And only the following payments will be generated
+	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
-	And only the following provider payments will be recorded
+
+	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |

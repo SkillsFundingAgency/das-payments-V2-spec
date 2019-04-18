@@ -31,7 +31,8 @@
 
 	Scenario Outline: DLOCK04 + DLOCK05 - When no matching record found in an employer digital account for for the framework code and programme type then datalock DLOCK_04 and DLOCK05 will be produced PV2-670
 
-	 		Given the following aprrenticeship exists
+	 		Given the employer levy account balance in collection period R12/Current Academic Year is 11000
+			And the following aprrenticeship exists
 			| Apprenticeship | Learner   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 			| Apprentice a   | learner a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 				
