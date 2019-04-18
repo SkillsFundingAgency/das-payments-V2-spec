@@ -68,13 +68,13 @@
 #            | Provider 16-18 incentive     | 0     | 0     | 0     |0     |
 
 	Feature: Levy learner- changes standard course but price is unchanged. 
-	As a provider,
-	I want a levy learner, where the standard changes in the ILR during training, and is different to the standard submitted in the commitment and initial ILR, but the standard price remains the same
-	So that I am accurately paid the apprenticeship commission
+		As a provider,
+		I want a levy learner, where the standard changes in the ILR during training, and is different to the standard submitted in the commitment and initial ILR, but the standard price remains the same
+		So that I am accurately paid the apprenticeship commission - PV2-525
 
-	Scenario: Levy learner change to standard in ILR but no change in price PV2-525
+	Scenario Outline: Levy learner change to standard in ILR but no change in price PV2-525
 
-	Given the employer levy account balance in collection period R03/Current Academic Year is 17000
+	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 
 	And the following commitments exist
 		| commitment Id | version Id | Learner ID | start date                   | end date                     | status | agreed price | Standard Code |
@@ -110,10 +110,10 @@
 		| 1             | 2          | learner a  | 01/Aug/Current Academic Year | 31/Jul/Current Academic Year | active | 15000        | 52            |
 
 	And the Provider now changes the Learner details as follows
-        | Priority | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Completion Status | SFA Contribution Percentage | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
-        | 1        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         | continuing        | 90%                         | Act1          | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
+        | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assesment Price | Total Assesment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+        | 01/Aug/Current Academic Year | 12 months        | 12000                | 01/Aug/Current Academic Year        | 3000                  | 01/Aug/Current Academic Year         |                 | continuing        | Act1          | 1                   | ZPROG001      | 52            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 		 
-	When the amended ILR file is re-submitted for the learners in collection period R03/Current Academic Year
+	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing |
@@ -137,6 +137,7 @@
         | R03/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         | 52           |
         | R03/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         | 52           |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         | 52           |
+		| R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         | 52           |
 
     And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
@@ -145,6 +146,7 @@
         | R03/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         | 52            |
         | R03/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         | 52            |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         | 52            |
+		| R04/Current Academic Year | Nov/Current Academic Year | 1000              | Learning         | 52            |
 
     And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type | Standard Code |
@@ -153,5 +155,9 @@
         | R03/Current Academic Year | Aug/Current Academic Year | 1000              | Learning         | 52            |
         | R03/Current Academic Year | Sep/Current Academic Year | 1000              | Learning         | 52            |
         | R03/Current Academic Year | Oct/Current Academic Year | 1000              | Learning         | 52            |
+		| R04/Current Academic Year | Nov/Current Academic Year | 1000              | Learning         | 52            |
 
-
+	Examples:
+		| Collection_Period         | Levy Balance |
+		| R03/Current Academic Year | 13500        |
+		| R04/Current Academic Year | 12500        |
