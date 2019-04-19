@@ -91,7 +91,7 @@
 	When the amended ILR file is re-submitted for the learners in collection period R01/CurrentAcademic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | Second16To18EmployerIncentive | Second16To18ProviderIncentive | Completion16To18FrameworkUplift |
-		| Aug/Current Academic Year | 0            | 1650       | 0         | 500                           | 500                           | 360                             |
+		| Aug/Current Academic Year | 0            | 1800       | 0         | 500                           | 500                           | 360                             |
 		| Sep/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             | 0                               |
 		| Oct/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             | 0                               |
 		| Nov/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             | 0                               |
