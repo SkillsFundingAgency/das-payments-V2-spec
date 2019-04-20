@@ -93,7 +93,7 @@
 		| Jun/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             |
 		| Jul/Current Academic Year | 0            | 0          | 0         | 0                             | 0                             |
 
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | Second16To18EmployerIncentive | Second16To18ProviderIncentive |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0            | 1650       | 0         | 500                           | 500                           |
 			
@@ -103,7 +103,7 @@
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 500                         | Second16To18EmployerIncentive |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 500                         | Second16To18ProviderIncentive |
 
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type              |
 		| R01/Current Academic Year | Aug/Current Academic Year | 1485                   | 165                         | Completion                    |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0                      | 500                         | Second16To18EmployerIncentive |
