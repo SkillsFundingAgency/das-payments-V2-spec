@@ -29,14 +29,15 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
 #        |20-589-1-01/May/Current Academic Year       | 73-125             | 01/May/Current Academic Year | 451            | 2              | 1            | 10000            | 01/May/Current Academic Year     |
 
-		Feature:Datalocks
+		Feature:Datalocks PV2-665
 		As a Provider,
 		I want to be notified with a DLOCK04 when no matching record found in an employer digital account for the Framework Code
-		So that I can correct the data mis-match between the Commitment and ILR PV2-665
+		So that I can correct the data mis-match between the Commitment and ILR 
 
-		Scenario Outline: DLOCK04 - When no matching record found in an employer digital account for for the framework code then datalock DLOCK_04 will be produced PV2-665
+		Scenario: DLOCK04 - When no matching record found in an employer digital account for for the framework code then datalock DLOCK_04 will be produced PV2-665
 
-			Given the following apprenticeship exists		 
+			Given the employer levy account balance in collection period R12/Current Academic Year is 11000
+			And the following apprenticeship exists		 
 			| Apprenticeship | Learner   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 			| Apprentice a   | learner a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 				

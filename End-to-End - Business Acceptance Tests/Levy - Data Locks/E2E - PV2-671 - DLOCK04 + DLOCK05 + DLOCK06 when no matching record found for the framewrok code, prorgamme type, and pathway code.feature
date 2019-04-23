@@ -25,13 +25,16 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
 #        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 451            | 3              | 6            | 10000            | 01/05/2018     |
 
-Feature: As a Provider,
+Feature:  Datalocks : DLock04, Dlock05 and Dlock06 PV2-671
+As a Provider,
 I want to be notified with a DLOCK04 + DLOCK05 + DLOCK06 when no matching record found in an employer digital account for the framework code, programme type, and pathway code
-So that I can correct the data mis-match between the Commitment and ILR  PV2-671
+So that I can correct the data mis-match between the Commitment and ILR  
 
-	Scenario Outline: DLOCK04 + DLOCK05 + DLOCK06 - When no matching record found in an employer digital account for for the framework code and programme type then datalock DLOCK_04 and DLOCK05 will be produced PV2-670
+	Scenario Outline: DLOCK04 + DLOCK05 + DLOCK06 - When no matching record found in an employer digital account for for the framework code and programme type then datalock DLOCK_04, DLOCK05 and DLOCK06 will be produced 
 
-	 		Given the following apprenticeship exists
+	 		Given the employer levy account balance in collection period R12/Current Academic Year is 10000
+
+			And the following apprenticeship exists
 			| Apprenticeship | Learner   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 			| Apprentice a   | learner a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 				
@@ -39,7 +42,7 @@ So that I can correct the data mis-match between the Commitment and ILR  PV2-671
 			| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
 			| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 589            | 21             | 2            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
-			When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
+			When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 
 			Then the following learner earnings should be generated
 				| Delivery Period           | On-Programme | Completion | Balancing |
@@ -58,7 +61,7 @@ So that I can correct the data mis-match between the Commitment and ILR  PV2-671
 			# New step
 			And the following non-payable earnings were generated       
 			    | Learner ID | ILR Start Date               | ILR Training Price | framework code | programme type | pathway code |
-			    | learner a  | 01/May/Current Academic Year | 10000              | 589            | 21             | 1            |
+			    | learner a  | 01/May/Current Academic Year | 10000              | 589            | 21             | 2            |
 			And the following data lock failures were generated
 			    | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
 			    | apprentice a   | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK04    |

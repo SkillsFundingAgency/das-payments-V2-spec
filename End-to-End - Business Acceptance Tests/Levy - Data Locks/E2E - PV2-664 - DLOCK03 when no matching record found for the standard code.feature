@@ -33,13 +33,13 @@
 #        | 25-23-01/05/2018         | 73-125             | 01/05/2018 | 21            | 10000            | 01/05/2018     |
 
 
-Feature: Data Lock - DLOCK03 - no matching standard code
+Feature: Data Lock - DLOCK03 - no matching standard code PV2-664
 		As a Provider,
 		I want to be notified with a DLOCK03 when no matching record found in an employer digital account for the Standard Code
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK03 - When no matching record found in an employer digital account for for the standard code then datalock DLOCK_03 will be produced PV2-664
-	Given the employer levy account balance in collection period "R12/Current Academic Year" is 10000
+	Given the employer levy account balance in collection period R12/Current Academic Year is 10000
 	And the following aprrenticeship exists
 	# Learner ID kept for data lock event
 		| Apprenticeship | Learner   | standard code | agreed price | start date                   | end date                  | status | effective from               |
@@ -47,7 +47,7 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
 	And the provider is providing training for the following learners
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
 		| learner a  | 01/May/Current Academic Year | 12 months        | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-	When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
+	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |

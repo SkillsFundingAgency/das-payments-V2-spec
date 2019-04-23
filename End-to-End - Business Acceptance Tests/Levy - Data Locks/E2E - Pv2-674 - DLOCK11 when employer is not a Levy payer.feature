@@ -24,7 +24,7 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
 #        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 450            | 2              | 1            | 10000            | 01/05/2018     |
 
-		Feature:Datalocks
+		Feature:Datalocks PV2-674
 		As a Provider,
 		I want to be notified with a DLOCK11 when Employer is not a Levy payer
 		So that I can take the correct action to get paid for my learner
@@ -49,7 +49,7 @@
 		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        |                        |                                       |                 | 593            | 20             | 1            | continuing        | Act1     |
 
 			
-		When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
+		When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 
 		Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |

@@ -30,13 +30,13 @@
 #        | 2-450-1-01/07/2018       | 73-200             | 01/05/2018 | 450            | 2              | 1            | 15000            | 01/07/2018     |
 
 
-Feature: Data Lock - DLOCK07(a) - no matching changed price
+Feature: Data Lock - DLOCK07(a) - no matching changed price PV2-677
 		As a Provider,
 		I want to be notified with a DLOCK07(a) when the price is changed, and the effective to is set on previous price episode
 		So that I can correct the data mis-match between the Commitment and ILR
 
 Scenario: DLOCK07(a) - When price is changed, then effective to is set on previous price episode PV2-677
-	Given the employer levy account balance in collection period "R10/Current Academic Year" is 14000
+	Given the employer levy account balance in collection period R12/Current Academic Year is 14000
 	And the following apprenticeship exists
 		| Apprenticeship   | framework code | programme type | pathway code | start date                   | end date                  |status |
 		| apprenticeship a | 593            | 20             | 1            | 01/May/Current Academic Year | 01/May/Next Academic Year |active |
@@ -52,7 +52,7 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
         | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | SFA Contribution Percentage |
         | 1st price details | 10000                | 01/May/Current Academic Year        | 0                      | 01/May/Current Academic Year          | 90%                         |
         | 2nd price details | 14000                | 01/Jul/Current Academic Year        | 0                      | 01/Jul/Current Academic Year          | 90%                         |
-	When the ILR file is submitted for the learners for collection period "R12/Current Academic Year"
+	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |
@@ -77,7 +77,7 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
         | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
         | apprentice a | learner a  | Jul/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 07          |
 
-	And at month end only the following payments will be calculated
+	And Month end is triggered
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |

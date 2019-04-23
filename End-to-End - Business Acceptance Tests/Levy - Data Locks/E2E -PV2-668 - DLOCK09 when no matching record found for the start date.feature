@@ -22,13 +22,14 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | standard code | Negotiated Price | Effective Date |
 #        | 25-23-01/05/2018         | 73-125             | 01/06/2018 | 23            | 10000            | 01/06/2018     |		Feature:Datalocks
 
-		Feature:Datalocks
+		Feature:Datalocks PV2-668
 		I want to be notified with a DLOCK09 when no matching record found in an employer digital account for the start date
-        So that I can correct the data mis-match between the Commitment and ILR PV2-668
+        So that I can correct the data mis-match between the Commitment and ILR 
 
 		Scenario: DLOCK09 - When no matching record found in an employer digital account for the start date then datalock DLOCK_09 will be produced
 
-		Given the following apprenticeship exists
+		Given the employer levy account balance in collection period R12/Current Academic Year is 11000
+		And the following apprenticeship exists
 		| Apprenticeship   | Standarfd code | programme type | start date                    | end date                  | status |
 		| apprenticeship a | 17             | 25             | 01/June/Current Academic Year | 31/May/Next Academic Year | active |
 
