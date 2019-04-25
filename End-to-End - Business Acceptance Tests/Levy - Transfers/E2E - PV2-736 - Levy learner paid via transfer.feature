@@ -91,16 +91,17 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer - PV2-736
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
+	# New column - Transfer Payments
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 1000              | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 1000              | Learning         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 1000              | Learning         |
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 1000              | Learning         |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 1000              | Learning         |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 1000              | Learning         |
 
 	## New section - Is it required or below example table is sufficient?
 	#And only the following levy employers account will be debited
