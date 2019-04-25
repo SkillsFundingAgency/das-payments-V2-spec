@@ -1,7 +1,7 @@
-Feature: PV2-442 Payment for a DAS learner, does not live in a disadvantaged postocde area-Disadvantage Uplift is not paid
-	As a provider,
-	I want a levy learner who does not live in a Disadvantaged Postcode area to undertake an Apprenticeship Framework course
-	So that I am not paid the Disadvantage Uplift amount.
+Feature: PV2-441 - Payment for a DAS learner, lives in a disadvantaged postocde area - 21-27 most deprived,on framework
+As a provider,
+I want a levy learner living in a Disadvantaged Postcode area (21-27% most deprived) to undertake an Apprenticeship Framework course
+So that I am accurately paid the Disadvantage Uplift amount of £200 in 2 installments of £100 each at 90 days and 365 days respectively.PV2-441
 # For DCT Integration
 #ILR entry: <PostcodePrior>OX17 1EZ</PostcodePrior>
 
@@ -30,19 +30,19 @@ And the following earnings had been generated for the learner
     | Jul/Last Academic Year | 1000         | 0          | 0         | 0                        |
 And the following provider payments had been generated
     | Collection Period      | Delivery Period        | Levy Payments | SFA Fully-Funded Payments | Transaction Type         |
-    | R01/Last Academic Year | Aug/Last Academic Year | 900           | 0                         | Learning                 |
-    | R02/Last Academic Year | Sep/Last Academic Year | 900           | 0                         | Learning                 |
-    | R03/Last Academic Year | Oct/Last Academic Year | 900           | 0                         | Learning                 |
-    | R04/Last Academic Year | Nov/Last Academic Year | 900           | 0                         | Learning                 |
-    | R05/Last Academic Year | Dec/Last Academic Year | 900           | 0                         | Learning                 |
-    | R06/Last Academic Year | Jan/Last Academic Year | 900           | 0                         | Learning                 |
-    | R07/Last Academic Year | Feb/Last Academic Year | 900           | 0                         | Learning                 |
-    | R08/Last Academic Year | Mar/Last Academic Year | 900           | 0                         | Learning                 |
-    | R09/Last Academic Year | Apr/Last Academic Year | 900           | 0                         | Learning                 |
-    | R10/Last Academic Year | May/Last Academic Year | 900           | 0                         | Learning                 |
-    | R11/Last Academic Year | Jun/Last Academic Year | 900           | 0                         | Learning                 |
-    | R12/Last Academic Year | Jul/Last Academic Year | 900           | 0                         | Learning                 |
-
+    | R01/Last Academic Year | Aug/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R02/Last Academic Year | Sep/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R03/Last Academic Year | Oct/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R04/Last Academic Year | Nov/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R05/Last Academic Year | Dec/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R06/Last Academic Year | Jan/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R07/Last Academic Year | Feb/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R08/Last Academic Year | Mar/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R09/Last Academic Year | Apr/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R10/Last Academic Year | May/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R11/Last Academic Year | Jun/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R12/Last Academic Year | Jul/Last Academic Year | 1000          | 0                         | Learning                 |
+    | R04/Last Academic Year | Nov/Last Academic Year | 0             | 100                       | FirstDisadvantagePayment |
 
 But the Provider now changes the Learner details as follows
 	| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                                  | SFA Contribution Percentage |
@@ -50,7 +50,7 @@ But the Provider now changes the Learner details as follows
 When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 Then the following learner earnings should be generated
 	| Delivery Period           | On-Programme | Completion | Balancing | SecondDisadvantagePayment |
-	| Aug/Current Academic Year | 0            | 0          | 0         | 0                         |
+	| Aug/Current Academic Year | 0            | 0          | 0         | 100                       |
 	| Sep/Current Academic Year | 0            | 0          | 0         | 0                         |
 	| Oct/Current Academic Year | 0            | 0          | 0         | 0                         |
 	| Nov/Current Academic Year | 0            | 0          | 0         | 0                         |
@@ -63,9 +63,17 @@ Then the following learner earnings should be generated
 	| Jun/Current Academic Year | 0            | 0          | 0         | 0                         |
 	| Jul/Current Academic Year | 0            | 0          | 0         | 0                         |
 
-    And Month end is triggered
-	And no provider payments will be recorded
-	And no provider payments will be generated
+And at month end only the following payments will be calculated
+	| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | SecondDisadvantagePayment |
+	| R01/Current Academic Year | Aug/Current Academic Year | 0            | 0          | 0         | 100                       |
+
+And only the following provider payments will be recorded
+	| Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type          |
+	| R01/Current Academic Year | Aug/Current Academic Year | 0             | 100                       | SecondDisadvantagePayment |
+
+And  only the following provider payments will be generated
+	| Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type          |
+	| R01/Current Academic Year | Aug/Current Academic Year | 0             | 100                       | SecondDisadvantagePayment |
 
 Examples:
     | Collection_Period         |
