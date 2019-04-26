@@ -69,25 +69,28 @@ And the provider is providing training for the following learners
 	| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  |
 	| 03/Aug/Current Academic Year | 12 months        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 51            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract |
 And price details as follows
-    | Price details     | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | SFA Contribution Percentage |
-    | 1st price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act1          | 90%                         |
-	| 2nd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act2          | 90%                         |
-    | 3rd price details | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             | Act1          | 90%                         |
+    | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Contract Type | SFA Contribution Percentage |
+    | pe-1             | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act1          | 90%                         |
+	| pe-2             | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 0                       |                                        | 0                         |                                          | Act2          | 90%                         |
+    | pe-3             | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | 5000                    | 03/Nov/Current Academic Year           | 625                       | 03/Nov/Current Academic Year             | Act1          | 90%                         |
 When the ILR file is submitted for the learners for collection period <Collection_Period>
 Then the following learner earnings should be generated
-	| Delivery Period           | On-Programme | Completion | Balancing |
-    | Aug/Current Academic Year | 1000         | 0          | 0         |
-    | Sep/Current Academic Year | 1000         | 0          | 0         |
-    | Oct/Current Academic Year | 1000         | 0          | 0         |
-    | Nov/Current Academic Year | 500          | 0          | 0         |
-    | Dec/Current Academic Year | 500          | 0          | 0         |
-    | Jan/Current Academic Year | 500          | 0          | 0         |
-    | Feb/Current Academic Year | 500          | 0          | 0         |
-    | Mar/Current Academic Year | 500          | 0          | 0         |
-    | Apr/Current Academic Year | 500          | 0          | 0         |
-    | May/Current Academic Year | 500          | 0          | 0         |
-    | Jun/Current Academic Year | 500          | 0          | 0         |
-    | Jul/Current Academic Year | 500          | 0          | 0         |
+	| Delivery Period           | On-Programme | Completion | Balancing | Price Episode Identifier |
+	#p1
+    | Aug/Current Academic Year | 1000         | 0          | 0         | pe-1                     |
+    | Sep/Current Academic Year | 1000         | 0          | 0         | pe-1                     |
+	#p2
+    | Oct/Current Academic Year | 1000         | 0          | 0         | pe-2                     |
+	#p3
+    | Nov/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Dec/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Jan/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Feb/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Mar/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Apr/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | May/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Jun/Current Academic Year | 500          | 0          | 0         | pe-3                     |
+    | Jul/Current Academic Year | 500          | 0          | 0         | pe-3                     |
 And at month end only the following payments will be calculated
     | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
     | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
@@ -113,7 +116,7 @@ And only the following provider payments will be generated
 Examples:
 	| Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
 	| R01/Current Academic Year | 15500                       | 6125                        |
-	| R02/Current Academic Year | 15500                       | 6125                        |
-	| R03/Current Academic Year | 15500                       | 6125                        |
-	| R04/Current Academic Year | 15500                       | 6125                        |
+	| R02/Current Academic Year | 14500                       | 6125                        |
+	| R03/Current Academic Year | 13500                       | 6125                        |
+	| R04/Current Academic Year | 13500                       | 6125                        |
 	| R05/Current Academic Year | 13500                       | 5625                        |
