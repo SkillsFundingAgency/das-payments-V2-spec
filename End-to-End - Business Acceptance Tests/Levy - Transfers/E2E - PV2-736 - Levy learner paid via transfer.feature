@@ -56,7 +56,7 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer - PV2-736
 	# Option 1
 	And the following commitments exist 
 		| employer of apprentice | employer paying for training | start date                   | end date                  | agreed price | standard code | status | effective from               |
-		| employer 1             | employer 2                   | 01/May/Current Academic Year | 06/May/Next Academic Year | 15000        | 50            | active | 01/May/Current Academic Year |
+		| employer 1             | employer 2                   | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
 
 # Option 2
 #	And a transfer agreement has been set up between employer 1 and employer 2
@@ -65,11 +65,11 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer - PV2-736
 #
 #	And the following commitments exist 
 #		| start date                   | end date                  | agreed price | standard code | status | effective from               |
-#		| 01/May/Current Academic Year | 06/May/Next Academic Year | 15000        | 50            | active | 01/May/Current Academic Year |
+#		| 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/May/Current Academic Year | 12 months        | 15000                | 06/May/Current Academic Year        | 0                      | 06/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| 06/Aug/Current Academic Year | 12 months        | 15000                | 06/Aug/Current Academic Year        | 0                      | 06/Aug/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 50            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
 	When the ILR file is submitted for the learners for collection period <Collection_Period>
 	Then the following learner earnings should be generated
