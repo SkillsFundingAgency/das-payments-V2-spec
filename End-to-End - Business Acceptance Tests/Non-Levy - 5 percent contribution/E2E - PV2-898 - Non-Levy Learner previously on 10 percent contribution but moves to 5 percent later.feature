@@ -65,35 +65,35 @@ Scenario Outline: Non-Levy Learner previously on 10 percent contribution but mov
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Standard Code | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 03/Jan/Current Academic Year | 12 months        | 15000                | 03/Jan/Current Academic Year        | 0                      | 03/Jan/Current Academic Year          | 3 months        | withdrawn         | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             |               | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| 01/Apr/Next Academic Year    | 12 months        | 12000                | 01/Apr/Next Academic Year           | 3000                   | 01/Apr/Next Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      |                |              | 20             | 52            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| 01/Apr/Current Academic Year | 12 months        | 12000                | 01/Apr/Current Academic Year        | 3000                   | 01/Apr/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      |                |              | 20             | 52            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
-		| Delivery Period        | On-Programme | Completion | Balancing |
-		| Aug/Next Academic Year | 1000         | 0          | 0         |
-		| Sep/Next Academic Year | 1000         | 0          | 0         |
-		| Oct/Next Academic Year | 1000         | 0          | 0         |
-		| Nov/Next Academic Year | 1000         | 0          | 0         |
-		| Dec/Next Academic Year | 1000         | 0          | 0         |
-		| Jan/Next Academic Year | 1000         | 0          | 0         |
-		| Feb/Next Academic Year | 1000         | 0          | 0         |
-		| Mar/Next Academic Year | 1000         | 0          | 0         |
-		| Apr/Next Academic Year | 1000         | 0          | 0         |
-		| May/Next Academic Year | 1000         | 0          | 0         |
-		| Jun/Next Academic Year | 1000         | 0          | 0         |
-		| Jul/Next Academic Year | 1000         | 0          | 0         |
+		| Delivery Period           | On-Programme | Completion | Balancing |
+		| Aug/Current Academic Year | 0            | 0          | 0         |
+		| Sep/Current Academic Year | 0            | 0          | 0         |
+		| Oct/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Dec/Current Academic Year | 0            | 0          | 0         |
+		| Jan/Current Academic Year | 1000         | 0          | 0         |
+		| Feb/Current Academic Year | 1000         | 0          | 0         |
+		| Mar/Current Academic Year | 1000         | 0          | 0         |
+		| Apr/Current Academic Year | 1000         | 0          | 0         |
+		| May/Current Academic Year | 1000         | 0          | 0         |
+		| Jun/Current Academic Year | 1000         | 0          | 0         |
+		| Jul/Current Academic Year | 1000         | 0          | 0         |
     And only the following payments will be calculated
-		| Collection Period      | Delivery Period        | On-Programme | Completion | Balancing | LearningSupport |
-		| R01/Next Academic Year | Aug/Next Academic Year | 1000         | 0          | 0         | 0               |
-		| R02/Next Academic Year | Sep/Next Academic Year | 1000         | 0          | 0         | 0               |
+		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | LearningSupport |
+		| R09/Current Academic Year | Apr/Current Academic Year | 1000         | 0          | 0         | 0               |
+		| R10/Current Academic Year | May/Current Academic Year | 1000         | 0          | 0         | 0               |
 	And only the following provider payments will be recorded
-		| Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
-		| R01/Next Academic Year | Aug/Next Academic Year | 950                    | 50                          | 0                         | Learning         |
-		| R02/Next Academic Year | Sep/Next Academic Year | 950                    | 50                          | 0                         | Learning         |
+		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
+		| R09/Current Academic Year | Apr/Current Academic Year | 950                    | 50                          | 0                         | Learning         |
+		| R10/Current Academic Year | May/Current Academic Year | 950                    | 50                          | 0                         | Learning         |
 	And at month end only the following provider payments will be generated
-		| Collection Period      | Delivery Period        | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
-		| R01/Next Academic Year | Aug/Next Academic Year | 950                    | 50                          | 0                         | Learning         |
-		| R02/Next Academic Year | Sep/Next Academic Year | 950                    | 50                          | 0                         | Learning         |
+		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
+		| R09/Current Academic Year | Apr/Current Academic Year | 950                    | 50                          | 0                         | Learning         |
+		| R10/Current Academic Year | May/Current Academic Year | 950                    | 50                          | 0                         | Learning         |
 	Examples:
-        | Collection_Period      |
-        | R01/Next Academic Year |
-		| R02/Next Academic Year |
+        | Collection_Period         |
+        | R09/Current Academic Year |
+        | R10/Current Academic Year |
