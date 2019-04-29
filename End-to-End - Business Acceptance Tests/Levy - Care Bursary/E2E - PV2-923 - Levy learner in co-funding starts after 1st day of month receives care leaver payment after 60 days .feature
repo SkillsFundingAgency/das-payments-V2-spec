@@ -90,7 +90,7 @@ Scenario Outline: Levy learner in co-funding starts after 1st day of month recei
 		| Jun/Current Academic Year | 500          | 0          | 0         | 0                           |
 		| Jul/Current Academic Year | 500          | 0          | 0         | 0                           |
 
-	And only the following payments will be calculated
+	And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | CareLeaverApprenticePayment |
 		| R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         | 0                           |
 		| R02/Current Academic Year | Sep/Current Academic Year | 500          | 0          | 0         | 0                           |
@@ -104,7 +104,7 @@ Scenario Outline: Levy learner in co-funding starts after 1st day of month recei
 		| R03/Current Academic Year | Oct/Current Academic Year | 0             | 450                    | 50                          | 0                         | Learning                    |
 		| R03/Current Academic Year | Oct/Current Academic Year | 0             | 0                      | 0                           | 1000                      | CareLeaverApprenticePayment |
 
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | Levy Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type            |
 		| R01/Current Academic Year | Aug/Current Academic Year | 0             | 450                    | 50                          | 0                         | Learning                    |
 		| R02/Current Academic Year | Sep/Current Academic Year | 0             | 450                    | 50                          | 0                         | Learning                    |
