@@ -56,22 +56,11 @@ Scenario Outline: Transfers - Single Levy learner partially paid via transfer - 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 
-	# new step - is it required?	
-	And a transfer agreement has been set up between employer 1 and employer 2
+	#And a transfer agreement has been set up between employer 1 and employer 2
 
-	# Option 1
 	And the following commitments exist 
 		| employer of apprentice | employer paying for training | start date                   | end date                  | agreed price | standard code | status | effective from               |
 		| employer 1             | employer 2                   | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
-
-# Option 2
-#	And a transfer agreement has been set up between employer 1 and employer 2
-#		| employer of apprentice | employer paying for training |
-#		| employer 1             | employer 2                   |
-#
-#	And the following commitments exist 
-#		| start date                   | end date                  | agreed price | standard code | status | effective from               |
-#		| 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -97,38 +86,24 @@ Scenario Outline: Transfers - Single Levy learner partially paid via transfer - 
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-	# New column - Transfer Payments
+	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 600           | 400               | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 600           | 400               | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 600           | 400               | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 400               | Learning         | employer 2 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 400               | Learning         | employer 2 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 400               | Learning         | employer 2 |
+
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 600           | 400               | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 600           | 400               | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 600           | 400               | Learning         |
-
-	#And only the following provider payments will be recorded
- #       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
- #       | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
- #       | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
- #       | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
-	#And only the following provider payments will be generated
- #       | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
- #       | R01/Current Academic Year | Aug/Current Academic Year | 1000          | Learning         |
- #       | R02/Current Academic Year | Sep/Current Academic Year | 1000          | Learning         |
- #       | R03/Current Academic Year | Oct/Current Academic Year | 1000          | Learning         |
-
-	## New section - Is it required or below example table is sufficient?
-	#And only the following levy employers account will be debited
- #       | Collection Period         | Employer Levy account debited | Levy Payments | Transaction Type |
- #       | R01/Current Academic Year | employer 2                    | 400           | Learning         |
- #       | R02/Current Academic Year | employer 2                    | 400           | Learning         |
- #       | R03/Current Academic Year | employer 2                    | 400           | Learning         |
- #       | R01/Current Academic Year | employer 1                    | 600           | Learning         |
- #       | R02/Current Academic Year | employer 1                    | 600           | Learning         |
- #       | R03/Current Academic Year | employer 1                    | 600           | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
+        | R01/Current Academic Year | Aug/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 600           | 0                 | Learning         | employer 1 |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 400               | Learning         | employer 2 |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 400               | Learning         | employer 2 |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 400               | Learning         | employer 2 |
 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
