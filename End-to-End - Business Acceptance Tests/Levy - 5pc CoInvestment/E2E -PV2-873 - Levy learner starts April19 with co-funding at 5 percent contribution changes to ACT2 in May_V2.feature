@@ -54,9 +54,9 @@ Scenario Outline: Levy Learner, starts new learning April 2019, 5% contribution,
 		| 01/Apr/Current Academic Year | 12 months        | 15000                | 01/Apr/Current Academic Year        |                        |                                       |                 | continuing        | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship Levy Contract | 95%                         |
 	#New step for changing Contract type 
 	And the Contract Type details are as follows 
-		| Contract Type | Effective From               | Effective To                |
-		| Act1          | 01/Apr/Current Academic Year | 30/04/Current Academic Year |
-		| Act2          | 01/May/Current Academic Year |                             |
+		| Contract Type | Effective From               | Effective To                 |
+		| Act1          | 01/Apr/Current Academic Year | 30/Apr/Current Academic Year |
+		| Act2          | 01/May/Current Academic Year |                              |
 
 	When the ILR file is submitted for the learners for collection period R10/Current Academic Year
 

@@ -68,7 +68,7 @@ Scenario Outline: Levy Learner, learner is co-funded as not enough levy in the a
 		| Jan/Current Academic Year | 0            | 0          | 0         |
 		| Feb/Current Academic Year | 0            | 0          | 0         |
 		| Mar/Current Academic Year | 0            | 0          | 0         |
-		| Apr/Current Academic Year | 0            | 0          | 0         |
+		| Apr/Current Academic Year | 1000         | 0          | 0         |
 		| May/Current Academic Year | 1000         | 0          | 0         |
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
