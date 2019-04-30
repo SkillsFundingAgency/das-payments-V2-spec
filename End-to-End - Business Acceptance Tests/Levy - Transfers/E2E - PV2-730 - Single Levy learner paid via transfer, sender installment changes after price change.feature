@@ -58,8 +58,7 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer sender insta
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
 	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 
-	# new step - is it required?	
-	And a transfer agreement has been set up between employer 1 and employer 2
+	#And a transfer agreement has been set up between employer 1 and employer 2
 
 	And the following commitments exist 
 		| commitment Id | version Id | employer of apprentice | employer paying for training | start date                   | end date                     | agreed price | standard code | status    | effective from               | effective to                 |
@@ -85,10 +84,11 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer sender insta
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
 
+	# New Column - Employer
 	And the following provider payments had been generated
-		| Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 0             | 1000              | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 0             | 1000              | Learning         |
+		| Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
+		| R10/Current Academic Year | May/Current Academic Year | 0             | 1000              | Learning         | employer 2 |
+		| R11/Current Academic Year | Jun/Current Academic Year | 0             | 1000              | Learning         | employer 2 |
        
 	But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Residual Training Price | Residual Training Price Effective Date | Residual Assessment Price | Residual Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -113,13 +113,13 @@ Scenario Outline: Transfers - Single Levy learner paid via transfer sender insta
     And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | R12/Current Academic Year | Jul/Current Academic Year | 750          | 0          | 0         |
-	# New column - Transfer Payments
+	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 750               | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
+        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 750               | Learning         | employer 2 |
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 750               | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
+        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 750               | Learning         | employer 2 |
 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
