@@ -64,7 +64,7 @@ Scenario Outline: Non-Levy Learner previously on 10 percent contribution but mov
     But the Provider now changes the Learner details as follows
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                                     | SFA Contribution Percentage |
 		| 03/Jan/Current Academic Year | 12 months        | 15000                | 03/Jan/Current Academic Year        | 0                      | 03/Jan/Current Academic Year          | 3 months        | withdrawn         | Act2          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
-		| 01/Apr/Current Academic Year | 12 months        | 15000                | 01/Apr/Current Academic Year        | 0                      | 01/Apr/Current Academic Year          |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 2            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| 01/Apr/Current Academic Year | 12 months        | 15000                | 01/Apr/Current Academic Year        | 0                      | 01/Apr/Current Academic Year          |                 | continuing        | Act2          | 2                   | ZPROG001      | 593            | 2            | 20             | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -80,7 +80,7 @@ Scenario Outline: Non-Levy Learner previously on 10 percent contribution but mov
 		| May/Current Academic Year | 1000         | 0          | 0         |
 		| Jun/Current Academic Year | 1000         | 0          | 0         |
 		| Jul/Current Academic Year | 1000         | 0          | 0         |
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | LearningSupport |
 		| R09/Current Academic Year | Apr/Current Academic Year | 1000         | 0          | 0         | 0               |
 		| R10/Current Academic Year | May/Current Academic Year | 1000         | 0          | 0         | 0               |
@@ -88,7 +88,7 @@ Scenario Outline: Non-Levy Learner previously on 10 percent contribution but mov
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
 		| R09/Current Academic Year | Apr/Current Academic Year | 900                    | 100                         | 0                         | Learning         |
 		| R10/Current Academic Year | May/Current Academic Year | 900                    | 100                         | 0                         | Learning         |
-	And at month end only the following provider payments will be generated
+	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type |
 		| R09/Current Academic Year | Apr/Current Academic Year | 900                    | 100                         | 0                         | Learning         |
 		| R10/Current Academic Year | May/Current Academic Year | 900                    | 100                         | 0                         | Learning         |

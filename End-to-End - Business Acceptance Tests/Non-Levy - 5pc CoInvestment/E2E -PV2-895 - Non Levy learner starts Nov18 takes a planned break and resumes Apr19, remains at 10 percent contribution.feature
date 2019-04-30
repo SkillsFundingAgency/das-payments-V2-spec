@@ -5,7 +5,7 @@
 #Background: The example is demonstrating an employer flagged as 'Non Levy' ACT2 starts learning pre April 2019 has a break and resumes from Apr19
 #			and remains at 10% contribution as the learning is not new learning from Apr19
 #	
-#    Given The learner is programme only Non Levy 
+#   Given The learner is programme only Non Levy 
 #	And the apprenticeship funding band maximum is 15000
 #	
 #	When an ILR file is submitted on 03/03/2019 with the following data:
