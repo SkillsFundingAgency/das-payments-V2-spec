@@ -49,7 +49,7 @@ As a provider,
 I want a Levy learner, starting prior to Apr 2019, where learner completes learning and starts a new course on new Pathway code in Apr 2019, and moves into co-funding on 5% contribution
 So that I am paid the correct apprenticeship funding by SFA
 
-Scenario Outline: Levy Learner, started learning before Apr19, completes learning and starts new course on new pathway code from Apr19, moves into co-funding and second pathway code on 5% contribution
+Scenario Outline: Levy Learner, started learning before Apr19, completes learning and starts new course on new pathway code from Apr19, moves into co-funding and second pathway code on 5% contribution PV2-905
 
 Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		

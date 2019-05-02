@@ -48,12 +48,13 @@ Feature:  5% Contribution from April 2019 PV2-892
 As a provider,
 I want a Levy learner, starting in Jan 2019, where employer runs out of Levy in May'19 and learner is co-funded from May'19 at 10% contribution
  5% Contribution from April 2019
-Scenario Outline: Levy Learner, starts learning in Jan19 runs out of Levy and goes into co-funding in May19, 10% contribution 
+Scenario Outline: Levy Learner, starts learning in Jan19 runs out of Levy and goes into co-funding in May19, 10% contribution PV2-892
+
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		
 	And the following apprenticeships exist
-		| Apprenticeship | Provider   | Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| Apprentice a   | Provider a | learner a  | 593            | 20             | 1            | 15000        | 01/Jan/Current Academic Year | 01/Jan/Next Academic Year | active | 01/Jan/Current Academic Year |	
+		| framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| 593            | 20             | 1            | 15000        | 01/Jan/Current Academic Year | 01/Jan/Next Academic Year | active | 01/Jan/Current Academic Year |	
     
 	And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                  | SFA Contribution Percentage |

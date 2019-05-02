@@ -41,13 +41,13 @@ As a provider,
 I want a Levy learner, starting in April 2019, where learner is co-funded at 5% contribution, as not enough levy in the account
 So that I am paid the correct apprenticeship funding by SFA
 
-Scenario Outline: Levy Learner, starts new learning April 2019, 5% contribution, learner is co-funded as not enough levy in the account
+Scenario Outline: Levy Learner, starts new learning April 2019, 5% contribution, learner is co-funded as not enough levy in the account PV2-871
 
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		
 	And the following apprenticeships exist
-		| Apprenticeship | Provider   | Learner ID | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| Apprentice a   | Provider a | learner a  | 593            | 20             | 1            | 15000        | 01/Apr/Current Academic Year | 01/Apr/Next Academic Year | active | 01/Apr/Current Academic Year |	
+		| framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| 593            | 20             | 1            | 15000        | 01/Apr/Current Academic Year | 01/Apr/Next Academic Year | active | 01/Apr/Current Academic Year |	
     
 	And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                  | SFA Contribution Percentage |

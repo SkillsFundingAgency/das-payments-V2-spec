@@ -49,13 +49,13 @@ As a provider,
 I want a Levy learner on co-funding, starting prior to Apr 2019, where learner changes Provider and changes to Non Levy in Apr 2019, and remains on 10% contribution
 So that I am paid the correct apprenticeship funding by SFA
 
-Scenario Outline: Levy Learner, started learning before Apr19 on co-funding, changes Provider and changes to ACT2 from April 2019, remains on 10% contribution
+Scenario Outline: Levy Learner, started learning before Apr19 on co-funding, changes Provider and changes to ACT2 from April 2019, remains on 10% contribution PV2-908
 
 	Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		
 	And the following apprenticeships exist
-		| Apprenticeship | Provider   | Learner ID | Standard code | programme type | agreed price | start date                   | end date                  | status | effective from               |
-		| Apprentice a   | provider a | learner a  | 17            | 25             | 15000        | 01/Jan/Current Academic Year | 01/Jan/Next Academic Year | active | 01/Jan/Current Academic Year |
+		| Standard code | programme type | agreed price | start date                   | end date                  | status | effective from               |
+		| 17            | 25             | 15000        | 01/Jan/Current Academic Year | 01/Jan/Next Academic Year | active | 01/Jan/Current Academic Year |
 
 	And the "provider a" previously submitted the following learner details
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |

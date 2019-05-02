@@ -50,7 +50,7 @@ As a provider,
 I want a Levy learner, starting prior to Apr 2019, where learner takes a planned break and resumes in Apr 2019, and moves into co-funding on 10% contribution
 So that I am paid the correct apprenticeship funding by SFA
 
-Scenario Outline: Levy Learner, started learning before Apr19 with Levy balance, takes a planned break and resumes from Apr19, moves into co-funding on 10% contribution
+Scenario Outline: Levy Learner, started learning before Apr19 with Levy balance, takes a planned break and resumes from Apr19, moves into co-funding on 10% contribution PV2-906
 
 Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		
