@@ -46,14 +46,17 @@
 #        | Provider 16-18 incentive     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
 
 Feature: 5% Contribution from April 2019 PV2-906
+As a provider,
+I want a Levy learner, starting prior to Apr 2019, where learner takes a planned break and resumes in Apr 2019, and moves into co-funding on 10% contribution
+So that I am paid the correct apprenticeship funding by SFA
 
 Scenario Outline: Levy Learner, started learning before Apr19 with Levy balance, takes a planned break and resumes from Apr19, moves into co-funding on 10% contribution
 
 Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 		
-	And the following apprenticeships exist
-		| Apprenticeship | Provider   | Learner ID | Standard code | programme type | agreed price | start date                   | end date                  | status        | effective from               |
-		| Apprentice a   | Provider a | learner a  | 17            | 25             | 15000        | 01/Nov/Current Academic Year | 01/Nov/Next Academic Year | planned break | 01/Nov/Current Academic Year |
+And the following apprenticeships exist
+	| Standard code | programme type | agreed price | start date                   | end date                  | status        | effective from               |
+	| 17            | 25             | 15000        | 01/Nov/Current Academic Year | 01/Nov/Next Academic Year | planned break | 01/Nov/Current Academic Year |
 
 And the provider previously submitted the following learner details
     | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Standard Code | Programme Type | Aim Reference | Funding Line Type                                  | SFA Contribution Percentage |
@@ -122,17 +125,17 @@ And at month end only the following payments will be calculated
 
 And only the following provider payments will be recorded
     | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-    | R09/Current Academic Year | Apr/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R10/Current Academic Year | May/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R11/Current Academic Year | Jun/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R12/Current Academic Year | Jul/Current Academic Year | 950                    | 50                          | 0             | Learning         |
+    | R09/Current Academic Year | Apr/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R10/Current Academic Year | May/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R11/Current Academic Year | Jun/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R12/Current Academic Year | Jul/Current Academic Year | 900                    | 100                         | 0             | Learning         |
 
 And only the following provider payments will be generated
     | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-    | R09/Current Academic Year | Apr/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R10/Current Academic Year | May/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R11/Current Academic Year | Jun/Current Academic Year | 950                    | 50                          | 0             | Learning         |
-    | R12/Current Academic Year | Jul/Current Academic Year | 950                    | 50                          | 0             | Learning         |
+    | R09/Current Academic Year | Apr/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R10/Current Academic Year | May/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R11/Current Academic Year | Jun/Current Academic Year | 900                    | 100                         | 0             | Learning         |
+    | R12/Current Academic Year | Jul/Current Academic Year | 900                    | 100                         | 0             | Learning         |
     
  Examples: 
         | Collection_Period         | Levy Balance |
