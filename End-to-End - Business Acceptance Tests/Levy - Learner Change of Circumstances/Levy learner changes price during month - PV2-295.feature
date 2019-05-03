@@ -25,15 +25,15 @@ Scenario Outline: Levy learner changes to the agreed price during the month PV2-
         | Aug/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
         | Sep/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
         | Oct/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
-        | Nov/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Dec/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Jan/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Feb/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Mar/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Apr/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | May/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Jun/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
-        | Jul/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
+        | Nov/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Dec/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Jan/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Feb/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Mar/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Apr/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | May/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Jun/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
+        | Jul/Current Academic Year | 500          | 0          | 0         | 1                   | pe-2                     |
 
 	And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
