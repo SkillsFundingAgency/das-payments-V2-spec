@@ -1,50 +1,3 @@
-#Feature: 5% Contribution from April 2019
-#
-#Scenario: Levy Learner, started learning before Apr19 with Levy balance, takes a planned break and resumes from Apr19, moves into co-funding on 10% contribution
-#
-#Background: The example is demonstrating a learner flagged as 'Levy' starts learning pre Apr 2019 with Levy balance, takes a planned break and resumes in Apr19
-#			and moves into co-funding with 10% contribution from Apr19 as the learning is existing course
-#	
-#    Given The learner is programme only Non Levy 
-#	And the apprenticeship funding band maximum is 15000
-#	
-#	And the employer's levy balance is:
-#        | 11/18 | 12/18 | 01/19 | ... | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
-#        | 1000  | 1000  | 1000  | ... | 1000  | 0     | 0     | ... | 0     | 0     |	
-#	
-#	And the following commitments exist on 03/03/2019:
-#        | commitment Id | version Id | ULN       | priority | start date | planned end date | actual end date | completion status | effective from | effective to |
-#        | 1             | 1          | learner a | 1        | 01/11/2018 | 08/11/2019       | 28/02/2019      | planned break     | 01/11/2018     | 28/02/2019   |
-#		| 1             | 2          | learner a | 1        | 03/04/2019 | 03/12/2019       |                 | continuing        | 02/04/2018     | 03/12/2019   |
-#	
-#	
-#	When an ILR file is submitted on 03/03/2019 with the following data:
-#		| ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#        | learner a | 01/11/2018 | 08/11/2019       | 28/02/2019      | planned break     | 12000                | 01/11/2018                          | 3000                   | 01/11/2018                            |
-#        | learner a | 03/04/2019 | 03/12/2019       |                 | continuing        | 12000                | 03/04/2019                          | 3000                   | 03/04/2019                            |
-#        
-#
-#   		
-#	Then the provider earnings and payments break down as follows:		
-#        | Type                       		| 11/19 | 12/18 | 01/19 | 02/19 | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
-#        | Provider Earned Total      		| 1000  | 1000  | 1000  | 1000  | 0     | 1000  | 1000  | ... | 1000  | 0     |
-#        | Provider Earned from SFA   		| 1000  | 1000  | 1000  | 1000  | 0     | 900   | 900   | ... | 900   | 0     |
-#        | Provider Earned from Employer 	| 0     | 0     | 0     | 0     | 0     | 100   | 100   | ... | 100   | 0     |            
-#		| Provider Paid by SFA       		| 0     | 1000  | 1000  | 1000  | 1000  | 0     | 900   | ... | 900   | 900   |
-#        | Payment due from Employer         | 0     | 0     | 0     | 0     | 0     | 0     | 100   | ... | 100   | 100   | 
-#		| Levy account debited       		| 0     | 1000  | 1000  | 1000  | 1000  | 0     | 0     |  ...| 0     | 0     |
-#        | SFA Levy employer budget   		| 1000  | 1000  | 1000  | 1000  | 0     | 0     | 0     | ... | 0     | 0     |
-#        | SFA Levy co-funding budget 		| 0     | 0     | 0     | 0     | 0     | 900   | 900   | ... | 900   | 0     |
-#		| SFA non-Levy co-funding budget	| 0     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 
-#
-#	And the transaction types for the payments are:
-#        | Payment type                 | 12/18 | 01/19 | 02/19 | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
-#        | On-program                   | 1000  | 1000  | 1000  | 1000  | 0     | 900   | ... | 900   | 900   |
-#        | Completion                   | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        | Balancing                    | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        | Employer 16-18 incentive     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        | Provider 16-18 incentive     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-
 Feature: 5% Contribution from April 2019 PV2-906
 As a provider,
 I want a Levy learner, starting prior to Apr 2019, where learner takes a planned break and resumes in Apr 2019, and moves into co-funding on 10% contribution
@@ -143,3 +96,50 @@ And only the following provider payments will be generated
         | R10/Current Academic Year | 0            |
         | R11/Current Academic Year | 0            |
         | R12/Current Academic Year | 0            |
+
+#Feature: 5% Contribution from April 2019
+#
+#Scenario: Levy Learner, started learning before Apr19 with Levy balance, takes a planned break and resumes from Apr19, moves into co-funding on 10% contribution
+#
+#Background: The example is demonstrating a learner flagged as 'Levy' starts learning pre Apr 2019 with Levy balance, takes a planned break and resumes in Apr19
+#			and moves into co-funding with 10% contribution from Apr19 as the learning is existing course
+#	
+#    Given The learner is programme only Non Levy 
+#	And the apprenticeship funding band maximum is 15000
+#	
+#	And the employer's levy balance is:
+#        | 11/18 | 12/18 | 01/19 | ... | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
+#        | 1000  | 1000  | 1000  | ... | 1000  | 0     | 0     | ... | 0     | 0     |	
+#	
+#	And the following commitments exist on 03/03/2019:
+#        | commitment Id | version Id | ULN       | priority | start date | planned end date | actual end date | completion status | effective from | effective to |
+#        | 1             | 1          | learner a | 1        | 01/11/2018 | 08/11/2019       | 28/02/2019      | planned break     | 01/11/2018     | 28/02/2019   |
+#		| 1             | 2          | learner a | 1        | 03/04/2019 | 03/12/2019       |                 | continuing        | 02/04/2018     | 03/12/2019   |
+#	
+#	
+#	When an ILR file is submitted on 03/03/2019 with the following data:
+#		| ULN       | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#        | learner a | 01/11/2018 | 08/11/2019       | 28/02/2019      | planned break     | 12000                | 01/11/2018                          | 3000                   | 01/11/2018                            |
+#        | learner a | 03/04/2019 | 03/12/2019       |                 | continuing        | 12000                | 03/04/2019                          | 3000                   | 03/04/2019                            |
+#        
+#
+#   		
+#	Then the provider earnings and payments break down as follows:		
+#        | Type                       		| 11/19 | 12/18 | 01/19 | 02/19 | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
+#        | Provider Earned Total      		| 1000  | 1000  | 1000  | 1000  | 0     | 1000  | 1000  | ... | 1000  | 0     |
+#        | Provider Earned from SFA   		| 1000  | 1000  | 1000  | 1000  | 0     | 900   | 900   | ... | 900   | 0     |
+#        | Provider Earned from Employer 	| 0     | 0     | 0     | 0     | 0     | 100   | 100   | ... | 100   | 0     |            
+#		| Provider Paid by SFA       		| 0     | 1000  | 1000  | 1000  | 1000  | 0     | 900   | ... | 900   | 900   |
+#        | Payment due from Employer         | 0     | 0     | 0     | 0     | 0     | 0     | 100   | ... | 100   | 100   | 
+#		| Levy account debited       		| 0     | 1000  | 1000  | 1000  | 1000  | 0     | 0     |  ...| 0     | 0     |
+#        | SFA Levy employer budget   		| 1000  | 1000  | 1000  | 1000  | 0     | 0     | 0     | ... | 0     | 0     |
+#        | SFA Levy co-funding budget 		| 0     | 0     | 0     | 0     | 0     | 900   | 900   | ... | 900   | 0     |
+#		| SFA non-Levy co-funding budget	| 0     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 
+#
+#	And the transaction types for the payments are:
+#        | Payment type                 | 12/18 | 01/19 | 02/19 | 03/19 | 04/19 | 05/19 | ... | 11/19 | 12/19 |
+#        | On-program                   | 1000  | 1000  | 1000  | 1000  | 0     | 900   | ... | 900   | 900   |
+#        | Completion                   | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | Balancing                    | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | Employer 16-18 incentive     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | Provider 16-18 incentive     | 0     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
