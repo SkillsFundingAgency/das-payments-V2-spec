@@ -1,4 +1,4 @@
-#Feature: Employer Stops PV2-946
+#Feature: Employer Stops
 #
 #Scenario: Levy learner, Employer stops commitment after the day that the course is completed, but in the same month, with a Balancing payment. Completion and Balancing is paid
 #  
@@ -7,14 +7,14 @@
 #  
 #  And the following commitments exist:
 #        | commitment Id | version Id | ULN       | start date | end date   | status    | agreed price | effective from | effective to | stop effective from |
-#        | 1             | 1          | learner a | 01/08/2018 | 01/09/2019 | cancelled | 15000        | 01/08/2018     | 01/09/2019   | 15/07/2019          |
+#        | 1             | 1          | learner a | 01/08/2018 | 01/10/2019 | cancelled | 17500        | 01/08/2018     | 01/10/2019   | 15/09/2019          |
 #            
 #  When an ILR file is submitted with the following data:
 #        | ULN       | agreed price | learner type       | start date | planned end date | actual end date   |completion status|
-#        | learner a | 15000        | programme only DAS | 01/08/2018 | 09/08/2019       | 09/07/2019        |completed        |
+#        | learner a | 15000        | programme only DAS | 01/08/2018 | 09/10/2019       | 09/09/2019        |completed        |
 #  
 #  Then the provider earnings and payments break down as follows:
-#        | Type                           | 08/18 | 09/18 | ... | 06/19 | 07/19 | 08/19 |
+#        | Type                           | 08/18 | 09/18 | ... | 08/19 | 09/19 | 10/19 |
 #        | Provider Earned Total          | 1000  | 1000  | ... | 1000  | 4000  | 0     |
 #        | Provider Earned from SFA       | 1000  | 1000  | ... | 1000  | 4000  | 0     |
 #        | Provider Earned from Employer  | 0     | 0     | ... | 0     | 0     | 0     |
@@ -26,7 +26,7 @@
 #        | SFA non-Levy co-funding budget | 0     | 0     | ... | 0     | 0     | 0     |
 #
 #	And the transaction types for the payments are:
-#		| Payment type                 | 09/18 | ... | 06/19 | 07/19 | 08/19 |
+#		| Payment type                 | 09/18 | ... | 08/19 | 09/19 | 10/19 |
 #		| On-program                   | 1000  | ... | 1000  | 1000  | 0     |
 #		| Completion                   | 0     | ... | 0     | 0     | 3000  |
 #		| Balancing                    | 0     | ... | 0     | 0     | 1000  |
@@ -45,44 +45,49 @@ Given the employer levy account balance in collection period <Collection_Period>
 	# New Commitment line
 
 	And the following apprenticeships exist
-		| framework code | programme type | pathway code | agreed price | start date                | end date                     | status  | effective from            | stop effective from          |
-		| 593            | 20             | 1            | 15000        | 06/Aug/Last Academic Year | 01/Sep/Current Academic Year | stopped | 06/Aug/Last Academic Year | 07/Aug/Current Academic Year |		
+		| agreed price | start date                | end date                     | status  | effective from            | stop effective from          |
+		| 17500        | 01/Aug/Last Academic Year | 01/Oct/Current Academic Year | stopped | 01/Aug/Last Academic Year | 15/Sep/Current Academic Year |		
 
 	And the provider previously submitted the following learner details
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/Aug/Last Academic Year | 14 months        | 15000                | 01/Aug/Last Academic Year           | 2500                   | 01/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And the following earnings had been generated for the learner
-        | Delivery Period        | On-Programme | Completion | Balancing |
-        | Aug/Last Academic Year | 1000         | 0          | 0         |
-        | Sep/Last Academic Year | 1000         | 0          | 0         |
-        | Oct/Last Academic Year | 1000         | 0          | 0         |
-        | Nov/Last Academic Year | 1000         | 0          | 0         |
-        | Dec/Last Academic Year | 1000         | 0          | 0         |
-        | Jan/Last Academic Year | 1000         | 0          | 0         |
-        | Feb/Last Academic Year | 1000         | 0          | 0         |
-        | Mar/Last Academic Year | 1000         | 0          | 0         |
-        | Apr/Last Academic Year | 1000         | 0          | 0         |
-        | May/Last Academic Year | 1000         | 0          | 0         |
-        | Jun/Last Academic Year | 1000         | 0          | 0         |
-        | Jul/Last Academic Year | 1000         | 0          | 0         |
+        | Delivery Period           | On-Programme | Completion | Balancing |
+        | Aug/Last Academic Year    | 1000         | 0          | 0         |
+        | Sep/Last Academic Year    | 1000         | 0          | 0         |
+        | Oct/Last Academic Year    | 1000         | 0          | 0         |
+        | Nov/Last Academic Year    | 1000         | 0          | 0         |
+        | Dec/Last Academic Year    | 1000         | 0          | 0         |
+        | Jan/Last Academic Year    | 1000         | 0          | 0         |
+        | Feb/Last Academic Year    | 1000         | 0          | 0         |
+        | Mar/Last Academic Year    | 1000         | 0          | 0         |
+        | Apr/Last Academic Year    | 1000         | 0          | 0         |
+        | May/Last Academic Year    | 1000         | 0          | 0         |
+        | Jun/Last Academic Year    | 1000         | 0          | 0         |
+        | Jul/Last Academic Year    | 1000         | 0          | 0         |
+        | Aug/Current Academic Year | 1000         | 0          | 0         |
+        | Sep/Current Academic Year | 1000         | 3000       | 0         |
+		
 	#Levy Payments
     And the following provider payments had been generated
-        | Collection Period      | Delivery Period        | Levy Payments | Transaction Type |
-		| R01/Last Academic Year | Aug/Last Academic Year | 1000          | Learning         |
-        | R02/Last Academic Year | Sep/Last Academic Year | 1000          | Learning         |
-        | R03/Last Academic Year | Oct/Last Academic Year | 1000          | Learning         |
-        | R04/Last Academic Year | Nov/Last Academic Year | 1000          | Learning         |
-        | R05/Last Academic Year | Dec/Last Academic Year | 1000          | Learning         |
-        | R06/Last Academic Year | Jan/Last Academic Year | 1000          | Learning         |
-        | R07/Last Academic Year | Feb/Last Academic Year | 1000          | Learning         |
-        | R08/Last Academic Year | Mar/Last Academic Year | 1000          | Learning         |
-        | R09/Last Academic Year | Apr/Last Academic Year | 1000          | Learning         |
-        | R10/Last Academic Year | May/Last Academic Year | 1000          | Learning         |
-        | R11/Last Academic Year | Jun/Last Academic Year | 1000          | Learning         |
-        | R12/Last Academic Year | Jul/Last Academic Year | 1000          | Learning         |
+        | Collection Period      | Delivery Period           | Levy Payments | Transaction Type |
+        | R01/Last Academic Year | Aug/Last Academic Year    | 1000          | Learning         |
+        | R02/Last Academic Year | Sep/Last Academic Year    | 1000          | Learning         |
+        | R03/Last Academic Year | Oct/Last Academic Year    | 1000          | Learning         |
+        | R04/Last Academic Year | Nov/Last Academic Year    | 1000          | Learning         |
+        | R05/Last Academic Year | Dec/Last Academic Year    | 1000          | Learning         |
+        | R06/Last Academic Year | Jan/Last Academic Year    | 1000          | Learning         |
+        | R07/Last Academic Year | Feb/Last Academic Year    | 1000          | Learning         |
+        | R08/Last Academic Year | Mar/Last Academic Year    | 1000          | Learning         |
+        | R09/Last Academic Year | Apr/Last Academic Year    | 1000          | Learning         |
+        | R10/Last Academic Year | May/Last Academic Year    | 1000          | Learning         |
+        | R11/Last Academic Year | Jun/Last Academic Year    | 1000          | Learning         |
+        | R12/Last Academic Year | Jul/Last Academic Year    | 1000          | Learning         |
+        | R01/Last Academic Year | Aug/Current Academic Year | 1000          | Learning         |
+
     But the Provider now changes the Learner details as follows
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           |                        |                                       | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| 01/Aug/Last Academic Year | 14 months        | 15000                | 01/Aug/Last Academic Year           | 2500                       | 01/Aug/Last Academic Year                                      | 12 months       | completed         | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
