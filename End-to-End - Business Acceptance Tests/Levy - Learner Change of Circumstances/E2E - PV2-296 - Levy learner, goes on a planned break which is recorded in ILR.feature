@@ -7,11 +7,11 @@ Scenario Outline: One Levy learner, goes on a planned break which is recorded in
 
 Given the employer levy account balance in collection period R02/Current Academic Year is 17000
 
-And the following commitments exist
+And the following apprenticeships exist
 	| start date                   | end date                  | agreed price | status |
 	| 01/Sep/Current Academic Year | 30/Sep/Next Academic Year | 15000        | Active |
 
-And the Apprenticeship status changes as follows 
+And the apprenticeships status changes as follows 
 	| Collection Period         | status |
 	| Nov/Current Academic Year | Paused |
 	| Jan/Current Academic Year | Active |
