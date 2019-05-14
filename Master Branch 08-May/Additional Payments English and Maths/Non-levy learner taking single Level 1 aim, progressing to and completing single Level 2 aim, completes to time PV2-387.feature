@@ -3,7 +3,10 @@
 	I want a non-levy learner taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time, to be paid the correct amount
 	So that I am accurately paid my apprenticeship provision.
 Scenario Outline: Non-levy learner taking single Level 1 aim, progressing to and completing single Level 2 aim, completes to time PV2-387
-	Given the following aims
+	Given the following learners
+		| Learner Reference Number |
+		| abc123                   |
+	And the following aims
 		| Aim Type         | Aim Reference | Start Date                | Planned Duration | Actual Duration | Aim Sequence Number | Framework Code | Pathway Code | Programme Type | Funding Line Type                               | Completion Status |
 		| Maths or English | 50114979      | 06/Aug/Last Academic Year | 12 months        |                 | 1                   | 593            | 1            | 20             | 19+ Apprenticeship Non-Levy Contract (procured) | continuing        |
 		| Programme        | ZPROG001      | 06/Aug/Last Academic Year | 24 months        |                 | 2                   | 593            | 1            | 20             | 19+ Apprenticeship Non-Levy Contract (procured) | continuing        |
