@@ -4,8 +4,8 @@
 	So that I am accurately paid my apprenticeship provision.
 Scenario: Non-levy learner 19-24 with Education Health Care (EHC) plan, in paid employment with a small employer at start
 	Given the provider previously submitted the following learner details
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                               | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           |                        |                                       |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 19+ Apprenticeship Non-Levy Contract (procured) | 100%                        |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                 | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           |                        |                                       |                 | continuing        | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy Contract (procured) | 100%                        |
  #Small Employer | LearnDelFAM |
  #SEM1           | EEF2        |
 
@@ -53,8 +53,8 @@ Scenario: Non-levy learner 19-24 with Education Health Care (EHC) plan, in paid 
         | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 500                       | First16To18EmployerIncentive     |
         | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 500                       | First16To18ProviderIncentive     |
     But the Provider now changes the Learner details as follows
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                               | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           |                        |                                       | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 19+ Apprenticeship Non-Levy Contract (procured) | 100%                        |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                 | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 7500                 | 06/Aug/Last Academic Year           |                        |                                       | 12 months       | completed         | Act2          | 1                   | ZPROG001      | 403            | 1            | 2              | 16-18 Apprenticeship Non-Levy Contract (procured) | 100%                        |
 #Small Employer | LearnDelFAM |
 #SEM1           | EEF2        |
 	When the amended ILR file is re-submitted for the learners in collection period R01/Current Academic Year

@@ -74,18 +74,18 @@ Scenario Outline: Non-levy learner completes maths and english early PV2-485
     Then the following learner earnings should be generated
         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | BalancingMathsAndEnglish | Aim Sequence Number | Price Episode Identifier |
 		# pe-1
-        | Aug/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Sep/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Oct/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Nov/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Dec/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Jan/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Feb/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Mar/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Apr/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | May/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Jun/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
-        | Jul/Current Academic Year | 1000         | 0          | 0         | 0                          |                          | 1                   | pe-1                     |
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Nov/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Dec/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Jan/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Feb/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Mar/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Apr/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | May/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Jun/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
+        | Jul/Current Academic Year | 1000         | 0          | 0         | 0                          | 0                        | 1                   | pe-1                     |
 		# Maths/Eng
         | Aug/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
         | Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
