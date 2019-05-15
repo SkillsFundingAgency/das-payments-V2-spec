@@ -38,17 +38,19 @@ Feature: Data Lock - DLOCK10 - when the employer stops payments for a learner on
 
 Scenario: DLOCK10 - when the employer stops payments for a learner on a commitmen PV2-711
 	Given the employer levy account balance in collection period R12/Current Academic Year is 11000
-	And the following apprenticeship exists
-		| apprenticeship   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status  | effective from               | effective to                 |
-		| apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | stopped | 01/May/Current Academic Year | 30/Jun/Current Academic Year |
-
+	And the following commitments exists
+		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               | effective to                 |
+		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year | 30/Jun/Current Academic Year |
+	And the commitments status changes as follows 
+		| Collection Period         | status  |
+		| Jul/Current Academic Year | stopped |
 	And the provider is providing training for the following learners
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
-		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
-
-	
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
+		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
+    And price details as follows
+		| Price Episode Id  | Total Training Price | Total Training Price Effective Date | Contract Type  | SFA Contribution Percentage |
+		| pe-1              | 10000                | 01/May/Current Academic Year        | Act1           | 90%                         |	
 	When the ILR file is submitted for the learners in collection period R12/Current Academic Year
-
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |
@@ -63,26 +65,17 @@ Scenario: DLOCK10 - when the employer stops payments for a learner on a commitme
 		| May/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
-	# New step
-    And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               | framework code | programme type | pathway code |
-        | learner a  | 01/May/Current Academic Year | 593            | 20             | 1            |
-	# New step
 	And the following data lock failures were generated
-        | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
-        | apprentice a | learner a  | Jul/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 10          |
-	# New step
-
+        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_10   | pe-1                     |
     And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
-
 	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
-
 	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
