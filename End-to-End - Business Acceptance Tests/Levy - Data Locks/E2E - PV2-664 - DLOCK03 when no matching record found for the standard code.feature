@@ -40,8 +40,7 @@ Feature: Data Lock - DLOCK03 - no matching standard code PV2-664
 
 Scenario: DLOCK03 - When no matching record found in an employer digital account for for the standard code then datalock DLOCK_03 will be produced PV2-664
 	Given the employer levy account balance in collection period R12/Current Academic Year is 10000
-	And the following aprrenticeship exists
-	# Learner ID kept for data lock event
+	And the following commitments exist
 		| Identifier       | standard code | programme type | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprenticeship a | 21            | 25             | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 	And the provider is providing training for the following learners
@@ -65,14 +64,11 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
 		| May/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
-    And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               |ILR Training Price | standard code | programme type |
-        | learner a  | 01/May/Current Academic Year |10000              | 21            | 25             |
     And the following data lock failures were generated
-        | Apprenticeship   | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
-        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK_03   |
-        | Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK_03   |
-        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK_03   |
-  And Month end is triggered
+        | Apprenticeship   | ILR Start Date               | Delivery Period           | Standard Code | Programme Type | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 21            | 25             | Learning         | DLOCK_03   | pe-1                     |
+        | Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 21            | 25             | Learning         | DLOCK_03   | pe-1                     |
+        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 21            | 25             | Learning         | DLOCK_03   | pe-1                     |
+	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded
