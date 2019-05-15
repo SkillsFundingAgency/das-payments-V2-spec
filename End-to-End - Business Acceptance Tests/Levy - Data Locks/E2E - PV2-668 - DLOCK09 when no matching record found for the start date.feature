@@ -33,7 +33,7 @@ Scenario: DLOCK09 - When no matching record found in an employer digital account
         | Jul/Current Academic Year | 666.67       | 0          | 0         |
 
     And the following data lock failures were generated
-        | Apprenticeship   | ILR Start Date               | Delivery Period           | Standard code | programme type | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship   | ILR Start Date               | Delivery Period           | Standard code | Programme Type | Transaction Type | Error Code | Price Episode Identifier |
         | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 17            | 25             | Learning         | DLOCK_09   | pe-1                     |
         | Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 17            | 25             | Learning         | DLOCK_09   | pe-1                     |
         | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 17            | 25             | Learning         | DLOCK_09   | pe-1                     |
