@@ -30,29 +30,27 @@
 Feature: Data Lock - DLOCK07 - no matching agreed price PV2-667
 		As a Provider,
 		I want to be notified with a DLOCK07 when no matching record found in an employer digital account for the agreed price
-		So that I can correct the data mis-match between the Commitment and ILR
+		So that I can correct the data mis-match between the Commitment and ILR - PV2-667
 
 Scenario: DLOCK07 - When no matching record found in an employer digital account for the agreed price then datalock DLOCK_07 will be produced PV2-667
-	Given the employer levy account balance in collection period R12/Current Academic Year is 10000
-	And the following apprenticeship exists
-		| Apprenticeship   | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
-		| apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 
-	And the apprenticeship has the following apprenticeship price episode periods
-		| Apprenticeship   | agreed price | effective from               | effective to |
-		| apprenticeship a | 10000        | 01/May/Current Academic Year |              |
-
+Given the employer levy account balance in collection period R12/Current Academic Year is 10000 
+	And the following commitments exists
+ 		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |				
 	And the provider is providing training for the following learners
-		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/May/Current Academic Year | 12 months        | 10010                | 01/May/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/May/Current Academic Year | 12 months        | 10010                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+    And price details as follows
+		| Price Episode Id  | Total Training Price | Total Training Price Effective Date | Contract Type  | SFA Contribution Percentage |
+		| pe-1              | 10010                | 01/May/Current Academic Year        | Act1           | 90%                         |
 	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
-
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |
 		| Sep/Current Academic Year | 0            | 0          | 0         |
 		| Oct/Current Academic Year | 0            | 0          | 0         |
-		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         | 
 		| Dec/Current Academic Year | 0            | 0          | 0         |
 		| Jan/Current Academic Year | 0            | 0          | 0         |
 		| Feb/Current Academic Year | 0            | 0          | 0         |
@@ -61,15 +59,12 @@ Scenario: DLOCK07 - When no matching record found in an employer digital account
 		| May/Current Academic Year | 667.33333    | 0          | 0         |
 		| Jun/Current Academic Year | 667.33333    | 0          | 0         |
 		| Jul/Current Academic Year | 667.33333    | 0          | 0         |
-	# New step
-    And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               | framework code | programme type | pathway code |
-        | learner a  | 01/May/Current Academic Year | 593            | 20             | 1            |
-	# New step
-    And the following data lock failures were generated
-        | Apprentice   | Learner ID | Delivery Period           | ILR Start Date               | Transaction Type | Error Description |
-        | apprentice a | learner a  | May/Current Academic Year | 01/May/Current Academic Year | Learning         | DLOCK 07          |
-	
+	# Total Training Price added 
+	And the following data lock failures were generated
+        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework Code | Programme Type | Pathway Code | Total Training Price | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 593            | 20             | 1            | 10010                | Learning         | DLOCK_07   | pe-1                     |
+        | Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 593            | 20             | 1            | 10010                | Learning         | DLOCK_07   | pe-1                     |
+        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 593            | 20             | 1            | 10010                | Learning         | DLOCK_07   | pe-1                     |
 	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded
