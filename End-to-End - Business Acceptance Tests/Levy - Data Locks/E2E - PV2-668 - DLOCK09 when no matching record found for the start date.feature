@@ -5,16 +5,16 @@ So that I can correct the data mis-match between the Commitment and ILR
 Scenario: DLOCK09 - When no matching record found in an employer digital account for the start date then datalock DLOCK_09 will be produced
     Given the employer levy account balance in collection period R12/Current Academic Year is 11000
     And the following commitments exist
-        | Identifier       | Standarfd code | programme type | start date                    | end date                  | status | agreed price | effective from                | effective to |
-        | Apprenticeship a | 17             | 25             | 01/June/Current Academic Year | 31/May/Next Academic Year | active | 10000        | 01/June/Current Academic Year |              |
+        | Identifier       | standard code | programme type | start date                    | end date                  | status | agreed price | effective from                | effective to |
+        | Apprenticeship a | 17            | 25             | 01/June/Current Academic Year | 31/May/Next Academic Year | active | 10000        | 01/June/Current Academic Year |              |
 
     And the provider is providing training for the following learners
-      | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard code | Programme type | Funding Line Type                                  | SFA Contribution Percentage |
-      | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+      | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard code | Programme type | Funding Line Type                                  | SFA Contribution Percentage |
+      | 01/May/Current Academic Year | 12 months        | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
 
     And price details as follows
-     | Price Episode Id  | Total Training Price | Total Training Price Effective Date | Contract Type  | SFA Contribution Percentage |
-     | pe-1              | 10000                | 01/May/Current Academic Year        | Act1           | 90%                         |
+     | Price Episode Id  | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type  | SFA Contribution Percentage |
+     | pe-1              | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          | Act1           | 90%                         |
 
     When the ILR file is submitted for the learners for collection period R12/Current Academic Year
     Then the following learner earnings should be generated
