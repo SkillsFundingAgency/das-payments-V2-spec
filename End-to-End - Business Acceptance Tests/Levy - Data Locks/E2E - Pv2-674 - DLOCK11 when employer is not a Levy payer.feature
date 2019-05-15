@@ -24,60 +24,45 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
 #        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 450            | 2              | 1            | 10000            | 01/05/2018     |
 
-		Feature:Datalocks PV2-674
+Feature: Datalocks PV2-674
 		As a Provider,
 		I want to be notified with a DLOCK11 when Employer is not a Levy payer
-		So that I can take the correct action to get paid for my learner
+		So that I can take the correct action to get paid for my learner - PV2-674
 
-		Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11 will be produced
-		#New step to check if the employer is a levy payer. 
-		Given the following employer exists
+Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11 will be produced - PV2-674
+	#Given the employer is not a levy payer
+	Given the following employer exists
 		| Employer   | IsLevyPayer |
-		| employer a | 0           |
-		
-		And the following apprenticeship exists
-		| Employer   | Apprenticeship   | framework code | programme type | pathway code | start date                   | end date                  | status |
-		| employer a | apprenticeship a | 593            | 20             | 1            | 01/May/Current Academic Year | 31/May/Next Academic Year | active |
-
-		And the apprenticeship has the following apprenticeship price episode periods
-		| Apprenticeship   | agreed price | effective from               | effective to |
-		| apprenticeship a | 10000        | 01/May/Current Academic Year |              |
-
-		
-		And the provider is providing training for the following learners
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | framework code | programme type | pathway code | Completion Status | Contract |
-		| learner a  | 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        |                        |                                       |                 | 593            | 20             | 1            | continuing        | Act1     |
-
-			
-		When the ILR file is submitted for the learners for collection period R12/Current Academic Year
-
-		Then the following learner earnings should be generated
+		| employer a | 0           |	
+	And the following commitments exists
+		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
+		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |				
+	And the provider is providing training for the following learners
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 589            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+    And price details as follows
+		| Price Episode Id  | Total Training Price | Total Training Price Effective Date | Contract Type  | SFA Contribution Percentage |
+		| pe-1              | 10000                | 01/May/Current Academic Year        | Act1           | 90%                         |	
+	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
+	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
 		| Aug/Current Academic Year | 0            | 0          | 0         |
 		| Sep/Current Academic Year | 0            | 0          | 0         |
 		| Oct/Current Academic Year | 0            | 0          | 0         |
-		| Nov/Current Academic Year | 0            | 0          | 0         |
+		| Nov/Current Academic Year | 0            | 0          | 0         | 
 		| Dec/Current Academic Year | 0            | 0          | 0         |
 		| Jan/Current Academic Year | 0            | 0          | 0         |
 		| Feb/Current Academic Year | 0            | 0          | 0         |
 		| Mar/Current Academic Year | 0            | 0          | 0         |
 		| Apr/Current Academic Year | 0            | 0          | 0         |
-		| May/Current Academic Year | 666.67       | 0          | 0         |
-		| Jun/Current Academic Year | 666.67       | 0          | 0         |
-		| Jul/Current Academic Year | 666.67       | 0          | 0         |
-
-	# New step
-    And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               | Standard code | programme type |
-        | learner a  | 01/May/Current Academic Year | 17            | 25             |
-
-    And the following data lock failures were generated
-        | Apprentice   | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Description |
-        | apprentice a | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 11          |
-				
-
+		| May/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
+		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
+	And the following data lock failures were generated
+        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework code | Programme type | Pathway code | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
+		| Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
+		| Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
 	And Month end is triggered
-
-	And no provider payments will be recorded
-
 	And no provider payments will be generated
+	And no provider payments will be recorded
