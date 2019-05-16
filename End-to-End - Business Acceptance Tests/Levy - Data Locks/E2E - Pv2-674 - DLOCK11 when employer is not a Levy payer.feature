@@ -30,16 +30,16 @@ Feature: Datalocks PV2-674
 		So that I can take the correct action to get paid for my learner - PV2-674
 
 Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11 will be produced - PV2-674
-	#Given the employer is not a levy payer
-	Given the following employer exists
-		| Employer   | IsLevyPayer |
-		| employer a | 0           |	
+	Given the employer IsLevyPayer flag is false
+	#Given the following employer exists
+	#	| Employer   | IsLevyPayer |
+	#	| employer a | false       |
 	And the following commitments exists
 		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |				
 	And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework code | Programme type | Pathway code | Funding Line Type                                  | SFA Contribution Percentage |
-		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 589            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| 01/May/Current Academic Year | 12 months        | 10000                | 01/May/Current Academic Year        | continuing        | Act1          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
     And price details as follows
 		| Price Episode Id  | Total Training Price | Total Training Price Effective Date | Contract Type  | SFA Contribution Percentage |
 		| pe-1              | 10000                | 01/May/Current Academic Year        | Act1           | 90%                         |	
@@ -59,10 +59,10 @@ Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	And the following data lock failures were generated
-        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework code | Programme type | Pathway code | Transaction Type | Error Code | Price Episode Identifier |
-        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
-		| Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
-		| Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 589            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
+        | Apprenticeship   | Delivery Period           | Framework code | Programme type | Pathway code | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | May/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
+		| Apprenticeship a | Jun/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
+		| Apprenticeship a | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_11   | pe-1                     |
 	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded

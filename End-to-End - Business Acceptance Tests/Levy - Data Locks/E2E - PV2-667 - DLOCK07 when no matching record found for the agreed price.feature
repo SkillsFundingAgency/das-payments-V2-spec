@@ -60,10 +60,10 @@ Given the employer levy account balance in collection period R12/Current Academi
 		| Jun/Current Academic Year | 667.33333    | 0          | 0         |
 		| Jul/Current Academic Year | 667.33333    | 0          | 0         |
 	And the following data lock failures were generated
-        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
-        | Apprenticeship a | 01/May/Current Academic Year | May/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
-        | Apprenticeship a | 01/May/Current Academic Year | Jun/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
-        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
+        | Apprenticeship   | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | May/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
+        | Apprenticeship a | Jun/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
+        | Apprenticeship a | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-1                     |
 	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded

@@ -66,8 +66,8 @@ Scenario: DLOCK10 - when the employer stops payments for a learner on a commitme
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
 	And the following data lock failures were generated
-        | Apprenticeship   | ILR Start Date               | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
-        | Apprenticeship a | 01/May/Current Academic Year | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_10   | pe-1                     |
+        | Apprenticeship   | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_10   | pe-1                     |
     And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
 		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |

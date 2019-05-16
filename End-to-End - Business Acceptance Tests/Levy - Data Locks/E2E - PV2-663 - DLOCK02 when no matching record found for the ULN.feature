@@ -45,10 +45,10 @@ Scenario: DLOCK02 - When no matching record found in an employer digital account
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
     And the following data lock failures were generated
-        | Apprenticeship    | Learner ID | ILR Start Date               | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
-        | No Apprenticeship | learner a  | 01/May/Current Academic Year | May/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
-        | No Apprenticeship | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
-        | No Apprenticeship | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
+        | Apprenticeship    | Learner ID | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
+        | No Apprenticeship | learner a  | May/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
+        | No Apprenticeship | learner a  | Jun/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
+        | No Apprenticeship | learner a  | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_02   | pe-1                     |
 	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded
