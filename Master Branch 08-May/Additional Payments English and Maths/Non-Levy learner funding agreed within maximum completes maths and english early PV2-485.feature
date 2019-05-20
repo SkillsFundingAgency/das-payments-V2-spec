@@ -97,8 +97,8 @@ Scenario Outline: Non-levy learner completes maths and english early PV2-485
         | Mar/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
         | Apr/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
         | May/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
-        | Jun/Current Academic Year | 0            | 0          | 0         | 39.25                      | 78.50                    | 2                   |                          |
-        | Jul/Current Academic Year | 0            | 0          | 0         | 39.25                      | 0                        | 2                   |                          |
+        | Jun/Current Academic Year | 0            | 0          | 0         | 0                          | 78.50                    | 2                   |                          |
+        | Jul/Current Academic Year | 0            | 0          | 0         | 0                          | 0                        | 2                   |                          |
     And only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish | BalancingMathsAndEnglish |
         | R11/Current Academic Year | Jun/Current Academic Year | 1000         | 0          | 0         | 0                          | 78.50                    |
