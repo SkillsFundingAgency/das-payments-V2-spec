@@ -1,10 +1,11 @@
+# DC integration
+# lives in a disadvantaged postocde area - 1-10% most deprived
 Feature: Non-levy learner - on framework , Disadvantage Uplift 1-10% paid- pv2-435
-
 
 Scenario Outline:Non-levy learner - on framework , Disadvantage Uplift 1-10% paid
 	Given the provider previously submitted the following learner details
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                               | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           |                        |                                       |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 20             | 1            | 19+ Apprenticeship Non-Levy Contract (procured) | 90%                         |
     And the following earnings had been generated for the learner
         | Delivery Period        | On-Programme | Completion | Balancing | FirstDisadvantagePayment |
         | Aug/Last Academic Year | 1000         | 0          | 0         | 0                        |
@@ -36,8 +37,8 @@ Scenario Outline:Non-levy learner - on framework , Disadvantage Uplift 1-10% pai
         | R04/Last Academic Year | Nov/Last Academic Year | 0                      | 0                           | 300                       | FirstDisadvantagePayment |
 
     But the Provider now changes the Learner details as follows
-		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                                                     | SFA Contribution Percentage |
-		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           | 0                      | 06/Aug/Last Academic Year             |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 20             | 1            | 16-18 Apprenticeship (From May 2017) Non-Levy Contract (non-procured) | 90%                         |
+		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Programme Type | Pathway Code | Funding Line Type                               | SFA Contribution Percentage |
+		| 06/Aug/Last Academic Year | 12 months        | 15000                | 06/Aug/Last Academic Year           |                        |                                       |                 | continuing        | Act2          | 1                   | ZPROG001      | 593            | 20             | 1            | 19+ Apprenticeship Non-Levy Contract (procured) | 90%                         |
 	When the amended ILR file is re-submitted for the learners in collection period <Collection_Period>
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing | SecondDisadvantagePayment |
@@ -70,3 +71,29 @@ Scenario Outline:Non-levy learner - on framework , Disadvantage Uplift 1-10% pai
         | Collection_Period         |
 		| R01/Current Academic Year |
 		| R02/Current Academic Year |
+
+#Scenario:Payment for a non-DAS learner, lives in a disadvantaged postocde area - 1-10% most deprived, funding agreed within band maximum, UNDERTAKING APPRENTICESHIP FRAMEWORK The provider incentive for this postcode group is £600 split equally into 2 payments at 90 and 365 days. INELIGIBLE FOR APPRENTICESHIP STANDARDS
+#    Given A Non-Das Learner 
+#    And the apprenticeship funding band maximum is 15000
+#    When an ILR file is submitted with the following data:
+#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | framework code | programme type | pathway code | home postcode deprivation |
+#		| learner a | programme only non-DAS | 15000        | 06/08/2018 | 08/08/2019       |                 | continuing        | 593            | 20             | 1            | 1-10%                     |
+#    Then the provider earnings and payments break down as follows:
+#        | Type                                    | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 | 09/19 |
+#        | Provider Earned Total                   | 1000  | 1000  | 1000  | 1300  | 1000  | ... | 1000  | 300   | 0     |
+#		| Provider Earned from SFA                | 900   | 900   | 900   | 1200  | 900   | ... | 900   | 300   | 0     |        
+#	    | Provider Earned from Employer           | 100   | 100   | 100   | 100   | 100   | ... | 100   | 0     | 0     |
+#        | Provider Paid by SFA                    | 0     | 900   | 900   | 900   | 1200  | ... | 900   | 900   | 300   |
+#        | Payment due from Employer               | 0     | 100   | 100   | 100   | 100   | ... | 100   | 100   | 0     |
+#        | Levy account debited                    | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#        | SFA Levy employer budget                | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#        | SFA Levy co-funding budget              | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#        | SFA non-Levy co-funding budget          | 900   | 900   | 900   | 900   | 900   | ... | 900   | 0     | 0     |
+#        | SFA non-Levy additional payments budget | 0     | 0     | 0     | 300   | 0     | ... | 0     | 300   | 0     |
+#        | SFA Levy additional payments budget     | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     | 0     |
+#    And the transaction types for the payments are:
+#        | Payment type                 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 08/19 | 09/19 |
+#        | On-program                   | 900   | 900   | 900   | 900   | ... | 900   | 0     |
+#        | Completion                   | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | Balancing                    | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        | Provider disadvantage uplift | 0     | 0     | 0     | 300   | ... | 0     | 300   |
