@@ -70,13 +70,13 @@ Scenario: DLOCK10 - when the employer stops payments for a learner on a commitme
         | Apprenticeship a | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_10   | pe-1                     |
     And at month end only the following payments will be calculated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
 	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
 	And only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
