@@ -9,11 +9,11 @@
 #	
 #	And the following commitments exist:
 #	
-#		| employer of apprentice | employer paying for training | ULN       | start date | end date   | standard code | agreed price | status     | effective from | effective to |
+#		| employer of apprentice | employer paying for training | ULN       | Start Date | end date   | standard code | agreed price | status     | effective from | effective to |
 #		| employer a             | employer b                   | learner a | 01/05/2018 | 06/05/2019 | 50            | 15000        | continuing | 01/05/2018     |   		      |
 #	
 #	When an ILR file is submitted with the following data:
-#        | ULN       | learner type           | agreed price | price effective from | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | standard code |
+#        | ULN       | learner type           | agreed price | price effective from | Start Date | planned end date | actual end date | completion status | aim type         | aim sequence number | standard code |
 #        | learner a | programme only DAS     | 15000        | 06/05/2018           | 06/05/2018 | 20/05/2019       |    		     | continuing        | programme        | 1                   | 50            |
 #
 #	Then the provider earnings and payments break down as follows:
@@ -48,13 +48,13 @@ Feature: Transfers - PV2-736 Single Levy learner paid via transfer
 Scenario Outline: Transfers - PV2-736 - Single Levy learner paid via transfer
 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-
+	And the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
+	And the remaining transfer allowance for "employer 2" is <Employer 2 Remaining Transfer Allowance>
 	#And a transfer agreement has been set up between employer 1 and employer 2
 
 	And the following apprenticeships exist
-		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed price | Standard Code | Status | effective from               |
-		| employer 1 | employer 2       | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
+		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed Price | Standard Code | Programme Type | Status | Effective From               |
+		| employer 1 | employer 2       | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | 25             | active | 01/Aug/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -80,7 +80,6 @@ Scenario Outline: Transfers - PV2-736 - Single Levy learner paid via transfer
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
         | R01/Current Academic Year | Aug/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
@@ -94,6 +93,6 @@ Scenario Outline: Transfers - PV2-736 - Single Levy learner paid via transfer
 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
-        | R01/Current Academic Year | 0                           | 50000                       | 12000                                   |
-        | R02/Current Academic Year | 0                           | 49000                       | 11000                                   |
-        | R03/Current Academic Year | 0                           | 48000                       | 10000                                   |
+        | R01/Current Academic Year | 0                           | 60000                       | 1000                                    |
+        | R02/Current Academic Year | 0                           | 59000                       | 1000                                    |
+        | R03/Current Academic Year | 0                           | 58000                       | 1000                                    |
