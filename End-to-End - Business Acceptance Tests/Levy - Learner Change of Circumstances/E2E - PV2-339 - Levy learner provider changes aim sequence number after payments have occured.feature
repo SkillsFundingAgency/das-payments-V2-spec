@@ -34,7 +34,7 @@
 #			| SFA Levy co-funding budget          | 0     | 0     | 0      | 0      |
 #			| SFA Levy additional payments budget | 0     | 0     | 0      | 0      |
 
-Feature: Levy - Learner change of circumstances - change in aim sequence number
+Feature: Levy - Learner change of circumstances - change in aim sequence number PV2-339
 As a provider,
 I want a levy learner, where provider changes aim sequence number after payments have occurred, to be paid the correct amount
 So that I am accurately paid my apprenticeship provision.PV2-339
@@ -102,7 +102,7 @@ Scenario Outline: Levy apprentice, provider changes aim sequence numbers in ILR 
         | Jun/Current Academic Year | 600          | 0          | 0         | 39.25                      |
         | Jul/Current Academic Year | 600          | 0          | 0         | 39.25                      |
 
-    And only the following payments will be calculated
+    And at month end only the following payments will be calculated
         | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing | OnProgrammeMathsAndEnglish |
         | R03/Current Academic Year | Aug/Current Academic Year | 0            | 0          | 0         | 39.25                      |
         | R03/Current Academic Year | Sep/Current Academic Year | 0            | 0          | 0         | 39.25                      |
@@ -142,30 +142,30 @@ Scenario Outline: Levy apprentice, provider changes aim sequence numbers in ILR 
         | R11/Current Academic Year | Jun/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
         | R12/Current Academic Year | Jul/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
 
-	And at month end only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Co-Funded Payments | SFA Fully-Funded Payments | Transaction Type           |
-        | R03/Current Academic Year | Oct/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R04/Current Academic Year | Nov/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R05/Current Academic Year | Dec/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R06/Current Academic Year | Jan/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R07/Current Academic Year | Feb/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R08/Current Academic Year | Mar/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R09/Current Academic Year | Apr/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R10/Current Academic Year | May/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R11/Current Academic Year | Jun/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R12/Current Academic Year | Jul/Current Academic Year | 600                    | 0                         | Learning                   |
-        | R03/Current Academic Year | Aug/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R03/Current Academic Year | Sep/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R05/Current Academic Year | Dec/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R06/Current Academic Year | Jan/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R07/Current Academic Year | Feb/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R08/Current Academic Year | Mar/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R09/Current Academic Year | Apr/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R10/Current Academic Year | May/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R11/Current Academic Year | Jun/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0                      | 39.25                     | OnProgrammeMathsAndEnglish |
+	And only the following provider payments will be generated
+        | Collection Period         | Delivery Period           | Levy Payments | SFA Fully-Funded Payments | Transaction Type           |
+        | R03/Current Academic Year | Oct/Current Academic Year | 600           | 0                         | Learning                   |
+        | R04/Current Academic Year | Nov/Current Academic Year | 600           | 0                         | Learning                   |
+        | R05/Current Academic Year | Dec/Current Academic Year | 600           | 0                         | Learning                   |
+        | R06/Current Academic Year | Jan/Current Academic Year | 600           | 0                         | Learning                   |
+        | R07/Current Academic Year | Feb/Current Academic Year | 600           | 0                         | Learning                   |
+        | R08/Current Academic Year | Mar/Current Academic Year | 600           | 0                         | Learning                   |
+        | R09/Current Academic Year | Apr/Current Academic Year | 600           | 0                         | Learning                   |
+        | R10/Current Academic Year | May/Current Academic Year | 600           | 0                         | Learning                   |
+        | R11/Current Academic Year | Jun/Current Academic Year | 600           | 0                         | Learning                   |
+        | R12/Current Academic Year | Jul/Current Academic Year | 600           | 0                         | Learning                   |
+        | R03/Current Academic Year | Aug/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R03/Current Academic Year | Sep/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R05/Current Academic Year | Dec/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R06/Current Academic Year | Jan/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R07/Current Academic Year | Feb/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R08/Current Academic Year | Mar/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R09/Current Academic Year | Apr/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R10/Current Academic Year | May/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R11/Current Academic Year | Jun/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
+        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 39.25                     | OnProgrammeMathsAndEnglish |
 Examples: 
         | Collection_Period         | Levy_Balance |
         | R03/Current Academic Year | 1200         |
@@ -178,4 +178,3 @@ Examples:
         | R10/Current Academic Year | 1200         |
         | R11/Current Academic Year | 1200         |
         | R12/Current Academic Year | 1200         |
-	
