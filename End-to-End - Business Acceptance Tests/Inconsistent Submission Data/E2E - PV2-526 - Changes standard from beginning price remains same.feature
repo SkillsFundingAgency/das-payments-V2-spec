@@ -1,69 +1,4 @@
-﻿#Feature: Learner Change in Circumstance
-#
-#Scenario: Non-Levy learner change to standard in ILR with no change in price	
-#
-#        Given The learner is programme only non-DAS
-#        And the apprenticeship funding band maximum is 17000
-#		And the total price is 15000
-# 
-#		When an ILR file is submitted in R01 (Aug 2018) with the following data:
-#            | ULN       | standard code | start date | planned end date | completion status | Total training price | Total training price effective date | Total assessment price |
-#            | learner a | 51            | 01/08/2018 | 03/08/2019       | continuing        | 12000                | 01/08/2018                          | 3000                   |
-#       		
-#		Then the provider earnings and payments break down as follows:
-#		
-#            | Type                       		| 08/18 | 09/18 | 10/18 |
-#            | Provider Earned Total      		| 1000  | 1000  | 1000  |
-#            | Provider Earned from SFA   		| 900   | 900   | 900   |
-#            | Provider Earned from Employer 	| 100   | 100   | 100   |            
-#			| Provider Paid by SFA       		| 0     | 900   | 900   |
-#			| Refund taken by SFA               | 0     | 0     | 0     | 
-#            | Payment due from Employer        | 0     | 100   | 100   |
-#			| Refund due to employer            | 0     | 0     | 0     |			
-#			| Levy account debited       		| 0     | 0     | 0     |
-#            | SFA Levy employer budget   		| 0     | 0     | 0     |
-#            | SFA Levy co-funding budget 		| 0     | 0     | 0     |
-#			| SFA non-Levy co-funding budget	| 900   | 900   | 900   | 
-#			
-#        And the transaction types for the payments are:
-#            | Payment type                 | 09/18 | 10/18 | 
-#            | On-program                   | 900   | 900   | 
-#            | Completion                   | 0     | 0     | 
-#            | Balancing                    | 0     | 0     | 
-#            | Employer 16-18 incentive     | 0     | 0     | 
-#            | Provider 16-18 incentive     | 0     | 0     | 
-#				
-#		
-#		
-#		When an ILR file is submitted in R03 (Oct 2018) with the following data:
-#            | ULN       | standard code | start date | planned end date | completion status | Total training price | Total training price effective date | Total assessment price |
-#            | learner a | 52            | 01/08/2018 | 03/08/2019       | continuing        | 12000                | 01/08/2018                          | 3000                   |
-#       		
-#		Then the provider earnings and payments break down as follows:
-#		
-#            | Type                       		| 08/18 | 09/18 | 10/18 | 11/18 | 12/18 |
-#            | Provider Earned Total      		| 1000  | 1000  | 1000  | 1000  | 1000  |
-#            | Provider Earned from SFA   		| 900   | 900   | 900   | 900   | 900   |
-#            | Provider Earned from Employer 	| 100   | 100   | 100   | 100   | 100   |            
-#			| Provider Paid by SFA       		| 0     | 0     | 0     | 2700  | 900   |
-#			| Refund taken by SFA               | 0     | 0     | 0     | -1800 | 0     | 
-#            | Payment due from Employer         | 0     | 100   | 100   | 100   | 100   | 
-#			| Refund due to employer            | 0     | 0     | 0     | -200  | 0     | 
-#			| Levy account debited       		| 0     | 0     | 0     | 0     | 0     |
-#            | SFA Levy employer budget   		| 0     | 0     | 0     | 0     | 0     |
-#            | SFA Levy co-funding budget 		| 0     | 0     | 0     | 0     | 0     |
-#			| SFA non-Levy co-funding budget	| 900   | 900   | 900   | 2700  | 900   | 
-#			
-#        And the transaction types for the payments are:
-#            | Payment type                 | 09/18 | 10/18 | 11/18 | 12/18 | 
-#            | On-program                   | 900   | 900   | 900   | 900   | 
-#            | Completion                   | 0     | 0     | 0     | 0     | 
-#            | Balancing                    | 0     | 0     | 0     | 0     | 
-#            | Employer 16-18 incentive     | 0     | 0     | 0     | 0     | 
-#            | Provider 16-18 incentive     | 0     | 0     | 0     | 0     | 
-
-
-Feature: Provider earnings and payments where learner changes apprenticeship standard retrospectively and negotiated price remains the same, (remaining with the same employer and provider) PV2-526
+﻿Feature: Provider earnings and payments where learner changes apprenticeship standard retrospectively and negotiated price remains the same, (remaining with the same employer and provider) PV2-526
 		As a provider,
 		I want a non-levy learner, changes apprenticeship standard retrospectively and the negotiated price remains the same, generates refund
 		So that I am accurately paid my apprenticeship provision
@@ -146,3 +81,72 @@ Scenario Outline: Changes standard from the beginning and price remains same - P
 		| Collection_Period         |
 		| R03/Current Academic Year |
 		| R04/Current Academic Year |
+
+
+
+
+#Feature: Learner Change in Circumstance
+#
+#Scenario: Non-Levy learner change to standard in ILR with no change in price	
+#
+#        Given The learner is programme only non-DAS
+#        And the apprenticeship funding band maximum is 17000
+#		And the total price is 15000
+# 
+#		When an ILR file is submitted in R01 (Aug 2018) with the following data:
+#            | ULN       | standard code | start date | planned end date | completion status | Total training price | Total training price effective date | Total assessment price |
+#            | learner a | 51            | 01/08/2018 | 03/08/2019       | continuing        | 12000                | 01/08/2018                          | 3000                   |
+#       		
+#		Then the provider earnings and payments break down as follows:
+#		
+#            | Type                       		| 08/18 | 09/18 | 10/18 |
+#            | Provider Earned Total      		| 1000  | 1000  | 1000  |
+#            | Provider Earned from SFA   		| 900   | 900   | 900   |
+#            | Provider Earned from Employer 	| 100   | 100   | 100   |            
+#			| Provider Paid by SFA       		| 0     | 900   | 900   |
+#			| Refund taken by SFA               | 0     | 0     | 0     | 
+#            | Payment due from Employer        | 0     | 100   | 100   |
+#			| Refund due to employer            | 0     | 0     | 0     |			
+#			| Levy account debited       		| 0     | 0     | 0     |
+#            | SFA Levy employer budget   		| 0     | 0     | 0     |
+#            | SFA Levy co-funding budget 		| 0     | 0     | 0     |
+#			| SFA non-Levy co-funding budget	| 900   | 900   | 900   | 
+#			
+#        And the transaction types for the payments are:
+#            | Payment type                 | 09/18 | 10/18 | 
+#            | On-program                   | 900   | 900   | 
+#            | Completion                   | 0     | 0     | 
+#            | Balancing                    | 0     | 0     | 
+#            | Employer 16-18 incentive     | 0     | 0     | 
+#            | Provider 16-18 incentive     | 0     | 0     | 
+#				
+#		
+#		
+#		When an ILR file is submitted in R03 (Oct 2018) with the following data:
+#            | ULN       | standard code | start date | planned end date | completion status | Total training price | Total training price effective date | Total assessment price |
+#            | learner a | 52            | 01/08/2018 | 03/08/2019       | continuing        | 12000                | 01/08/2018                          | 3000                   |
+#       		
+#		Then the provider earnings and payments break down as follows:
+#		
+#            | Type                       		| 08/18 | 09/18 | 10/18 | 11/18 | 12/18 |
+#            | Provider Earned Total      		| 1000  | 1000  | 1000  | 1000  | 1000  |
+#            | Provider Earned from SFA   		| 900   | 900   | 900   | 900   | 900   |
+#            | Provider Earned from Employer 	| 100   | 100   | 100   | 100   | 100   |            
+#			| Provider Paid by SFA       		| 0     | 0     | 0     | 2700  | 900   |
+#			| Refund taken by SFA               | 0     | 0     | 0     | -1800 | 0     | 
+#            | Payment due from Employer         | 0     | 100   | 100   | 100   | 100   | 
+#			| Refund due to employer            | 0     | 0     | 0     | -200  | 0     | 
+#			| Levy account debited       		| 0     | 0     | 0     | 0     | 0     |
+#            | SFA Levy employer budget   		| 0     | 0     | 0     | 0     | 0     |
+#            | SFA Levy co-funding budget 		| 0     | 0     | 0     | 0     | 0     |
+#			| SFA non-Levy co-funding budget	| 900   | 900   | 900   | 2700  | 900   | 
+#			
+#        And the transaction types for the payments are:
+#            | Payment type                 | 09/18 | 10/18 | 11/18 | 12/18 | 
+#            | On-program                   | 900   | 900   | 900   | 900   | 
+#            | Completion                   | 0     | 0     | 0     | 0     | 
+#            | Balancing                    | 0     | 0     | 0     | 0     | 
+#            | Employer 16-18 incentive     | 0     | 0     | 0     | 0     | 
+#            | Provider 16-18 incentive     | 0     | 0     | 0     | 0     | 
+
+
