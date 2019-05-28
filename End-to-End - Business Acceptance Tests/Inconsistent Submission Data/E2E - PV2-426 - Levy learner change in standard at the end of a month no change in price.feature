@@ -1,4 +1,3 @@
-@ignore
     Feature: Levy Learner changes course but price is the same PV2-426
 			As a provider,
 			I want to ensure when my levy learner, the changes apprenticeship standard and negotiated price remains the same, to be paid the correct amount
@@ -81,14 +80,14 @@
         | R05/Current Academic Year | Dec/Current Academic Year | 1000         | 0          | 0         |
 
     And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Nov/Current Academic Year | 1000              | Learning         |
-        | R05/Current Academic Year | Dec/Current Academic Year | 1000              | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | R04/Current Academic Year | Nov/Current Academic Year | 1000          | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 1000          | Learning         |
 
     And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | SFA Levy Payments | Transaction Type |
-        | R04/Current Academic Year | Nov/Current Academic Year | 1000              | Learning         |
-        | R05/Current Academic Year | Dec/Current Academic Year | 1000              | Learning         |
+        | Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+        | R04/Current Academic Year | Nov/Current Academic Year | 1000          | Learning         |
+        | R05/Current Academic Year | Dec/Current Academic Year | 1000          | Learning         |
 
 	Examples: 
         | Collection_Period         | Levy Balance |
