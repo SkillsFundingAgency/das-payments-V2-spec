@@ -1,39 +1,3 @@
-#		Scenario:822-AC01- Levy apprentice, provider changes aim sequence numbers in ILR after payments have already occurred
-#
-#        Given The learner is programme only DAS
-#        And levy balance > agreed price for all months
-#        And the apprenticeship funding band maximum is 9000
-#
-#        And the following commitments exist:
-#			| commitment Id | version Id | ULN       | start date | end date   | framework code | programme type | pathway code | agreed price | status    | effective from | effective to |
-#			| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | 593            | 2              | 1            | 9000         | Active    | 01/08/2018     |              |
-#        
-#		When an ILR file is submitted for period R01 with the following data:
-#			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
-#			| learner a | programme only DAS | 9000         | 06/08/2018 | 20/08/2019       |                 | continuing        | programme        | 1                   |          | 593            | 2              | 1            |
-#        
-#        And an ILR file is submitted for period R03 with the following data:
-#			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
-#			| learner a | programme only DAS | 9000         | 06/08/2018 | 20/08/2019       |                 | continuing        | programme        | 2                   |          | 593            | 2              | 1            |
-#			| learner a | programme only DAS |              | 06/08/2018 | 20/08/2019       |                 | continuing        | maths or english | 1                   | 471      | 593            | 2              | 1            |
-#  
-#        Then the provider earnings and payments break down as follows:
-#			| Type                                    | 08/18 | 09/18 | 10/18  | 11/18  |
-#			| Provider Earned Total                   | 600   | 600   | 639.25 | 639.25 |
-#			| Provider Earned from SFA                | 600   | 600   | 639.25 | 0      |
-#			| Provider Earned from Employer           | 0     | 0     | 0      | 0      |
-#			| Provider Paid by SFA                    | 0     | 600   | 600    | 717.75 |
-#			| Refund taken by SFA                     | 0     | 0     | 0      | 0      |
-#			| Payment due from Employer               | 0     | 0     | 0      | 0      |
-#			| Refund due to employer                  | 0     | 0     | 0      | 0      |
-#			| Levy account debited                    | 0     | 600   | 600    | 600    |
-#			| Levy account credited                   | 0     | 0     | 0      | 0      |
-#			| SFA Levy employer budget                | 600   | 600   | 600    | 600    |
-#			| SFA Levy co-funding budget              | 0     | 0     | 0      | 0      |
-#			| SFA Levy additional payments budget     | 39.25 | 39.25 | 39.25  | 39.25  |
-#			| SFA Levy co-funding budget          | 0     | 0     | 0      | 0      |
-#			| SFA Levy additional payments budget | 0     | 0     | 0      | 0      |
-
 Feature: Levy - Learner change of circumstances - change in aim sequence number PV2-339
 As a provider,
 I want a levy learner, where provider changes aim sequence number after payments have occurred, to be paid the correct amount
@@ -178,3 +142,39 @@ Examples:
         | R10/Current Academic Year | 1200         |
         | R11/Current Academic Year | 1200         |
         | R12/Current Academic Year | 1200         |
+	
+#		Scenario:822-AC01- Levy apprentice, provider changes aim sequence numbers in ILR after payments have already occurred
+#
+#        Given The learner is programme only DAS
+#        And levy balance > agreed price for all months
+#        And the apprenticeship funding band maximum is 9000
+#
+#        And the following commitments exist:
+#			| commitment Id | version Id | ULN       | start date | end date   | framework code | programme type | pathway code | agreed price | status    | effective from | effective to |
+#			| 1             | 1          | learner a | 01/08/2018 | 01/08/2019 | 593            | 2              | 1            | 9000         | Active    | 01/08/2018     |              |
+#        
+#		When an ILR file is submitted for period R01 with the following data:
+#			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
+#			| learner a | programme only DAS | 9000         | 06/08/2018 | 20/08/2019       |                 | continuing        | programme        | 1                   |          | 593            | 2              | 1            |
+#        
+#        And an ILR file is submitted for period R03 with the following data:
+#			| ULN       | learner type       | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | framework code | programme type | pathway code |
+#			| learner a | programme only DAS | 9000         | 06/08/2018 | 20/08/2019       |                 | continuing        | programme        | 2                   |          | 593            | 2              | 1            |
+#			| learner a | programme only DAS |              | 06/08/2018 | 20/08/2019       |                 | continuing        | maths or english | 1                   | 471      | 593            | 2              | 1            |
+#  
+#        Then the provider earnings and payments break down as follows:
+#			| Type                                    | 08/18 | 09/18 | 10/18  | 11/18  |
+#			| Provider Earned Total                   | 600   | 600   | 639.25 | 639.25 |
+#			| Provider Earned from SFA                | 600   | 600   | 639.25 | 0      |
+#			| Provider Earned from Employer           | 0     | 0     | 0      | 0      |
+#			| Provider Paid by SFA                    | 0     | 600   | 600    | 717.75 |
+#			| Refund taken by SFA                     | 0     | 0     | 0      | 0      |
+#			| Payment due from Employer               | 0     | 0     | 0      | 0      |
+#			| Refund due to employer                  | 0     | 0     | 0      | 0      |
+#			| Levy account debited                    | 0     | 600   | 600    | 600    |
+#			| Levy account credited                   | 0     | 0     | 0      | 0      |
+#			| SFA Levy employer budget                | 600   | 600   | 600    | 600    |
+#			| SFA Levy co-funding budget              | 0     | 0     | 0      | 0      |
+#			| SFA Levy additional payments budget     | 39.25 | 39.25 | 39.25  | 39.25  |
+#			| SFA Levy co-funding budget          | 0     | 0     | 0      | 0      |
+#			| SFA Levy additional payments budget | 0     | 0     | 0      | 0      |
