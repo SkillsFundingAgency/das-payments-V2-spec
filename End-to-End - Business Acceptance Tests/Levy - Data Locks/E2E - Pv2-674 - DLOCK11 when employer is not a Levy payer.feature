@@ -24,17 +24,14 @@
 #        | Price Episode identifier | Apprentice Version | Start Date | framework code | programme type | pathway code | Negotiated Price | Effective Date |
 #        | 2-450-1-01/05/2018       | 73-125             | 01/05/2018 | 450            | 2              | 1            | 10000            | 01/05/2018     |
 
-Feature: Datalocks PV2-674
+Feature: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11 will be produced - PV2-674
 		As a Provider,
 		I want to be notified with a DLOCK11 when Employer is not a Levy payer
 		So that I can take the correct action to get paid for my learner - PV2-674
 
 Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11 will be produced - PV2-674
 	Given the employer IsLevyPayer flag is false
-	#Given the following employer exists
-	#	| Employer   | IsLevyPayer |
-	#	| employer a | false       |
-	And the following commitments exists
+	And the following commitments exist
 		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               |
 		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |				
 	And the provider is providing training for the following learners
