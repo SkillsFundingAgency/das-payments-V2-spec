@@ -30,14 +30,13 @@
 #        | 2-450-1-01/07/2018       | 73-200             | 01/05/2018 | 450            | 2              | 1            | 15000            | 01/07/2018     |
 
 
-Feature: Data Lock - DLOCK07(a) - no matching changed price PV2-677
-		As a Provider,
+Feature: DLOCK07_A_When price is changed, then effective to is set on previous price episode - PV2-677
 		I want to be notified with a DLOCK07(a) when the price is changed, and the effective to is set on previous price episode
 		So that I can correct the data mis-match between the Commitment and ILR - PV2-677
 
-Scenario: DLOCK07(a) - When price is changed, then effective to is set on previous price episode PV2-677
+Scenario: DLOCK07_A_When price is changed, then effective to is set on previous price episode - PV2-677
 	Given the employer levy account balance in collection period R12/Current Academic Year is 14000 
-	And the following commitments exists
+	And the following commitments exist
  		| Identifier       | framework code | programme type | pathway code | agreed price | start date                   | end date                  | status | effective from               | effective to                 |
  		| Apprenticeship a | 593            | 20             | 1            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year | 30/Jun/Current Academic Year |
  		| Apprenticeship a | 593            | 20             | 1            | 15000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/Jul/Current Academic Year |                              |		
@@ -50,31 +49,31 @@ Scenario: DLOCK07(a) - When price is changed, then effective to is set on previo
 		| pe-2              | 14000                | 01/Jul/Current Academic Year        | Act1           | 90%                         |
 	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 	Then the following learner earnings should be generated
-		| Delivery Period           | On-Programme | Completion | Balancing |
-		| Aug/Current Academic Year | 0            | 0          | 0         |
-		| Sep/Current Academic Year | 0            | 0          | 0         |
-		| Oct/Current Academic Year | 0            | 0          | 0         |
-		| Nov/Current Academic Year | 0            | 0          | 0         |
-		| Dec/Current Academic Year | 0            | 0          | 0         |
-		| Jan/Current Academic Year | 0            | 0          | 0         |
-		| Feb/Current Academic Year | 0            | 0          | 0         |
-		| Mar/Current Academic Year | 0            | 0          | 0         |
-		| Apr/Current Academic Year | 0            | 0          | 0         |
-		| May/Current Academic Year | 666.66667    | 0          | 0         |
-		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
-		| Jul/Current Academic Year | 1120         | 0          | 0         |
+		| Delivery Period           | On-Programme | Completion | Balancing | Price Episode Identifier |
+		| Aug/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Sep/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Oct/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Nov/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Dec/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Jan/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Feb/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Mar/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| Apr/Current Academic Year | 0            | 0          | 0         | pe-1                     |
+		| May/Current Academic Year | 666.66667    | 0          | 0         | pe-1                     |
+		| Jun/Current Academic Year | 666.66667    | 0          | 0         | pe-1                     |
+		| Jul/Current Academic Year | 1120         | 0          | 0         | pe-2                     |
 	And the following data lock failures were generated
 		| Apprenticeship   | Delivery Period           | Framework Code | Programme Type | Pathway Code | Transaction Type | Error Code | Price Episode Identifier |
 		| Apprenticeship a | Jul/Current Academic Year | 593            | 20             | 1            | Learning         | DLOCK_07   | pe-2                     |
 	And at month end only the following payments will be calculated
-		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
-	And only the following payments will be generated
-		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+		| Collection Period         | Delivery Period           | On-Programme | Transaction Type |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667    | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667    | Learning         |
 	And only the following provider payments will be recorded
 		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
-		| R10/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
-		| R11/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
+	And only the following provider payments will be generated
+		| Collection Period         | Delivery Period           | Levy Payments | Transaction Type |
+		| R12/Current Academic Year | May/Current Academic Year | 666.66667     | Learning         |
+		| R12/Current Academic Year | Jun/Current Academic Year | 666.66667     | Learning         |
