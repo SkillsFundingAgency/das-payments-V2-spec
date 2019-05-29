@@ -47,7 +47,7 @@
 
 		
 
-Feature: Single Levy learner no transfer levy available - PV2-737
+Feature: Transfers - PV2-737 Single Levy learner no transfer levy available
 	As a provider,
 	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner, 
 	but no transfer funds are available and receiving employer pays with their own Levy
@@ -56,13 +56,13 @@ Feature: Single Levy learner no transfer levy available - PV2-737
 Scenario Outline: Transfers - Single Levy learner no transfer levy availble - PV2-737
 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-
+	And the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
+	And the remaining transfer allowance for "employer 2" is <Employer 2 Remaining Transfer Allowance>
 	#And a transfer agreement has been set up between employer 1 and employer 2
 
-	And the following commitments exist 
-		| employer of apprentice | employer paying for training | start date                   | end date                  | agreed price | standard code | status | effective from               |
-		| employer 1             | employer 2                   | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year |
+	And the following apprenticeships exist 
+		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed Price | Standard Code | Programme Type | Status | Effective From               |
+		| employer 1 | employer 2       | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | 25             | active | 01/Aug/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -88,20 +88,19 @@ Scenario Outline: Transfers - Single Levy learner no transfer levy availble - PV
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
 	And only the following provider payments will be generated
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
-        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
-        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
-        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
 
 Examples: 
-        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-        | R01/Current Academic Year | 15500                       | 0                           |
-        | R02/Current Academic Year | 14500                       | 0                           |
-        | R03/Current Academic Year | 13500                       | 0                           |
+        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
+        | R01/Current Academic Year | 15000                       | 60000                       | 0                                       |
+        | R02/Current Academic Year | 14000                       | 60000                       | 0                                       |
+        | R03/Current Academic Year | 13000                       | 60000                       | 0                                       |

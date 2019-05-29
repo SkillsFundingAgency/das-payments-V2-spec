@@ -78,7 +78,7 @@
 #        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        |			
 		
 
-Feature: Two Levy learners paid via transfer but later one deleted, sender gets refund - PV2-733
+Feature: Transfers - PV2-733 Two Levy learners paid via transfer but later one deleted, sender gets refund
 	As a provider,
 	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner, and 1 learner is then deleted
 	So that I am not paid for the deleted learner by SFA via a transfer - PV2-733
@@ -86,14 +86,14 @@ Feature: Two Levy learners paid via transfer but later one deleted, sender gets 
 Scenario Outline: Transfers - Two Levy learners paid via transfer but later one deleted, sender gets refund - PV2-733
 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-
+	And the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
+	And the remaining transfer allowance for "employer 2" is <Employer 2 Remaining Transfer Allowance>
 	#And a transfer agreement has been set up between employer 1 and employer 2
 
-	And the following commitments exist 
-		| Learner ID | Identifier      | employer of apprentice | employer paying for training | start date                   | end date                  | agreed price | standard code | status | effective from               |
-		| learner a  | Apprentiiship 1 | employer 1             | employer 2                   | 01/May/Current Academic Year | 01/May/Next Academic Year | 9000         | 50            | active | 01/May/Current Academic Year |
-		| learner b  | Apprentiiship 2 | employer 1             | employer 2                   | 01/May/Current Academic Year | 01/May/Next Academic Year | 9000         | 50            | active | 01/May/Current Academic Year |
+	And the following apprenticeships exist 
+		| Learner ID | Identifier      | Employer   | Sending Employer | Start Date                   | End Date                  | Agreed Price | Standard Code | Programme Type | Status | Effective From               |
+		| learner a  | Apprentiiship a | employer 1 | employer 2       | 01/May/Current Academic Year | 01/May/Next Academic Year | 9000         | 50            | 25             | active | 01/May/Current Academic Year |
+		| learner b  | Apprentiiship b | employer 1 | employer 2       | 01/May/Current Academic Year | 01/May/Next Academic Year | 9000         | 50            | 25             | active | 01/May/Current Academic Year |
 
     And the provider previously submitted the following learner details
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -126,14 +126,12 @@ Scenario Outline: Transfers - Two Levy learners paid via transfer but later one 
 		| learner b  | May/Current Academic Year | 600          | 0          | 0         |
 		| learner b  | Jun/Current Academic Year | 600          | 0          | 0         |
 		| learner b  | Jul/Current Academic Year | 600          | 0          | 0         |
-
-	# New Column - Employer
 	And the following provider payments had been generated
-		| Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
-		| learner a  | R10/Current Academic Year | May/Current Academic Year | 0             | 600               | Learning         | employer 2 |
-		| learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0             | 600               | Learning         | employer 2 |
-		| learner b  | R10/Current Academic Year | May/Current Academic Year | 0             | 600               | Learning         | employer 2 |
-		| learner b  | R11/Current Academic Year | Jun/Current Academic Year | 0             | 600               | Learning         | employer 2 |
+		| Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
+		| learner a  | R10/Current Academic Year | May/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
+		| learner a  | R11/Current Academic Year | Jun/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
+		| learner b  | R10/Current Academic Year | May/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
+		| learner b  | R11/Current Academic Year | Jun/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
 
 	But the Provider now changes the Learner details as follows
 		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -154,37 +152,22 @@ Scenario Outline: Transfers - Two Levy learners paid via transfer but later one 
 		| learner a  | May/Current Academic Year | 600          | 0          | 0         |
 		| learner a  | Jun/Current Academic Year | 600          | 0          | 0         |
 		| learner a  | Jul/Current Academic Year | 600          | 0          | 0         |
-		# will earning calc send this or this section needs removing?
-		#| learner b  | Aug/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Sep/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Oct/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Nov/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Dec/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Jan/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Feb/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Mar/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | Apr/Current Academic Year | 0            | 0          | 0         |
-		#| learner b  | May/Current Academic Year | -600         | 0          | 0         |
-		#| learner b  | Jun/Current Academic Year | -600         | 0          | 0         |
-		#| learner b  | Jul/Current Academic Year | 0            | 0          | 0         |
-
     And at month end only the following payments will be calculated
         | Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
         | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 600          | 0          | 0         |
         | learner b  | R12/Current Academic Year | May/Current Academic Year | -600         | 0          | 0         |
         | learner b  | R12/Current Academic Year | Jun/Current Academic Year | -600         | 0          | 0         |
-	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
-        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
-        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0             | 600               | Learning         | employer 2 |
-        | learner b  | R12/Current Academic Year | May/Current Academic Year | 0             | -600              | Learning         | employer 2 |
-        | learner b  | R12/Current Academic Year | Jun/Current Academic Year | 0             | -600              | Learning         | employer 2 |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
+        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
+        | learner b  | R12/Current Academic Year | May/Current Academic Year | 0             | -600              | Learning         | employer 1 | employer 2       |
+        | learner b  | R12/Current Academic Year | Jun/Current Academic Year | 0             | -600              | Learning         | employer 1 | employer 2       |
 	And only the following provider payments will be generated
-        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   |
-        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0             | 600               | Learning         | employer 2 |
-        | learner b  | R12/Current Academic Year | May/Current Academic Year | 0             | -600              | Learning         | employer 2 |
-        | learner b  | R12/Current Academic Year | Jun/Current Academic Year | 0             | -600              | Learning         | employer 2 |
+        | Learner ID | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
+        | learner a  | R12/Current Academic Year | Jul/Current Academic Year | 0             | 600               | Learning         | employer 1 | employer 2       |
+        | learner b  | R12/Current Academic Year | May/Current Academic Year | 0             | -600              | Learning         | employer 1 | employer 2       |
+        | learner b  | R12/Current Academic Year | Jun/Current Academic Year | 0             | -600              | Learning         | employer 1 | employer 2       |
 
 Examples: 
-        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-        | R12/Current Academic Year | 0                           | 15600                       |
+        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
+        | R12/Current Academic Year | 0                           | 72000                       | 600                                     |

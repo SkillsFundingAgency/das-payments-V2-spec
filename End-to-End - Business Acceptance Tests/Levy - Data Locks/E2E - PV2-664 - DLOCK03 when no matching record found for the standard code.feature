@@ -40,13 +40,15 @@ Feature: Data Lock - DLOCK03 - no matching standard code PV2-664
 
 Scenario: DLOCK03 - When no matching record found in an employer digital account for for the standard code then datalock DLOCK_03 will be produced PV2-664
 	Given the employer levy account balance in collection period R12/Current Academic Year is 10000
-	And the following aprrenticeship exists
-	# Learner ID kept for data lock event
-		| Apprenticeship | Learner   | standard code | agreed price | start date                   | end date                  | status | effective from               |
-		| Apprentice a   | learner a | 21            | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
+	And the following commitments exist
+		| Identifier       | standard code | programme type | agreed price | start date                   | end date                  | status | effective from               |
+		| Apprenticeship a | 21            | 25             | 10000        | 01/May/Current Academic Year | 01/May/Next Academic Year | active | 01/May/Current Academic Year |
 	And the provider is providing training for the following learners
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
-		| learner a  | 01/May/Current Academic Year | 12 months        | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
+		| 01/May/Current Academic Year | 12 months        | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          |                 | continuing        | Act1          | 1                   | ZPROG001      | 23            | 25             | 16-18 Apprenticeship (From May 2017) Levy Contract | 90%                         |
+    And price details as follows
+		| Price Episode Id  | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type  | SFA Contribution Percentage |
+		| pe-1              | 9000                 | 01/May/Current Academic Year        | 1000                   | 01/May/Current Academic Year          | Act1           | 90%                         |
 	When the ILR file is submitted for the learners for collection period R12/Current Academic Year
 	Then the following learner earnings should be generated
 		| Delivery Period           | On-Programme | Completion | Balancing |
@@ -62,15 +64,11 @@ Scenario: DLOCK03 - When no matching record found in an employer digital account
 		| May/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jun/Current Academic Year | 666.66667    | 0          | 0         |
 		| Jul/Current Academic Year | 666.66667    | 0          | 0         |
-	# New step
-    And the following non-payable earnings were generated
-        | Learner ID | ILR Start Date               |ILR Training Price | standard code | programme type |
-        | learner a  | 01/May/Current Academic Year |10000              | 17            | 25             |
     And the following data lock failures were generated
-        | Apprenticeship | Learner ID | ILR Start Date               | Delivery Period           | Transaction Type | Error Code |
-        | apprentice a   | learner a  | 01/May/Current Academic Year | May/Current Academic Year | Learning         | DLOCK 03   |
-        | apprentice a   | learner a  | 01/May/Current Academic Year | Jun/Current Academic Year | Learning         | DLOCK 03   |
-        | apprentice a   | learner a  | 01/May/Current Academic Year | Jul/Current Academic Year | Learning         | DLOCK 03   |
-  And Month end is triggered
+        | Apprenticeship   | Delivery Period           | Standard Code | Programme Type | Transaction Type | Error Code | Price Episode Identifier |
+        | Apprenticeship a | May/Current Academic Year | 23            | 25             | Learning         | DLOCK_03   | pe-1                     |
+        | Apprenticeship a | Jun/Current Academic Year | 23            | 25             | Learning         | DLOCK_03   | pe-1                     |
+        | Apprenticeship a | Jul/Current Academic Year | 23            | 25             | Learning         | DLOCK_03   | pe-1                     |
+	And Month end is triggered
 	And no provider payments will be generated
 	And no provider payments will be recorded

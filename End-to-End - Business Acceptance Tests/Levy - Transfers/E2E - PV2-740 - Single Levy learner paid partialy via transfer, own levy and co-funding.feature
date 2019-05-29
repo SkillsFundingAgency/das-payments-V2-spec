@@ -46,7 +46,7 @@
 #		| employer a | 400    | 400    | 400    | 400    |
 		
 
-Feature: Single Levy learner paid partialy via transfer, own levy and co-funding - PV2-740
+Feature: Transfers - PV2-740 Single Levy learner paid partialy via transfer, own levy and co-funding
 	As a provider,
 	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner, but not enough transfer funds are available, and receiving employer pays some with their own Levy, and some is co-funded
 	So that I am accurately paid the apprenticeship amount by SFA
@@ -60,13 +60,13 @@ Feature: Single Levy learner paid partialy via transfer, own levy and co-funding
 Scenario Outline: Transfers - Single Levy learner paid partialy via transfer, own levy and co-funding - PV2-740
 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
-
+	And the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
+	And the remaining transfer allowance for "employer 2" is <Employer 2 Remaining Transfer Allowance>
 	#And a transfer agreement has been set up between employer 1 and employer 2
 
-	And the following commitments exist 
-		| employer of apprentice | employer paying for training | start date                   | end date                  | agreed price | standard code | status | effective from               |
-		| employer 1             | employer 2                   | 01/May/Current Academic Year | 06/May/Next Academic Year | 15000        | 50            | active | 01/May/Current Academic Year |
+	And the following apprenticeships exist 
+		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed Price | Standard Code | Programme Type | Status | Effective From               |
+		| employer 1 | employer 2       | 01/May/Current Academic Year | 06/May/Next Academic Year | 15000        | 50            | 25             | active | 01/May/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -92,28 +92,24 @@ Scenario Outline: Transfers - Single Levy learner paid partialy via transfer, ow
 		| R10/Current Academic Year | May/Current Academic Year | 1000         | 0          | 0         |
 		| R11/Current Academic Year | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| R12/Current Academic Year | Jul/Current Academic Year | 1000         | 0          | 0         |
-
-	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
-        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   |
-        | R10/Current Academic Year | May/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R11/Current Academic Year | Jun/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R10/Current Academic Year | May/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-        | R11/Current Academic Year | Jun/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-
+        | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   | Sending Employer |
+        | R10/Current Academic Year | May/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+        | R11/Current Academic Year | Jun/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+        | R12/Current Academic Year | Jul/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+        | R10/Current Academic Year | May/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R11/Current Academic Year | Jun/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
 	And only the following provider payments will be generated
-		| Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R10/Current Academic Year | May/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R11/Current Academic Year | Jun/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         | employer 1 |
-        | R10/Current Academic Year | May/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-        | R11/Current Academic Year | Jun/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-        | R12/Current Academic Year | Jul/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 2 |
-  
+		| Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   | Sending Employer |
+		| R10/Current Academic Year | May/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+		| R11/Current Academic Year | Jun/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+		| R12/Current Academic Year | Jul/Current Academic Year | 100           | 0                 | 450                    | 50                          | Learning         |            |                  |
+		| R10/Current Academic Year | May/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+		| R11/Current Academic Year | Jun/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+		| R12/Current Academic Year | Jul/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
 Examples: 
-        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 |
-        | R10/Current Academic Year | 100                         | 400                         |
-        | R11/Current Academic Year | 100                         | 400                         |
-        | R12/Current Academic Year | 100                         | 400                         |
+        | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
+        | R10/Current Academic Year | 100                         | 60000                       | 400                                     |
+        | R11/Current Academic Year | 100                         | 59600                       | 400                                     |
+        | R12/Current Academic Year | 100                         | 59200                       | 400                                     |
