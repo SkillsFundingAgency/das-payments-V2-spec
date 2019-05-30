@@ -1,7 +1,7 @@
 Feature: Two providers, levy available fully for one provider and half for another, spent in priority order - PV2-604
-	As an Employer,
-	I want 2 Levy learners with different providers, where levy is spent in provider priority order and there is only enough levy available for one and half learners
-	So that the providers are accurately paid the apprenticeship amount by SFA - PV2-604
+		As an Employer,
+		I want 2 Levy learners with different providers, where levy is spent in provider priority order and there is only enough levy available for one and half learners
+		So that the providers are accurately paid the apprenticeship amount by SFA - PV2-604
 
 Scenario Outline: Two providers, levy available fully for one provider and half for another, spent in priority order - PV2-604
 
