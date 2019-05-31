@@ -39,6 +39,17 @@ Scenario: DLOCK11 - When the employer is not a levy payer then datalock DLOCK_11
 	And no provider payments will be recorded
 
 
+
+
+
+
+
+
+
+
+
+
+
 #Scenario: DLOCK11 - When employer is not a levy payer, DLOCK11 will be raised
 #
 #    Given the employer is not a levy payer
