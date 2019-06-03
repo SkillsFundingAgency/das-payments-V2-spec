@@ -99,14 +99,14 @@
 Feature: Payment Priority PV2-656
 As an Employer,
 I want 2 Levy learners with different providers, where levy is spent in priority order and there is not enough levy to fund both learners, and employer changes provider priority in R04
-So that the providers are accurately paid the apprenticeship amount by SFA
+So that the providers are accurately paid the apprenticeship amount by SFA - PV2-656
 
-Scenario Outline: Two providers, full levy available for one provider, partial levy available for the other,employer changes payment priority for provider.
+Scenario Outline: Two providers, full levy available for one provider, partial levy available for the other,employer changes payment priority for provider - PV2-656
 
 	Given the employer levy account balance in collection period  <Collection_Period> is <Levy_Balance>
 	# Commitment lines
 	And the following commitments exist
-		| Identifier       | Provider   | Learner ID | start date                | end date                     | agreed price | Framework Code | Pathway Code | Programme Type |
+		| Identifier       | Provider   | Learner ID | start date                   | end date                  | agreed price | Framework Code | Pathway Code | Programme Type |
 		| Apprenticeship 1 | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 7500         | 593            | 1            | 20             |
 		| Apprenticeship 2 | provider b | learner b  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 593            | 1            | 20             |
 
@@ -141,6 +141,7 @@ Scenario Outline: Two providers, full levy available for one provider, partial l
 		| learner a  | Jun/Current Academic Year | 500          | 0          | 0         |
 		| learner a  | Jul/Current Academic Year | 500          | 0          | 0         |
 	And the following earnings had been generated for the learner for "provider b"
+		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner b  | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Oct/Current Academic Year | 1000         | 0          | 0         |
@@ -153,15 +154,14 @@ Scenario Outline: Two providers, full levy available for one provider, partial l
 		| learner b  | May/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Jun/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | Jul/Current Academic Year | 1000         | 0          | 0         |
-	# Levy Payments
-    
-  	 And at month end only the following payments will be calculated for provider a
+	# Levy Payments    
+  	 And at month end only the following payments will be calculated for "provider a"
 		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
 		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 500          | 0          | 0         |
 		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 500          | 0          | 0         |
 		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
- 	 And at month end only the following payments will be calculated for provider b
+ 	 And at month end only the following payments will be calculated for "provider b"
 		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
