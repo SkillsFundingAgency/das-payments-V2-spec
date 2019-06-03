@@ -1,101 +1,3 @@
-#Feature: Payment Priority
-#
-#Background: 2 providers, paid in priority order
-#
-#Scenario: Two Levy learners with different providers, levy is spent in priority order and there is not enough levy to fund both learners, and employer changes priority in R04
-#
-#       Given Two learners are programme only DAS 
-#       And the apprenticeship funding band maximum for each learner is 17000
-#        
-#       And the employer's levy balance is:
-#                | 08/18 | 09/18 | 10/18 | 11/18 | ...  | 07/19 | 08/19 |
-#                | 1500  | 1500  | 700   | 1250  | 1250 | 1250  | 1250  |
-#        
-#	   And the provider priority order is:
-#                | priority | provider |
-#                | 1        | ABC 	  |
-#                | 2        | DEF 	  |
-#		
-#       
-#	   And the following commitments exist in period R01:
-#                | priority | provider | start date | end date   | agreed price |
-#                | 1        | ABC	  | 01/08/2018 | 28/08/2019 | 7500         |
-#                | 2        | DEF	  | 01/08/2018 | 28/08/2019 | 15000        |
-#                      
-#       And an ILR file is submitted by provider ABC for collection period R01 with the following data:
-#                | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#                | ABC	   | 01/08/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
-#
-#       And an ILR file is submitted by provider DEF for collection period R01 with the following data:
-#                | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#                | DEF	   | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
-#       
-#
-#
-#       And the following commitments exist in R04:
-#                | priority | provider | start date | end date   | agreed price |
-#                | 2        | ABC	  | 01/08/2018 | 28/08/2019 | 7500         |
-#                | 1        | DEF	  | 01/08/2018 | 28/08/2019 | 15000        |
-#                      
-#       When an ILR file is submitted by provider ABC for collection period R04 with the following data:
-#                | priority | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#                | 2        | ABC	  | 01/10/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
-#
-#       When an ILR file is submitted by provider DEF for collection period R04 with the following data:
-#                | priority | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
-#                | 1        | DEF	  | 01/10/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
-#
-#      
-#       Then the provider earnings and payments break down for provider ABC as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 500   | 500   | 500   | 500   | 500   | ... | 500   | 0     |
-#                | Provider Earned from SFA       | 500   | 500   | 500   | 475   | 475   | ... | 475   | 0     |
-#                | Provider Earned from Employer  | 0     | 0     | 0     | 25    | 25    | ... | 25    | 0     |
-#                | Provider Paid by SFA           | 0     | 500   | 500   | 500   | 475   | ... | 475   | 475   |
-#                | Payment due from Employer      | 0     | 0     | 0     | 0     | 25    | ... | 25    | 25    |
-#                | Levy account debited           | 0     | 500   | 500   | 500   | 250   | ... | 250   | 250   |
-#                | SFA Levy employer budget       | 500   | 500   | 500   | 250   | 250   | ... | 250   | 0     |
-#                | SFA Levy co-funding budget     | 0     | 0     | 0     | 225   | 225   | ... | 225   | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        
-#       And the transaction types for the payments for provider ABC are:
-#               | Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#               | On-program                     | 500   | 500   | 500   | ... | 500   | 500   |
-#               | Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
-#               | Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
-#       
-#       
-#       And the provider earnings and payments break down for provider DEF as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
-#                | Provider Earned from SFA       | 1000  | 1000  | 920   | 1000  | 1000  | ... | 1000  | 0     |
-#                | Provider Earned from Employer  | 0     | 0     | 80    | 0     | 0     | ... | 0     | 0     |
-#                | Provider Paid by SFA           | 0     | 1000  | 1000  | 920   | 1000  | ... | 1000  | 1000  |
-#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 0     | ... | 0     | 0     |
-#                | Levy account debited           | 0     | 1000  | 1000  | 200   | 1000  | ... | 1000  | 1000  |
-#                | SFA Levy employer budget       | 1000  | 1000  | 200   | 1000  | 1000  | ... | 1000  | 0     |
-#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 0     | 0     | ... | 0     | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-#        
-#       And the transaction types for the payments for provider DEF are:
-#               | Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
-#               | On-program                     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
-#               | Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
-#               | Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
-#       
-#       
-#       And OBSOLETE - the provider earnings and payments break down as follows:
-#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
-#                | Provider Earned Total          | 1500  | 1500  | 1500  | 1500  | 1500  | ... | 1500  | 0     |
-#                | Provider Earned from SFA       | 1500  | 1500  | 1420  | 1475  | 1475  | ... | 1475  | 0     |
-#                | Provider Earned from Employer  | 0     | 0     | 80    | 25    | 25    | ... | 25    | 0     |
-#                | Provider Paid by SFA           | 0     | 1500  | 1500  | 1420  | 1475  | ... | 1475  | 1475  |
-#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 25    | ... | 25    | 25    |
-#                | Levy account debited           | 0     | 1500  | 1500  | 700   | 1250  | ... | 1250  | 1250  |
-#                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1250  | 1250  | ... | 1250  | 0     |
-#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 225   | 225   | ... | 225   | 0     |
-#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-
 Feature: Payment Priority PV2-656
 As an Employer,
 I want 2 Levy learners with different providers, where levy is spent in priority order and there is not enough levy to fund both learners, and employer changes provider priority in R04
@@ -199,3 +101,101 @@ Examples:
         | R02/Current Academic Year | 1500         |
         | R03/Current Academic Year | 700          |
         | R04/Current Academic Year | 1250         |
+
+#Feature: Payment Priority
+#
+#Background: 2 providers, paid in priority order
+#
+#Scenario: Two Levy learners with different providers, levy is spent in priority order and there is not enough levy to fund both learners, and employer changes priority in R04
+#
+#       Given Two learners are programme only DAS 
+#       And the apprenticeship funding band maximum for each learner is 17000
+#        
+#       And the employer's levy balance is:
+#                | 08/18 | 09/18 | 10/18 | 11/18 | ...  | 07/19 | 08/19 |
+#                | 1500  | 1500  | 700   | 1250  | 1250 | 1250  | 1250  |
+#        
+#	   And the provider priority order is:
+#                | priority | provider |
+#                | 1        | ABC 	  |
+#                | 2        | DEF 	  |
+#		
+#       
+#	   And the following commitments exist in period R01:
+#                | priority | provider | start date | end date   | agreed price |
+#                | 1        | ABC	  | 01/08/2018 | 28/08/2019 | 7500         |
+#                | 2        | DEF	  | 01/08/2018 | 28/08/2019 | 15000        |
+#                      
+#       And an ILR file is submitted by provider ABC for collection period R01 with the following data:
+#                | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#                | ABC	   | 01/08/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
+#
+#       And an ILR file is submitted by provider DEF for collection period R01 with the following data:
+#                | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#                | DEF	   | 01/08/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
+#       
+#
+#
+#       And the following commitments exist in R04:
+#                | priority | provider | start date | end date   | agreed price |
+#                | 2        | ABC	  | 01/08/2018 | 28/08/2019 | 7500         |
+#                | 1        | DEF	  | 01/08/2018 | 28/08/2019 | 15000        |
+#                      
+#       When an ILR file is submitted by provider ABC for collection period R04 with the following data:
+#                | priority | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#                | 2        | ABC	  | 01/10/2018 | 28/08/2019       |                 | continuing        | 6000                 | 01/08/2018                          | 1500                   | 01/08/2018                            |
+#
+#       When an ILR file is submitted by provider DEF for collection period R04 with the following data:
+#                | priority | provider | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#                | 1        | DEF	  | 01/10/2018 | 28/08/2019       |                 | continuing        | 12000                | 01/08/2018                          | 3000                   | 01/08/2018                            |
+#
+#      
+#       Then the provider earnings and payments break down for provider ABC as follows:
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 500   | 500   | 500   | 500   | 500   | ... | 500   | 0     |
+#                | Provider Earned from SFA       | 500   | 500   | 500   | 475   | 475   | ... | 475   | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 0     | 25    | 25    | ... | 25    | 0     |
+#                | Provider Paid by SFA           | 0     | 500   | 500   | 500   | 475   | ... | 475   | 475   |
+#                | Payment due from Employer      | 0     | 0     | 0     | 0     | 25    | ... | 25    | 25    |
+#                | Levy account debited           | 0     | 500   | 500   | 500   | 250   | ... | 250   | 250   |
+#                | SFA Levy employer budget       | 500   | 500   | 500   | 250   | 250   | ... | 250   | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 0     | 225   | 225   | ... | 225   | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        
+#       And the transaction types for the payments for provider ABC are:
+#               | Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
+#               | On-program                     | 500   | 500   | 500   | ... | 500   | 500   |
+#               | Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
+#               | Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
+#       
+#       
+#       And the provider earnings and payments break down for provider DEF as follows:
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 1000  | 1000  | 1000  | 1000  | 1000  | ... | 1000  | 0     |
+#                | Provider Earned from SFA       | 1000  | 1000  | 920   | 1000  | 1000  | ... | 1000  | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 80    | 0     | 0     | ... | 0     | 0     |
+#                | Provider Paid by SFA           | 0     | 1000  | 1000  | 920   | 1000  | ... | 1000  | 1000  |
+#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 0     | ... | 0     | 0     |
+#                | Levy account debited           | 0     | 1000  | 1000  | 200   | 1000  | ... | 1000  | 1000  |
+#                | SFA Levy employer budget       | 1000  | 1000  | 200   | 1000  | 1000  | ... | 1000  | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 0     | 0     | ... | 0     | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
+#        
+#       And the transaction types for the payments for provider DEF are:
+#               | Payment type                   | 09/18 | 10/18 | 11/18 | ... | 07/19 | 08/19 |
+#               | On-program                     | 1000  | 1000  | 1000  | ... | 1000  | 1000  |
+#               | Completion                     | 0     | 0     | 0     | ... | 0     | 0     |
+#               | Balancing                      | 0     | 0     | 0     | ... | 0     | 0     |
+#       
+#       
+#       And OBSOLETE - the provider earnings and payments break down as follows:
+#                | Type                           | 08/18 | 09/18 | 10/18 | 11/18 | 12/18 | ... | 07/19 | 08/19 |
+#                | Provider Earned Total          | 1500  | 1500  | 1500  | 1500  | 1500  | ... | 1500  | 0     |
+#                | Provider Earned from SFA       | 1500  | 1500  | 1420  | 1475  | 1475  | ... | 1475  | 0     |
+#                | Provider Earned from Employer  | 0     | 0     | 80    | 25    | 25    | ... | 25    | 0     |
+#                | Provider Paid by SFA           | 0     | 1500  | 1500  | 1420  | 1475  | ... | 1475  | 1475  |
+#                | Payment due from Employer      | 0     | 0     | 0     | 80    | 25    | ... | 25    | 25    |
+#                | Levy account debited           | 0     | 1500  | 1500  | 700   | 1250  | ... | 1250  | 1250  |
+#                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1250  | 1250  | ... | 1250  | 0     |
+#                | SFA Levy co-funding budget     | 0     | 0     | 720   | 225   | 225   | ... | 225   | 0     |
+#                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
