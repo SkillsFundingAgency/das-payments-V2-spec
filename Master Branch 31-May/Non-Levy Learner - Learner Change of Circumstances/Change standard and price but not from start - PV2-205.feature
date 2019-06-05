@@ -10,11 +10,11 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
 	And the following aims
 		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
 		| ZPROG001      | 03/Aug/Current Academic Year | 12 months        | 3 months        | 1                   | 25             | 51            | 16-18 Apprenticeship Non-Levy | withdrawn         |
-		| ZPROG001      | 03/Nov/Current Academic Year | 9 months         |                 | 2                   | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
+		| ZPROG001      | 03/Nov/Current Academic Year | 12 months        |                 | 2                   | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
 	And price details as follows		
         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
         | pe-1             | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
-        | pe-2             | 4500                 | 03/Nov/Current Academic Year        | 1125                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
+        | pe-2             | 6000                 | 03/Nov/Current Academic Year        | 1500                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
 
     When the ILR file is submitted for the learners for collection period <Collection_Period>
     Then the following learner earnings should be generated
@@ -101,3 +101,32 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
 		| R10/Current Academic Year |
 		| R11/Current Academic Year |
 		| R12/Current Academic Year |
+
+
+#Scenario: Non-Levy learner,  changes standard with accompanying change to the negotiated price	
+#
+#Feature: Provider earnings and payments where learner changes apprenticeship standard and there is a change to the negotiated price at the end of a month, (remaining with the same employer and provider)
+#
+#    Background:
+#	
+#        Given The learner is programme only non-DAS
+#        And the apprenticeship funding band maximum is 17000
+#        And levy balance > agreed price for all months
+# 
+#		When an ILR file is submitted with the following data:
+#            | ULN       | standard code | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
+#            | learner a | 51            | 03/08/2018 | 01/08/2019       | 31/10/2018      | withdrawn         | 12000                | 03/08/2018                          | 3000                   | 03/08/2018                            |
+#            | learner a | 52            | 03/11/2018 | 01/11/2019       |                 | continuing        | 6000                 | 03/11/2018                          | 1500                   | 03/11/2018                            |
+#       		
+#		Then the provider earnings and payments break down as follows:
+#		
+#            | Type                       		| 08/18 | 09/18 | 10/18 | 11/18 | 12/18 |
+#            | Provider Earned Total      		| 1000  | 1000  | 1000  | 500   | 500   |
+#            | Provider Earned from SFA   		| 900   |  900  |  900  | 450   | 450   |
+#            | Provider Earned from Employer 	| 100   |  100  |  100  | 50    | 50    |            
+#			| Provider Paid by SFA       		| 0     |  900  |  900  | 900   | 500   |
+#            | Payment due from Employer         | 0     |  100  |  100  | 100   | 50    | 
+#			| Levy account debited       		| 0     |    0  |    0  | 0     | 0     |
+#            | SFA Levy employer budget   		| 0     |    0  |    0  | 0     | 0     |
+#            | SFA Levy co-funding budget 		| 0     |    0  |    0  | 0     | 0     |
+#			| SFA non-Levy co-funding budget	| 900   |  900  |  900  | 450   | 450   | 

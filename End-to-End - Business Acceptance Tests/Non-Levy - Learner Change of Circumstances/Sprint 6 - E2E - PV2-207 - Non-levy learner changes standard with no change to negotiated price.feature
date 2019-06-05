@@ -10,7 +10,7 @@
 #		When an ILR file is submitted with the following data:
 #            | ULN       | standard code | start date | planned end date | actual end date | completion status | Total training price | Total training price effective date | Total assessment price | Total assessment price effective date |
 #            | learner a | 51            | 03/08/2018 | 01/08/2019       | 31/10/2018      | withdrawn         | 12000                | 03/08/2018                          | 3000                   | 03/08/2018                            |
-#            | learner a | 52            | 03/11/2018 | 01/08/2019       |                 | continuing        | 12000                | 03/11/2018                          | 3000                   | 03/11/2018                            |
+#            | learner a | 52            | 03/11/2018 | 01/11/2019       |                 | continuing        | 12000                | 03/11/2018                          | 3000                   | 03/11/2018                            |
 #       		
 #		Then the provider earnings and payments break down as follows:
 #		
@@ -38,27 +38,42 @@ Scenario Outline: Non-levy learner changes standard with no change to negotiated
 	And the following aims
 		| Aim Reference | Start Date                   | Planned Duration | Actual Duration | Aim Sequence Number | Programme Type | Standard Code | Funding Line Type             | Completion Status |
 		| ZPROG001      | 03/Aug/Current Academic Year | 12 months        | 3 months        | 1                   | 25             | 51            | 16-18 Apprenticeship Non-Levy | withdrawn         |
-		| ZPROG001      | 03/Nov/Current Academic Year | 9 months         |                 | 2                   | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
+		| ZPROG001      | 03/Nov/Current Academic Year | 12 months        |                 | 2                   | 25             | 52            | 16-18 Apprenticeship Non-Levy | continuing        |
 	And price details as follows		
-        | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
-        | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
-        | 12000                | 03/Nov/Current Academic Year        | 3000                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
+         | Price Episode Id | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Contract Type | Aim Sequence Number | SFA Contribution Percentage |
+         | pe-1             | 12000                | 03/Aug/Current Academic Year        | 3000                   | 03/Aug/Current Academic Year          | Act2          | 1                   | 90%                         |
+         | pe-2             | 12000                | 03/Nov/Current Academic Year        | 3000                   | 03/Nov/Current Academic Year          | Act2          | 2                   | 90%                         |
 
     When the ILR file is submitted for the learners for collection period <Collection_Period>
     Then the following learner earnings should be generated
-        | Delivery Period           | On-Programme | Completion | Balancing |
-        | Aug/Current Academic Year | 1000         | 0          | 0         |
-        | Sep/Current Academic Year | 1000         | 0          | 0         |
-        | Oct/Current Academic Year | 1000         | 0          | 0         |
-        | Nov/Current Academic Year | 1000         | 0          | 0         |
-        | Dec/Current Academic Year | 1000         | 0          | 0         |
-        | Jan/Current Academic Year | 1000         | 0          | 0         |
-        | Feb/Current Academic Year | 1000         | 0          | 0         |
-        | Mar/Current Academic Year | 1000         | 0          | 0         |
-        | Apr/Current Academic Year | 1000         | 0          | 0         |
-        | May/Current Academic Year | 1000         | 0          | 0         |
-        | Jun/Current Academic Year | 1000         | 0          | 0         |
-        | Jul/Current Academic Year | 1000         | 0          | 0         |
+        | Delivery Period           | On-Programme | Completion | Balancing | Aim Sequence Number | Price Episode Identifier |
+        #p1
+        | Aug/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
+        | Sep/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
+        | Oct/Current Academic Year | 1000         | 0          | 0         | 1                   | pe-1                     |
+        | Nov/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Dec/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Jan/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Feb/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Mar/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Apr/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | May/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Jun/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        | Jul/Current Academic Year | 0            | 0          | 0         | 1                   | pe-1                     |
+        #p2
+        | Aug/Current Academic Year | 0            | 0          | 0         | 2                   | pe-2                     |
+        | Sep/Current Academic Year | 0            | 0          | 0         | 2                   | pe-2                     |
+        | Oct/Current Academic Year | 0            | 0          | 0         | 2                   | pe-2                     |
+        | Nov/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Dec/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Jan/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Feb/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Mar/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Apr/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | May/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Jun/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+        | Jul/Current Academic Year | 1000         | 0          | 0         | 2                   | pe-2                     |
+
     And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
