@@ -48,9 +48,9 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
         | Jul/Current Academic Year | 500          | 0          | 0         | 2                   | pe-2                     |
     And only the following payments will be calculated
 		| Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
-		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
+		| R04/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+		| R04/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+		| R04/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
 		| R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 500          | 0          | 0         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 500          | 0          | 0         |
@@ -62,9 +62,9 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
 		| R12/Current Academic Year | Jul/Current Academic Year | 500          | 0          | 0         |
     And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-        | R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
-        | R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-        | R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
+        | R04/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
+        | R04/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
+        | R04/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
         | R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
         | R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
         | R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
@@ -76,9 +76,9 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
         | R12/Current Academic Year | Jul/Current Academic Year | 450                    | 50                          | Learning         |
 	And at month end only the following provider payments will be generated
 		| Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type |
-		| R01/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
-		| R02/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
-		| R03/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
+		| R04/Current Academic Year | Aug/Current Academic Year | 900                    | 100                         | Learning         |
+		| R04/Current Academic Year | Sep/Current Academic Year | 900                    | 100                         | Learning         |
+		| R04/Current Academic Year | Oct/Current Academic Year | 900                    | 100                         | Learning         |
 		| R04/Current Academic Year | Nov/Current Academic Year | 450                    | 50                          | Learning         |
 		| R05/Current Academic Year | Dec/Current Academic Year | 450                    | 50                          | Learning         |
 		| R06/Current Academic Year | Jan/Current Academic Year | 450                    | 50                          | Learning         |
@@ -90,9 +90,6 @@ Scenario Outline: Non-Levy learner changes standard with accompanying change to 
 		| R12/Current Academic Year | Jul/Current Academic Year | 450                    | 50                          | Learning         |
 	Examples:
 		| Collection_Period         |
-		| R01/Current Academic Year |
-		| R02/Current Academic Year |
-		| R03/Current Academic Year |
 		| R04/Current Academic Year |
 		| R05/Current Academic Year |
 		| R06/Current Academic Year |
