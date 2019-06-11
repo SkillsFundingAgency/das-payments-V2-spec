@@ -44,8 +44,8 @@ Scenario Outline: Levy learner, Employer stops commitment on the day the course 
 
 Given the employer levy account balance in collection period <Collection_Period> is <Levy Balance>
 	And the following apprenticeships exist
-		| agreed price | start date                | end date                     | status  | effective from            | stop effective from          |
-		| 17500        | 01/Aug/Last Academic Year | 01/Oct/Current Academic Year | stopped | 01/Aug/Last Academic Year | 01/Sep/Current Academic Year |		
+		| agreed price | start date                | end date                     | status  | effective from            | stop effective from          |Standard Code | Programme Type | 
+		| 17500        | 01/Aug/Last Academic Year | 01/Oct/Current Academic Year | stopped | 01/Aug/Last Academic Year | 01/Sep/Current Academic Year |17            | 25             | 		
 	And the provider previously submitted the following learner details
 		| Start Date                | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
 		| 01/Aug/Last Academic Year | 14 months        | 15500                | 01/Aug/Last Academic Year           | 2500                   | 01/Aug/Last Academic Year             |                 | continuing        | Act1          | 1                   | ZPROG001      | 17            | 25             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
