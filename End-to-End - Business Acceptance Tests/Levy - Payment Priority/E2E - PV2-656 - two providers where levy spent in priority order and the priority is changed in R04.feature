@@ -1,3 +1,107 @@
+Feature: Payment Priority PV2-656
+As an Employer,
+I want 2 Levy learners with different providers, where levy is spent in priority order and there is not enough levy to fund both learners, and employer changes provider priority in R04
+So that the providers are accurately paid the apprenticeship amount by SFA - PV2-656
+
+Scenario Outline: Two providers, full levy available for one provider, partial levy available for the other,employer changes payment priority for provider - PV2-656
+
+	Given the employer levy account balance in collection period  <Collection_Period> is <Levy_Balance>
+	# Commitment lines
+	And the following commitments exist
+		| Identifier       | Provider   | Learner ID | start date                   | end date                  | agreed price | Framework Code | Pathway Code | Programme Type |
+		| Apprenticeship 1 | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 7500         | 593            | 1            | 20             |
+		| Apprenticeship 2 | provider b | learner b  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 593            | 1            | 20             |
+
+	And the provider priority order is
+        | Provider   | Priority | Collection_Period         |
+        | provider a | 1        | R01/Current Academic Year |
+        | provider b | 2        | R01/Current Academic Year |
+        | provider a | 2        | R04/Current Academic Year |
+        | provider b | 1        | R04/Current Academic Year |
+
+	And the "provider a" submitted the following learner details
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
+		| learner a  | 01/Aug/Current Academic Year | 12 months        | 7500                 | 01/Aug/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
+
+	And the "provider b" submitted the following learner details
+		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
+		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
+
+	When the  ILR file is re-submitted for the learners in collection period <Collection_Period>
+	Then the following earnings had been generated for the learner for "provider a"
+		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner a  | Aug/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Sep/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Oct/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Nov/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Dec/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Jan/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Feb/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Mar/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Apr/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | May/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Jun/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | Jul/Current Academic Year | 500          | 0          | 0         |
+	And the following earnings had been generated for the learner for "provider b"
+		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner b  | Aug/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Sep/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Oct/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Nov/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Dec/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Jan/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Feb/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Mar/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Apr/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | May/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Jun/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | Jul/Current Academic Year | 1000         | 0          | 0         |
+	# Levy Payments    
+  	 And at month end only the following payments will be calculated for "provider a"
+		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 500          | 0          | 0         |
+		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
+ 	 And at month end only the following payments will be calculated for "provider b"
+		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
+		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
+		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
+	# Levy Payments
+	And only the following provider payments will be recorded for "provider a"
+		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 225                    | 25                          | 250           | Learning         |
+	And only the following provider payments will be recorded for "provider b"
+		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 720                    | 80                          | 200           | Learning         |
+		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+	And only the following provider payments will be generated for "provider a"
+		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 500           | Learning         |
+		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 225                    | 25                          | 250           | Learning         |
+		
+	And only the following provider payments will be generated for "provider b"
+		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
+		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
+		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 720                    | 80                          | 200           | Learning         |
+		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |  
+Examples: 
+        | Collection_Period         | Levy_Balance |
+        | R01/Current Academic Year | 1500         |
+        | R02/Current Academic Year | 1500         |
+        | R03/Current Academic Year | 700          |
+        | R04/Current Academic Year | 1250         |
+
 #Feature: Payment Priority
 #
 #Background: 2 providers, paid in priority order
@@ -95,107 +199,3 @@
 #                | SFA Levy employer budget       | 1500  | 1500  | 700   | 1250  | 1250  | ... | 1250  | 0     |
 #                | SFA Levy co-funding budget     | 0     | 0     | 720   | 225   | 225   | ... | 225   | 0     |
 #                | SFA non-Levy co-funding budget | 0     | 0     | 0     | 0     | 0     | ... | 0     | 0     |
-
-Feature: Payment Priority PV2-656
-As an Employer,
-I want 2 Levy learners with different providers, where levy is spent in priority order and there is not enough levy to fund both learners, and employer changes provider priority in R04
-So that the providers are accurately paid the apprenticeship amount by SFA
-
-Scenario Outline: Two providers, full levy available for one provider, partial levy available for the other,employer changes payment priority for provider.
-
-	Given the employer levy account balance in collection period  <Collection_Period> is <Levy_Balance>
-	# Commitment lines
-	And the following commitments exist
-		| Identifier       | Provider   | Learner ID | start date                | end date                     | agreed price | Framework Code | Pathway Code | Programme Type |
-		| Apprenticeship 1 | provider a | learner a  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 7500         | 593            | 1            | 20             |
-		| Apprenticeship 2 | provider b | learner b  | 01/Aug/Current Academic Year | 01/Aug/Next Academic Year | 15000        | 593            | 1            | 20             |
-
-	And the provider priority order is
-        | Provider   | Priority | Collection_Period         |
-        | provider a | 1        | R01/Current Academic Year |
-        | provider b | 2        | R01/Current Academic Year |
-        | provider a | 2        | R04/Current Academic Year |
-        | provider b | 1        | R04/Current Academic Year |
-
-	And the "provider a" submitted the following learner details
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
-		| learner a  | 01/Aug/Current Academic Year | 12 months        | 7500                 | 01/Aug/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
-
-	And the "provider b" submitted the following learner details
-		| Learner ID | Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Framework Code | Pathway Code | Programme Type | Funding Line Type                                | SFA Contribution Percentage |
-		| learner b  | 01/Aug/Current Academic Year | 12 months        | 15000                | 01/Aug/Current Academic Year        |                        |                                       |                 | continuing        | Act1          | 1                   | ZPROG001      | 593            | 1            | 20             | 19+ Apprenticeship (From May 2017) Levy Contract | 90%                         |
-
-	When the  ILR file is re-submitted for the learners in collection period <Collection_Period>
-	Then the following earnings had been generated for the learner for "provider a"
-		| Learner ID | Delivery Period           | On-Programme | Completion | Balancing |
-		| learner a  | Aug/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Sep/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Oct/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Nov/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Dec/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Jan/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Feb/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Mar/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Apr/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | May/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Jun/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | Jul/Current Academic Year | 500          | 0          | 0         |
-	And the following earnings had been generated for the learner for "provider b"
-		| learner b  | Aug/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Sep/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Oct/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Nov/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Dec/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Jan/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Feb/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Mar/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Apr/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | May/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Jun/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | Jul/Current Academic Year | 1000         | 0          | 0         |
-	# Levy Payments
-    
-  	 And at month end only the following payments will be calculated for provider a
-		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 500          | 0          | 0         |
-		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 500          | 0          | 0         |
- 	 And at month end only the following payments will be calculated for provider b
-		| Learner ID | Collection Period         | Delivery Period           | On-Programme | Completion | Balancing |
-		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
-	# Levy Payments
-	And only the following provider payments will be recorded for "provider a"
-		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 225                    | 25                          | 250           | Learning         |
-	And only the following provider payments will be recorded for "provider b"
-		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 720                    | 80                          | 200           | Learning         |
-		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-	And only the following provider payments will be generated for "provider a"
-		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-		| learner a  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R03/Current Academic Year | Oct/Current Academic Year | 0                      | 0                           | 500           | Learning         |
-		| learner a  | R04/Current Academic Year | Nov/Current Academic Year | 225                    | 25                          | 250           | Learning         |
-		
-	And only the following provider payments will be generated for "provider b"
-		| Learner ID | Collection Period         | Delivery Period           | SFA Co-Funded Payments | Employer Co-Funded Payments | Levy Payments | Transaction Type |
-		| learner b  | R01/Current Academic Year | Aug/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner b  | R02/Current Academic Year | Sep/Current Academic Year | 0                      | 0                           | 1000          | Learning         |
-		| learner b  | R03/Current Academic Year | Oct/Current Academic Year | 720                    | 80                          | 200           | Learning         |
-		| learner b  | R04/Current Academic Year | Nov/Current Academic Year | 0                      | 0                           | 1000          | Learning         |  
-Examples: 
-        | Collection_Period         | Levy_Balance |
-        | R01/Current Academic Year | 1500         |
-        | R02/Current Academic Year | 1500         |
-        | R03/Current Academic Year | 700          |
-        | R04/Current Academic Year | 1250         |
