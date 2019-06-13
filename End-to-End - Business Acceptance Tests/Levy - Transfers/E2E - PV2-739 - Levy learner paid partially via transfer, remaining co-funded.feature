@@ -89,24 +89,24 @@ Scenario Outline: Transfers - Single Levy learner partially paid via transfer - 
 		| R04/Current Academic Year | Nov/Current Academic Year | 1000         | 0          | 0         |
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   | Sending Employer |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R04/Current Academic Year | Nov/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
         | R01/Current Academic Year | Aug/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R02/Current Academic Year | Sep/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R03/Current Academic Year | Oct/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R04/Current Academic Year | Nov/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | SFA Co-Funded Payments | Employer Co-Funded Payments | Transaction Type | Employer   | Sending Employer |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
-        | R04/Current Academic Year | Nov/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         |            |                  |
         | R01/Current Academic Year | Aug/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R02/Current Academic Year | Sep/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R03/Current Academic Year | Oct/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
         | R04/Current Academic Year | Nov/Current Academic Year | 0             | 400               | 0                      | 0                           | Learning         | employer 1 | employer 2       |
+        | R04/Current Academic Year | Nov/Current Academic Year | 0             | 0                 | 540                    | 60                          | Learning         | employer 1 |                  |
 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
