@@ -1,84 +1,4 @@
-﻿#Feature: Transfers
-#
-#Scenario: 2 learners, paid for via transfer and 1 deleted from ILR â€“ refund due to sending employer
-#
-#Given The learner is programme only DAS
-#	And a transfer agreement has been set up between employer a and employer b 
-#	And employer b's levy balance > agreed price for all months
-#	And the apprenticeship funding band maximum is 9000
-#
-#
-#And the following commitments exist:
-#		| employer of apprentice | employer paying for training | commitment Id | version Id | ULN       | start date | end date   | standard code | agreed price | status    | effective from | effective to |
-#		| employer a             | employer b                   | 1             | 1          | learner a | 01/05/2018 |01/05/2019  | 50            | 9000         | Active    | 01/05/2018     |              |
-#		| employer a             | employer b                   | 2             | 1          | learner b | 01/05/2018 |01/05/2019  | 50            | 9000         | Active    | 01/05/2018     |              |
-#	   		
-#When an ILR file is submitted for period R10 with the following data:
-#
-#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | standard code | contract type | contract type date from |
-#        | learner a | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
-#		| learner b | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
-#        
-#And following learning has been recorded for previous payments:
-#
-#            | ULN       | start date | standard code | 
-#            | learner a | 01/05/2017 | 50            | 
-#            | learner b | 01/05/2017 | 50            |
-#
-#And the following earnings and payments have been made to the provider for learner a and learner b:
-#
-#        | Type                                    | 05/18  | 06/18  | 07/18  | 08/18    |
-#        | Provider Earned Total                   | 1200   | 1200   | 0      | 0        |
-#        | Provider Earned from SFA                | 1200   | 1200   | 0      | 0        |
-#        | Provider Earned from employer a         | 0      | 0      | 0      | 0        |
-#		| Provider Earned from employer b         | 0      | 0      | 0      | 0        |
-#        | Provider Paid by SFA                    | 0      | 1200   | 1200   | 0        |
-#        | Refund taken by SFA                     | 0      | 0      | 0      | 0        |
-#        | Payment due from employer a             | 0      | 0      | 0      | 0        |
-#		| Payment due from employer b             | 0      | 0      | 0      | 0        |
-#        | Refund due to employer a                | 0      | 0      | 0      | 0        |
-#		| Refund due to employer b                | 0      | 0      | 0      | 0        |
-#        | Levy account for employer a debited     | 0      | 0      | 0      | 0        |
-#		| Levy account for employer b debited     | 0      | 1200   | 1200   | 0        |
-#        | Levy account for employer a credited    | 0      | 0      | 0      | 0        |
-#		| Levy account for employer b credited    | 0      | 0      | 0      | 0        |
-#        | SFA Levy employer budget                | 1200   | 1200   | 1200   | 0        |
-#        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0        |
-#        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0        |
-#        | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0        |
-#        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        |	
-#		          
-#          
-#When an ILR file is submitted in period R12 (July) with the following data:
-#		
-#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | standard code | contract type | contract type date from |
-#        | learner a | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
-#
-#		Then the provider earnings and payments for provider a break down as follows:
-#	
-#        | Type                                    | 05/18  | 06/18  | 07/18  | 08/18    |
-#        | Provider Earned Total                   | 1200   | 1200   | 600    | 600      |
-#        | Provider Earned from SFA                | 1200   | 1200   | 600    | 600      |
-#        | Provider Earned from employer a         | 0      | 0      | 0      | 0        |
-#		| Provider Earned from employer b         | 0      | 0      | 0      | 0        |
-#        | Provider Paid by SFA                    | 0      | 1200   | 1200   | 600      |
-#        | Refund taken by SFA                     | 0      | 0      | 0      | -1200    |
-#        | Payment due from employer a             | 0      | 0      | 0      | 0        |
-#		| Payment due from employer b             | 0      | 0      | 0      | 0        |
-#        | Refund due to employer a                | 0      | 0      | 0      | 0        |
-#		| Refund due to employer b                | 0      | 0      | 0      | -1200    |
-#        | Levy account for employer a debited     | 0      | 0      | 0      | 0        |
-#		| Levy account for employer b debited     | 0      | 1200   | 1200   | 600      |
-#        | Levy account for employer a credited    | 0      | 0      | 0      | 0        |
-#		| Levy account for employer b credited    | 0      | 0      | 0      | 1200     |
-#        | SFA Levy employer budget                | 1200   | 1200   | 1200   | 600      |
-#        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0        |
-#        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0        |
-#        | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0        |
-#        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        |			
-		
-
-Feature: Transfers - PV2-733 Two Levy learners paid via transfer but later one deleted, sender gets refund
+﻿Feature: Transfers - PV2-733 Two Levy learners paid via transfer but later one deleted, sender gets refund
 	As a provider,
 	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner, and 1 learner is then deleted
 	So that I am not paid for the deleted learner by SFA via a transfer - PV2-733
@@ -171,3 +91,84 @@ Scenario Outline: Transfers - Two Levy learners paid via transfer but later one 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
         | R12/Current Academic Year | 0                           | 72000                       | 600                                     |
+
+#Feature: Transfers
+#
+#Scenario: 2 learners, paid for via transfer and 1 deleted from ILR â€“ refund due to sending employer
+#
+#Given The learner is programme only DAS
+#	And a transfer agreement has been set up between employer a and employer b 
+#	And employer b's levy balance > agreed price for all months
+#	And the apprenticeship funding band maximum is 9000
+#
+#
+#And the following commitments exist:
+#		| employer of apprentice | employer paying for training | commitment Id | version Id | ULN       | start date | end date   | standard code | agreed price | status    | effective from | effective to |
+#		| employer a             | employer b                   | 1             | 1          | learner a | 01/05/2018 |01/05/2019  | 50            | 9000         | Active    | 01/05/2018     |              |
+#		| employer a             | employer b                   | 2             | 1          | learner b | 01/05/2018 |01/05/2019  | 50            | 9000         | Active    | 01/05/2018     |              |
+#	   		
+#When an ILR file is submitted for period R10 with the following data:
+#
+#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | standard code | contract type | contract type date from |
+#        | learner a | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
+#		| learner b | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
+#        
+#And following learning has been recorded for previous payments:
+#
+#            | ULN       | start date | standard code | 
+#            | learner a | 01/05/2017 | 50            | 
+#            | learner b | 01/05/2017 | 50            |
+#
+#And the following earnings and payments have been made to the provider for learner a and learner b:
+#
+#        | Type                                    | 05/18  | 06/18  | 07/18  | 08/18    |
+#        | Provider Earned Total                   | 1200   | 1200   | 0      | 0        |
+#        | Provider Earned from SFA                | 1200   | 1200   | 0      | 0        |
+#        | Provider Earned from employer a         | 0      | 0      | 0      | 0        |
+#		| Provider Earned from employer b         | 0      | 0      | 0      | 0        |
+#        | Provider Paid by SFA                    | 0      | 1200   | 1200   | 0        |
+#        | Refund taken by SFA                     | 0      | 0      | 0      | 0        |
+#        | Payment due from employer a             | 0      | 0      | 0      | 0        |
+#		| Payment due from employer b             | 0      | 0      | 0      | 0        |
+#        | Refund due to employer a                | 0      | 0      | 0      | 0        |
+#		| Refund due to employer b                | 0      | 0      | 0      | 0        |
+#        | Levy account for employer a debited     | 0      | 0      | 0      | 0        |
+#		| Levy account for employer b debited     | 0      | 1200   | 1200   | 0        |
+#        | Levy account for employer a credited    | 0      | 0      | 0      | 0        |
+#		| Levy account for employer b credited    | 0      | 0      | 0      | 0        |
+#        | SFA Levy employer budget                | 1200   | 1200   | 1200   | 0        |
+#        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0        |
+#        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0        |
+#        | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0        |
+#        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        |	
+#		          
+#          
+#When an ILR file is submitted in period R12 (July) with the following data:
+#		
+#        | ULN       | learner type           | agreed price | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | aim rate | standard code | contract type | contract type date from |
+#        | learner a | programme only DAS     | 9000         | 01/05/2018 | 20/05/2019       |                 | Continuing        | programme        | 1                   |    9000  | 50            | DAS           | 06/05/2018              |
+#
+#		Then the provider earnings and payments for provider a break down as follows:
+#	
+#        | Type                                    | 05/18  | 06/18  | 07/18  | 08/18    |
+#        | Provider Earned Total                   | 1200   | 1200   | 600    | 600      |
+#        | Provider Earned from SFA                | 1200   | 1200   | 600    | 600      |
+#        | Provider Earned from employer a         | 0      | 0      | 0      | 0        |
+#		| Provider Earned from employer b         | 0      | 0      | 0      | 0        |
+#        | Provider Paid by SFA                    | 0      | 1200   | 1200   | 600      |
+#        | Refund taken by SFA                     | 0      | 0      | 0      | -1200    |
+#        | Payment due from employer a             | 0      | 0      | 0      | 0        |
+#		| Payment due from employer b             | 0      | 0      | 0      | 0        |
+#        | Refund due to employer a                | 0      | 0      | 0      | 0        |
+#		| Refund due to employer b                | 0      | 0      | 0      | -1200    |
+#        | Levy account for employer a debited     | 0      | 0      | 0      | 0        |
+#		| Levy account for employer b debited     | 0      | 1200   | 1200   | 600      |
+#        | Levy account for employer a credited    | 0      | 0      | 0      | 0        |
+#		| Levy account for employer b credited    | 0      | 0      | 0      | 1200     |
+#        | SFA Levy employer budget                | 1200   | 1200   | 1200   | 600      |
+#        | SFA Levy co-funding budget              | 0      | 0      | 0      | 0        |
+#        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0        |
+#        | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0        |
+#        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0        |			
+		
+

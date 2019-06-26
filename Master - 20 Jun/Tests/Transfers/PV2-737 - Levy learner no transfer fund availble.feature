@@ -1,19 +1,19 @@
-﻿Feature: Transfers - PV2-736 Single Levy learner paid via transfer
+﻿Feature: Transfers - PV2-737 Single Levy learner no transfer levy available
 	As a provider,
-	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner
-	So that I am accurately paid the apprenticeship amount by SFA via a transfer - PV2-736
+	I want a Levy learner, where the employer receives a transfer from another employer to fund the learner, 
+	but no transfer funds are available and receiving employer pays with their own Levy
+	So that I am accurately paid the apprenticeship amount by SFA - PV2-737
 
-Scenario Outline: Transfers - PV2-736 - Single Levy learner paid via transfer
+Scenario Outline: Transfers - Single Levy learner no transfer levy availble - PV2-737
 
 	Given the "employer 1" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 1>
-	And  the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2> 
+	And the "employer 2" levy account balance in collection period <Collection_Period> is <Levy Balance for employer 2>
 	And the remaining transfer allowance for "employer 2" is <Employer 2 Remaining Transfer Allowance>
-
 	#And a transfer agreement has been set up between employer 1 and employer 2
 
-	And the following apprenticeships exist
-		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed price | Standard Code | Status | effective from               | programme type |
-		| employer 1 | employer 2       | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | active | 01/Aug/Current Academic Year | 25             | 
+	And the following apprenticeships exist 
+		| Employer   | Sending Employer | Start Date                   | End Date                  | Agreed Price | Standard Code | Programme Type | Status | Effective From               |
+		| employer 1 | employer 2       | 01/Aug/Current Academic Year | 06/Aug/Next Academic Year | 15000        | 50            | 25             | active | 01/Aug/Current Academic Year |
 
     And the provider is providing training for the following learners
 		| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                  | SFA Contribution Percentage |
@@ -39,32 +39,31 @@ Scenario Outline: Transfers - PV2-736 - Single Levy learner paid via transfer
 		| R01/Current Academic Year | Aug/Current Academic Year | 1000         | 0          | 0         |
 		| R02/Current Academic Year | Sep/Current Academic Year | 1000         | 0          | 0         |
 		| R03/Current Academic Year | Oct/Current Academic Year | 1000         | 0          | 0         |
-	# New columns - Transfer Payments and Employer
 	And only the following provider payments will be recorded
         | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
 	And only the following provider payments will be generated
         | Collection Period         | Delivery Period           | Levy Payments | Transfer Payments | Transaction Type | Employer   | Sending Employer |
-        | R01/Current Academic Year | Aug/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
-        | R02/Current Academic Year | Sep/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
-        | R03/Current Academic Year | Oct/Current Academic Year | 0             | 1000              | Learning         | employer 1 | employer 2       |
+        | R01/Current Academic Year | Aug/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R02/Current Academic Year | Sep/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
+        | R03/Current Academic Year | Oct/Current Academic Year | 1000          | 0                 | Learning         | employer 1 |                  |
 
 Examples: 
         | Collection_Period         | Levy Balance for employer 1 | Levy Balance for employer 2 | Employer 2 Remaining Transfer Allowance |
-        | R01/Current Academic Year | 0                           | 50000                       | 12000                                   |
-        | R02/Current Academic Year | 0                           | 49000                       | 11000                                   |
-        | R03/Current Academic Year | 0                           | 48000                       | 10000                                   |
-
+        | R01/Current Academic Year | 15000                       | 60000                       | 0                                       |
+        | R02/Current Academic Year | 14000                       | 60000                       | 0                                       |
+        | R03/Current Academic Year | 13000                       | 60000                       | 0                                       |
 
 #Feature: Transfers
 #
-#Scenario: 1 learner, paid for via transfer, basic
+#Scenario: 1 learner, no transfer funds available, receiving employer pays fully with their own Levy
 #	
 #    Given The learner is programme only DAS
 #	And a transfer agreement has been set up between employer a and employer b 
-#	And employer b's levy balance > agreed price for all months
+#	And employer b's transfer allowance = 0 for all months
+#	And employer a's levy balance > agreed price for all months
 #	And the apprenticeship funding band maximum is 15000
 #	
 #	And the following commitments exist:
@@ -73,8 +72,8 @@ Examples:
 #		| employer a             | employer b                   | learner a | 01/05/2018 | 06/05/2019 | 50            | 15000        | continuing | 01/05/2018     |   		      |
 #	
 #	When an ILR file is submitted with the following data:
-#        | ULN       | learner type           | agreed price | price effective from | start date | planned end date | actual end date | completion status | aim type         | aim sequence number | standard code |
-#        | learner a | programme only DAS     | 15000        | 06/05/2018           | 06/05/2018 | 20/05/2019       |    		     | continuing        | programme        | 1                   | 50            |
+#        | ULN       | learner type           | agreed price | price effective from | start date | planned end date | actual end date | completion status | aim type   | aim sequence number | standard code |
+#        | learner a | programme only DAS     | 15000        | 06/05/2018           | 06/05/2018 | 20/05/2019       |    		     | continuing        | programme  | 1                   | 50            |
 #
 #	Then the provider earnings and payments break down as follows:
 #	      	
@@ -89,8 +88,8 @@ Examples:
 #		| Payment due from employer b             | 0      | 0      | 0      | 0       |
 #        | Refund due to employer a                | 0      | 0      | 0      | 0       |
 #		| Refund due to employer b                | 0      | 0      | 0      | 0       |
-#        | Levy account for employer a debited     | 0      | 0      | 0      | 0       |
-#		| Levy account for employer b debited     | 0      | 1000   | 1000   | 1000    |
+#        | Levy account for employer a debited     | 0      | 1000   | 1000   | 1000    |
+#		| Levy account for employer b debited     | 0      | 0      | 0      | 0       |
 #        | Levy account for employer a credited    | 0      | 0      | 0      | 0       |
 #		| Levy account for employer b credited    | 0      | 0      | 0      | 0       |
 #        | SFA Levy employer budget                | 1000   | 1000   | 1000   | 1000    |
@@ -98,5 +97,11 @@ Examples:
 #        | SFA Levy additional payments budget     | 0      | 0      | 0      | 0       |
 #        | SFA non-Levy co-funding budget          | 0      | 0      | 0      | 0       |
 #        | SFA non-Levy additional payments budget | 0      | 0      | 0      | 0       |
+#
+#	And the following transfers from employer b exist:
+#	
+#		| recipient  | 05/18  | 06/18  | 07/18  | 08/18  | 
+#		| employer a | 0      | 0      | 0      | 0      |
+
 		
 
