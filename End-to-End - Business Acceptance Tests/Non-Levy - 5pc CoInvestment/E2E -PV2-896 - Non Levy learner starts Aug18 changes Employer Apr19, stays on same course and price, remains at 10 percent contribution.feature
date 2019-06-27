@@ -54,7 +54,7 @@ As a provider,
 I want a Non Levy learner, starting prior to Apr 2019, where learner changes Employer from Apr 2019 but stays on same course and price, remains at 10% contribution
 So that I am paid the correct apprenticeship funding by SFA
 
-Scenario Outline: Earnings and payments for a levy learner, switches from levy to non levy employer at the end of month- PV2-362
+Scenario Outline: Earnings and payments for a non-levy learner, switches from non-levy to non levy employer at the end of month- PV2-896
 Given the apprenticeship funding band maximum is 15000
 
 And the provider previously submitted the following learner details
