@@ -32,8 +32,8 @@ And the following provider payments had been generated
 	| R04/Current Academic Year | Nov/Current Academic Year | 1000          | Learning         | employer 1 |
 	| R05/Current Academic Year | Dec/Current Academic Year | 1000          | Learning         | employer 1 |
 	| R06/Current Academic Year | Jan/Current Academic Year | 1000          | Learning         | employer 1 |
-	| R05/Current Academic Year | Feb/Current Academic Year | 1000          | Learning         | employer 1 |
-	| R06/Current Academic Year | Mar/Current Academic Year | 1000          | Learning         | employer 1 |
+	| R07/Current Academic Year | Feb/Current Academic Year | 1000          | Learning         | employer 1 |
+	| R08/Current Academic Year | Mar/Current Academic Year | 1000          | Learning         | employer 1 |
 
 But the Provider now changes the Learner details as follows
 	| Start Date                   | Planned Duration | Total Training Price | Total Training Price Effective Date | Total Assessment Price | Total Assessment Price Effective Date | Actual Duration | Completion Status | Contract Type | Aim Sequence Number | Aim Reference | Standard Code | Programme Type | Funding Line Type                                      |
